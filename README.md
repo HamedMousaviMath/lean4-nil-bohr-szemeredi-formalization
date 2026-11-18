@@ -1,7 +1,5 @@
 # Quantitative polynomial Szemerédi theorems along shifted primes with nil-Bohr restrictions
 
-This Lean 4 project gives a checked conditional formalization of the final supplied manuscript. Start with the [compact blueprint](blueprint/compact.pdf), [statement map](docs/PAPER_MAP.md), and [assumption catalogue](docs/ASSUMPTIONS.md). The [expository blueprint](blueprint/full.pdf) gives the mathematical arguments in detail. The final supplied [LaTeX](paper/current.tex) and [PDF](paper/current.pdf) are the reference pair for this release.
-
 ## External theorems assumed in Lean
 
 The numbered results use 11 independent literature inputs. The introductory application to progressions inside the selected primes uses a twelfth, Teräväinen–Wang's theorem. The interfaces below enter as explicit hypotheses in Lean, and Lean checks the deductions from them. The catalogue gives the precise statements, quantifiers, normalizations, and any specialization from the cited source. [Assumption catalogue](docs/ASSUMPTIONS.md) · [Machine-readable input ledger](docs/EXTERNAL_INPUTS.json)
