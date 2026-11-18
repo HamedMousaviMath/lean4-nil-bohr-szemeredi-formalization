@@ -2,6 +2,38 @@
 
 This Lean 4 project gives a checked conditional formalization of the final supplied manuscript. Start with the [compact blueprint](blueprint/compact.pdf), [statement map](docs/PAPER_MAP.md), and [assumption catalogue](docs/ASSUMPTIONS.md). The [expository blueprint](blueprint/full.pdf) gives the mathematical arguments in detail. The final supplied [LaTeX](paper/current.tex) and [PDF](paper/current.pdf) are the reference pair for this release.
 
+## External theorems assumed in Lean
+
+The numbered results use 11 independent literature inputs. The introductory application to progressions inside the selected primes uses a twelfth, Teräväinen–Wang's theorem. The interfaces below enter as explicit hypotheses in Lean, and Lean checks the deductions from them. The catalogue gives the precise statements, quantifiers, normalizations, and any specialization from the cited source. [Assumption catalogue](docs/ASSUMPTIONS.md) · [Machine-readable input ledger](docs/EXTERNAL_INPUTS.json)
+
+KMTT denotes Krause, Mousavi, Tao and Teräväinen, *Quantitative bounds for sets lacking polynomial progressions with shifted prime difference*.
+
+| External result | Lean hypothesis | Source |
+| --- | --- | --- |
+| Shifted-prime polynomial recurrence for distinct degrees | [`KMTTShiftedPrimeDensityBound`](NilBohr/Bohr.lean) | [KMTT, Theorem 1.2](https://arxiv.org/html/2608.19525v1) |
+| Coefficient-uniform inverse theorem for the unweighted polynomial count | [`KMTTLocalInverseDegreeUniform` and `KMTTLocalInverse`](NilBohr/External.lean) | [KMTT, Lemma 3.4](https://arxiv.org/html/2608.19525v1#S3.Thmtheorem4) |
+| Weighted generalized von Neumann bound in terms of the Gowers norms, with independent spatial and parameter lengths | [`KMTTWeightedGowers`](NilBohr/External.lean) | [KMTT, Proposition 3.3](https://arxiv.org/html/2608.19525v1) |
+| Effective bound on real zeros of primitive real Dirichlet characters | [`BanksRealZeroBound`](NilBohr/External.lean) | [Banks, Theorem 1.1](https://arxiv.org/html/2610.15483v1) |
+| Ambient Gowers approximation of the von Mangoldt function by the Siegel model | [`KMTTAmbientPrimeModel`](NilBohr/GowersComparison.lean) | [KMTT, Lemma 3.1, equation (3.1)](https://arxiv.org/html/2608.19525v1) |
+| Relative Cramér-model Gowers estimate at smooth moduli | [`KMTTRelativeCramer`](NilBohr/GowersComparison.lean) | [KMTT, Lemma 4.3(i), equation (4.28)](https://arxiv.org/html/2608.19525v1) |
+| One-parameter quantitative Leibman theorem for polynomial nilmanifold orbits | [`GreenTaoQuantitativeLeibman`](NilBohr/GreenTaoLiterature.lean) | [Green–Tao, Theorem 2.9](https://annals.math.princeton.edu/wp-content/uploads/annals-v175-n2-p02-p.pdf) |
+| Uniform interval product bound from Mertens' product theorem | [`MertensIntervalProductBound`](NilBohr/SieveLiterature.lean) | [Koukoulopoulos, Theorem 3.4(c)](https://dms.umontreal.ca/~koukoulo/documents/publications/primes.pdf) |
+| Fundamental lemma of the sieve in dimension one | [`FundamentalSieveLemma`](NilBohr/SieveLiterature.lean) | [Koukoulopoulos, Theorem 19.1](https://dms.umontreal.ca/~koukoulo/documents/publications/primes.pdf) |
+| Fixed-family count bound in terms of ordinary polynomial-phase correlations | [`TeravainenFixedFamily`](NilBohr/External.lean) | [Teräväinen, Theorem 4.1, equation (4.1)](https://arxiv.org/html/2401.03174v2) |
+| Almost-everywhere convergence of the unrestricted Mangoldt-weighted polynomial averages for distinct degrees | [`MirekWanWrightPointwise`](NilBohr/ErgodicLimits.lean) | [Mirek–Wan–Wright, Theorem 1.1(ii), v2](https://arxiv.org/pdf/2505.15549v2) |
+| Progression bounds in sparse subsets of the primes, used in the introduction | [`TeravainenWangSparseGreenTao`](NilBohr/BohrPrimeProgressions.lean) | [Teräväinen–Wang, Theorem 1.1](https://arxiv.org/html/2603.09281v1) |
+
+| Manuscript result | External inputs used by its Lean proof |
+| --- | --- |
+| Corollary 1.1, Bohr-restricted recurrence | KMTT's shifted-prime recurrence theorem. |
+| Theorem 1.2 and Corollary 1.3, nil-Bohr and bracket recurrence | Banks's zero bound, KMTT's ambient and relative prime models, KMTT's inverse theorem and weighted Gowers bound, and Green–Tao's quantitative Leibman theorem. |
+| Theorem 4.2, coefficient-uniform local generalized von Neumann bound | KMTT's unweighted inverse theorem. Lean proves the two-input case under the manuscript hypotheses alone. |
+| Proposition 6.2, centered prime-weighted phase estimate | Banks's zero bound, KMTT's ambient prime model, Mertens' interval product bound, the fundamental sieve lemma, and Green–Tao's quantitative Leibman theorem. |
+| Theorem 1.4 and Corollary 1.5, pointwise convergence | The five inputs for Proposition 6.2, Teräväinen's fixed-family count bound, and Mirek–Wan–Wright's pointwise theorem. |
+| Proposition A.1, separating family | Green–Tao's quantitative Leibman theorem. The subsequent count comparison also uses KMTT's inverse theorem and Teräväinen's fixed-family estimate. |
+
+Lean derives the weak regularity used in the density increment from KMTT's inverse theorem. It derives the ordinary and fixed-modulus prime number theorems and irrational linear equidistribution along the primes from Banks's zero bound, KMTT's ambient prime model, Mertens' bound, and the fundamental sieve lemma. The introductory maximal domination transfers an assumed unrestricted maximal estimate to the selected averages. [Detailed proof boundary](docs/ASSUMPTIONS.md#boundaries-of-the-checked-deductions)
+
 ## Verified scope
 
 - Corollary 1.1 follows from KMTT Theorem 1.2. Lemma 6.1, the dense admissible Liouville construction and the two-input case of Theorem 4.2 have checked proofs under the manuscript's hypotheses.
