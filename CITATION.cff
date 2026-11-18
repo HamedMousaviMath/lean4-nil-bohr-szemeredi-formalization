@@ -1,0 +1,7 @@
+cff-version: 1.2.0
+message: "Please cite the manuscript and identify the conditional Lean formalization."
+title: "Quantitative polynomial Szemerédi theorems along shifted primes with nil-Bohr restrictions: Lean formalization"
+type: software
+authors:
+  - name: "NilBohr formalization contributors"
+version: "0.1.0"

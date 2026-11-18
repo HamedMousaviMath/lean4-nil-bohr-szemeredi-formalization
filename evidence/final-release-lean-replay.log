@@ -1,0 +1,11 @@
+Lean (version 4.19.0, x86_64-unknown-linux-gnu, commit 6caaee842e94, Release)
+Lake version 5.0.0-6caaee8 (Lean version 4.19.0)
+Mathlib revision: c44e0c8ee63ca166450922a373c7409c5d26b00b
+Replaying build against the matching checked build artifacts: lake --no-build build
+ℹ [6709/6809] Replayed NilBohr.PrimeProgressions
+info: ././././NilBohr/PrimeProgressions.lean:522:39: Try this: ring_nf
+ℹ [6739/6809] Replayed NilBohr.WeightedLocalInverse
+info: ././././NilBohr/WeightedLocalInverse.lean:295:92: Try this: ring_nf
+info: ././././NilBohr/WeightedLocalInverse.lean:573:10: Try this: ring_nf
+Build completed successfully.
+Production source screen passed.

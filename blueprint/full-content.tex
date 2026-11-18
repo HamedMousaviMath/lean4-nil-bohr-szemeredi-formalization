@@ -1,0 +1,1872 @@
+\section{Source, scope, and conventions}
+
+The supplied final LaTeX and PDF are the manuscript reference for this
+release. Statement and equation numbers refer to that version.
+See the project statement map for declaration-level correspondence and
+the assumption catalogue for quoted theorems and bridges.
+
+The displayed statements and their proof routes describe the mathematics
+of the paper. A checked Lean node names its actual declaration and
+identifies the precise part of the argument it proves. An open node
+records a proof obligation. Quoted inputs belong to the assumption
+catalogue, and the estimates newly proved in the manuscript remain
+obligations of this formalization.
+
+\printgraph
+
+\section{Finite counting and the selector}
+
+\begin{definition}[Configuration and arithmetic rescaling]\label{d:Cq}
+Write $[N]=\{1,\ldots,N\}$ and $P_0=0$. The original integer
+polynomials satisfy $P_i(0)=0$ and
+$1\le \deg P_1<\cdots<\deg P_\ell=d$. A configuration is an $x\in\Z$
+and positive integer $n$ such that every $x+P_i(n)$ belongs to $A$,
+and the map from $i\in\{0,\ldots,\ell\}$ to these points is injective.
+For a positive integer $q$ put $P_{i,q}(y)=P_i(qy)/q$.
+For $P(y)=a_ey^e+\cdots+a_1y$, $e\ge1$, the $(C,q)$-coefficient
+condition is
+\[
+ |a_j|\le C|a_e|\quad(1\le j<e),\qquad
+ a_e=a'_e q^{e-1},\qquad a'_e\in\Z,\quad 0<|a'_e|\le C.
+\]
+For $R_0=0$ and a given family $R_1,\ldots,R_{k-1}$, define
+\[
+ T^{\mathbf R}_{N,M,v}(\mathbf f)
+ =\frac{1}{NM}\sum_{x\in\Z}\sum_{y\in[M]}
+       v(y)\prod_{i=0}^{k-1} f_i(x+R_i(y)).
+\]
+\end{definition}
+\source{d:Cq}
+
+The normalization uses the spatial scale $N$ and the parameter length $M$.
+The support of $f_0$ bounds the spatial sum because $R_0=0$.
+From $P_i(0)=0$, the coefficient of $y^j$ in $P_{i,q}$ is $q^{j-1}$
+times that in $P_i$. This gives the coefficient condition with a fixed
+$C$ for every $q\ge1$. The same arithmetic gives the successive
+rescalings. If $q'=q^{B+1}$ then
+\[
+ q^B P_{i,q'}(y)=P_{i,q}(q^B y),\qquad
+ q'y+1=q(q^B y)+1.
+\]
+An affine embedding $x\mapsto a+q^B x$ therefore preserves the parameter
+prime, its selector value, and pairwise distinctness.
+
+\begin{definition}[Phase tests and Gowers normalization]\label{phase-tests}
+For a finite nonempty progression $P$ and real polynomial tests, put
+\[
+ \norm{v}_{u^s[P]}
+  =\sup_{\substack{\phi\in\R[y]\\\deg\phi<s}}
+    \abs{\frac1{|P|}\sum_{y\in P}v(y)\ee(-\phi(y))},
+ \qquad \ee(t)=e^{2\pi it}.
+\]
+For a finitely supported $g:\Z\to\C$, let
+\[
+ \norm{g}^{2^s}_{U^s(\Z)}
+  =\sum_{x,h_1,\ldots,h_s\in\Z}
+     \prod_{\omega\in\{0,1\}^s}
+       \mathcal C^{|\omega|}g(x+\omega\cdot h),
+ \qquad
+ \norm{g}_{U^s[I]}
+ =\frac{\norm{g\one_I}_{U^s(\Z)}}{\norm{\one_I}_{U^s(\Z)}}.
+\]
+Here $\mathcal C$ is complex conjugation and $I$ is a finite
+nonempty interval or progression. For $s=1$ this is the absolute
+average. Normalized monotonicity bounds $U^r[I]$ by $U^s[I]$
+up to constants depending only on $r,s$, for $1\le r\le s$.
+Multiplication by $\ee(\phi)$ with $\deg\phi<s$ preserves $U^s[I]$,
+so these facts also give $u^s[I]\ll_s U^s[I]$.
+\end{definition}
+
+\paragraph{Proof of the finite norm estimates.}
+For each cube coordinate $i$, reflect the array of vertex functions
+onto the two $i$-faces. The exact substitution $y=x+h_i$ factors the
+sum into a correlation of two functions of the other directions. The
+zero extension allows both base sums to run over the same interval.
+Cauchy--Schwarz bounds the squared mixed form by the two reflected
+forms. Repeating in all coordinates bounds the mixed form by the
+product of the vertex norms. Expanding the vertices for $f+g$
+gives the triangle inequality. The real cube power $Q_s(f)$ is also
+a sum of squared magnitudes of the $(s-1)$-direction correlations.
+Viewing $Q_s(f)$ as the sum of the $s$-direction correlations and
+using Cauchy--Schwarz gives $Q_s(f)^2\le(2W+1)^sQ_{s+1}(f)$ for
+an interval of width $W$. The indicator cube count lies between
+$(W/(s+1))^{s+1}$ and $W(2W)^s$. For the lower bound take the base
+point and $s$ nonnegative directions in intervals of length
+$\lfloor(W-1)/(s+1)\rfloor+1$. The base and the singleton vertices
+bound the upper count. Division by the indicator powers therefore
+gives a uniform adjacent-order bound.
+
+An affine bijection from $[M]$ to a positive-step progression matches
+every surviving cube because each direction is divisible by the step.
+The same bijection transports the indicator and takes ordinary
+polynomials of degree below $s$ to polynomials of degree below $s$.
+The norm at order one is the magnitude of the mean. Phase invariance
+and order comparison then bound each phase test before the supremum.
+For dilation on $[b,L+b]$, use the $q$ linear characters of
+$\mathbb Z/q\mathbb Z$ to restrict to the residue class $b$. Their
+coefficients have total absolute mass one. Remove the ambient point
+$b$ using the triangle inequality and bound its singleton norm using
+the all-zero directions. Exact affine cube transport and the volume
+bounds compare the ambient width $L+1$ with $\lfloor L/q\rfloor$.
+Their ratio is at most $2q$, which gives the power $q^{(s+1)/2^s}$.
+All steps are checked in Lemma~\ref{checked-norm-foundations}.
+
+\paragraph{Circle Fourier summability.}
+For a $K$-Lipschitz cutoff $\chi$ with coefficients $c_h$, the difference
+$\chi(\cdot+t)-\chi$ has $L^2$ norm at most $K|t|$ in unit Haar
+measure. Its $h$-th coefficient is $(\ee(ht)-1)c_h$.
+Parseval bounds the sum of squared moduli on each finite frequency
+set. Divide by $t^2$ for $t\ne0$ and let $t\to0$ on that finite set.
+This gives a uniform bound for the partial sums of
+$\sum_h (2\pi h)^2|c_h|^2$. Cauchy--Schwarz against the summable
+squares $h^{-2}$ bounds $\sum_{h\ne0}|c_h|$. The zero coefficient
+is at most $\norm{\chi}_\infty$. Mathlib's Fourier reconstruction
+then identifies the absolutely convergent series with $\chi$.
+
+\begin{definition}[Heisenberg and bracket selectors]\label{selector}
+Put
+\[
+ \theta=\frac{\alpha\beta}{2},\qquad
+ Z(n)=\theta n(n-1)-\alpha n\lfloor\beta n\rfloor,
+ \qquad Z_{\rm br}(n)=\alpha(n+1)\lfloor\beta(n+1)\rfloor .
+\]
+The assumptions are $c_\alpha=\inf_{m\ge1}m\tn{m\alpha}>0$ and
+$\beta\in(0,1)$ with an increasing sequence of reduced rationals
+$a_j/r_j$ of increasing prime denominator $r_j$, tending to $\beta$,
+such that
+\[
+ r_{j+1}\asymp\exp(\exp(\sqrt{\log r_j})),\qquad
+ 0<\beta-a_j/r_j\ll r_{j+1}^{-1}.
+\]
+Write $\T=\R/\Z$ and let $J$ be an open arc of length in $(0,1)$.
+The return set is
+$\mathcal B_{Z,J}=\{n\in\Z_{>0}:Z(n)\bmod1\in J\}$.
+For $V=Z$ or $Z_{\rm br}$ set
+\[
+ \mathcal P_{V,J}=\{p\in\PP:V(p-1)\bmod1\in J\},\qquad
+ \pi_{V,J}(N)=|\mathcal P_{V,J}\cap[N]|.
+\]
+Set $\Lambda_q(y)=(\varphi(q)/q)\Lambda(qy+1)$,
+$F_q(y)=F(Z(qy))$ and $\mu_F=\int_\T F$.
+\end{definition}
+
+Let $H=\R^3$ have multiplication
+$(x,y,z)(x',y',z')=(x+x',y+y',z+z'+xy')$.
+With $\Gamma=\Z^3$ and $g_0=(\alpha,\beta,0)$, direct multiplication
+gives $g_0^n=(n\alpha,n\beta,\theta n(n-1))$ for all integer $n$.
+Right multiplication by $(u,v,w)\in\Gamma$ changes
+$z-x\lfloor y\rfloor$ by $w-u(\lfloor y\rfloor+v)\in\Z$.
+Thus on the chart $0<\{y\}<1$, the vertical phase
+$z-x\lfloor y\rfloor\bmod1$ gives $Z(n)\bmod1$ on the orbit.
+The Haar probability measure projects to uniform measure on the
+horizontal torus, and vertical fibre measure is uniform.
+For $n\ge1$, irrationality of $\beta$ ensures $\{\beta n\}>0$,
+so these are returns to the open vertical window of measure $|J|$.
+
+Admissible $\beta$ are dense in $(0,1)$. To see this, start with a
+reduced rational in the middle third of a prescribed interval, with
+large prime denominator $r_1$. Bertrand's postulate supplies a
+prime $r_{j+1}$ comparable to the prescribed growth function.
+Choose $a_{j+1}=\lfloor r_{j+1}a_j/r_j\rfloor+1$.
+The successive positive increments are less than $1/r_{j+1}$.
+The denominator growth bounds the entire tail by a constant times
+its first term. A large $r_1$ keeps the fractions within the prescribed
+interval. This also gives $\beta-a_j/r_j=o(r_j^{-D})$ for every
+fixed $D$. The positive errors and rational spacing exclude rational
+limits, giving the Liouville property. Lean checks this density construction
+and the implication from admissibility to the Liouville property.
+
+Proposition~\ref{checked-intro-fast-obstruction} gives the introductory
+counterexample using faster prime-denominator approximations.
+
+\input{external}
+
+\section{Local extraction of polynomial phases}
+
+\begin{lemma}[5.1, inverse estimate with a common modulus]\label{p:localinverse}
+\lean{NilBohr.WeightedLocalInverseEstimate,NilBohr.weighted_local_inverse_of_kmtt_degree_uniform,NilBohr.weighted_local_inverse_of_kmtt}\leanok
+\uses{d:Cq}
+Fix $C,d,k$, $k\ge2$, and let $N\ge3$,
+$1\le q\le\exp((\log N)^{1/10})$ and
+$M=\lfloor(N/q^{d-1})^{1/d}\rfloor\ge1$. Assume the shifts
+have $(C,q)$-coefficients, distinct increasing degrees ending in $d$,
+and the $f_i$ are $1$-bounded with support in $[-CN,CN]$.
+If $|v|\le1$ and $|T_{N,M,v}(\mathbf f)|\ge\delta$ with
+$0<\delta<1/2$, then either $N\ll\delta^{-O(1)}$, or there is a fixed
+$L=q^B$, $B=O_d(1)$, and for each $i\ge1$ an integer $V_i$
+and a unit phase $\Psi_i$ with
+\[
+ M^{\deg P_i}(q/\delta)^{-O(1)}\ll V_i\le M^{\deg P_i},\quad
+ LV_i\le N,\qquad
+ \abs{\sum_x f_i(x)\Psi_i(x)}\gg\delta^{O(1)}N.
+\]
+The phase is linear on each intersection of a block
+$((j-1)LV_i,jLV_i]$ and a residue class modulo $L$.
+\end{lemma}
+\source{p:localinverse}
+\begin{proof}[Proof in the manuscript]
+\proves{p:localinverse}\uses{external-inputs,checked-difference}\leanok
+The first step removes the weight while retaining a polynomial
+fraction of spatial differences. By Cauchy--Schwarz,
+\[
+ \delta^2N^2\le\E_{y\in[M]}
+       \abs{\sum_x\prod_{i=0}^{k-1} f_i(x+P_i(y))}^2
+ =\sum_h\E_{y\in[M]}\sum_x\prod_{i=0}^{k-1}
+       \Delta_h f_i(x+P_i(y)),
+\]
+where $\Delta_h f(x)=f(x+h)\overline{f(x)}$.
+Only $O_C(N)$ terms in $h$ are nonzero and each is $O_C(N)$.
+The lower bound therefore gives $\gg_C\delta^2N$ shifts $h$
+with unnormalized count of size $\gg_C\delta^2N$. Translate
+the spatial supports into $[N']$ with $N'\asymp_C N$ and
+$N'\ge N$. The KMTT inverse theorem applies at length $M$,
+and its normalized threshold is a fixed multiple of $\delta^2$.
+Its small alternative $M\ll(q/\delta)^{O(1)}$ gives
+$N<q^{d-1}(M+1)^d\ll(q/\delta)^{O(1)}$. As
+$q\le\exp((\log N)^{1/10})$, any fixed power of $q$ is at most
+$N^{1/2}$ for sufficiently large $N$, giving the required
+small alternative.
+
+In the other branch, KMTT supplies an auxiliary
+$q'_h\ll\delta^{-O(1)}$, an exponent $b_h=O_d(1)$ and
+$1$-bounded $\varphi_{h,i}$ such that the correlation with
+$\Delta_hf_i$ is at least $\delta^{O(1)}N$ up to a fixed constant, and
+\[
+ |\varphi_{h,i}(x+q'_h q^{b_h} t)-\varphi_{h,i}(x)|
+   \ll(q/\delta)^{O(1)}M^{-\deg P_i}|t|.
+\]
+Take $B$ to be a uniform bound for $b_h$ and choose $D_0\ge B$
+large. Let $V_i=\lfloor M^{e_i}(q/\delta)^{-D_0}\rfloor$,
+$e_i=\deg P_i$. A value inside the floor below $2$ forces the
+small alternative by the same bound on powers of $q$.
+Since $L(q/\delta)^{-D_0}\le1$, the inequality $LV_i\le N$ follows.
+The family of full blocks meeting the support contributes
+$O_C(N/V_i)$ progressions $P=a+L[V_i]$, including cells at the ends.
+
+On each such $P$, hold $\varphi_{h,i}(a+Lt)$ constant on each
+class of $t$ modulo $q'_h$ by choosing a representative in $[V_i]$
+for each class that occurs. The approximation error is
+$O((q/\delta)^{-D_0+O(1)})$ by replacing $t$ in the Lipschitz
+bound by $q^{B-b_h}(t-t')/q'_h$. The correlation over the
+support changes by at most $O(N(q/\delta)^{-D_0+O(1)})$.
+Fourier inversion modulo $q'_h$ with coefficients of modulus at
+most one then gives, for one $\omega_h=m/q'_h$,
+\[
+ \sum_{P=a+L[V_i]}
+      \abs{\sum_{t\in[V_i]}\Delta_h f_i(a+Lt)\ee(\omega_h t)}
+      \gg\delta^{O(1)}N .
+\]
+There are $\delta^{-O(1)}$ possible frequency values. For each
+fixed $i$, pigeonhole one frequency $\omega$ across
+$\gg\delta^{O(1)}N$ choices of $h$.
+
+To undo differencing define
+$S_P=\max_{\theta\in\T}|\sum_{t\in[V_i]}f_i(a+Lt)\ee(\theta t)|$.
+If $A_P(h)=\sum_t\Delta_h f_i(a+Lt)\ee(\omega t)$, then
+\[
+ \widehat{A_P}(\xi)
+ =\widehat f_i(\xi)\sum_t\overline{f_i(a+Lt)}
+         \ee(\omega t+\xi(a+Lt)).
+\]
+Plancherel gives $\sum_h|A_P(h)|^2\le S_P^2\norm{f_i}_2^2$.
+Cauchy--Schwarz over $O_C(N)$ shifts and $O_C(N/V_i)$ progressions
+then gives $\sum_P S_P^2\gg\delta^{O(1)}NV_i$. As $S_P\le V_i$,
+$\sum_P S_P\gg\delta^{O(1)}N$. On each cell choose a maximizing
+frequency (compactness of $\T$) and rotate its correlation to be the
+nonnegative number $S_P$. Define the phase to be $1$ on other cells.
+This finishes the assertion with common modulus $L$.
+\end{proof}
+\noindent\textbf{Lean status.} The weighted deduction is checked
+from the degree-uniform KMTT inverse interface. Lean chooses one bound
+$B$ after fixing $d$ and before fixing $C$ and the number of shifts.
+The argument carries this same bound through spatial differencing,
+finite Fourier localization, and Plancherel. The other constants
+may depend on $C,d,k$, as allowed in the manuscript.
+
+\begin{theorem}[4.2, local generalized von Neumann]\label{t:main}
+\lean{NilBohr.LocalGeneralizedVonNeumann,NilBohr.localGeneralizedVonNeumann_of_kmtt,NilBohr.localGeneralizedVonNeumann_twoInput,NilBohr.countingForm_twoInput_le}\leanok
+\uses{d:Cq,phase-tests}
+Under the scale, support and coefficient assumptions of Lemma~5.1,
+there exist $\eta,A_1,A_2>0$ and $B\in\N$, depending only on
+$C,d,k$, such that, for every $0<\rho\le1/2$,
+\[
+ \abs{T_{N,M,v}(\mathbf f)}
+ \ll_{C,d,k}
+ N^{-\eta}+\rho+
+ \left(\sup_{I,b,u}\norm{v}_{u^{d+1}[I\cap(u+q^b\Z)]}\right)^\eta .
+\]
+The supremum ranges over integer intervals $I\subset[M]$ with
+$|I|\ge Mq^{-A_1}\rho^{A_2}$ and integers $0\le b\le B$ and $u$ such
+that $I\cap(u+q^b\Z)$ is nonempty. For $k=2$, use $b=0$ and $I=[M]$.
+\end{theorem}
+\source{t:main}
+\begin{proof}[Proof in the manuscript]
+\proves{t:main}\uses{p:localinverse,checked-local-phase}\leanok
+For $k=2$ Fourier inversion in $x$ writes the count as
+\[
+ N^{-1}\int_\T\widehat f_0(-\theta)\widehat f_1(\theta)
+       \E_{y\in[M]}v(y)\ee(\theta P_1(y))\,d\theta.
+\]
+Cauchy--Schwarz and Plancherel bound this by
+$N^{-1}\norm{f_0}_2\norm{f_1}_2\norm{v}_{u^{d+1}[M]}$.
+
+For $k\ge3$, suppose the count is at least $\delta$ in modulus.
+For input $i\ge1$, with the current other inputs, write
+\[
+ D_i(z)=\E_{y\in[M]}v(y)\prod_{j\ne i}
+          f_j(z+P_j(y)-P_i(y)),\qquad
+ T=N^{-1}\sum_z f_i(z)D_i(z).
+\]
+The unchanged $f_0$ forces $D_i$ to be supported in a fixed
+enlargement of $[-CN,CN]$, since each shift on $[M]$ is
+$O_{C,d}(N)$. The modified count for $f_i=\overline D_i$ equals
+$N^{-1}\sum_z|D_i(z)|^2$, which by Cauchy--Schwarz is at least a fixed
+power of the previous count up to constants. Apply Lemma~5.1 to this
+tuple and use $\overline\Psi_i$ as the replacement. The conjugate of
+the inverse-theorem correlation is exactly the replacement count
+times $N$. Truncate inserted phases to the fixed enlarged support
+when applying the lemma again. The truncation changes no term with
+$f_0(x)\ne0$. Repeat for all $k-1$ shifted inputs. The bound for the
+common exponent depends only on $d$.
+
+Now let $H=\lfloor M(q/\delta)^{-D_1}\rfloor$ for a fixed large
+$D_1$. A value inside the floor less than $2$ forces the small
+alternative as before. Otherwise divide $[M]$ into length-$H$
+intervals and one tail of length less than $H$. On a complete
+interval $I$ with first point $y_0$,
+\[
+ |P_i(y)-P_i(y_0)|\ll_{C,d}q^{e_i-1}M^{e_i-1}H .
+\]
+For each $i$, delete the $x$ at which $x+P_i(y_0)$ is at most this
+far from a block boundary in $LV_i\Z$. There are
+$O_C(N/(LV_i))$ relevant boundaries. The normalized total loss
+including the tail is at most a fixed constant times
+\[
+ \frac HM+\sum_i\frac{q^{e_i-1}M^{e_i-1}H}{LV_i}
+ \ll(q/\delta)^{-D_1+O(1)}.
+\]
+The retained contribution still has modulus $\gg\delta^{O(1)}$
+for sufficiently large $D_1$. The weights of the retained averages
+sum to at most $N^{-1}\sum_x|f_0(x)|\ll_C1$. Some retained
+pair $(x,I)$ therefore gives an average of comparable modulus.
+
+Restricted to $y\equiv u\pmod L$, every argument $x+P_i(y)$
+stays in a single fixed block and residue class. The product of local
+linear phases is $\ee(\phi(y))$ with
+$\phi(y)=\sum_i[\theta_i(x+P_i(y))+\gamma_i]$ of degree at most $d$.
+Taking absolute values in the convex combination of class averages
+finds a nonempty class with correlation $\gg\delta^{D}$ and
+$|I|\gg Mq^{-D}\delta^D$ for some fixed $D$.
+Set $\delta$ to a small fixed multiple of the count.
+If $\delta\le\rho$, use the $\rho$ term.
+If $N\ll\delta^{-D}$, use the $N^{-\eta}$ term.
+Otherwise choose $A_1,A_2$ to absorb the constants in the interval
+length bound using $\rho\le1/2$, and take $\eta\le1/D$.
+\end{proof}
+\noindent\textbf{Lean status.} The theorem is checked from the
+KMTT inverse estimate. The two-input proof retains the explicit support
+factor $|X_0|/N$ for spatial window $X_0$. In the multi-input proof,
+Lean partitions $[M]$ into $\lfloor M/H\rfloor$ full
+intervals and a tail of length $M\bmod H$. If $R_i$ bounds the
+displacement across one interval, the error is bounded by
+$|X_0|H/(NM)+\sum_i 5(2C+4)R_i/(LV_i)$. For the first term,
+the tail uses $H$ as a strict upper bound. For each other term,
+the counted points are within displacement $R_i$ of a block
+boundary, rounded with an integer ceiling where necessary.
+Lean chooses $H$ to absorb both costs into the lower bound for
+the phase-replaced count. If that choice yields $H=0$, the same
+scale estimates place $N$ in the small-scale alternative. The final
+conversion keeps the interval-length condition and the bound on $b$
+uniform in $N,q,\rho$ and the test weights.
+
+\section{Heisenberg cancellation and the localized multiplier}
+
+\begin{lemma}[6.1, horizontal Diophantine separation]\label{l:heisenberg-horizontal}
+\lean{NilBohr.heisenberg_horizontal,NilBohr.horizontal_scale_bounds,NilBohr.horizontal_diophantine_bound_uniform_in_beta,NilBohr.horizontal_diophantine_bound}
+\leanok
+\uses{selector}
+Choose $r_j\le X^{1/100}<r_{j+1}$ for sufficiently large $X$.
+For each fixed $L>0$, $r_j/(\log X)^L\to\infty$.
+Uniformly when $1\le v\le X^{1/5000}$, $r_j\nmid v$ and
+$0<\max(|k|,|l|)\le(\log X)^L$ for integers $v,k,l$, one has
+$\tn{v(k\alpha+l\beta)}\gg_\alpha X^{-1/20}$.
+\end{lemma}
+\source{l:heisenberg-horizontal}
+\begin{proof}[Proof in the manuscript]
+\proves{l:heisenberg-horizontal}\uses{checked-floor}\leanok
+The growth rule gives $\log\log X\le\sqrt{\log r_j}+O(1)$,
+so $r_j$ dominates every fixed power of $\log X$.
+Also $r_{j+1}/r_j^2\gg X^{1/200}$.
+If $r_j\le X^{1/400}$ use $r_{j+1}>X^{1/100}$.
+Otherwise the growth rule gives $r_{j+1}\gg r_j^4$ and suffices.
+
+For $k\ne0$, multiplication by $r_j$ and the reverse triangle
+inequality give
+\[
+ \tn{v(k\alpha+l\beta)}
+ \ge r_j^{-1}\tn{r_jvk\alpha}
+       -|l|v|\beta-a_j/r_j|
+ \ge\frac{c_\alpha}{|k|v r_j^2}-O(|l|v/r_{j+1}).
+\]
+The error-to-main ratio is at most a constant times
+$X^{1/2500-1/200}(\log X)^{2L}$, which tends to zero. The main term
+dominates $X^{-1/20}$ since $r_j\le X^{1/100}$.
+For $k=0$, the primality of $r_j$ and $r_j\nmid vla_j$ give
+$\tn{vla_j/r_j}\ge1/r_j$. The error
+$O(|l|v/r_{j+1})$ is $o(1/r_j)$. This gives the same bound.
+\end{proof}
+\noindent\textbf{Lean status.} Checked, including eventual selection
+of the bracketing denominator and the uniformity of both estimates.
+The positive lower-bound constant is chosen from $\alpha$ alone,
+before the choice of $\beta$ and its approximation constants.
+
+\begin{proposition}[4.3, uniform Heisenberg phase bounds]\label{p:heisenberg-phase}
+\lean{NilBohr.heisenbergPhaseEstimates_of_quantitativeLeibman,NilBohr.scalar_heisenberg_log_saving,NilBohr.twisted_heisenberg_log_saving,NilBohr.centeredHeisenbergPhaseEstimate_of_obstructions}\leanok
+\uses{selector,phase-tests}
+At the scale of Lemma~6.1 let $a\in\Z$,
+$1\le v\le X^{1/10000}$, $r_j\nmid v$, and $K\ge X^{1/2}$.
+For fixed $A,L>0$, a positive integer $d$, and a Lipschitz function $\Phi$ on $H/\Gamma$
+with $\norm{\Phi}_{\mathrm{Lip}}\le(\log X)^L$, one has
+\[
+ \abs{\E_{t\in[K]}\Phi(g_0^{a+vt}\Gamma)-\int\Phi}
+ \ll_{A,L,\alpha,\beta}(\log X)^{-A}.
+\]
+With zero integral over every vertical fibre, one also has
+\[
+ \sup_{\deg\phi\le d}
+ \abs{\E_{t\in[K]}\Phi(g_0^{a+vt}\Gamma)\ee(-\phi(t))}
+ \ll_{A,L,d,\alpha,\beta}(\log X)^{-A}.
+\]
+For fixed Lipschitz $F$, the same twisted bound holds with
+$\Phi(g_0^{a+vt}\Gamma)$ replaced by $F(Z(a+vt))-\mu_F$.
+The twisted and centered statements also cover constant tests,
+by restricting the degree-one range.
+\end{proposition}
+\source{p:heisenberg-phase}
+\begin{proof}[Proof in the manuscript]
+\proves{p:heisenberg-phase}
+\uses{l:heisenberg-horizontal,checked-scalar,checked-twisted,external-inputs,checked-centered,checked-green-tao-adapter}\leanok
+First prove ordinary equidistribution in a form that allows
+dilations. For any positive integer $s$ bounded by a fixed power of
+$\log X$, put $D_s(x,y,z)=(sx,sy,s^2z)$. Since
+$D_s\Gamma\subset\Gamma$, $D_s$ induces a quotient map. The inverse
+$D_{1/s}$ is applied to group elements only. Consider
+$D_{1/s}(g_0^{a'+v't})\Gamma$ for $1\le t\le K_0$, where
+$K_0\ge X^{1/3}$, $1\le v'\le X^{1/5000}$, $r_j\nmid v'$,
+and $a'\in\Z$. If equidistribution with parameter
+$(\log X)^{-B}$ fails, quantitative Leibman gives a nonzero
+character $(k,l)$ with $|k|,|l|\le(\log X)^{O_B(1)}$ and
+\[
+ K_0\tn{v'(k\alpha+l\beta)/s}\ll_B(\log X)^{O_B(1)} .
+\]
+Lemma~6.1 bounds the left side below by
+$K_0s^{-1}\tn{v'(k\alpha+l\beta)}
+\gg_\alpha X^{1/3-1/20}/s$, a contradiction.
+Taking $s=1$ gives the first conclusion, with $B>A+L$ for a test
+of norm at most $(\log X)^L$.
+
+For the twisted result assume a correlation larger than
+$(\log X)^{-A}$. Apply quantitative Leibman to the polynomial
+orbit $(g_0^{a+vt}\Gamma,\phi(t)\bmod1)$ on
+$(H/\Gamma)\times\T$, with circle of filtration degree $d$
+and product filtration degree $\max(2,d)$.
+The test $(g\Gamma,z)\mapsto\Phi(g\Gamma)\ee(-z)$ has zero
+Haar mean and polylogarithmic Lipschitz norm. The resulting
+horizontal character $(k,l,m)$ has size $(\log X)^{O(1)}$ and
+\[
+ \norm{v(k\alpha+l\beta)t+m\phi(t)}_{C^\infty[K]}
+ \ll(\log X)^{O(1)}.
+\]
+If $m=0$, Lemma~6.1 contradicts the inequality as in the first
+part. For $m\ne0$ set $s=|m|$. Express the scalar polynomial
+on the left as $b_0+\sum_{i=1}^d b_i\binom{t}{i}$.
+Its smoothness bound gives integers $p_i$ with
+$|b_i-p_i|\ll K^{-i}(\log X)^{O(1)}$.
+Set $P(t)=\sum_i p_i\binom{t}{i}$ and
+$E(t)=\sum_i(b_i-p_i)\binom{t}{i}$. For a constant $c$,
+\[
+ m\phi(t)=-(k\alpha+l\beta)(a+vt)+P(t)+E(t)+c .
+\]
+The factor $\ee(-P(t)/m)$ is constant on classes modulo $sd!$,
+because $i!\binom{t}{i}$ is an integer polynomial and every
+difference at step $sd!$ is divisible by $sd!$.
+Also
+$\sum_{t<K}|E(t+1)-E(t)|\ll(\log X)^{O(1)}$,
+by the difference formula for binomial coefficients.
+
+On the quotient define
+\[
+ \widetilde\Phi((x,y,z)\Gamma)
+ =\Phi(D_s(x,y,z)\Gamma)\ee(\operatorname{sgn}(m)(kx+ly)).
+\]
+This absorbs the linear term on the dilated orbit. The map
+$D_s$ has Lipschitz constant $O(s^2)$ in the fixed right-invariant
+metric, so $\widetilde\Phi$ has polylogarithmic norm. The vertical
+integral of $\widetilde\Phi$ is zero because $z\mapsto s^2z$ wraps the
+vertical circle $s^2$ times and the horizontal phase is constant
+along the fibre. For each residue class of $t$ modulo $sd!$,
+the step of the dilated group orbit is determined by $v'=vsd!$,
+with $v'\le X^{1/5000}$ and $r_j\nmid v'$.
+These follow from the original $v$ range and $sd!<r_j$.
+For a prefix of at least $X^{1/3}$, the first part bounds the
+prefix sum of $\widetilde\Phi$ by its length times an arbitrary
+inverse power of $\log X$. Shorter prefixes have trivial bound
+$X^{1/3}(\log X)^{O(1)}$. A full class has
+$\gg X^{1/2}(\log X)^{-O(1)}$ terms, so the short-prefix
+bound also saves any inverse logarithm relative to that length.
+This is the uniform prefix estimate (44), labelled
+\code{e:phitildeonprog} in the manuscript.
+Partial summation removes $\ee(-E(t)/m)$ at polylogarithmic cost.
+Summing over the classes contradicts the assumed correlation.
+
+Finally choose $\varepsilon=(\log X)^{-A-1}$. Let
+$\chi_\varepsilon$ vanish at distance at most $\varepsilon$ from
+the chart boundary $y=0\bmod1$, be $1$ from distance
+$2\varepsilon$ on, and have Lipschitz norm $O(\varepsilon^{-1})$.
+On the chart apply the twisted bound to
+\[
+ (x,y,z)\Gamma\longmapsto \chi_\varepsilon(\{y\})
+     (F(z-x\lfloor y\rfloor)-\mu_F).
+\]
+The test extends Lipschitzly by zero near the boundary, has norm
+$O_F(\varepsilon^{-1})$ and zero vertical mean by circle
+translation. A Lipschitz majorant of the boundary strip, supported
+within distance $3\varepsilon$ of $0$ with integral $O(\varepsilon)$,
+shows by scalar equidistribution that removing the cutoff costs
+$O_F(\varepsilon)$. This proves the centered bound uniformly.
+\end{proof}
+\noindent\textbf{Lean status.} Lemma~\ref{checked-group-model} checks
+the filtered orbits, rational adapted Mal'cev bases, quotient metrics
+and Haar measures. Lemma~\ref{checked-green-tao-adapter} applies the
+general quantitative Leibman input on these two nilmanifolds and
+proves the scalar and product criteria. These criteria give the weighted-prefix
+bound by the factorial congruence, binomial rounding, the exact
+Heisenberg covering identity, and variation control. Mean zero on the
+cover follows by integration on the vertical fibres.
+The uniform selection of scales from the dilated horizontal and scalar
+estimates yields the twisted logarithmic saving for real polynomials
+of degree at most $d$. The centered consequence (27) is checked
+from the same two specialized character criteria. The Lean chart
+test uses a piecewise linear cutoff. On each vertical fibre it has
+mean zero by circle translation. Its right lattice invariance and
+its Lipschitz estimate for the quotient distance are proved before
+taking the orbit average. The scale $\varepsilon=(\log X)^{-A-1}$
+balances the required test norm and the seam removal, whose lost
+mass is controlled by the horizontal scalar estimate.
+
+\begin{lemma}[4.5, multiplication by a localized vertical mode]\label{l:vertical-mode-multiplier}
+\lean{NilBohr.localized_vertical_multiplier,NilBohr.localized_vertical_multiplier_of_bernstein}\leanok
+\uses{selector,phase-tests}
+Let $S\ge3$, let $I$ be a finite nonempty integer interval, and
+let $a,v,h\in\Z$. If the Lipschitz function $\chi$ is supported on
+an interval of length $<1/2$ inside $(0,1)$, then
+\[
+ \norm{f(t)\chi(\{\beta(a+vt)\})\ee(hZ(a+vt))}_{U^S[I]}
+ \le\norm{\widehat\chi}_{\ell^1}\norm{f}_{U^S[I]} .
+\]
+\end{lemma}
+\source{l:vertical-mode-multiplier}
+\begin{proof}[Proof in the manuscript]
+\proves{l:vertical-mode-multiplier}\uses{checked-cube,checked-norm-foundations}\leanok
+Expand the conjugated products for a cube. If some
+vertex lies outside $I$ or its cutoff vanishes, both products vanish.
+Otherwise write $n_\omega=a+v(t+\omega\cdot u)$
+and $b_\omega=\lfloor\beta n_\omega\rfloor$.
+In each two-face,
+$b_{00}+b_{11}-b_{01}-b_{10}$ is minus the corresponding
+alternating sum of fractional parts. Its absolute value is
+less than $2(1/2)=1$, because all part values lie in the
+same short interval. Being an integer, it vanishes. Therefore
+the increment in each direction is independent of the other
+coordinates. Hence $b_\omega$ is affine on the cube.
+Since $n_\omega$ is affine, $Z(n_\omega)$ is quadratic in the
+bits of $\omega$. Every monomial omits at least one bit when $S\ge3$,
+so pairing opposite vertices along that direction gives alternating
+sum zero. Thus the two localized cube sums with and without the
+vertical exponential agree exactly, giving equality of their
+normalized $U^S$ norms.
+
+For the remaining horizontal factor, Lipschitz regularity gives an
+absolutely summable Fourier series. In fact Cauchy--Schwarz and
+Parseval give
+\[
+ \sum_{k\ne0}|\widehat\chi(k)|
+ \le\left(\sum_{k\ne0}k^{-2}\right)^{1/2}
+    \left(\sum_{k\ne0}k^2|\widehat\chi(k)|^2\right)^{1/2}
+ \ll\norm{\chi'}_2.
+\]
+The series converges uniformly, so expand
+$\chi(\{\beta(a+vt)\})$ in the phases $\ee(k\beta(a+vt))$.
+Each preserves the $U^S$ norm. The triangle inequality yields the
+claimed multiplier bound.
+\end{proof}
+\noindent\textbf{Lean status.} The multiplier is checked under the
+manuscript's hypotheses. Lemma~\ref{checked-norm-foundations} supplies
+the triangle inequality and the absolute Fourier bound. The Fourier
+limiting argument uses finite approximation and continuity of the cube
+norm.
+
+\section{The smooth-modulus prime model and count}
+
+Throughout this section fix $c_0\in(0,1/11)$ and put
+$\widetilde Q_N=\lceil\exp((\log N)^{c_0})\rceil$.
+Write $\mathcal L(w)=\operatorname{lcm}(1,\ldots,w)$ and let
+$P^+(q)$ be the greatest prime factor, with $P^+(1)=1$.
+The smooth-modulus hypotheses in (17) are
+\[
+ w_0\le w\le(\log\widetilde Q_N)^{c_{\rm rel}},\qquad
+ 8\prod_{p\le w}p\mid q,\qquad P^+(q)\le w,\qquad
+ \log q\le w^2.
+\]
+
+\begin{proposition}[4.1, high-order relative prime model]\label{p:high-order-relative-prime}
+\lean{NilBohr.high_order_relative_prime_of_analytic_inputs,NilBohr.high_order_relative_prime_of_kmtt}\leanok
+\uses{selector,phase-tests}
+Fix $d\ge1$ and $S\ge2$. There exist
+$c_{\rm rel},\eta_{\rm rel}>0$, $w_0\ge16$ such that, for all
+large $N$, all smooth moduli above, and all integer $M$ with
+$N^{1/d}\exp(-d\sqrt{\log N})\le M\le N^{1/d}$,
+\[
+ \norm{\Lambda_q-1}_{U^S[M]}\ll_{d,S}w^{-\eta_{\rm rel}}.
+\]
+In particular $\E_{y\in[M]}\Lambda_q(y)=1+O_{d,S}(w^{-\eta_{\rm rel}})$.
+\end{proposition}
+\source{p:high-order-relative-prime}
+\begin{proof}[Proof in the manuscript]
+\proves{p:high-order-relative-prime}\uses{external-inputs,checked-norm-foundations}\leanok
+Banks's explicit bound gives $(1-\beta_0)\log r\ge0.003$
+for a real zero of a primitive nonprincipal real character of
+conductor $r\ge3$. For $r\le\widetilde Q_N$ this excludes a
+KMTT exceptional zero, whose condition would require
+$(1-\beta_0)\log\widetilde Q_N\le0.001$.
+Thus the Siegel model in KMTT Lemma~3.1 is the
+$\Cramer$ model at cutoff $\widetilde Q_N$.
+
+Let $Y=qM+1$, for which $\log Y\asymp_d\log N$.
+The cutoff range of KMTT Lemma~3.1 follows for all sufficiently
+large $N$ as $c_0<1/11$. Apply it at ambient length $Y$.
+Dilation to $y\in[M]$ with residue $1$ incurs at most
+$q^{(S+1)/2^S}$, using KMTT Lemma~2.2 and the comparable
+ambient intervals. Consequently the difference from the normalized
+$\Cramer$ weight has norm
+\[
+ \ll_S q^{(S+1)/2^S}\exp(- (\log\widetilde Q_N)^{c_S}).
+\]
+Choose $2c_{\rm rel}<c_S$ to absorb the factor from $\log q\le w^2$.
+The error is $O(w^{-1})$.
+KMTT Lemma~4.3(i) with $b=1$ and full interval $[M]$
+bounds the normalized $\Cramer$ weight minus $1$ by
+$O(w^{-\eta_{\rm rel}})$ under exactly the smoothness and
+scale constraints. Use the triangle inequality and normalized
+Gowers monotonicity.
+\end{proof}
+\noindent\textbf{Lean status.} The independent premises are Banks's
+zero exclusion and the two KMTT prime-model bounds. Lean supplies
+dilation, the Gowers laws, cutoff compatibility and absorption of the
+modulus loss.
+
+\begin{lemma}[4.4, centered selector count]\label{l:unweighted-selector-relative-range}
+\lean{NilBohr.unweightedSelectorComparison_of_local_phase}\leanok
+\uses{selector,d:Cq}
+Fix $C,d,k$, selector data and a Lipschitz $F$. For $N$ sufficiently
+large and smooth moduli with $c_{\rm rel}$ sufficiently small, put
+$M=\lfloor(N/q^{d-1})^{1/d}\rfloor$. For every fixed $A>0$,
+the bound
+$|T_{N,M,F_q-\mu_F}(\mathbf f)|\ll_{C,d,k,\alpha,\beta,F,A}w^{-A}$
+holds uniformly for the distinct-degree $(C,q)$-families
+and $1$-bounded inputs supported on $[N]$.
+\end{lemma}
+\source{l:unweighted-selector-relative-range}
+\begin{proof}[Proof in the manuscript]
+\proves{l:unweighted-selector-relative-range}\uses{t:main,p:heisenberg-phase}\leanok
+Normalize the weight by $1+2\norm F_\infty$.
+Apply Theorem~4.2 with $\rho=w^{-A-1}$.
+Here $\log q\le w^2\ll(\log N)^{2c_0 c_{\rm rel}}$,
+so the stated range for $q$ holds. The tests have steps $q^b$
+and lengths $\gg Mq^{-O(1)}w^{-O(1)}=N^{1/d-o(1)}$.
+Set $X=qM+1=N^{1/d+o(1)}$. Their $Z$-arguments form
+progressions of length at least $X^{1/2}$ and step
+$q^{b+1}\le X^{1/10000}$. Since $r_j>w$ and $P^+(q)\le w$,
+the step is coprime to $r_j$. The affine change of test variable
+preserves degree. Proposition~4.3 bounds each test by
+$O_D((\log N)^{-D})$ for every fixed $D$.
+Choose $D$ large enough after the exponent in Theorem~4.2 and
+use $w\ll\log N$.
+\end{proof}
+\noindent\textbf{Lean status.} The deduction is checked from
+Theorem~4.2 and the centered polynomial-phase estimate of
+Proposition~4.3. The length and step restrictions, the normalization
+of the test weight, and the affine pullback of the phase norm
+are proved as part of the deduction.
+
+\begin{theorem}[3.2, smooth-modulus count comparison]\label{t:relative-selector-comparison}
+\lean{NilBohr.RelativeSelectorComparison,NilBohr.relativeSelectorComparison_of_obstructions,NilBohr.relativeSelectorComparison_of_centered_phase,NilBohr.relativeSelectorComparison_of_progression_estimates}\leanok
+\uses{selector,d:Cq}
+Fix $C,d,k$, selector data and Lipschitz $F:\T\to\C$.
+For all sufficiently large $N$ and all smooth moduli above
+with suitable constants $c_{\rm rel},\eta_{\rm sel}, w_0$,
+take $M=\lfloor(N/q^{d-1})^{1/d}\rfloor$.
+For $(C,q)$-shifts of distinct increasing degrees ending in $d$
+and $1$-bounded $f_i$ supported on $[N]$,
+\[
+ T_{N,M,\Lambda_qF_q}(\mathbf f)
+ =\mu_F T_{N,M,1}(\mathbf f)+O(w^{-\eta_{\rm sel}}).
+\]
+The constants are uniform in the shifts, $q,w,N$ and inputs.
+\end{theorem}
+\source{t:relative-selector-comparison}
+\begin{proof}[Proof in the manuscript]
+\proves{t:relative-selector-comparison}
+\uses{l:unweighted-selector-relative-range,p:high-order-relative-prime,l:vertical-mode-multiplier,p:heisenberg-phase,external-inputs,checked-selector-cutoffs}\leanok
+By linearity, subtracting the constant model gives weights
+$(\Lambda_q-1)F_q$ and $F_q-\mu_F$. Lemma~4.4
+gives $O(w^{-1})$ for the second. For the first, let a smooth
+$0\le\chi\le1$ vanish outside $[\varepsilon,1-\varepsilon]$
+in the horizontal coordinate and equal one on
+$[2\varepsilon,1-2\varepsilon]$. Choose
+$\norm\chi_{\rm Lip}\ll\varepsilon^{-1}$ and split it into
+a fixed number of pieces $\chi_\nu$ of support length $<1/2$.
+Expand $F_q$ by its absolutely convergent Fourier series.
+KMTT Proposition~3.3 bounds each localized count by a
+$U^S[M]$ norm at a fixed $S\ge3$. By Lemma~4.5 and the
+Sobolev bound $\sum_\nu\norm{\widehat\chi_\nu}_{\ell^1}
+\ll\varepsilon^{-1}$, the total localized bound is
+$O_F(\varepsilon^{-1}\norm{\Lambda_q-1}_{U^S[M]})$.
+
+For the boundary, use $|\Lambda_q-1|\le(\Lambda_q-1)+2$.
+After absolute values, the desired bound reduces to the mean
+of $1-\chi(\beta qy)$ and
+$|\E_{y\in[M]}(\Lambda_q(y)-1)(1-\chi(\beta qy))|$.
+Use Proposition~4.3 for the mean, with $a=0,v=q,X=qM+1$.
+The first term is $O(\varepsilon+(\log X)^{-1})$ when
+$\varepsilon^{-1}$ has at most polylogarithmic growth.
+For the second, expand $1-\chi$ into its absolutely
+summable linear phases and use Gowers monotonicity and
+phase invariance for a bound $O(\varepsilon^{-1}
+\norm{\Lambda_q-1}_{U^S[M]})$.
+
+The scale of $M$ qualifies for Proposition~4.1 since
+$\log q=o(\sqrt{\log N})$. Set
+$\varepsilon=w^{-\eta_{\rm rel}/2}/32$, decreasing
+$\eta_{\rm rel}$ to at most one. Then
+$(\log X)^{-1}\ll\varepsilon$, and the combined bound
+is $O(w^{-\eta_{\rm rel}/2})$.
+\end{proof}
+\noindent\textbf{Lean status.} The normalized finite inequalities for
+the localized count, the boundary, and their sum are checked. The
+quantitative cutoff construction uses three tent functions on the circle.
+A positive floor on their common denominator gives a partition off the
+boundary strip and a Lipschitz bound proportional to $\varepsilon^{-1}$.
+The boundary integral follows from the length of a circle ball.
+The uniform comparison uses Theorem~4.2, the high-order prime-model
+estimate and KMTT's weighted counting estimate on a common sequence
+of admissible denominators. The scalar and product specializations of
+quantitative Leibman give the horizontal and centered tests. The
+recurrence wrapper supplies its Gowers and Fourier estimates from
+Lemma~\ref{checked-norm-foundations} and weak regularity from the
+same inverse input used in Theorem~4.2.
+
+\section{Density increment and recurrence}
+
+\paragraph{Deriving the weak-regularity input.}
+Write $k=\ell+1$, $u=q/\epsilon$ and
+$\rho=\epsilon/(2k)$. With inverse witness bounds
+$q'\le A\rho^{-B}$, $b'\le b_0$, and correlation at least
+$a\rho^b N$, take the common step $q^J$ with $J=b_0+1$.
+An increased resolution exponent makes every eligible $q'$ divide
+the least common multiple in the hypothesis, hence divide $q$.
+Thus $q'q^{b'}\mid q^J$. Put $E=B+J+b$ and take the coordinate
+resolution $R_i=\lfloor c u^{-E}M^{\nu_i}\rfloor$ for small fixed
+$c>0$, where $\nu_0=\deg P_1$ and $\nu_i=\deg P_i$ for $i>0$.
+If any floor argument is less than two, the small-scale alternative
+holds. Otherwise the bound on $M$ makes each nonempty residue
+class large enough for this resolution. Divide each into atoms with
+between $R_i$ and $2R_i$ elements. This yields both the common
+step and the required lower bound on the atom lengths.
+
+If replacing the functions by their atom means changes the count
+by more than $\epsilon$, telescope one coordinate at a time and use
+the residual divided by two in a term of size greater than $\rho$.
+If the residual is at index zero, reindex the spatial sum by
+$x\mapsto x+P_1(y)$ and swap the first two inputs. The new shifts are
+$-P_1$ and $P_i-P_1$ for $i>1$. The coefficient class enlarges
+from $C$ to $2C^2+C$, and all degrees stay in order. The supported
+base functions justify both spatial cutoffs. The inverse theorem
+now produces a test for the residual. On each atom subtract its
+value at a fixed point, using the exact zero atom mean. The remaining
+test is bounded by the inverse Lipschitz constant times the atom
+diameter in units of the inverse step. Summed over the atoms, this
+is at most $2A(2k)^B c\,u^{-b}N$. Choose $c$ so this is less than
+$a\rho^b N$ since $u^{-b}\le\epsilon^b$. This contradicts the
+inverse correlation. Lemma~\ref{checked-weak-regularity} verifies
+this argument for the interface used in Proposition~3.1.
+
+\begin{proposition}[3.1, one density increment]\label{p:selected-density-increment}
+\lean{NilBohr.DensityIncrementFor,NilBohr.densityIncrementFor_of_relativeSelectorComparison}\leanok
+\uses{selector,d:Cq}
+There exist $c,\eta,K,E,C_1>0$ and $B_*\in\N$, depending only on the
+fixed data of Theorem~1.2, with the following property for all large $N$.
+Let $A\subset[N]$ have density $0<\delta\le1$ and suppose
+\[
+ K\delta^{-E}\le w\le(\log N)^c,\quad
+ \mathcal L(w)\mid q,\quad P^+(q)\le w,\quad \log q\le w^2.
+\]
+Take $M=\lfloor(N/q^{d-1})^{1/d}\rfloor$.
+If $A$ contains no pairwise distinct configuration with shifts
+$P_{i,q}(y)$ and $qy+1\in\mathcal P_{Z,J}$, then there are
+$1\le B\le B_*$, $a\in\Z$ and $N'\in\N$ with
+\[
+ a+q^B[N']\subset[N],\quad
+ |A\cap(a+q^B[N'])|\ge(1+\eta)\delta N',\quad
+ N'\gg q^{-C_1}\delta^{C_1}M^{\deg P_1}.
+\]
+\end{proposition}
+\source{p:selected-density-increment}
+\begin{proof}[Proof in the manuscript]
+\proves{p:selected-density-increment}\leanok
+\uses{t:relative-selector-comparison,checked-weak-regularity,checked-density}
+Choose a nonnegative Lipschitz minorant $F\le\one_J$ with
+$\mu_F>0$. For $w\ge16$ the divisibility
+$\mathcal L(w)\mid q$ implies $8\prod_{p\le w}p\mid q$,
+so Theorem~3.2 applies for sufficiently small $c$ and large $K$.
+Write $k=\ell+1$. For a small fixed $\tau>0$ and
+$1\le y\le\tau M$, every shift is at most $N/20$ in
+absolute value. This follows from the coefficient bounds,
+$q^{e-1}(\tau M)^e\le\tau q^{d-1}M^d\le\tau N$ for $e\ge1$.
+There are at least $N/2$ admissible $x$ for each such $y$,
+so
+$T_1(\delta\one_{[N]},\ldots,\delta\one_{[N]})\ge c_3\delta^k$
+with a fixed $c_3>0$.
+
+For $\one_A$ inputs, the weighted count can receive mass only
+from higher prime powers or a collision of shifts. Each polynomial
+difference is nonzero even when one index is zero, so there are
+$O_{d,k}(1)$ parameters producing a collision. The total
+contribution is
+\[
+ O_{d,k}\left(\frac{\log(qM+2)}M+
+      \frac{(qM+1)^{1/2}(\log(qM+2))^2}M\right)
+ =O_{d,k}(N^{-1/(3d)}) .
+\]
+Here $M=N^{1/d-o(1)}$ and the higher-prime-power bound
+follows by summing over exponents $j\ge2$ and using
+$\Lambda(m)\le\log(qM+2)$. The error is $o(\delta^k)$
+since $\delta^{-1}$ is polylogarithmic. Take $E\eta_{\rm sel}\ge k$
+and then $K$ large, so the comparison error is at most
+$\mu_F c_3\delta^k/4$. The unweighted count for $\one_A$
+is then less than the constant-density count by at least
+$c_3\delta^k/2$.
+
+Apply KMTT Lemma~5.3 with accuracy
+$\varepsilon=c_3\delta^k/8$. Increase $E$ and $K$ so the
+required divisibility by $\mathcal L(\lceil\varepsilon^{-A'}\rceil)$
+holds. The small-scale alternative $M\ll (q/\varepsilon)^{O(1)}$
+is excluded because its right side is $N^{o(1)}$.
+The factors have common modulus $q^B$ and atom lengths at
+least a constant times $q^{-C_1}\delta^{C_1}M^{\deg P_1}$
+because each resolution exponent is at least $\deg P_1$.
+Let $H_i$ be their conditional expectations of $\one_A$,
+extended by zero. Weak regularity changes the count by at most
+$\varepsilon$, so the gap from the constant-density count is
+at least $3c_3\delta^k/8$.
+
+If all atoms have density $\le(1+\eta)\delta$, mass preservation gives
+$\norm{H_i-\delta\one_{[N]}}_{\ell^1}\le2\eta\delta N$.
+Replace one of the $k$ functions at a time. Translation in $x$
+preserves the $\ell^1$ norm and the other factors contribute at most
+$((1+\eta)\delta)^{k-1}$. The total change is at most
+$2k\eta(1+\eta)^{k-1}\delta^k$, contradicting the gap for fixed
+small $\eta$. Hence an atom supplies the increment.
+\end{proof}
+\noindent\textbf{Lean status.} The uniform density increment is
+checked from the count comparison of Theorem~3.2 and KMTT weak
+regularity. Lean fixes the constants before ranging over all admissible
+scales, moduli, densities and input sets. The singular parameters
+with coincident shifts are counted separately.
+
+\begin{theorem}[1.2, quantitative selected-prime recurrence]\label{t:recurrence}
+\lean{NilBohr.HeisenbergRecurrence,NilBohr.heisenbergRecurrence_of_analytic_inputs,NilBohr.heisenbergRecurrence_of_obstructions,NilBohr.heisenbergRecurrence_of_centered_phase,NilBohr.heisenbergRecurrence_of_relativeSelectorComparison}\leanok
+\uses{selector,d:Cq}
+For each fixed polynomial family and selector data there is
+$\kappa>0$ such that for every sufficiently large $N$, every
+$A\subset[N]$ with $|A|\ge N(\log N)^{-\kappa}$ contains a
+pairwise distinct configuration with prime parameter
+$p\in\mathcal P_{Z,J}$, so $n=p-1$.
+\end{theorem}
+\source{t:recurrence}
+\begin{proof}[Proof in the manuscript]
+\proves{t:recurrence}\uses{p:selected-density-increment,checked-density}\leanok
+Assume the original set contains no selected configuration.
+Fix $w=\lceil K\delta^{-E_1}\rceil$ with $E_1\ge E$ chosen below,
+$q_0=\mathcal L(w)$, and rescale a densest nonempty residue class.
+The new set has density $\delta_0\ge\delta$ and length
+$N_0\ge N/(2q_0)$ for large $N$ since $\log q_0\ll w$.
+The affine lift proves it has no selected configuration with the
+rescaled polynomials and the same prime selector.
+
+At stage $i$, each application of Proposition~3.1 multiplies the
+density by at least $1+\eta$ and produces $q_{i+1}=q_i^{B_i+1}$.
+All moduli remain powers of $q_0$, so divisibility and smoothness
+persist, and increasing density preserves the lower bound on $w$.
+The affine identities in the rescaling definition preserve the
+absence of a selected configuration. Let
+$i_*=\lfloor\log(\delta^{-1})/\log(1+\eta)\rfloor+1$.
+For $i\le i_*$,
+\[
+ \log q_i\le (B_*+1)^i\log q_0
+       \ll\delta^{-D}w
+\]
+with fixed $D$. Choose $E_1>D$ and increase $K$ to bound
+this by $w^2$. Put $r=\deg P_1$. The lower length in the
+increment and the floor defining $M$ give
+\[
+ \log N_{i+1}\ge(r/d)\log N_i
+      -O(\log q_i+\log(\delta^{-1})+1)
+\]
+when the current stage is in range. With $i\le i_*$,
+$(r/d)^i\gg\delta^{D'}$ for fixed $D'\ge0$. Iteration gives
+$\log N_i\ge c_2\delta^{D'}\log N
+-O((1+\log(\delta^{-1}))(w^2+\log(\delta^{-1})))$.
+For $\delta\ge(\log N)^{-\kappa}$ choose sufficiently small
+$\kappa$ after all previous constants. This yields
+$\log N_i\ge(\log N)^{3/4}$ and
+$w\le(\log N_i)^c$ at every stage up to $i_*$.
+The size conditions therefore persist by induction.
+After $i_*$ steps the density exceeds one, a contradiction.
+\end{proof}
+\noindent\textbf{Lean status.} The iteration and the density increment
+are checked, including the asymptotic length and modulus estimates.
+The composed deduction uses the literature interfaces for the prime
+models, zero exclusion, local inverse, weighted count and quantitative
+Leibman. Lemma~\ref{checked-weak-regularity} supplies weak regularity.
+
+\begin{corollary}[1.3, bracket recurrence]\label{c:bracket-recurrence}
+\uses{selector}\lean{NilBohr.bracket_recurrence_of_heisenberg_recurrence,NilBohr.bracketRecurrence_of_analytic_inputs,NilBohr.bracketRecurrence_of_obstructions,NilBohr.bracketRecurrence_of_centered_phase}\leanok
+Theorem~1.2 holds with $Z_{\rm br}$ in place of $Z$.
+\end{corollary}
+\source{c:bracket-recurrence}
+\begin{proof}[Proof in the manuscript]
+\proves{c:bracket-recurrence}\uses{t:recurrence,checked-floor}\leanok
+Choose $J_0$ with $-\overline J_0\subset J$ and choose
+$\varepsilon<\min(\beta,1-\beta)$ with
+$(3+|\alpha|)\varepsilon<\operatorname{dist}
+(-\overline J_0,\T\setminus J)$.
+Enlarge the family by $n$ and $n^2$ only when their degrees are
+absent. Write its linear and quadratic shifts as $an$
+and $bn^2+cn$ with $ab\ne0$. Partition $A$ into finitely many
+torus boxes of side length less than $\varepsilon$ for the coordinates
+\[
+ x\longmapsto
+ \left(\frac{\alpha x}a,\frac{\beta x}a,
+       \frac{\theta(1-c/b)x}a,\frac{\theta x}b\right)\bmod1.
+\]
+Apply Theorem~1.2 to a largest cell with the enlarged family
+and $J_0$. The fixed partition loss is absorbed by decreasing
+$\kappa$. The differences for the linear shift bound
+$\tn{\alpha n}$, $\tn{\beta n}$, and
+$\tn{\theta(1-c/b)n}$ by $\varepsilon$. The quadratic shift
+bounds $\tn{\theta n^2+(\theta c/b)n}$ by $\varepsilon$.
+Thus $\tn{\theta(n^2+n)}<2\varepsilon$.
+
+Let $m$ be a nearest integer to $\beta n$. The choice of
+$\varepsilon$ forces $\lfloor\beta(n+1)\rfloor=m$ and
+$m-\lfloor\beta n\rfloor\in\{0,1\}$. Direct substitution gives
+\[
+ Z_{\rm br}(n)+Z(n)=\theta(n^2+n)
+     +\alpha n(m-\lfloor\beta n\rfloor)-\alpha(\beta n-m).
+\]
+Its torus norm is less than $(3+|\alpha|)\varepsilon$.
+Since $Z(n)\bmod1\in J_0$, the bracket phase belongs to $J$.
+Retaining the original shifts preserves pairwise distinctness.
+\end{proof}
+\noindent\textbf{Lean status.} Checked from Theorem~1.2 as an
+explicit premise.
+Lean fills all missing positive degrees up to $\max(d,2)$ to
+index the enlarged family by degree, and reflects the central
+half of $J$. Restricting the configuration to the original
+shifts gives the stated conclusion.
+
+The abstract takes $P_i(n)=n^i$, $\alpha=\sqrt3$ and
+$J=(1/4,1/2)$. If $u$ is the nearest integer to $m\sqrt3$
+with $m\ge1$, then $|3m^2-u^2|\ge1$ and
+$m\sqrt3+u<4m$. Consequently $m\tn{m\sqrt3}\ge1/4$,
+which verifies the stated bad-approximability hypothesis in that
+example. The bracket recurrence yields precisely the selector
+$\{\sqrt3\,p\lfloor\beta p\rfloor\}\in J$.
+
+\begin{corollary}[1.1, finite Bohr constraints]\label{c:bohr}
+\uses{d:Cq}\lean{NilBohr.bohr_recurrence}\leanok
+If the polynomial family includes $P_1(n)=an$ with $a\ne0$,
+one can force finitely many conditions
+$\tn{\alpha_j(p-1)}<\varepsilon$ in the shifted-prime recurrence
+conclusion, with a fixed polylogarithmic density threshold.
+\end{corollary}
+\source{c:bohr}
+\begin{proof}[Proof in the manuscript]
+\proves{c:bohr}\uses{external-inputs}\leanok
+Partition $A$ by a fixed torus grid of side length
+$<\varepsilon$ for the coordinates $(\alpha_jx/a)_j$.
+A largest cell has a fixed proportion of $|A|$. Apply KMTT
+Theorem~1.2 to that cell, decreasing the density exponent to
+absorb the fixed loss. Both $x$ and $x+a(p-1)$ lie in the same
+cell, so their coordinate differences give the conditions.
+\end{proof}
+\noindent\textbf{Lean status.} Checked from the KMTT
+shifted-prime bound. The signed coefficient, strict inequalities, and all original shifts
+are retained.
+
+\section{Prime-weighted phase tests}
+
+\begin{proposition}[6.2, prime-weighted local cancellation]\label{p:prime-phase}
+\lean{NilBohr.PrimeLocalPhase,NilBohr.primeLocalPhase_of_literature,NilBohr.heisenbergPrimeLocalPhase_of_literature}\leanok
+\uses{selector,phase-tests,d:Cq}
+Fix $d\ge1$, $A,B,K,L>0$ and Lipschitz $F$. For large $N$,
+let $1\le q\le(\log N)^L$, $M=\lfloor(N/q^{d-1})^{1/d}\rfloor$,
+and $P=I\cap(u+q^b\Z)$ with $I\subset[M]$, $|I|\ge M(\log N)^{-K}$,
+$0\le b\le B$ and $b,u\in\Z$. Then
+\[
+ \sup_{\deg\phi\le d}\abs{\E_{y\in P}\Lambda_q(y)
+ (F_q(y)-\mu_F)\ee(-\phi(y))}
+ \ll_{d,\alpha,\beta,F,A,B,K,L}(\log N)^{-A}.
+\]
+\end{proposition}
+\source{p:prime-phase}
+\begin{proof}[Proof architecture]
+\proves{p:prime-phase}
+\uses{p:heisenberg-phase,l:heisenberg-horizontal,l:vertical-mode-multiplier,external-inputs,checked-prime-cramer,checked-prime-seam,checked-fourier-restriction}\leanok
+Set $X=qM+1$. The substitution $m=qy+1$ maps $P$ to consecutive
+points $P'$ of the reduced class $qu+1\bmod q^{b+1}$. For large $N$,
+\[
+ |P'|=|P|\ge |I|/q^b-1\gg X(\log X)^{-K-(B+1)L},
+ \qquad
+ \frac{\log N}{2d}\le\log X\le2\log N.
+\]
+In particular $P'$ is nonempty. The test becomes
+$p(m)=\phi((m-1)/q)$ and keeps degree at most $d$.
+
+\emph{Remove the horizontal seam.}
+Take $\eta=(\log X)^{-A-2}$ and
+$\chi_\eta(y)=\min(1,\max(0,(\tn y-\eta)/\eta))$.
+It vanishes at distance at most $\eta$ from $0$ and equals
+one from distance $2\eta$ on. The complement has Haar mean
+$O(\eta)$ and Lipschitz norm at most $\eta^{-1}$.
+Apply scalar equidistribution to the orbit with $m-1$
+along $P'$. Its step $q^{b+1}$ is polylogarithmic and less
+than $r_j$, and its length is at least $X^{1/2}$. The bound
+$\Lambda(m)\le\log X$ shows that the cutoff costs
+$O_F(\eta\log X)$, uniformly over all polynomial phases.
+
+On the quotient, use the test
+\[
+ \Phi_\eta(g)=
+  \chi_\eta(y(g)\bmod1)\bigl(F(z_{\rm red}(g)\bmod1)-\mu_F\bigr).
+\]
+Its value at $g(m-1)$ equals
+$\chi_\eta(\beta(m-1)\bmod1)(F(Z(m-1))-\mu_F)$.
+It has vertical mean zero, bounded sup norm, and quotient Lipschitz
+norm $O_F(1+\eta^{-1})$, by the centered chart estimate in
+Proposition~4.3. Set $f_\eta(m)=\Phi_\eta(g(m-1))$.
+
+\emph{Replace the prime weight by the model.}
+Let $S=\max(3,d+1)$ and
+$Q=\lceil\exp((\log X)^{c_0})\rceil$.
+Banks's real-zero exclusion and KMTT Lemma~3.1 at scale $X$ give
+\[
+ \norm{\Lambda-\Lambda_{\Cramer,Q}}_{U^S[X]}
+ \ll_S \exp(-c(\log X)^{c_0c_S})
+\]
+for some $c>0$. First test a single vertical frequency $h\in\Z$ with a
+horizontal multiplier $\chi$ supported in a chart interval shorter
+than $1/2$. Expand $\one_{P'}$ using the congruence indicator, of
+Fourier $\ell^1$ mass one, and the spanning interval indicator, of
+Fourier $\ell^1$ mass at most $2+\log X$ on the group of size
+$2X+1$. Every frequency introduced by these expansions is linear.
+The mean bound for $U^S[X]$ and invariance under phases of degree
+$<S$ control the test, including the degree-$d$ twist. Lemma~4.5
+then bounds the localized mode by
+\[
+ C_S\frac{X}{|P'|}(2+\log X)
+       \norm{\widehat\chi}_{\ell^1}
+       \norm{\Lambda-\Lambda_{\Cramer,Q}}_{U^S[X]} .
+\]
+The bound is uniform in $h$. Bernstein's theorem gives absolute
+Fourier convergence of $F-\mu_F$, so linearity of the finite
+correlation and the triangle inequality extend the bound to its
+full Fourier series with a factor $\norm{\widehat{F-\mu_F}}_{\ell^1}$.
+An exact decomposition of $\chi_\eta$ into three short-supported
+pieces follows by multiplying the horizontal chart partition by
+$\chi_\eta$. The partition's boundary piece vanishes in this
+product. Each piece has sup and Lipschitz norms bounded by
+$O(\eta^{-2})$, so its Fourier mass satisfies the same bound.
+The losses are all polylogarithmic, including $X/|P'|$, and the
+ambient Gowers estimate absorbs every fixed logarithmic power.
+This use of absolute convergence avoids truncating the vertical
+Fourier series.
+
+\emph{Sieve the model and keep the full centered chart test.}
+Put $W=\prod_{p\le Q,\ p\nmid q}p$, $H=|P'|$, and
+$\mathcal D=\lfloor X^{1/20000}\rfloor$. The model on $P'$ is
+the coprimality indicator $\one_{(m,W)=1}$ times the Euler product
+$\prod_{p\le Q}(1-1/p)^{-1}=O(\log X)$ by Mertens. The
+dimension-one interval bound for these primes follows by removing
+factors from the full product. For the sieve input use
+Koukoulopoulos, \emph{The Distribution of Prime Numbers},
+Theorems~3.4(c) and 19.1, in dimension one with local
+densities $1/p$. Its prime set $p\le Q$ is the one obtained
+by cutting at $Q+1$ with the manuscript's strict-cutoff convention.
+The level ratio $U=\log\mathcal D/\log Q$ has
+$U\gg(\log X)^{1-c_0}$. For $U\ge e^2$, the relative error
+$U^{-U/2}\le e^{-U}$, and the Euler product in that main term has
+size at most one. Thus the fundamental lemma supplies real
+coefficients $|\lambda_\ell^\pm|\le1$ on
+$\ell\mid W$, $\ell\le\mathcal D$ whose sums bracket
+$\one_{(m,W)=1}$ and whose reciprocal-weighted gap is at most
+$(\log X)^{-D}$ for every fixed $D>0$ and large $X$.
+If no primes remain in $W$, the two envelopes supported at
+divisor $1$ coincide with the indicator and have gap zero.
+
+Write $H_\ell=|\{m\in P':\ell\mid m\}|$. The divisors are
+coprime to $q^{b+1}$, so each intersection has step
+$q^{b+1}\ell$ and $H_\ell=H/\ell+O(1)$. The midpoint of
+the two envelopes incurs average absolute error
+$O((\log X)^{-D}+\mathcal D/H)$ because its pointwise
+error is at most half the envelope gap. Taking $D=A'+2$ gives
+the saving in the manuscript's midpoint estimate. This controls the
+weighted error after multiplying by the fixed bound for $|f_\eta|$.
+
+For $r_j\nmid\ell$, the step $q^{b+1}\ell$ is coprime to
+$r_j$ and at most $X^{1/10000}$. The length is at least $X^{1/2}$.
+Apply the twisted orbit estimate to $\Phi_\eta$ along the
+divisor progression, with the polynomial $p$ evaluated in its
+affine coordinate. Its degree is still at most $d$, and
+the full vertically centered test has polylogarithmic norm.
+Relative to the common denominator $H$, each contribution is
+$(H_\ell/H)O_D((\log X)^{-D})$. Sum the good divisors at
+harmonic cost $O(\log X)$ and use the trivial bound on the
+bad divisors, whose total contribution is
+$O(\log X/r_j+\mathcal D/H)$. The ratio $\mathcal D/H$
+saves every fixed logarithmic power, as does $r_j^{-1}$.
+Choose $D$ to cover the harmonic loss and the Euler
+normalization. The sieve thus bounds the Cram\'er contribution
+without dividing $F-\mu_F$ into individual vertical modes.
+
+The seam, model replacement, and Cram\'er terms add before
+taking the supremum. Changing back to $y$ costs only
+$\varphi(q)/q\le1$, and $\log X\ge (\log N)/(2d)$
+converts the resulting bound to the stated $(\log N)^{-A}$
+uniformly in $I,b,u,\phi$.
+\end{proof}
+\noindent\textbf{Lean status.} The checked bundle constructor uses the
+ambient prime-model and zero-free inputs, quantitative Leibman, the Mertens
+interval estimate, and the dimension-one fundamental lemma.
+It supplies the normalized Gowers, Fourier and obstruction fields.
+The reciprocal-square tail bound gives a uniform Fourier truncation
+error at $|h|\le\eta^{-2}$ of at most $2\operatorname{Lip}(F)\eta$.
+With $\Lambda(m)\le\log X$, this verifies the truncation error of the
+printed argument.
+Lemmas~\ref{checked-prime-seam},
+\ref{checked-fourier-restriction}, and \ref{checked-prime-cramer}
+give the three error bounds before the phase supremum. The main
+theorem chooses its constants and threshold before quantifying over
+$q,b,I,u$ and the test phase. The integer bound $B$ in Lean covers
+real $B$ by rounding up. The uniform wrapper extracts the sequence
+of prime approximants from the manuscript's admissibility hypothesis.
+
+
+\section{Pointwise ergodic comparison}
+
+\paragraph{Prime distribution from the available inputs.}
+For the cutoff $Q=\lceil\exp((\log N)^{c_0})\rceil$, take sieve
+level $D=\lfloor N^{1/20000}\rfloor$ and absolute gap
+$\epsilon=(\log N)^{-2}$. If $W$ is the product of the sieving
+primes, average both pointwise bounds on a complete period. A divisor
+$d\mid W$ occurs with frequency $1/d$ there, and the sifted indicator
+has mean $\varphi(W)/W$. On an actual positive interval of length $N$,
+the corresponding counts differ from $N/d$ by at most one for each
+divisor. The same bound holds on an affine progression with step
+coprime to $W$, replacing $N$ by the number of its terms. The full
+Cram\'er normalizer has size $O(\log N)$ by Mertens. Thus on $[N]$ the
+model mean tends to one, with error $O(\log N(\epsilon+D/N))$.
+For a fixed reduced class modulo $q$, omit its prime factors in the
+sieve, then use $Q\ge q$ for large $N$. The full Euler normalizer times
+the retained sieve density is exactly $q/\varphi(q)$. The class has
+$N/q+O(1)$ terms, so the ambiently normalized model mean tends to
+$1/\varphi(q)$. The checked residue Fourier projection contracts the
+order-two norm of the model discrepancy. Its mean bound then passes
+both model limits to Mangoldt. Removing prime powers and logarithmic
+weights gives the two prime count asymptotics.
+
+\paragraph{The irrational linear test.}
+Fix irrational $\alpha$ and put $R=\lfloor\sqrt N\rfloor$. For each
+large $N$ take a reduced $a/q$ with $1\le q\le R$ and
+$\vartheta=\alpha-a/q$ satisfying $|\vartheta|\le1/(qR)$.
+For any fixed denominator bound the finitely many small denominators
+have a positive minimum of $\|q\alpha\|_{\mathbb T}$. As
+$R\to\infty$, the bound $\|q\alpha\|_{\mathbb T}\le1/R$ therefore
+forces $q$ past every fixed bound. This observation permits arbitrary
+irrational $\alpha$ at the full sequence of cutoffs.
+
+Replace the indicator in the Cram\'er correlation by the real
+midpoint of its two sieve bounds. Against a complex test of norm
+at most one, the error is bounded by the normalized half gap plus
+$O((W/\varphi(W))D/N)$, since the expected divisor counts have
+errors at most one. For $d\le D$ with $q\nmid d$,
+\[
+ \|d\alpha\|_{\mathbb T}\ge 1/q-d/(qR)\ge 1/(2q)
+\]
+eventually, by $2D\le R$. The geometric sum of $\ee(\alpha n)$
+over the $d$-multiples in $[N]$ has norm at most $2q$. If $q\mid d$,
+its phase equals $\ee(\vartheta n)$ on those multiples. Compare
+the sum with $d^{-1}\sum_{n\in[N]}\ee(\vartheta n)$ by using the
+endpoint of each complete block of length $d$. A fixed Lipschitz
+bound for $\ee$ gives error $O(|\vartheta|N)$, and the last partial
+block contributes at most one. After summing the divisor errors
+and using $qR\le N$, the normalized error is
+$O((W/\varphi(W))(D/N+D/R))$.
+
+The remaining multiplier is the midpoint's rational Fourier
+coefficient over a common period of $W$ and $q$. The same
+bracketing compares it with the true normalized coprime Fourier
+coefficient, now with no endpoint error. M\"obius inversion expands
+the coprimality indicator. A geometric sum over the $d$-multiples
+of the complete period vanishes unless $q\mid d$. If $q\nmid W$
+the coefficient is zero. Otherwise it is $\mu(q)/\varphi(q)$ by
+multiplicativity and the totient identity. Since $W$ is squarefree,
+in this case $q\le2\varphi(q)^2$ by $p\le(p-1)^2$ for $p\ge3$.
+The bound $\sqrt{2/q}$ follows. The remaining errors tend to zero
+because $(W/\varphi(W))\ll\log N$, $D\le N^{1/20000}$ and
+$R\asymp\sqrt N$. The ambient $U^2$ discrepancy is small against
+every linear phase by the checked phase-norm comparison. Convert
+the Mangoldt correlation to ordinary primes and use trigonometric
+density for the continuous tests. Lemma~\ref{checked-prime-distribution}
+records the three checked distribution interfaces.
+
+Let $(X,\nu,T)$ be an invertible probability
+measure-preserving system. For bounded measurable representatives
+$f_i\in L^\infty(X)$, write $z_n(x)=\prod_{i=1}^\ell f_i(T^{P_i(n)}x)$.
+On a common full-measure set the pointwise bound
+$|z_n(x)|\le\prod_i\norm{f_i}_\infty$ holds for all relevant $n$,
+by measure preservation and the countable family of iterates.
+Define
+\[
+ \mathcal A_H^F(x)=\frac1H\sum_{n\in[H]}
+       \Lambda(n+1)F(Z(n))z_n(x),\qquad
+ A_H(x)=\frac1{\pi(H)}\sum_{p\le H}z_{p-1}(x).
+\]
+
+\begin{proposition}[7.1, smooth ergodic comparison]\label{p:ergodic-comparison}
+\lean{NilBohr.smoothErgodicComparison_of_prime_model_distinct_degrees,NilBohr.smoothErgodicComparison_of_literature,NilBohr.smoothErgodicComparison_of_primeLocalPhase,NilBohr.smoothErgodicLogDecay_of_primeLocalPhase}\leanok
+\uses{selector}
+Fix the polynomial family with distinct positive degrees in arbitrary
+order and zero constant terms. Fix the selector data, a Lipschitz
+$F:\T\to\C$, and $A>0$. For every integer $H\ge2$,
+\[
+ \norm{\mathcal A_H^F-\mu_F\mathcal A_H^1}_{L^1(X)}
+ \ll_{\mathbf P,\alpha,\beta,F,A}
+    (\log H)^{-A}\prod_i\norm{f_i}_\infty.
+\]
+The difference tends to zero almost everywhere. Furthermore,
+\[
+ \frac1{\pi(H)}\sum_{p\le H}
+   (F(Z(p-1))-\mu_F)z_{p-1}(x)\longrightarrow0
+ \quad\text{for almost every }x .
+\]
+\end{proposition}
+\source{p:ergodic-comparison}
+\begin{proof}[Proof in the manuscript]
+\proves{p:ergodic-comparison}\uses{p:prime-phase,external-inputs,checked-ergodic,checked-orbit,checked-prime-distribution}\leanok
+Order the indices by degree and permute the functions with the
+polynomials. Both the orbit product and the product of essential
+supremum norms are invariant under this permutation. This chooses
+the order before the probability system and the inputs are given.
+By homogeneity use $1$-bounded inputs, treating a zero norm
+by the common full-measure set.
+Set $\vartheta(n)=\Lambda(n+1)(F(Z(n))-\mu_F)$ and
+$L_H=2(1+\norm F_\infty)\log(H+2)$.
+Proposition~6.2 gives
+$\norm{\vartheta}_{u^{d+1}[H]}\ll_D(\log H)^{-D}$ for any
+fixed $D>0$, with $q=1$ and $N=H^d$.
+The weight $\vartheta/L_H$ is $1$-bounded.
+
+Pair the centered difference with a $1$-bounded test $g$.
+Use $x=T^mz$ and average this measure-preserving change of
+variables over $m\in[H^d]$. The orbit functions are
+$g_{0,z}(m)=g(T^mz)\one_{[H^d]}(m)$ and
+$g_{i,z}(m)=f_i(T^mz)\one_{[-CH^d,CH^d]}(m)$
+for a fixed $C$ containing all shifted supports. This writes
+the pairing as the integral over $z$ of $L_H$ times the
+discrete count with denominator $H^{d+1}$ and weight
+$\vartheta/L_H$. Ter\"av\"ainen's Theorem~4.1 applies at
+these exact scales. By $L^1$ duality the $L^1$ difference is
+\[
+ \ll_{\mathbf P} L_H
+    (H^{-1}+L_H^{-1}\norm{\vartheta}_{u^{d+1}[H]})^{1/K_0}
+\]
+for some $K_0\ge1$. Take $D>K_0(A+1)$; bounded $H$ can be
+absorbed by enlarging the constant.
+
+For $H_j=\lfloor\exp(j^{1/3})\rfloor$ and $A>3$ the
+$L^1$ errors are summable in $j$. Thus the sequence of
+differences tends to zero almost everywhere along $H_j$.
+For $H_j\le H\le H_{j+1}$ the same summands occur at both
+scales and their magnitudes are $O_F(\log(H_{j+1}+2))$.
+The normalized difference between the two scales is
+\[
+ O_F\left(\frac{H_{j+1}-H_j}{H_j}\log(H_{j+1}+2)\right)
+ =O_F(j^{-1/3}).
+\]
+Here the increment of $j^{1/3}$ is $O(j^{-2/3})$ and the floor
+contributes a negligible rounding error. The gap bound extends
+convergence to all $H$ on the same full-measure set.
+
+Write $a_p(x)=(F(Z(p-1))-\mu_F)z_{p-1}(x)$.
+Drop the endpoint at $H+1$ at cost $O_F(\log H)$, and the
+higher prime powers at cost $O_F(H^{1/2}(\log H)^2)$.
+It follows that $B(H)=\sum_{p\le H}(\log p)a_p(x)=o(H)$.
+Partial summation gives
+\[
+ \sum_{p\le H}a_p(x)
+ =\frac{B(H)}{\log H}
+    +\int_2^H\frac{B(t)}{t(\log t)^2}\,dt=o(H/\log H).
+\]
+The integral has that asymptotic, for instance by cutting at
+$\sqrt H$ and using $B(t)=o(t)$ on the upper range.
+The prime number theorem converts the estimate to the stated
+normalized convergence.
+\end{proof}
+\noindent\textbf{Lean status.} The $L^1$ estimate holds in Lean for
+every $A>0$ from the literature inputs of Proposition~6.2 and the
+fixed-family Ter\'av\'ainen estimate. This includes the finite orbit
+window, scaling for bounded inputs, and extraction of the $q=1$
+test. The passage to almost-everywhere prime averages is checked
+from exponent $6$ and the stated PNT asymptotics.
+
+\begin{theorem}[1.4, Heisenberg selected prime averages]\label{t:pointwise}
+\lean{NilBohr.PrimePointwiseFor,NilBohr.heisenberg_pointwise_of_prime_model,NilBohr.heisenberg_pointwise_of_analytic_inputs,NilBohr.heisenberg_pointwise_of_literature,NilBohr.primePointwiseFor_of_primeLocalPhase}\leanok
+\uses{selector}
+Under the fixed hypotheses and for every bounded input family,
+$\pi_{Z,J}(H)/\pi(H)\to|J|$ and
+\[
+ \frac1{\pi_{Z,J}(H)}
+   \sum_{p\le H,\ p\in\mathcal P_{Z,J}}z_{p-1}(x)
+ \longrightarrow \lim_{H\to\infty} A_H(x)
+ \quad\text{for almost every }x ,
+\]
+where the unrestricted limit exists almost everywhere.
+\end{theorem}
+\source{t:pointwise}
+\begin{proof}[Proof in the manuscript]
+\proves{t:pointwise}\uses{p:ergodic-comparison,external-inputs,checked-ergodic,checked-prime-distribution}\leanok
+Apply Mirek--Wan--Wright Theorem~1.1(ii) to the polynomials
+$P_i(t-1)$, whose degrees remain distinct, and inputs in
+$L^{2\ell}(X)$. This gives pointwise convergence of
+$H^{-1}\sum_{n\le H}\Lambda(n)z_{n-1}(x)$.
+Drop higher prime powers and use partial summation and the prime
+number theorem, now allowing the limiting function as the main
+term, to obtain a limit $A_H(x)\to L(x)$.
+
+For integer $j\ge1$ choose real Lipschitz functions
+$0\le F_j^-\le\one_J\le F_j^+\le1$ and
+$\mu_{F_j^+-F_j^-}<2^{-j}$. Such functions can be made
+by linear ramps near the two boundary points, with
+arbitrarily small ramp widths. Apply Proposition~7.1 to $F_j^-$
+with the given inputs and to $F_j^+-F_j^-$ with unit inputs.
+Intersect the resulting countable family of full-measure sets.
+With normalization $1/\pi(H)$, the norm of the replacement
+error from $F_j^-$ to $\one_J$ is bounded by
+\[
+ \prod_i\norm{f_i}_\infty
+  \frac1{\pi(H)}\sum_{p\le H}(F_j^+-F_j^-)(Z(p-1)).
+\]
+The scalar limit bounds its limsup by
+$2^{-j}\prod_i\norm{f_i}_\infty$. Also
+$|\mu_{F_j^-}-|J||<2^{-j}$. Sending $j\to\infty$ gives
+the comparison of the selected sum normalized by $\pi(H)$
+with $|J|A_H(x)$, with error tending to zero. With all
+inputs one, this gives the scalar count ratio.
+Division by the positive limiting ratio proves the result.
+All normalized averages are taken once the denominators are
+positive, which the scalar limit implies eventually.
+\end{proof}
+\noindent\textbf{Lean status.} The conclusion is checked from
+the literature inputs of Proposition~6.2, Ter\'av\'ainen's fixed-family
+estimate, and Mirek--Wan--Wright. Lemma~\ref{checked-prime-distribution}
+supplies the prime count asymptotic from the same prime-model and
+sieve premises. The quantitative rate of Proposition~7.1 is an
+intermediate checked deduction.
+
+\begin{corollary}[1.5, bracket selected prime averages]\label{c:bracket-pointwise}
+\lean{NilBohr.bracket_pointwise_of_prime_model,NilBohr.bracket_pointwise_of_analytic_inputs,NilBohr.bracket_pointwise_of_literature,NilBohr.bracket_pointwise_of_primeLocalPhase}\leanok
+\uses{selector}
+The conclusion of Theorem~1.4 holds for $Z_{\rm br}$ in place of $Z$.
+\end{corollary}
+\source{c:bracket-pointwise}
+\begin{proof}[Proof in the manuscript]
+\proves{c:bracket-pointwise}\uses{t:pointwise,checked-prime-distribution,checked-rotations}\leanok
+First fix $h\in\Z\setminus\{0\}$ and a real polynomial
+$\psi$ of degree at most two. Adjoin shifts of degrees one
+and two if missing and call the increasing family $Q_i$.
+The corresponding $g_i$ is the original input at $Q_i$ or $1$
+for an added shift. Write
+$\psi(n)=\psi(0)+\omega_1Q_1(n)+\omega_2Q_2(n)$
+using the nonzero leading coefficients. For
+$S(x,u,v)=(Tx,u+\omega_1,v+\omega_2)$ on $X\times\T^2$,
+put $G_1=g_1(x)\ee(u)$, $G_2=g_2(x)\ee(v)$ and
+$G_i=g_i(x)$ for $i\ge3$. The product of iterated
+$G_i$ is $\ee(u+v-\psi(0))\ee(\psi(n))z_n(x)$.
+Theorem~1.4 on this system and Fubini give for each fixed
+open arc $K$,
+\[
+ \frac1{\pi(H)}\sum_{p\le H}
+ (\one_K(Z(n))-|K|)\ee(\psi(n))z_n(x)\longrightarrow0,
+ \qquad n=p-1,
+\]
+almost everywhere. Endpoints have zero relative density:
+a centred arc around any endpoint has prime proportion tending
+to the arc length by the scalar theorem, which can be arbitrarily
+small. Thus the formula holds for half-open arcs as well.
+Approximate $\ee(-ht)$ by its values on equal half-open
+intervals of width $1/m$, for integers $m>|h|$.
+Their constant contribution cancels since the roots of unity
+sum to zero. The uniform error is at most $2\pi|h|/m$.
+On a common full-measure set, send $m\to\infty$ to conclude
+that $\ee(-hZ(n)+\psi(n))z_n(x)$ has prime average tending to zero.
+
+Next put $t=\{\beta n\}$ and $c(t)=\one_{[1-\beta,1)}(t)$.
+The exact carry identity is
+\[
+ Z_{\rm br}(n)+Z(n)=\theta(n^2+n)-\alpha t+\alpha(n+1)c(t).
+\]
+Exponentiating $h$ times gives
+\begin{align*}
+ \ee(h Z_{\rm br}(n))
+ &=\ee(-hZ(n)+h\theta(n^2+n))\bigl[U_0(t)+\ee(h\alpha n)U_1(t)\bigr],\\
+ U_0(t)&=\one_{[0,1-\beta)}(t)\ee(-h\alpha t),\qquad
+ U_1(t)=\one_{[1-\beta,1)}(t)\ee(h\alpha(1-t)).
+\end{align*}
+The only possible discontinuities are at $0$ and $1-\beta$.
+Approximate $U_0,U_1$ by continuous functions of modulus at
+most one that agree outside $\delta$-neighborhoods of those
+points. This can be done by linear interpolation in the complex
+unit disk. Since $\beta$ is irrational, prime equidistribution
+of $\{\beta(p-1)\}$ bounds the limiting proportion of discarded
+terms by $4\delta$, hence bounds the limsup of the weighted
+error by $16\delta\prod_i\norm{f_i}_\infty$. Approximate the
+continuous coefficients uniformly by trigonometric polynomials.
+Each mode $\ee(kt)=\ee(k\beta n)$ combines with the other
+phases into an earlier quadratic test. The averages tend to zero
+for each fixed trigonometric approximation. Use a countable
+approximating family and then let $\delta\downarrow0$.
+This proves cancellation for every fixed $h\ne0$ and, by a
+countable intersection, simultaneous cancellation for such $h$.
+
+A trigonometric polynomial of $Z_{\rm br}$ has its mean
+as the surviving coefficient, and uniform approximation gives the
+same comparison for continuous weights. Squeeze $\one_J$
+by the same Lipschitz ramps, first controlling the scalar gap.
+The prime-count ratio tends to $|J|$ and division gives the
+pointwise conclusion.
+\end{proof}
+\noindent\textbf{Lean status.} The full deduction is checked
+under the Heisenberg hypotheses giving Theorem~1.4 on the rotation
+extensions and the scalar Vinogradov input. Lean first obtains all
+quadratic twists directly from Fourier characters and the smooth
+comparison. It then inserts each complex horizontal coefficient by
+uniform approximation and bounds the change from the half-open cell
+by continuous endpoint ramps. Translation invariance of circle Haar
+measure passes the Vinogradov input for $\beta p$ to $\beta(p-1)$.
+This proves (56), followed by the continuous and interval selector
+comparisons. The composed theorem takes the same literature premises
+as the Heisenberg result. Lemma~\ref{checked-prime-distribution}
+supplies the scalar Vinogradov estimate.
+
+\section{Separating local and global phase tests}
+
+\begin{proposition}[A.1, separating family]\label{p:separating-family}
+\lean{NilBohr.SeparatingFamilyClaims,NilBohr.appendixA_separating_family_of_quantitativeLeibman,NilBohr.separatingFamily_of_obstructions,NilBohr.appendixA_separating_family}\leanok
+\uses{selector,phase-tests}
+Fix nonconstant Lipschitz $F$ and put $G_q(y)=F(Z(qy))-\mu_F$.
+There are sequences $q,M,N=qM^2$ in the smooth-modulus range
+with $\log q\asymp(\log r_j)^2$ such that
+$\norm{G_q}_{u^3[M]}\gg_F r_j^{-1}$.
+For fixed $A,B>0$ and every $P=I\cap(u+q^b\Z)$ with
+$I\subset[M]$, $0\le b\le B$ and $|P|\ge(qM)^{1/2}$, the
+bound $\norm{G_q}_{u^3[P]}\ll_{A,B,F}(\log M)^{-A}$ holds.
+Also, for each fixed integer $S\ge3$, $\norm{G_q}_{U^S[M]}\gg_{F,S}1$.
+\end{proposition}
+\source{p:separating-family}
+\begin{proof}[Proof architecture]
+\proves{p:separating-family}
+\uses{p:heisenberg-phase,l:heisenberg-horizontal,l:vertical-mode-multiplier,checked-separating-finite,checked-separating-scales,checked-separating-local,checked-separating-quadratic,checked-separating-gowers}\leanok
+\paragraph{One sequence of scales.}
+Write $r=r_j$ and $R=r_{j+1}$. Take
+\[
+ \begin{aligned}
+ w&=\lfloor\log r\rfloor,&
+ q&=\mathcal L(w)^{\left\lfloor w^2/\log\mathcal L(w)\right\rfloor},&
+ H&=\left\lfloor R^{1/4}/r\right\rfloor,\\
+ M&=rH,& X&=qM,& N&=qM^2.
+ \end{aligned}
+\]
+The formula for $q$ is used for large $j$, where $w\ge16$ and
+$\mathcal L(w)\ge2$. The floor gives $w^2-\log\mathcal L(w)<\log q
+\le w^2$. Since $\log\mathcal L(w)\le w\log w$, one has
+$\log q\sim w^2$. The lower bound on the exponent makes
+$8\prod_{p\le w}p\mid q$, and prime divisors of $q$ are $\le w$.
+In particular $q$ is coprime to the prime $r>w$.
+The growth of $R$ implies that each fixed power of $\log r$ is
+$o(\log R)$. As $0\le R^{1/4}-M<r$, it follows that
+$M\sim R^{1/4}$. One can use the finite bounds
+$H\ge R^{1/6}$, $R^{1/5}\le M\le R^{1/4}$ and
+$R^{1/5}\le X\le R^{1/3}$ for large $j$. These give $q\le M$,
+$r\le X^{1/100}<R$, and $q^{b+1}\le X^{1/10000}$ uniformly
+for $b$ in any fixed finite range. The asymptotic for $M$ also gives $\log\log M\sim\sqrt{\log r}$,
+so $\log q\asymp(\log\log M)^4$. Since $N=qM^2$, one has
+$w=o((\log N)^c)$ for each fixed $c>0$ and
+$\log q=o(\sqrt{\log N})$. The first comparison gives
+$w\le(\log\widetilde Q_N)^{c_{\mathrm{rel}}}$ for each fixed
+$c_0,c_{\mathrm{rel}}>0$, using $\log\widetilde Q_N\ge(\log N)^{c_0}$.
+The second yields $N^{1/2}\exp(-2\sqrt{\log N})\le M\le N^{1/2}$,
+since $M=N^{1/2}q^{-1/2}$ exactly. In particular
+$M=\lfloor(N/q)^{1/2}\rfloor$.
+
+\paragraph{A correlation on the denominator multiples.}
+Fix $h\in\Z\setminus\{0\}$ with $\widehat F(h)\ne0$. Such an $h$
+exists because circle characters span a uniformly dense subspace
+of the continuous functions. Put $E=\beta-a_j/r$, so
+$0<E\le D/R$ with $D$ fixed. For $r\mid y$ in $[M]$,
+$a_j qy/r$ is integral and $0\le E qy\le E X<1$ for large $j$.
+Consequently $\lfloor\beta qy\rfloor=a_j qy/r$, and
+\[
+ Q(y)=-\frac{\alpha a_j}{2r}(q^2y^2+qy),\qquad
+ |Z(qy)-Q(y)|\le \frac{\abs{\alpha}}2 E X^2.
+\]
+The last bound tends to zero uniformly because $X\le R^{1/3}$.
+Lipschitz continuity therefore permits replacing $F(Z(qy))$
+by $F(Q(y))$ in the correlation on $r\mid y$.
+
+For every fixed $k\in\Z\setminus\{0\}$, the phase
+$k(Q(r(t+v))-Q(rt))$ is linear in $t$ with coefficient
+$-k\alpha a_jq^2rv$. The integer multiplying $\alpha$ is nonzero because
+$0<a_j<r$ and $v\ne0$. The geometric identity bounds the
+absolute normalized sum over $H$ consecutive integers by
+$O(1/(H\tn{k\alpha a_jq^2rv}))$.
+Bad approximability of $\alpha$ bounds this by
+$O_\alpha(|k|a_jq^2r |v|/H)$.
+For each fixed nonzero $v$ this tends to zero, since
+$a_j<r$, $H\ge R^{1/6}$, and $q^2r^2=R^{o(1)}$.
+
+For the displayed quantitative bound, replace each unit phase $z_t$ by
+$L^{-1}\sum_{a=0}^{L-1}z_{t+a}$, extending the formula for $z_t$
+beyond the averaging interval. The average changes by at most
+$2L/H$. Apply Cauchy--Schwarz to the smoothed sequence and expand
+the square. The diagonal contributes $1/L$ and each off-diagonal
+is bounded by $O_\alpha(|k|a_jq^2r L/H)$. Taking
+$L=\lfloor H^{1/3}\rfloor$ gives
+\[
+ \abs{\E_{t\in[H]}\ee(kQ(rt))}^{2}
+ \ll_\alpha H^{-1/3}+|k|a_jq^2rH^{-2/3}.
+\]
+For every $\gamma>0$, $a_jq^2r/H^\gamma\to0$ at the chosen
+scales, so this bound tends to zero. The same limit also follows
+from the checked argument that takes $j\to\infty$ at fixed $L$
+and then lets $L\to\infty$. Weyl's criterion
+follows by uniform approximation by trigonometric polynomials.
+Apply it to $u\mapsto(F(u)-\mu_F)\ee(-hu)$ to get
+\[
+ \E_{t\in[H]}G_q(rt)\ee(-hQ(rt))\longrightarrow \widehat F(h).
+\]
+Inserting $\one_{r\mid y}$ in the average on $[M]$ multiplies this
+by $H/M=1/r$. Expanding the indicator into $r$ linear characters
+with total coefficient modulus one gives
+$\norm{G_q}_{u^3[M]}\gg_F r^{-1}$, since each resulting test is
+still quadratic.
+
+\paragraph{Uniform local tests.}
+Parametrize a tested $P$ as $a+q^b[|P|]$. The selector then runs
+over a progression of step $q^{b+1}$ in the $Z$ variable. The
+step conditions established above and the given $|P|\ge X^{1/2}$
+allow the centered estimate of Proposition~4.3. The affine change
+of variable preserves the degree bound on the test polynomial.
+Since $\log X\ge\log M>0$ for large $j$, the resulting bound
+$O((\log X)^{-A})$ gives the claimed bound in $\log M$.
+
+\paragraph{Full Gowers norms.}
+Choose the fixed Lipschitz cutoff
+$\chi(u)=\min(1,\max(0,3\tn u-1))$. Its support lies in
+$[1/3,2/3]$, and it is positive near $1/2$, so its circle
+integral is positive. Let
+$D_h(u)=(F(u)-\mu_F)\ee(-hu)$, with
+$\mu_{D_h}=\widehat F(h)$. The chart test with orbit values
+$\chi(\{\beta n\})D_h(Z(n))$ splits into the centered
+cutoff test for $D_h$ and $\mu_{D_h}$ times the horizontal cutoff.
+Both are Lipschitz for the relevant fixed quotient distance.
+Use $v=q$ and $K=M\ge X^{1/2}$ in the scalar estimate.
+The centered term has zero chart integral, while the horizontal
+term has chart mean $\mu_{D_h}\int_\T\chi$. Thus
+\[
+ \E_{y\in[M]}G_q(y)\chi(\{\beta qy\})\ee(-hZ(qy))
+ \longrightarrow \widehat F(h)\int_\T\chi .
+\]
+The normalized Gowers mean bound and Lemma~4.5 control the
+left-hand modulus by
+$O_S(\norm{\widehat\chi}_{\ell^1}\norm{G_q}_{U^S[M]})$ for every
+fixed $S\ge3$. The limit is nonzero, which gives a positive
+lower bound independent of $j$.
+\end{proof}
+\noindent\textbf{Lean status.} Proposition~A.1 is checked on one
+explicit sequence. The local upper bound and full Gowers lower bound use the
+specializations of quantitative Leibman. The ordinary phase lower
+bound follows from the Diophantine hypotheses, finite Fourier
+extraction and the quadratic Weyl argument.
+
+\begin{lemma}[The two dilation bounds and the direct estimate]\label{checked-separating-comparison}
+\lean{NilBohr.SeparatingCountComparison,NilBohr.appendixA_count_comparison,NilBohr.separatingFixedFamily_bounds_of_bounded,NilBohr.separating_fixedDilationBound_tendsto,NilBohr.repeatedDilationPhaseBound_one}\leanok
+\uses{p:separating-family,t:main,external-inputs,checked-separating-finite}
+Use the shifts $y,qy^2$ and $1$-bounded spatial inputs supported
+on $[-N,N]$. With $K\ge1$ from the fixed-family theorem, the
+dilated upper bound is proportional to
+\[
+ q^2\left((qM)^{-1}+q^{-1}\norm{G_q}_{u^3[M]}\right)^{1/K},
+\]
+or to the same expression with $q$ in place of $q^2$ when the
+spatial inputs repeat on the $q$ residue classes. The first expression
+diverges on the separating scales. The repeated expression diverges
+for $K>1$, and tends to zero at $K=1$. The direct estimate of
+Theorem~4.2 gives $|T_{N,M,G_q}(\mathbf f)|\ll_F (\log M)^{-1}$
+uniformly in the inputs on those scales.
+\end{lemma}
+\begin{proof}
+\proves{checked-separating-comparison}\leanok
+Extend the parameter weight and each spatial input by zero off
+$q\Z$. For the fixed shifts $n,n^2$, the changes $m=qx$ and $n=qy$
+give the same numerator and denominator $(qN)(qM)$. The identity
+$\norm{\widetilde G}_{u^3[qM]}=q^{-1}\norm{G_q}_{u^3[M]}$ follows
+by transporting quadratic tests in both directions.
+Repeating each $f_i(qx+a)=f_i(x)$ for $0\le a<q$ multiplies the
+numerator by $q$. The resulting inputs have support in
+$[-2qN,2qN]$, since for $|x|\le N$ one has
+$|qx+a|\le qN+q\le2qN$ for $N\ge1$. The fixed-family estimate
+applies at parameter length $qM$ and spatial scale $(qM)^2=qN$.
+Normalizing the bounded weight costs a constant depending on $F$.
+
+For $b=1,2$ write the resulting expression as
+$q^b((qM)^{-1}+q^{-1}\norm{G_q}_{u^3[M]})^{1/K}$.
+Proposition~A.1 gives a lower bound by a positive constant times
+$q^{b-1/K}r^{-1/K}$, which diverges when $b>1/K$ because
+$\log r=o(\log q)$. When $b=K=1$, the expression is exactly
+$M^{-1}+\norm{G_q}_{u^3[M]}$. The local estimate in
+Proposition~A.1 applies to $[M]$ itself since $M\ge X^{1/2}$.
+
+For the direct estimate normalize $G_q$ to a $1$-bounded
+weight, and take $\rho=(\log M)^{-1}$ in Theorem~4.2.
+The shifts have the required $(1,q)$-coefficients.
+A tested interval has length at least
+$Mq^{-A_1}(\log M)^{-A_2}$, so its progression has length at least
+$Mq^{-A_1-b}(\log M)^{-A_2}-1$. Since $q=M^{o(1)}$ and $b$ is
+bounded, this exceeds $X^{1/2}$ for large $j$.
+Use Proposition~A.1 with $A\eta\ge1$ and absorb the spatial
+term $N^{-\eta}$ into $(\log M)^{-1}$. This gives the uniform bound.
+\end{proof}
+\noindent\textbf{Lean status.} The comparison is checked from
+the inputs of Proposition~A.1, the KMTT inverse estimate and
+Ter\'av\'ainen's fixed-family estimate. The divergence statements
+concern the displayed upper-bound expressions. The direct
+estimate gives the uniform decay of the counts.
+
+
+\section{Additional claims and scope of the estimates}
+
+\input{auxiliary-results}
+
+\paragraph{Localized tests versus full Gowers norms.}
+The same vertical-mode correlation as in Proposition~A.1 works at
+$q=1$. In Lemma~\ref{checked-ambient-norm} the scale $X=M$ is
+bracketed by Lemma~6.1, and step $1$ is coprime to every prime
+denominator. A fixed short horizontal cutoff with positive Haar
+mean and a nonzero Fourier coefficient of $F$ therefore give the
+positive lower bound for all sufficiently large $M$.
+
+For the independent order-two example write $I_h=[M]\cap([M]-h)$.
+The unnormalized fourth power of the weight is
+\[
+ \sum_{|h|<M}
+ \left|\sum_{x\in I_h}\ee(2\theta hx+\theta h^2)\right|^2 .
+\]
+Fix a block length $K\ge2$. Irrationality gives a positive least
+torus distance to zero among $2\theta j$ for $0<|j|<K$.
+For a small enough threshold $\eta>0$, each block of $K$
+directions has at most one $h$ with $\tn{2\theta h}<\eta$.
+These directions cost at most $(2M/K+1)M^2$ in total. For the
+other directions the geometric sum is bounded by $\eta^{-1}$.
+The fourth power of the indicator norm is at least $M^3/8$,
+as seen by using $0\le h\le M/2$. Divide by that norm,
+let $M$ tend to infinity, and then send $K$ to infinity.
+For the count, support the base input on $[M^2]$ with
+phase $\ee(-\theta x)$. Use the constant and the phase
+$\ee(\theta x)$ on $[2M^2]$ as the two shifted inputs.
+All parameters $1\le n\le M$ leave the shifted points in their
+supports, and the three phase factors multiply to one.
+The resulting count normalized at $N=2M^2$ is $1/2$.
+
+\paragraph{Smooth local factors.}
+In Remark~1.6 the divisibility $\mathcal L(w)\mid q$ bounds
+the cost of prescribing one common step. A localized weighted
+correlation is obtained by differencing the spatial inputs and
+applying the unweighted KMTT inverse estimate. If the auxiliary
+denominator $r$ is at most $w$, then $r\mid q$ and every step
+$rq^b$ divides the fixed $q^{B+1}$. On progressions of this
+step, approximate each dual factor by its value at the initial
+point. Summing the resulting constant correlations gives the
+linear-phase extraction at frequency zero. The existing
+replacement and deletion argument applies with this fixed-step
+localization. The centered progression estimate then bounds the
+count uniformly on the iteration's range. In Lean the inverse
+threshold is a fixed power of $w^{-A}$, and $A$ is chosen so the
+required lcm cutoff is at most $w$.
+
+\paragraph{The ambient sharp-arc comparison.}
+For $M=\lfloor\sqrt N\rfloor$ and $A\subset[N]$, the count in (10) is
+\[
+ \mathcal C(F)=\frac1{NM}\sum_{x\in\Z}\sum_{n=1}^M
+  \Lambda(n+1)F(Z(n))\one_A(x)\one_A(x+n)\one_A(x+n^2).
+\]
+Use Proposition~6.2 at $q=1$
+on the full interval $[M]$. A centered Lipschitz selector times
+$\Lambda(n+1)$ has arbitrary inverse-logarithmic phase savings.
+Divide the weight by a constant times $\log M$ to make it
+$1$-bounded. Ter\"av\"ainen's fixed-family estimate uses spatial
+scale $M^2$. The inputs on $[N]$ fit in its window of size a
+constant times $M^2$, and the base support makes enlarging the
+summation window exact. Rescale the count by $M^2/N\le1$ and
+restore the weight factor, choosing the original logarithmic
+saving large enough to absorb it. Every bound is uniform in
+$A$. For an open arc, sandwich its indicator by fixed Lipschitz
+functions with means approaching $|J|$. The prime number theorem
+bounds $\mathcal C(1)$ independently of $A$ and makes the
+sandwich error arbitrarily small.
+
+\paragraph{Pointwise comparison for Bohr weights.}
+A single imposed linear twist $\ee(\omega n)$ can be
+realized by adjoining a circle rotation by $\omega/a$
+and the character in the input at the linear shift $an$.
+If necessary add a linear shift with constant input and
+reindex the polynomials and functions. Pointwise convergence
+on the product system and Fubini then give the twisted limit.
+The Lean proof uses the existing two-circle extension with
+one rotation frequency set to zero.
+For periodic weights expand into finitely many such modes.
+For continuous tests on a finite torus, take uniform trigonometric
+approximants, intersect their countably many conull sets, and
+use their uniform error and bounded inputs.
+
+At each irrational coordinate, Vinogradov bounds the limiting
+relative number of primes visiting a small strip around the
+two endpoints. At each rational coordinate, Fourier interpolation
+on its finite grid reproduces the indicator exactly, including
+whatever endpoint values the interval takes. The difference of
+the products of the cutoff values is bounded by the sum of the
+coordinate errors, so simultaneous conditions require only the
+marginal equidistribution statements. Taking the inputs to be
+one gives existence of the selected-prime relative density
+limit. If it is positive, division by that density changes
+from total prime normalization to selected-prime normalization.
+For reduced residue classes the prime number theorem in
+progressions gives density $1/\varphi(q)$.
+
+\subsection{Fast prime-denominator approximation}
+
+\begin{proposition}[Introductory counterexample]\label{checked-intro-fast-obstruction}
+\uses{selector}
+\lean{NilBohr.intro_fast_approximation_counterexample}\leanok
+There are $\beta\in(0,1)\setminus\mathbb Q$ and strictly increasing
+prime denominators $r_j$ with $0<a_j<r_j$ such that
+$0<\beta-a_j/r_j<\exp(-r_j^j)$ for every $j$. Set
+$N_j=\lfloor\exp(r_j^j/6)\rfloor$. For each $\alpha\in\R$ there are
+sets $A_j\subset[N_j]$ with the following properties.
+If $x,x+n,x+n^2$ are in $A_j$ with $n\ge1$, then
+$Z(n)\bmod 1\notin J=(1/4,1/2)$. The scales tend to infinity and
+the density satisfies $|A_j|/N_j\ge 1/(578r_j)$ eventually.
+For every fixed $\kappa>0$, the same sets satisfy
+$|A_j|/N_j>(\log N_j)^{-\kappa}$ eventually.
+\end{proposition}
+
+\begin{proof}
+\proves{checked-intro-fast-obstruction}\leanok
+Start with $a_0/r_0=1/3$. Choose each prime $r_{j+1}$ with
+$r_{j+1}\ge2r_j$ and $r_{j+1}>2\exp(r_j^j)$.
+The rational $a_{j+1}/r_{j+1}$ is the first point of that grid
+strictly above $a_j/r_j$. Each increment is at most $1/r_{j+1}$.
+The geometric tail bound gives a limit $\beta\le2/3$ and
+\[
+ 0<\beta-a_j/r_j\le 2/r_{j+1}<\exp(-r_j^j).
+\]
+For each fixed $m$, this error is below $r_j^{-m}$ for large $j$,
+because $r_j^j\ge m\log r_j$ eventually. Lean uses Mathlib's
+Liouville-number criterion for irrationality.
+
+Fix $\alpha$ and consider the $r_j$-multiples in $[N_j]$. A
+configuration on this grid has $r_j\mid n$ and $n\le N_j$.
+The error $(\beta-a_j/r_j)n$ is less than one, since
+$N_j\exp(-r_j^j)\le \exp(-5r_j^j/6)<1$.
+It follows that $\lfloor\beta n\rfloor=a_jn/r_j$, so
+$Z(n)=c_1n+c_2n^2$ with $c_1=-\alpha\beta/2$ and
+$c_2=\alpha(\beta/2-a_j/r_j)$.
+Partition the two coordinates $(c_1x,c_2x)\bmod 1$ into a
+$17$ by $17$ grid of half-open boxes. A largest cell $A_j$
+contains at least $\lfloor N_j/r_j\rfloor/17^2$ points.
+For a configuration within the cell, the first coordinate at
+$x+n$ and $x$ gives $\tn{c_1n}<1/17$, while the second at
+$x+n^2$ and $x$ gives $\tn{c_2n^2}<1/17$.
+The torus triangle inequality gives $\tn{Z(n)}<2/17<1/8$.
+Every point of $J$ has torus norm greater than $1/4$, proving
+avoidance for all positive parameters, including $n=p-1$ for prime $p$.
+
+Eventually $N_j\ge r_j$ and
+$\lfloor N_j/r_j\rfloor\ge N_j/(2r_j)$, giving the
+claimed density. The floor in $N_j$ yields
+$\log N_j\ge r_j^j/12$ eventually.
+For fixed $\kappa>0$, take $j$ large enough that $j\kappa\ge2$.
+Then $(\log N_j)^{-\kappa}\le12^\kappa r_j^{-2}$,
+which is eventually below $1/(578r_j)$ as $r_j\to\infty$.
+The sets were chosen before $\kappa$.
+\end{proof}
+
+\noindent\textbf{Lean status.} The approximants, exact floor
+identity, finite coloring, and eventual density comparison are checked
+without external analytic inputs. The same $\beta$ works for every
+$\alpha$, including the badly approximable case used in the manuscript.
+
+\paragraph{Progressions, maximal estimates, and available scales.}
+For a moving arc $J_N$, the finite progression implication tests
+the actual density through $N$. The manuscript gives no uniform
+lower bound on this density over moving arcs. In the case $k=4$,
+put $L=\log\log\log N\ge0$ and write the stronger density threshold
+as $e^{-aL}$. The inequality $\sqrt L-aL\le1/(4a)$ verifies
+the weaker common form for the same finite cutoff.
+For the maximal deduction, take absolute values of the inputs
+before forming the unrestricted multilinear maximal expression.
+Lemma~\ref{checked-maximal-domination} works at every cutoff,
+so taking the supremum transfers any available estimate for
+this positive maximal expression with the same input exponents.
+
+In the density iteration the logarithmic modulus is at most
+$b^{i_*}\log\mathcal L(w)$ and the geometric density increase gives
+$i_*\le1+\log(1/\delta)/\log(1+\eta)$.
+Using $\log\mathcal L(w)\le w\log w\le w^2$ and
+$w\le\lceil K\delta^{-E}\rceil$ gives
+$\log q_i\ll\delta^{-D_0}$ with $D_0=2E+\log b/\log(1+\eta)$.
+If $\delta\ge(\log\log N)^{-c}$ with $cD_0<1$, this bound is
+$o(\log\log N)$ uniformly. Since
+$\log\log N_i\ge(3/4)\log\log N$, for every $\epsilon>0$ all stages
+satisfy $q_i\le(\log N_i)^\epsilon$ when $N$ is large enough.
+For a loss $q_i^K$, take $\epsilon<(A-a)/K$ when $K>0$ to pass
+from logarithmic saving $A$ to $a<A$. For the other density regime
+the witnesses in Lemma~\ref{checked-iteration-moduli} have
+$w^2/2\gg(\log N)^{2\kappa E}$ and hence
+$\log q>A\log\log N$ for every fixed $A$. These witnesses show
+what the admissible range permits at a given scale.
+
+\section{Manuscript and Lean correspondence}
+\printmapping
+\input{checked}

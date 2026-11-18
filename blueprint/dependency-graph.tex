@@ -1,0 +1,52 @@
+\begin{center}
+\begin{tikzpicture}[
+  x=1cm,y=1cm, >=Stealth,
+  stmt/.style={draw=ink!38,rounded corners=2pt,minimum height=0.85cm,text width=3.42cm,align=center,
+     font=\small,inner sep=3pt,fill=mist,text=ink},
+  ext/.style={stmt,fill=sand},
+  conclusion/.style={stmt,fill=leaf,very thick},
+  depends/.style={->,draw=ink!75,line width=0.57pt}]
+  \node[ext] (inverse) at (-4.35,0) {KMTT inverse\\estimate};
+  \node[stmt] (horizontal) at (0,0) {6.1\\Horizontal bound};
+  \node[ext] (prime) at (4.35,0) {Banks, KMTT\\and sieve};
+  \node[stmt] (local) at (-4.35,-1.27) {5.1, 4.2\\Local phase tests};
+  \node[stmt] (phase) at (0,-1.27) {4.3\\Heisenberg tests};
+  \node[stmt] (mult) at (4.35,-1.27) {4.1, 4.5\\Prime model, mode};
+  \node[stmt] (bare) at (-4.35,-2.54) {4.4\\Centered count};
+  \node[stmt] (compare) at (0,-2.54) {3.2\\Smooth count};
+  \node[stmt] (weighted) at (4.35,-2.54) {6.2\\Prime phase tests};
+  \node[stmt] (increment) at (0,-3.81) {3.1\\Density increment};
+  \node[stmt] (erg) at (4.35,-3.81) {7.1\\Ergodic comparison};
+  \node[conclusion] (rec) at (0,-5.08) {1.2, 1.3\\Recurrence, bracket};
+  \node[conclusion] (pt) at (4.35,-5.08) {1.4, 1.5\\Pointwise, bracket};
+  \node[stmt] (appendix) at (-4.35,-4.45) {A.1\\Separating scales};
+  \draw[depends] (inverse) -- (local);
+  \draw[depends] (horizontal) -- (phase);
+  \draw[depends] (prime) -- (mult);
+  \draw[depends] (local) -- (bare);
+  \draw[depends] (phase.south west) -- (bare.north east);
+  \draw[depends] (phase) -- (compare);
+  \draw[depends] (phase.south east) -- (weighted.north west);
+  \draw[depends] (mult.south west) -- (compare.north east);
+  \draw[depends] (mult) -- (weighted);
+  \draw[depends] (prime.east) .. controls (6.65,0) and (6.65,-2.54) .. (weighted.east);
+  \draw[depends] (bare) -- (compare);
+  \draw[depends] (compare) -- (increment);
+  \draw[depends] (increment) -- (rec);
+  \draw[depends] (weighted) -- (erg);
+  \draw[depends] (erg) -- (pt);
+  \draw[depends] (phase.west) .. controls (-2.14,-1.27) and (-2.03,-4.45) .. (appendix.east);
+  \draw[depends] (local.west) .. controls (-6.65,-1.27) and (-6.65,-4.45) .. (appendix.west);
+\end{tikzpicture}
+
+\smallskip
+\parbox{0.91\linewidth}{\small\raggedright
+Arrows point from inputs to deductions. Shading denotes mathematical roles.
+Quantitative Leibman enters 4.3. The KMTT inverse estimate also
+gives the weak regularity used in 3.1. Ter\'av\'ainen enters 7.1.
+The sieve inputs feed 6.2.
+Mirek--Wan--Wright supplies the unrestricted pointwise limit. The prime
+model and sieve supply prime normalization and the bracket boundary estimate.
+Appendix A also uses the local multiplier. The comparison of bounds
+uses the local estimate and Ter\'av\'ainen's fixed-family theorem.}
+\end{center}

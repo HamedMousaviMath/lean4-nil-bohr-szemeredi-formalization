@@ -1,0 +1,5 @@
+'NilBohr.coeff_zero_rescalePolynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.card_positiveInterval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.phase_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.norm_phase' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.phaseExponential_zero' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,20 @@
+Clean verification copy with empty project .lake/build and reused pinned dependency artifacts
+Lean (version 4.19.0, x86_64-unknown-linux-gnu, commit 6caaee842e94, Release)
+Lake version 5.0.0-6caaee8 (Lean version 4.19.0)
+Mathlib revision: c44e0c8ee63ca166450922a373c7409c5d26b00b
+Running LEAN_NUM_THREADS=2 python3 scripts/build_two_jobs.py on the initial verification source set
+All project sources and pins are identical.
+Freshly compiled project modules including umbrella: 156
+Incremental command on the release sources: lake build
+Build completed successfully.
+Public theorem audit command: LEAN_NUM_THREADS=1 bash scripts/verify.sh --audit-only
+Axiom audit passed for 975 public theorems. Axioms: Classical.choice, Quot.sound, propext
+submitted.tex: OK
+submitted.pdf: OK
+Aggregate command in the fresh project build: LEAN_NUM_THREADS=1 lake env lean scripts/CheckProjectAxioms.lean
+Project-wide audit passed for 3554 safe declarations. Axioms: [propext, Quot.sound, Classical.choice]
+lake env lean scripts/CheckBlueprint.lean checked 292 tags in both builds with identical output.
+/tmp/nilbohr-appendix-compact-web: 54 nodes, 81 edges, no cycles
+/tmp/nilbohr-appendix-full-web: 62 nodes, 98 edges, no cycles
+compact Pages:           19
+full Pages:           37

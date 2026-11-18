@@ -1,0 +1,26 @@
+✔ [6696/6701] Built NilBohr.GreenTaoMalcev
+✔ [6699/6716] Built NilBohr.GreenTaoObstructions
+✔ [6713/6717] Built NilBohr.PrimeSelectorDiscrepancy
+✔ [6718/6724] Built NilBohr.InverseFourier
+✔ [6719/6726] Built NilBohr.PhaseReplacement
+✔ [6720/6726] Built NilBohr.RemarkLocalFactors
+✔ [6721/6729] Built NilBohr.ReplacementRates
+✔ [6722/6729] Built NilBohr.LocalTestReduction
+ℹ [6723/6733] Built NilBohr.WeightedLocalInverse
+info: ././././NilBohr/WeightedLocalInverse.lean:295:92: Try this: ring_nf
+info: ././././NilBohr/WeightedLocalInverse.lean:573:10: Try this: ring_nf
+✔ [6726/6733] Built NilBohr.ParameterPartition
+⚠ [6727/6733] Built NilBohr.LocalPhaseSubstitution
+warning: ././././NilBohr/LocalPhaseSubstitution.lean:98:78: unused variable `hD₂`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [6729/6737] Built NilBohr.LocalGeneralized
+warning: ././././NilBohr/LocalGeneralized.lean:25:50: unused variable `hk'`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+✔ [6731/6740] Built NilBohr.RelativeSelectorProof
+✔ [6733/6748] Built NilBohr.CenteredHeisenbergEstimate
+ℹ [6737/6748] Replayed NilBohr.PrimeProgressions
+info: ././././NilBohr/PrimeProgressions.lean:522:39: Try this: ring_nf
+✔ [6746/6751] Built NilBohr.Remark
+✔ [6750/6755] Built NilBohr.RestrictedMaximalDomination
+✔ [6752/6755] Built NilBohr.LiteratureAssembly
+Build completed successfully.

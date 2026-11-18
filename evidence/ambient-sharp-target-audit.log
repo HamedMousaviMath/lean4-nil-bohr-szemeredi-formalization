@@ -1,0 +1,7 @@
+'NilBohr.ambientMangoldtMass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.tendsto_ambientMangoldtMass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.ambientSelectorCount_eq_explicit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.ambientSelectorCount_one_norm_le_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.ambientSelectorCount_one_eventually_bounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.ambientSelectorCount_sharp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.heisenbergAmbientSelectorCount_sharp_of_literature' depends on axioms: [propext, Classical.choice, Quot.sound]

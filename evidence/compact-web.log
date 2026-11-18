@@ -1,0 +1,38 @@
+ (loading package /workspace/scratch/885cec97b712/.deps/blueprint-
+   python/lib/python3.12/site-packages/plasTeX/Packages/article.py
+ ) ( ./web-style.tex )
+ (loading package /workspace/scratch/885cec97b712/.deps/blueprint-
+   python/lib/python3.12/site-packages/plasTeX/Packages/amsmath.py
+ )
+ (loading package /workspace/scratch/885cec97b712/.deps/blueprint-
+   python/lib/python3.12/site-packages/plasTeX/Packages/amssymb.py
+ )
+ (loading package /workspace/scratch/885cec97b712/.deps/blueprint-
+   python/lib/python3.12/site-packages/plasTeX/Packages/amsthm.py
+ )
+ (loading package /workspace/scratch/885cec97b712/.deps/blueprint-
+   python/lib/python3.12/site-packages/plasTeX/Packages/hyperref.py
+ )
+ (loading package /workspace/scratch/885cec97b712/.deps/blueprint-
+   python/lib/python3.12/site-packages/leanblueprint/Packages/blueprint.py
+ (loading package /workspace/scratch/885cec97b712/.deps/blueprint-
+   python/lib/python3.12/site-packages/plastexdepgraph/Packages/depgraph.py
+ ) ) ( ./common.tex ).. ( ./compact-content.tex )..........
+ ( ./external.tex )...........................................
+ ( ./checked.tex )............................
+INFO: Directing output files to directory: /tmp/nilbohr-compact-web-
+   final.UWR6yj.
+INFO: Importing templates from
+   /workspace/scratch/885cec97b712/.deps/blueprint-python/lib/python3.12/site-
+   packages/plasTeX/Renderers/PageTemplate
+INFO: Importing templates from
+   /workspace/scratch/885cec97b712/.deps/blueprint-python/lib/python3.12/site-
+   packages/plasTeX/Renderers/HTML5
+INFO: Using theme /workspace/scratch/885cec97b712/.deps/blueprint-
+   python/lib/python3.12/site-packages/plasTeX/Renderers/HTML5/Themes/default
+INFO: Using the imager "gspdfpng".
+/bin/sh: 1: dvisvgm: not found
+WARNING: Could not find a valid vector imager in the list: pdf2svg,
+   dvisvgm.  The default vector imager will be used.
+ [ index.html ]plasTeX version 3.1
+

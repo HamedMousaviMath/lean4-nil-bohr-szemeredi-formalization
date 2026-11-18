@@ -1,0 +1,15 @@
+'NilBohr.heisenbergMalcevFinCoordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.heisenbergProductMalcevFinCoordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.le_malcevGroupChainDistance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.malcevQuotientChainDistance_eq_two_translates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.rightInvariantQuotientMetric' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.heisenbergNilmanifoldMetric_topology' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.heisenbergProductNilmanifoldMetric_topology' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.heisenbergNilmanifoldMetric_dist_eq_chain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.heisenbergProductNilmanifoldMetric_dist_eq_chain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.malcevQuotientChainDistance_eq_heisenbergQuotientDistance' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NilBohr.malcevQuotientChainDistance_eq_heisenbergProductQuotientDistance' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

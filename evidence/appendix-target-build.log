@@ -1,0 +1,5 @@
+ℹ [6704/6722] Replayed NilBohr.WeightedLocalInverse
+info: ././././NilBohr/WeightedLocalInverse.lean:270:92: Try this: ring_nf
+✔ [6721/6722] Built NilBohr.SeparatingComparison
+✔ [6722/6722] Built NilBohr.SeparatingExample
+Build completed successfully.

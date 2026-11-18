@@ -1,0 +1,185 @@
+--- a/paper/current.tex
++++ b/paper/current.tex
+@@ -198,7 +198,7 @@
+ 
+ For an open interval $J\subset\mathbb T$ with $0<|J|<1$, define
+ \begin{equation}\label{e:explicit-B}
+- \mathcal B_{Z,J}:=\{n\in\mathbb N:\{Z(n)\}\in J\},
++ \mathcal B_{Z,J}:=\{n\in\mathbb Z_{>0}:\{Z(n)\}\in J\},
+  \qquad
+  \mathcal P_{Z,J}:=\{p\in\mathbb P:p-1\in\mathcal B_{Z,J}\}.
+ \end{equation}
+@@ -620,15 +620,15 @@
+ the density exceeds one, or $\delta=o(\log N)^{-\kappa}$.
+ 
+ For pointwise convergence the polynomial family stays fixed.
+-The prime-weighted phase bound at $q=1$ and \cite[Theorem~4.1]{Teravainen} give an $L^1$ comparison summable along a lacunary subsequence.
++The prime-weighted phase bound at $q=1$ and \cite[Theorem~4.1]{Teravainen} give an $L^1$ comparison summable along a subsequence whose consecutive ratios tend to one.
+ A gap estimate extends the comparison to all scales. Smoothing
+ passes to the interval, and taking all inputs equal to one
+ gives the normalization by the number of selected primes.
+ The unrestricted prime averages \cite{MirekWanWright} then identify the common limit.
+ 
+ \begin{remark}
+-At the smooth moduli considered here, the bound
+-$|T_{N,M,F_q-\mu_F}(\mathbf f)|\ll w^{-\eta}$ needed for the
++At the moduli used in the density increment, where
++$\operatorname{lcm}(1,\ldots,w)\mid q$, the bound $|T_{N,M,F_q-\mu_F}(\mathbf f)|\ll w^{-\eta}$ needed for the
+ density increment can be proved directly using the fixed local
+ factors from the proof of \cite[Lemma~5.3]{KMTT}. The argument
+ uses the same spatial differencing, duality, and extraction of
+@@ -710,7 +710,7 @@
+    \prod_{\omega\in\{0,1\}^s}
+    \mathcal C^{|\omega|}g(x+\omega\cdot h),
+ \]
+-where \(\mathcal C\) denotes complex conjugation.  On a finite interval or arithmetic progression
++where \(\mathcal C\) denotes complex conjugation. On a finite nonempty interval or arithmetic progression
+ \(I\), functions are extended by zero and we normalize as in
+ \cite[Section~2.3]{KMTT}:
+ \begin{equation}\label{e:normalized-gowers}
+@@ -722,7 +722,7 @@
+ normalized Gowers monotonicity gives
+ \(\|g\|_{U^r[I]}\ll_{r,s}\|g\|_{U^s[I]}\) when \(1\le r\le s\).
+ 
+-For a finite arithmetic progression \(P\), define
++For a finite nonempty arithmetic progression \(P\), define
+ \begin{equation}\label{e:u-def}
+  \|w\|_{u^s[P]}:=\sup_{\phi\in\mathbb R[y],\ \deg\phi<s}
+  \left|\mathbb E_{n\in P}w(n)\e(-\phi(n))\right|.
+@@ -1332,7 +1332,7 @@
+ multiplier estimate for each localized mode.
+ 
+ \begin{lemma}[Localized Fourier multipliers]\label{l:vertical-mode-multiplier}
+-Let \(S\geq3\), let \(I\) be a finite interval of integers, and let
++Let \(S\geq3\), let \(I\) be a finite nonempty interval of integers, and let
+ \(a,v,h\) be integers. Suppose that \(\chi\) is a Lipschitz function
+ on \(\mathbb T\) supported on an interval of length less than \(1/2\)
+ inside \((0,1)\). For every function \(f\) on \(I\),
+@@ -2188,12 +2188,12 @@
+  \ll(\log X)^{O(1)}.
+ \end{align}
+ We claim that for every fixed \(B>0\),
+-\[
+- \max_{1\leq J\leq R}
++\begin{align}\label{e:phitildeonprog}
++    \max_{1\leq J\leq R}
+  \left|\sum_{j=1}^J
+    \widetilde\Phi(D_{1/s}(g_0^{a+vt_j})\Gamma)\right|
+  \ll_B R(\log X)^{-B}.
+-\]
++\end{align}
+ To prove the claim, note that \(a+vt_j=a+v(t_1-sd!)+v'j\),
+ where \(v'=vsd!\). For sufficiently large \(X\),
+ \(v'\leq X^{1/10000}(\log X)^{O(1)}\leq X^{1/5000}\).
+@@ -2214,7 +2214,7 @@
+ Since \(R\asymp K/(sd!)\gg X^{1/2}(\log X)^{-O(1)}\), this is
+ \(O_B(R(\log X)^{-B})\) as well. This proves the claim.
+ 
+-Combining \eqref{e:partialsumest} and \eqref{e:varupestimate}
++Combining \eqref{e:partialsumest}, \eqref{e:varupestimate}, and \eqref{e:phitildeonprog}
+ and taking $B$ sufficiently large gives
+ \begin{align*}
+     \left|\sum_{j=1}^R
+@@ -2423,7 +2423,7 @@
+ proposition gives the required bound at $q=1$ and also covers
+ polylogarithmic moduli.
+ 
+-\begin{proposition}[Prime-weighted local phase estimate]
++\begin{proposition}
+ \label{p:prime-phase}
+ Fix $d\geq1$ and $B,K,L,A>0$. Let $F:\mathbb T\to\mathbb C$
+ be Lipschitz and let $Z$ be as in \eqref{e:heisenberg-phase}, with
+@@ -2584,8 +2584,8 @@
+ The coefficients in this expansion have absolute sum one. The
+ Fourier coefficients of the interval indicator on the cyclic
+ group of order \(2X+1\) have absolute sum \(O(\log X)\), by the
+-geometric-series bound. Expanding both indicators therefore bounds
+-the left-hand side by
++geometric-series bound. Expanding both indicators  bounds
++the left-hand of \eqref{e:diffgowersnorm} side by
+ \[
+  \ll \frac{X}{|P'|}\log X
+  \sup_{\theta\in\mathbb T}
+@@ -2600,8 +2600,7 @@
+ Applying \eqref{e:vertical-mode-multiplier} with \(a=-1\) and
+ \(v=1\) to the remaining factors gives \eqref{e:diffgowersnorm}.
+ 
+-Since \(\|\widehat\chi\|_{\ell^1}\ll
+-\|\chi\|_\infty+\|\chi'\|_2\ll\eta^{-1}\) and \(X/|P'|\) is
++Since \(\|\widehat\chi\|_{\ell^1}\ll\eta^{-1}\) and \(X/|P'|\) is
+ bounded by a fixed power of \(\log X\), it remains to bound the
+ ambient Gowers norm. We claim that
+ \begin{equation}\label{e:ambient-cramer}
+@@ -2690,7 +2689,7 @@
+  \leq\sum_{\ell\mid(m,W)}\lambda_\ell^+,
+  \qquad
+  \sum_{\ell\mid W}\frac{\lambda_\ell^+-\lambda_\ell^-}{\ell}
+- \ll_{A'}(\log X)^{-A'}.
++ \ll_{A'}(\log X)^{-A'-2}.
+ \]
+ The midpoint of the two sieve sums thus has average absolute
+ error at most
+@@ -2699,11 +2698,10 @@
+  &\mathbb E_{m\in P'}
+  \left|\mathbf1_{(m,W)=1}
+        -\sum_{\ell\mid(m,W)}
+-         \frac{\lambda_\ell^++\lambda_\ell^-}{2}\right|\\
+- &\qquad\leq
++         \frac{\lambda_\ell^++\lambda_\ell^-}{2}\right|\leq
+  \frac12\sum_{\ell\mid W}
+     (\lambda_\ell^+-\lambda_\ell^-)\frac{H_\ell}{H}
+- \ll_{A'}(\log X)^{-A'}+\frac{\mathcal D}{H}.
++ \ll_{A'}(\log X)^{-A'-2}+\frac{\mathcal D}{H}.
+ \end{aligned}
+ \]
+ The last bound uses $H_\ell/H=1/\ell+O(1/H)$ and the support
+@@ -2812,7 +2810,10 @@
+ fixed-family estimate converts this cancellation into an
+ \(L^1\) bound for the difference of the ergodic averages.
+ 
+-For a Lipschitz function \(F:\mathbb T\to\mathbb C\), put
++We take measurable representatives satisfying
++$|f_i(x)|\leq\|f_i\|_\infty$ everywhere. Since $T$ preserves measure,
++any two choices agree along all integer iterates of $T$ on a common
++conull set. For a Lipschitz function \(F:\mathbb T\to\mathbb C\), put
+ \[
+  \mathcal A_H^F(\mathbf f)(x)
+  :=\frac1H\sum_{n\le H}\Lambda(n+1)F(Z(n))
+@@ -2912,7 +2913,8 @@
+ \end{proof}
+ 
+ \begin{proof}[Proof of Proposition~\ref{p:ergodic-comparison}]
+-By homogeneity assume that the \(f_i\) are \(1\)-bounded. Write
++By homogeneity assume that the \(f_i\) are \(1\)-bounded. Relabel the
++polynomials and their inputs together so that the degrees increase. Write
+ $$  \qquad \theta_H(n):=\Lambda(n+1)(F(Z(n))-\mu_F), \quad n\in [H].$$
+ Proposition~\ref{p:prime-phase}, with \(q=1\), \(N=H^d\), and
+ the full interval \([H]\), gives
+@@ -3000,7 +3002,7 @@
+  G_1(x,u,v)=g_1(x)\e(u),\quad
+  G_2(x,u,v)=g_2(x)\e(v),
+ \]
+-and take $G_i(x,u,v)=f_i(x)$ for $i\geq3$. Since
++and take $G_i(x,u,v)=g_i(x)$ for $i\geq3$. Since
+ $S^m(x,u,v)=(T^m x,u+m\omega_1,v+m\omega_2)$, we have
+ \begin{align}\label{e:prodidentity}
+  \prod_{i=1}^{r}G_i(S^{Q_i(n)}(x,u,v))
+@@ -3161,7 +3163,8 @@
+ main theorems, and the scales satisfy
+ $$\log q\asymp(\log\log M)^4.$$
+ The full Gowers norms of $G_q$ stay bounded below for $S\geq3$,
+-so the estimate of \cite[Proposition~3.3]{KMTT} gives no decay.
++so the estimate of \cite[Proposition~3.3]{KMTT}, taken at an order
++$S\geq3$, gives no decay.
+ The quadratic-phase norm has arbitrary logarithmic decay, yet
+ a single residue class gives a correlation large enough to make
+ the bound from dilation to the fixed shifts $n,n^2$ vacuous
+@@ -3312,7 +3315,7 @@
+  =-k\alpha a_jq^2r_jv\,t
+   -\frac{k\alpha a_j}{2}(q^2r_jv^2+qv).
+ \]
+-The constant term contributes a factor of modulus one. For
++The constant term contributes a factor of modulus one. For large \(j\) we have \(a_j>0\) since \(a_j/r_j\to\beta>0\). For
+ \(1\leq v<H\), the geometric-series formula and bad approximability
+ give
+ \[

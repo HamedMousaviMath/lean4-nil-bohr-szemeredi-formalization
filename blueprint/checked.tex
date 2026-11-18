@@ -1,0 +1,676 @@
+
+\subsection{Checked Lean steps}
+
+These entries are proofs of the specified steps. They supplement
+the manuscript-to-Lean statement map. In particular, an encoded
+target proposition with an open proof has no \verb|\leanok| tag.
+
+\begin{lemma}[Finite norms and Lipschitz circle Fourier series]\label{checked-norm-foundations}
+\lean{NilBohr.intervalGowersForm_norm_le,NilBohr.normalizedGowers_triangle,NilBohr.normalizedGowersAdjacentMonotonicity,NilBohr.NormalizedGowersLaws.checked,NilBohr.progressionGowers_one_eq_norm_mean,NilBohr.progressionGowers_le_of_le,NilBohr.phaseNorm_le_progressionGowers,NilBohr.normalizedGowers_dilation,NilBohr.kmttNormalizedDilation,NilBohr.bernsteinCircleLipschitzFourier,NilBohr.fourierCoeff_tail_eta_le,NilBohr.norm_fourierSeries_truncation_eta_le}\leanok
+The interval cube norm obeys the triangle inequality for every positive
+order. On every nonempty finite arithmetic progression, normalized
+order comparison and $u^s\ll_s U^s$ have uniform constants. In the
+change of variable $x=qy+b$ the normalized dilation bound loses at
+most an order-dependent constant times $q^{(s+1)/2^s}$. Lipschitz
+circle cutoffs have absolute Fourier mass bounded by a universal
+constant times their supremum norm plus Lipschitz seminorm.
+\end{lemma}
+\begin{proof}
+\proves{checked-norm-foundations}\leanok
+Coordinate Cauchy--Schwarz bounds the mixed cube form. A separate
+direction-sum Cauchy--Schwarz and indicator cube counts give the
+normalized order comparison. Exact affine cube transport handles
+progressions, and a finite residue Fourier expansion handles dilation.
+Parseval applied to translated differences, followed by a limit on
+each finite frequency set, bounds the weighted Fourier square sum.
+Cauchy--Schwarz against the reciprocal frequencies gives absolute
+summability. The reciprocal-square tail is at most $4/R$ outside
+$|h|\le R$, giving an $O(\operatorname{Lip}(F)\eta)$ absolute
+Fourier tail at the manuscript's cutoff $R=\eta^{-2}$.
+\end{proof}
+
+\begin{lemma}[Fixed local factors from the inverse theorem]\label{checked-weak-regularity}
+\lean{NilBohr.KMTTLocalInverse.toLocalWeakRegularity,NilBohr.exists_localInverse_fixed_coordinate,NilBohr.fixedStep_progression_partition}\leanok
+The local inverse estimate supplies the weak-regularity interface
+used in Proposition~3.1, including the partition, progression length
+and small-scale alternative.
+\end{lemma}
+\begin{proof}
+\proves{checked-weak-regularity}\uses{external-inputs}\leanok
+Choose a fixed power of $q$ divisible by every eligible inverse step.
+Partition its residue classes into nearly equal blocks at the
+coordinate-dependent resolutions. A telescoping discrepancy is witnessed
+by a normalized residual in one coordinate. Reanchor at $P_1$ when
+the residual is in the base coordinate. Each atom has zero residual
+mean, so a function with the inverse Lipschitz bound has correlation
+less than the lower bound forced by the inverse theorem.
+\end{proof}
+
+\begin{lemma}[Equivalent prime number theorem limits]\label{checked-prime-normalization}
+\lean{NilBohr.PrimeNumberTheorem.of_theta,NilBohr.PrimeNumberTheorem.of_psi,NilBohr.PrimeNumberTheorem.of_count,NilBohr.PrimeNumberTheorem.to_psi,NilBohr.logarithmicIntegral_normalization_tendsto,NilBohr.PrimeNumberTheoremInProgressions.of_logarithmicIntegral}\leanok
+The theta, psi and normalized ordinary prime-count asymptotics give
+equivalent premises for the conversion to ordinary prime averages.
+The fixed-modulus prime count can use either $\operatorname{Li}(N)$
+or $N/\log N$ as its scale.
+\end{lemma}
+\begin{proof}
+\proves{checked-prime-normalization}\leanok
+The contribution of higher prime powers is $o(N)$. For any fixed
+$0<a<1$, the primes at most $N^a$ contribute $o(1)$ to the normalized
+count, and on the tail $a\log N\le\log p\le\log N$. Taking $a$ close
+to one proves the equivalence with the ordinary count limit.
+The same split for the integral of $1/\log t$ on $[2,N]$ proves the
+equivalence of the fixed-modulus scales.
+\end{proof}
+
+\begin{lemma}[The Heisenberg return window]\label{checked-heisenberg-window}
+\lean{NilBohr.heisenbergWindow,NilBohr.isOpen_heisenbergWindow,NilBohr.heisenbergWindow_measure,NilBohr.heisenbergRotation_mem_window_iff,NilBohr.heisenbergWindow_basicNilsequence,NilBohr.heisenbergWindowNilsequence_re_pos_iff,NilBohr.heisenbergWindowNilsequence_prime_re_pos_iff}\leanok
+The window $0<y<1$, $z\bmod 1\in J$ defines an open subset of the
+right-coset quotient and has Haar mass $|J|$. For admissible $\beta$
+and each nonzero integer $n$, the orbit at time $n$ belongs to this
+window exactly when $Z(n)\bmod 1\in J$. A basic polynomial nilsequence
+realizes the window by the open right half-plane in $\C$.
+\end{lemma}
+\begin{proof}
+\proves{checked-heisenberg-window}\uses{selector}\leanok
+Pull the window back to the lattice translates of the open strip.
+In the unit Haar fundamental domain its volume is $|J|$ by Fubini.
+The signed group powers give the orbit formula. A nonzero integer
+multiple of $\beta$ avoids the seam by irrationality. The exact
+orbit membership criterion includes the seam condition at time zero.
+The distance to the closed complement is a continuous function on
+the quotient, and the signed powers are polynomial for the rational
+lower central filtration. Complexifying the distance supplies the
+required continuous test.
+\end{proof}
+
+\begin{lemma}[Prime distribution from the model and sieve]\label{checked-prime-distribution}
+\lean{NilBohr.tendsto_cramerWeight_mean,NilBohr.ambient_prime_polynomial_test_error_tendsto,NilBohr.primeNumberTheorem_of_prime_model,NilBohr.primeNumberTheoremInProgressions_of_kmtt_and_sieve,NilBohr.tendsto_cramer_linear_mean,NilBohr.vinogradov_of_prime_model}\leanok
+Banks's zero exclusion, the ambient Gowers model, Mertens' interval
+bound and the fundamental sieve lemma supply the ordinary prime
+number theorem, its fixed reduced progression form, and irrational
+linear equidistribution over primes against continuous tests.
+\end{lemma}
+\begin{proof}
+\proves{checked-prime-distribution}\uses{external-inputs,checked-norm-foundations,checked-prime-normalization}\leanok
+Average the sieve bounds over a complete period to get the exact
+Euler center. On the actual interval or the fixed reduced residue
+class each divisor count has error at most one. The order-two
+Gowers error transfers the means to Mangoldt, including the fixed
+residue projection. For an irrational frequency, use reduced
+Dirichlet approximants with denominator at most $\lfloor\sqrt N\rfloor$.
+Compare the complex sieve midpoint with its normalized rational
+Fourier coefficient over a complete period. Off the multiples of
+the denominator the geometric sums are short. On the multiples,
+the residual phase differs from its block mean by a controlled
+error. The periodic coefficient is bounded by $\sqrt{2/q}$ and the
+approximate denominator $q$ tends to infinity at all large scales.
+Transfer the linear tests through the model and apply trigonometric
+density after conversion to ordinary primes.
+\end{proof}
+
+\begin{lemma}[Modulus budgets in Appendix A]\label{checked-iteration-moduli}
+\lean{NilBohr.log_iteration_modulus_le_density_power,NilBohr.eventually_density_iteration_moduli_small,NilBohr.eventually_small_modulus_absorbed_by_logarithmic_saving,NilBohr.eventually_large_admissible_modulus_at_polylog_density}\leanok
+Given the Section~3 iteration budgets, $\log q_i\ll\delta^{-D_0}$
+for a fixed $D_0$. If $\delta\ge(\log\log N)^{-c}$ and $cD_0<1$,
+then $q_i\le(\log N_i)^\epsilon$ for every fixed $\epsilon>0$,
+uniformly over stages. Every fixed power loss in $q_i$ can be
+absorbed by any positive slack in a logarithmic saving. At the
+polylogarithmic threshold the admissible numerical parameters allow
+$q>(\log N)^A$ for each fixed $A\ge0$.
+\end{lemma}
+\begin{proof}
+\proves{checked-iteration-moduli}\leanok
+Bound the stage index using the geometric density increase and
+use $\log N_i\ge(\log N)^{3/4}$. For the admissibility example
+choose $w=\lceil K(\log N)^{\kappa E}\rceil$ with $\kappa E<c_{\rm rel}$
+and take the largest power of $\mathcal L(w)$ with logarithm at
+most $w^2$. Its logarithm exceeds $w^2/2$, and the prime support
+and divisibility requirements follow from those of $\mathcal L(w)$.
+\end{proof}
+
+\begin{lemma}[Rescaling and the vertical chart]\label{checked-rescaling}
+\lean{NilBohr.eval_rescalePolynomial,NilBohr.eval_rescalePolynomial_mul,NilBohr.HasCoefficients.rescale,NilBohr.heisenberg_chart_right_lattice}
+\leanok
+For a polynomial with zero constant coefficient, rescaling has the
+prescribed coefficients and commutes with successive affine lifts.
+The Heisenberg coordinate change under the right lattice is integral
+in the vertical phase and preserves the horizontal fractional part.
+\end{lemma}
+\begin{proof}
+\proves{checked-rescaling}\leanok
+The polynomial calculation is exact in $\Z[y]$ and preserves degree
+for nonzero scaling. The chart statement follows by the group law
+and the formula for adding an integer to a floor.
+\end{proof}
+
+
+\begin{lemma}[Existence of admissible Liouville parameters]\label{checked-beta}
+\lean{NilBohr.exists_admissibleBeta_between,NilBohr.AdmissibleBeta.liouville}
+\leanok
+Every nonempty interval inside $(0,1)$ contains an admissible
+$\beta$, and each admissible $\beta$ is a Liouville number.
+\end{lemma}
+\begin{proof}
+\proves{checked-beta}\leanok
+Choose prime denominators using Bertrand's postulate at the
+prescribed scale and round the numerators upward.
+The rational approximants increase, while the approximants
+plus the reciprocal of their denominators decrease. Their
+supremum satisfies the one-sided approximation bounds.
+The resulting error is smaller than every fixed inverse power
+of the preceding denominator for sufficiently large indices.
+\end{proof}
+
+\begin{lemma}[Localized $U^S$ equality]\label{checked-cube}
+\lean{NilBohr.cubeDifference_heisenberg_of_short,NilBohr.gowersCubePower_localized_vertical,NilBohr.normalizedGowers_localized_vertical,NilBohr.normalizedGowers_mul_polynomial_phase}
+\leanok
+For $S\ge3$, the exact equality (45) holds between the norm of
+$f\chi$ with and without the localized vertical exponential,
+using the finite zero-extended cube-power model. Multiplication
+by an ordinary polynomial phase of degree less than $S$ also leaves
+the normalized $U^S$ quantity unchanged.
+\end{lemma}
+\begin{proof}
+\proves{checked-cube}\leanok
+The finite cube calculation proves the phase factor cancels in every
+nonzero term, and the same cube power and normalizer yield equality.
+The multiplier proof of Lemma~4.5 combines this equality with the
+Fourier expansion and the normalized Gowers triangle inequality.
+For an ordinary polynomial, each additive difference lowers the
+degree, so its $S$-fold difference vanishes and the exponential cube
+factor is one.
+\end{proof}
+
+\begin{lemma}[Horizontal Diophantine and floor identities]\label{checked-floor}
+\lean{NilBohr.horizontal_nonzero_alpha_bound,NilBohr.horizontal_zero_alpha_bound,NilBohr.bracketPhase_add_heisenbergPhase,NilBohr.floor_mul_eq_int_of_small_error,NilBohr.horizontal_scale_bounds,NilBohr.heisenberg_horizontal}
+\leanok
+The finite separation inequalities have a main term
+$c_\alpha/(|k|vr^2)$ when $k\ne0$ and $1/r$ when $k=0$,
+minus the corresponding approximation error $|l|v|\beta-a/r|$.
+The bracket carry identity and small positive approximation
+floor identity hold under the displayed arithmetic hypotheses.
+\end{lemma}
+\begin{proof}
+\proves{checked-floor}\leanok
+The finite separation uses nearest-integer distance and integer
+divisibility. The bracket identity follows by splitting at
+$\{\beta n\}=1-\beta$. The floor identity follows from the
+unit interval above an integer. A second step checks the scale
+uniformity for any approximating pair bracketing $X^{1/100}$.
+\end{proof}
+
+\begin{lemma}[Scalar Heisenberg equidistribution]\label{checked-scalar}
+\lean{NilBohr.scalar_heisenberg_equidistribution,NilBohr.scalar_heisenberg_log_saving}
+\leanok
+The scalar estimate (25) follows from the fixed-Heisenberg
+horizontal-character obstruction.
+\end{lemma}
+\begin{proof}
+\proves{checked-scalar}\uses{checked-floor,external-inputs}\leanok
+The finite-dilation lower bound rules out horizontal characters
+of polylogarithmic size, even with prefix length $K\ge X^{1/3}$.
+The hypothesis supplies the specialized Green--Tao criterion,
+including its chart-mean and metric adaptation. The criterion
+gives scalar equidistribution under the stated range.
+\end{proof}
+
+\begin{lemma}[Count splitting and density step]\label{checked-density}
+\lean{NilBohr.selector_count_split,NilBohr.exists_density_increase_of_count_discrepancy,NilBohr.exists_densest_residue_progression,NilBohr.lift_scaled_configuration,NilBohr.density_iteration_contradiction,NilBohr.recurrence_of_density_increment_at_scale,NilBohr.heisenbergRecurrence_of_density_increment,NilBohr.density_increment_atom_from_count_inputs,NilBohr.density_model_count_lower,NilBohr.regularized_count_discrepancy,NilBohr.card_coincidentShiftParameters_le,NilBohr.norm_selected_count_le_exception_mass,NilBohr.log_initialModulus_eq_mangoldt_sum,NilBohr.exists_log_initialModulus_le_linear,NilBohr.eventually_log_initialModulus_at_density_le,NilBohr.exists_log_iteration_modulus_le_linear_in_w}
+\leanok
+The selector count splits by linearity. Given equal-mass factor
+averages with sufficient count discrepancy, one of them
+exceeds the prescribed density ceiling. There is a densest residue
+progression, and rescaled configurations preserve the selected
+prime. The logarithm of the initial modulus is the Mangoldt sum
+through $w$, hence $O(w)$. A finite sequence of admissible
+fixed-factor density increments contradicts density at most one.
+\end{lemma}
+\begin{proof}
+\proves{checked-density}\uses{checked-rescaling}\leanok
+Finite sums give the two-term weight split and product telescoping.
+The mass identity gives the $\ell^1$ bound used in (20).
+The affine identities lift every configuration point and the prime.
+The prime powers dividing $\mathcal L(w)$ are exactly those at most
+$w$. The primorial bound and the higher-prime-power estimate give
+Chebyshev's $O(w)$ bound, including the initial finite cutoffs.
+For the initial density and for every admissible stage this supplies
+the linear-in-$w$ modulus budget used in the manuscript.
+Logarithmic counting of the number of stages gives the finite
+contradiction. The complete finite recursion takes Proposition~3.1
+and a numerical parameter condition as premises. The later
+asymptotic argument discharges that numerical condition. The
+uniform density increment is also checked from Theorem~3.2
+and KMTT weak regularity.
+\end{proof}
+
+\begin{lemma}[Local phases on one parameter cell]\label{checked-local-phase}
+\lean{NilBohr.product_local_linear_phases,NilBohr.norm_local_phase_product_average_le,NilBohr.norm_partition_delete_le,NilBohr.norm_countingForm_le_local_tests_after_replacement}
+\leanok
+For fixed spatial $x$, the product of the local linear phases
+on a single retained progression in $y$ is a polynomial phase
+of degree at most $d$. Its average against the test weight is
+bounded by the local polynomial-phase norm.
+\end{lemma}
+\begin{proof}
+\proves{checked-local-phase}\leanok
+The exponent is the sum of scalar multiples of the shifts and
+constant terms. Polynomial degree bounds and finite products
+give the stated reduction after the spatial blocks and residues
+have been fixed. The finite selection and deletion bounds partition
+$[M]$ into intervals of length $H$ and a tail, then count spatial
+pairs within the polynomial displacement of a block boundary.
+The retained count is bounded by the supremum of the local tests.
+\end{proof}
+
+\begin{lemma}[Sieve midpoint on a progression]\label{checked-sieve}
+\lean{NilBohr.sieveMidpoint_bound,NilBohr.exists_modEq_of_dvd_affine,NilBohr.abs_card_dvd_affine_sub_le_one,NilBohr.primeProgression_as_affine,NilBohr.primeProgression_sieve_scales,NilBohr.cramerWeight_eq_sieveIndicator,NilBohr.cramerSieve_correlation_bound,NilBohr.primeDivisors_heisenberg_log_saving,NilBohr.eventually_cramerSieve_coefficients,NilBohr.MertensIntervalProductBound.eulerProduct_le_log}
+\leanok
+With upper and lower divisor envelopes, replacing the indicator by
+their midpoint incurs at most half their average gap. For a
+divisor coprime to the progression step, divisibility restricts to a
+single residue class of parameter indices, whose count differs from
+length divided by the divisor by at most one. The change to
+$m=qy+1$ preserves the finite average and the degree of its
+polynomial test. The resulting sieve progressions have the
+uniform length and step bounds stated in Proposition~6.2. On the
+residue-one progression the Cram\'er weight is its Euler product
+normalization times the coprimality indicator omitting primes that
+divide $q$. From the quoted sieve and interval-product assumptions,
+the envelopes have absolute reciprocal-weighted gap at most
+$(\log X)^{-D}$ for any fixed $D>0$ and all sufficiently large $X$.
+\end{lemma}
+\begin{proof}
+\proves{checked-sieve}\uses{checked-twisted,external-inputs}\leanok
+The midpoint inequality is pointwise followed by the triangle
+inequality in a finite average. The arithmetic constraint is a
+linear congruence with invertible coefficient.
+The progression size estimates use the floor in $M$ and the
+polylogarithmic bounds on $q$ and the first step. The finite
+correlation bound sums the exceptional-divisor contribution using a
+harmonic sum. On every other divisor progression that is coprime
+to the first step, the twisted estimate applies to vertically
+mean-zero tests. Deleting factors preserves the Mertens interval
+bound. At level $\lfloor X^{1/20000}\rfloor$, the logarithmic
+level ratio $U$ grows at least as a positive power of $\log X$.
+The fundamental lemma then gives the stated envelope error.
+\end{proof}
+
+\begin{lemma}[Pointwise convergence and normalization steps]\label{checked-ergodic}
+\lean{NilBohr.ae_mangoldtAverage_tendsto_zero_of_log_decay,NilBohr.ae_primeAverage_tendsto_zero_of_mangoldt_log_decay,NilBohr.ae_unrestrictedPrimeAverage_tendsto,NilBohr.OpenArc.exists_lipschitz_sandwich,NilBohr.centered_primeAverage_of_sandwich,NilBohr.ae_centered_selector_of_smooth_limits,NilBohr.pointwise_of_smooth_limits,NilBohr.pointwise_of_smooth_log_decay}
+\leanok
+For logarithmically bounded summands, a prescribed $L^1$ rate
+$O((\log H)^{-6})$ implies almost-everywhere convergence to zero
+of the prefix averages. Given the scalar counting and logarithmic
+mass asymptotics, bounded log-weighted averages and unweighted
+averages have the same limit. Scalar gap bounds turn centered lower
+approximants into a centered interval weight. A positive prime-density
+ratio and a centered comparison identify the selected prime limit.
+\end{lemma}
+\begin{proof}
+\proves{checked-ergodic}\leanok
+The first proof uses the manuscript's
+$\lfloor\exp((j+1)^{1/3})\rfloor$ sampling and a gap bound.
+Prime-power removal uses an explicit count and Mangoldt mass bound.
+Log-weight removal uses the mass deficit of the weights $\log p/\log H$
+conditional on the two scalar PNT asymptotics. The unrestricted
+prime limit then follows conditionally on the weighted
+Mirek--Wan--Wright statement. For interval weights the checked
+Lipschitz ramps come from distance to the arc centre on the circle,
+including arcs that cross the coordinate seam.
+The last two deductions squeeze the centered interval average and
+divide by the positive limiting count ratio. The full deduction
+in Theorem~1.4 from the smooth logarithmic estimate is therefore
+checked. The analytic bound at each positive exponent is checked from
+Proposition~6.2 and the fixed-family estimate, and the bracket
+deduction uses the rotation and cutoff lemmas below.
+\end{proof}
+
+\begin{lemma}[Orbit transference and duality]\label{checked-orbit}
+\lean{NilBohr.orbit_counting_eq_average,NilBohr.integral_orbit_countingForm,NilBohr.integral_norm_weightedErgodicAverage_le_of_orbit_bound,NilBohr.orbit_bound_of_teravainen,NilBohr.exists_polynomial_orbit_window,NilBohr.mangoldt_L1_log_decay_of_primeLocalPhase}
+\leanok
+For integrable weighted averages and a common spatial window
+containing all shifted orbit arguments, a uniform bound on
+the discrete shifted count transfers to the $L^1$ norm of
+the weighted ergodic average.
+\end{lemma}
+\begin{proof}
+\proves{checked-orbit}\leanok
+Average the measure-preserving change of variables over each
+spatial index. Test against $\overline{A(x)}/|A(x)|$ on the
+nonzero set of the weighted average $A$ and use zero otherwise.
+This isolates the $L^1$ norm. For the fixed-family application the finite count estimate is the
+explicit Ter\'av\'ainen Theorem~4.1 input. The common spatial window
+uses a sum of absolute polynomial coefficients to bound all shifts.
+The rate is supplied by Proposition~6.2 at $q=1$.
+\end{proof}
+
+\begin{lemma}[Spatial differencing and exceptional weights]\label{checked-difference}
+\lean{NilBohr.countingForm_sq_le_spatial_energy,NilBohr.spatial_slice_square_eq_differences,NilBohr.exclude_exceptional_model_zero,NilBohr.weighted_local_inverse_of_kmtt_degree_uniform}
+\leanok
+Cauchy--Schwarz removes a bounded parameter weight, and grouping
+spatial pairs by their difference gives the exact squared slice
+in Lemma~5.1. The separate real-zero threshold comparison uses
+the explicit Banks premise and the conductor bound.
+\end{lemma}
+\begin{proof}
+\proves{checked-difference}\uses{external-inputs}\leanok
+Use finite complex Cauchy--Schwarz and collect pairs by their
+integer difference. For the real-zero step, multiply
+$\log r\leq\log\widetilde Q$ by $1-\beta_0>0$.
+The ambient prime model is an explicit KMTT input. The degree-uniform
+KMTT local inverse hypothesis supplies a common bound before $C$ and
+the family length are fixed. Spatial differencing and subsequent
+phase extraction preserve that bound.
+\end{proof}
+
+\begin{lemma}[Product rotations and the bracket identity]\label{checked-rotations}
+\lean{NilBohr.exists_quadratic_completion,NilBohr.ergodicSequence_circleRotationExtension,NilBohr.ae_quadratic_twisted_interval_of_smooth,NilBohr.ae_tendsto_primeAverage_fourier_quadratic_twist,NilBohr.phase_bracket_eq_piecewise,NilBohr.ae_bracket_fourier_cancellation,NilBohr.pointwise_bracket_of_heisenberg_smooth}
+\leanok
+The enlarged family and the circle-product system recover the
+quadratic twist in (54). Equations (53) and (55) follow from
+the smooth comparison on the product system. The bracket
+carry decomposition preceding (56) also holds exactly.
+\end{lemma}
+\begin{proof}
+\proves{checked-rotations}\uses{checked-ergodic,checked-floor}\leanok
+Adjoin the absent degrees and extend the functions by constants.
+The product system is probability preserving. Its character
+is the desired quadratic twist times a circle factor of modulus
+one. Fubini removes that factor. The floor formula gives both
+branches of the bracket exponential. Fourier approximation and
+endpoint ramps transfer these pieces to prime averages using
+Vinogradov's scalar input. This gives (56) and the bracket
+pointwise comparison.
+\end{proof}
+
+
+\begin{lemma}[Product obstruction and twisted prefixes]\label{checked-twisted}
+\lean{NilBohr.choose_modEq_of_modEq_factorial_mul,NilBohr.realBinomialPhase_exp_totalVariation_le,NilBohr.heisenbergCoverTest_chartMean_eq_zero_of_lipschitz,NilBohr.norm_heisenbergTwistedAverage_le_of_product_obstruction,NilBohr.twisted_heisenberg_log_saving_of_dilated,NilBohr.twisted_heisenberg_log_saving_for_denominators,NilBohr.twisted_heisenberg_phaseNorm}
+\leanok
+Given the fixed scalar and product character criteria and explicit
+bounds on the finite prefix scales, the polynomially twisted
+Heisenberg average is bounded in terms of the two obstruction
+thresholds and the variation of the residual twist. Under the
+dilated scalar and horizontal estimates this yields a uniform
+logarithmic saving at every exponent.
+\end{lemma}
+\begin{proof}
+\proves{checked-twisted}\uses{checked-floor,checked-scalar,external-inputs}\leanok
+The product criterion isolates a nonzero circle frequency.
+Rounding in the integer binomial basis and splitting modulo
+$|m|d!$ yields the covering-map expression and a slowly varying
+error factor. Haar integration proves zero mean on the vertical
+fibres of the covering test. The scalar criterion for each
+sufficiently long prefix and partial summation give the finite bound.
+The logarithmic scales then absorb the cover's distortion and the
+discarded short prefixes. This deduction is for vertically mean-zero
+tests on the quotient.
+\end{proof}
+
+
+\begin{lemma}[Selector cutoffs and discrepancy]\label{checked-selector-cutoffs}
+\lean{NilBohr.quantitativeSelectorCutoffs,NilBohr.horizontalCircleEstimate_of_scalar,NilBohr.norm_countingForm_localized_selector_le,NilBohr.norm_countingForm_selector_boundary_le,NilBohr.norm_countingForm_selector_discrepancy_le}
+\leanok
+Three nonnegative short-arc cutoffs and a boundary cutoff give a
+partition of unity. The Lipschitz bounds are $O(\varepsilon^{-1})$
+and the boundary mean is $O(\varepsilon)$. The finite count
+discrepancy splits into the localized prime-versus-model counts
+and the boundary count.
+\end{lemma}
+\begin{proof}
+\proves{checked-selector-cutoffs}\uses{checked-scalar,checked-cube,external-inputs}\leanok
+Normalize the tent functions by their sum with a positive floor.
+Outside the endpoint strip the floor has no effect, and the
+Lipschitz and measure bounds follow from the lower bound on the
+denominator and the length of a ball. Horizontal projection of the
+scalar orbit estimate bounds the mean on the finite progression.
+The localized multiplier and normalized Gowers laws then control
+the prime discrepancy, using the Bernstein Fourier bound.
+\end{proof}
+
+
+\begin{lemma}[Centered chart test and seam removal]\label{checked-centered}
+\lean{NilBohr.heisenbergCenteredTest_orbit,NilBohr.heisenbergCenteredTest_verticalMean_zero,NilBohr.heisenbergCenteredTest_lipschitz,NilBohr.heisenberg_seamAverage_of_horizontal,NilBohr.centeredHeisenbergPhaseEstimate_of_obstructions}
+\leanok
+A Lipschitz circle weight centered at its Haar mean yields a
+right lattice-invariant, vertically mean-zero test after cutting off
+the horizontal seam. Its quotient Lipschitz norm is
+$O_F(1+\varepsilon^{-1})$. The scalar and twisted orbit estimates
+then give Equation~(27) uniformly.
+\end{lemma}
+\begin{proof}
+\proves{checked-centered}\uses{checked-floor,checked-scalar,checked-twisted,external-inputs}\leanok
+The orbit formula uses the vertical chart coordinate
+$z-x\lfloor y\rfloor$. A relative coordinate bound for each group
+increment controls the change in the centered test. If the horizontal
+coordinate crosses the chart seam, the cutoff bounds the surviving
+values by the horizontal displacement divided by $\varepsilon$.
+Summing over chains and taking the quotient infimum gives the
+Lipschitz estimate. Circle translation gives the vertical mean, and a
+horizontal majorant bounds the discarded seam average.
+\end{proof}
+
+\begin{lemma}[Prime-weighted seam error]\label{checked-prime-seam}
+\lean{NilBohr.primeProgression_mangoldt_seam_error}\leanok
+At the seam width $\eta=(\log X)^{-A-2}$, replacing the centered
+selector on the shifted-prime progression by the full cutoff chart
+test costs $O_F((\log X)^{-A})$ against $\Lambda$, uniformly in the
+polynomial phase.
+\end{lemma}
+\begin{proof}
+\proves{checked-prime-seam}\uses{checked-centered,checked-sieve}\leanok
+At divisor one the prime progression has length at least $X^{1/2}$
+and step at most $X^{1/10000}$. The common horizontal denominator
+is coprime to its step. The scalar estimate bounds the seam mass
+by $O(\eta)$. The von Mangoldt weight costs at most $\log X$, and the
+polynomial phase has modulus one.
+\end{proof}
+
+\begin{lemma}[Cram\'er cancellation with the full chart test]\label{checked-prime-cramer}
+\lean{NilBohr.norm_cramerPhaseAverage_le_of_sieve,NilBohr.eventually_siftedPhase_error,NilBohr.primeCramerPhase_log_saving}\leanok
+The full centered chart test at seam width $(\log X)^{-E}$,
+for any fixed $E>0$, has arbitrary logarithmic saving on the
+prime progression against the Cram\'er model, uniformly in the
+polynomial test of degree at most $d$.
+\end{lemma}
+\begin{proof}
+\proves{checked-prime-cramer}\uses{checked-sieve,checked-centered}\leanok
+Use the exact affine reindexing and normalize the chart test by a
+fixed sup bound. On every good divisor progression, all the chart's
+vertical fibres have mean zero and its quotient Lipschitz norm
+is polylogarithmic. Harmonic summation, the exceptional divisors,
+and the sieve gap give one more inverse logarithm than the target,
+before multiplication by the Euler product.
+\end{proof}
+
+\begin{lemma}[Fourier restriction on a progression]\label{checked-fourier-restriction}
+\lean{NilBohr.localized_prime_model_replacement_progression,NilBohr.residue_indicator_fourier_l1,NilBohr.intervalCyclicFourierCoefficient_l1_le,NilBohr.quantitativePrimeSelectorCutoffs,NilBohr.localized_prime_model_replacement_full_chart,NilBohr.prime_model_replacement_centered_chart,NilBohr.primeModelReplacement_log_saving_of_kmtt}
+\leanok
+A localized and polynomially twisted progression average of an
+ambient weight is controlled by its ambient $U^S$ quantity, with the
+length ratio $X/|P'|$, the Fourier mass of the circle cutoff, and
+a factor bounded by $2+\log X$. The bound extends to the full
+centered seam test and yields arbitrary logarithmic saving for the
+ambient prime-model discrepancy on the progressions of Proposition~6.2.
+\end{lemma}
+\begin{proof}
+\proves{checked-fourier-restriction}\uses{checked-cube,checked-selector-cutoffs,external-inputs}\leanok
+Use cyclic Fourier orthogonality to write the two interval and
+congruence indicators as linear phases. The residue coefficients
+have mass one. Geometric summation bounds each nonzero interval
+coefficient by the reciprocal of twice its centered frequency,
+so the total mass is at most one plus the harmonic sum to $X$.
+The Gowers triangle and mean bounds and the checked phase
+equalities give the normalized restriction.
+The bound is uniform in the vertical Fourier index. Absolute Fourier
+convergence and an exact short-arc partition of the seam cutoff give a
+polylogarithmic loss for the full chart test. The prime-model bound
+absorbs this loss.
+\end{proof}
+
+\begin{lemma}[Scalar and product Heisenberg models]\label{checked-group-model}
+\uses{selector}
+\lean{NilBohr.heisenbergLeibmanBasis_rational,NilBohr.heisenbergProductLeibmanBasis_rational,NilBohr.heisenbergNilmanifoldMetric_topology,NilBohr.heisenbergProductNilmanifoldMetric_topology,NilBohr.malcevQuotientChainDistance_eq_heisenbergQuotientDistance,NilBohr.malcevQuotientChainDistance_eq_heisenbergProductQuotientDistance,NilBohr.isLeibmanHaar_heisenbergNilmanifoldMeasure,NilBohr.isLeibmanHaar_heisenbergProductNilmanifoldMeasure,NilBohr.heisenbergNilmanifoldMeasure_unique,NilBohr.heisenbergProductNilmanifoldMeasure_unique,NilBohr.heisenbergTwist_productLipschitzBound}\leanok
+The scalar and product quotients have adapted Mal'cev bases of
+rationality height at most one. Their chain metrics induce the
+quotient topologies. Unit-cube volume pushes forward to the normalized
+Haar probabilities and gives the chart integral on each. The
+dilated scalar orbit is filtered polynomial of degree at most two.
+Adjoining an ordinary polynomial of degree at most $d$ gives the
+product of filtration degree $\max(2,d)$. The twist
+$\Phi(g)\ee(-u)$ is lattice invariant, has mean zero after circle
+integration, and increases the scalar supremum-plus-Lipschitz
+bound by at most an absolute factor.
+\end{lemma}
+\begin{proof}
+\proves{checked-group-model}\uses{checked-floor}\leanok
+The global matrix charts are Euclidean, with polynomial group laws.
+The lattices are closed and discrete and the closed unit cubes
+map onto the compact Hausdorff quotients. Smooth one-parameter axes
+give second-kind coordinates $(x,y,z-xy)$ and the extra real coordinate.
+The sole nonzero scalar Lie bracket of basis axes is
+$[X,Y]=Z$ up to sign from exchanging the axes. Ordering the extra axis
+before $Z$ when $d=1$ and after $Z$ for $d\ge2$ makes the basis
+adapted to the appropriate product filtration.
+
+Small chain displacements control the coordinate differences and
+conversely. The quotient infimum over the lattice gives the actual
+quotient metric because the lattice is closed. For Haar, take the
+pushforward of normalized volume on the half-open fundamental cube.
+Shears preserve ambient Lebesgue measure, and periodicity gives the
+chart formula. Uniqueness follows by lifting an invariant quotient
+probability with counting measure on the lattice fibres and comparing
+the resulting ambient Haar measures. The scalar and circle
+projections are bounded by the product chain distance, giving the
+product test bound by expanding the difference of two products.
+\end{proof}
+
+\begin{lemma}[Quantitative Leibman specialization]\label{checked-green-tao-adapter}
+\lean{NilBohr.scalarHeisenbergObstruction_of_greenTao,NilBohr.productHeisenbergObstruction_of_greenTao,NilBohr.SelectorLiteratureInputs.of_quantitativeLeibman,NilBohr.PrimePhaseLiteratureInputs.of_quantitativeLeibman}\leanok
+The general quantitative Leibman input gives the scalar and product
+character criteria used in Proposition~4.3 on the respective
+nilmanifolds of Lemma~\ref{checked-group-model}.
+The recurrence and prime-phase input bundles can therefore be
+assembled directly from the listed source interfaces.
+\end{lemma}
+\begin{proof}
+\proves{checked-green-tao-adapter}\uses{external-inputs,checked-group-model}\leanok
+Use the descended scalar test on the dilated orbit and the test
+$\Phi(g)\ee(-u)$ on the product orbit. Their means and Lipschitz bounds
+are those of the concrete model. In the product application a fixed
+factor in the test bound is absorbed by lowering the tolerance.
+A horizontal character vanishes on the commutator axis. Its
+remaining integer coordinates give the horizontal linear form
+and, in the product case, the coefficient of the real polynomial.
+First differences in the scalar case and the iterated differences
+at zero in the product case give the required binomial-coefficient
+inequalities. Constants are chosen after the dimension and
+filtration degree and before the orbit and test parameters.
+\end{proof}
+
+\begin{lemma}[Finite identities for Appendix A]\label{checked-separating-finite}
+\uses{selector,d:Cq}
+\lean{NilBohr.phaseNorm_dilatedWeight,NilBohr.parameterLength_separatingFamily,NilBohr.countingForm_separatingFamily_dilate,NilBohr.countingForm_separatingFamily_repeat,NilBohr.residueCorrelation_le_phaseNorm,NilBohr.abs_heisenbergPhase_sub_separatingQuadratic_le}\leanok
+Zero extension to $q\Z$ gives a phase norm of exactly $q^{-1}$
+times the original phase norm. The fixed-family count normalization
+contributes $q^2$, or $q$ when the spatial inputs repeat on all
+$q$ residue classes. For a rational approximation with
+$0\le\beta-a/r\le E$ and $E qM<1$, the error in the quadratic
+approximation to $Z(qy)$ on $r\mid y$ is at most
+$|\alpha|E(qM)^2/2$.
+\end{lemma}
+\begin{proof}
+\proves{checked-separating-finite}\uses{checked-floor,checked-fourier-restriction}\leanok
+Affine changes of variable transport the real polynomial tests in
+both directions. The residue expansion has Fourier mass one, so a
+correlation on the multiples of $r$ contributes its value divided
+by $r$ to the global phase-norm lower bound. On those multiples
+the small nonnegative approximation error fixes the floor exactly.
+The count identities follow by reindexing both summation variables
+and tracking the numerator and denominator separately.
+\end{proof}
+
+\begin{lemma}[The separating scales]\label{checked-separating-scales}
+\uses{selector,d:Cq}
+\lean{NilBohr.SeparatingScale,NilBohr.eventually_separatingScale,NilBohr.tendsto_separatingLengthQuotient,NilBohr.tendsto_separatingLength,NilBohr.eventually_separatingStep,NilBohr.eventually_separatingRelativeModulus,NilBohr.eventually_separatingRelativeScaleWindow,NilBohr.tendsto_separatingCoefficient_div_lengthQuotient,NilBohr.tendsto_separatingApproximation,NilBohr.eventually_separatingLogModulus_logLogLength,NilBohr.tendsto_logDenominator_div_logSeparatingModulus,NilBohr.tendsto_separatingLogLength_div_exp_sqrt_log,NilBohr.tendsto_logSeparatingScaleX_div_logNext,NilBohr.eventually_initialModulus_dvd_separatingModulus,NilBohr.tendsto_separatingW_div_logSpatialScale_pow,NilBohr.tendsto_logSeparatingModulus_div_sqrt_logSpatialScale}\leanok
+The floored power of $\mathcal L(w)$ and the integer multiple
+of the denominator in the definition of $M$ give positive
+scales, $\log q\asymp(\log r_j)^2$, and
+$q\le M$. The logarithmic ratios give
+$\log M\sim\tfrac14\exp(\sqrt{\log r_j})$ and
+$qM=r_{j+1}^{1/4+o(1)}$. At $X=qM$, the denominator bracket and the bounded
+powers of the progression step are valid for large $j$.
+\end{lemma}
+\begin{proof}
+\proves{checked-separating-scales}\uses{checked-separating-finite}\leanok
+The floor changes $\log q$ by at most $w\log w$. The next
+denominator grows faster than any fixed power of the current
+one or of the chosen modulus. The resulting polynomial bounds
+in $r_{j+1}$ control $H$, $M$ and $X$ on the same sequence.
+\end{proof}
+
+\begin{lemma}[Local tests at the separating scales]\label{checked-separating-local}
+\uses{selector,d:Cq}
+\lean{NilBohr.SeparatingLocalPhaseDecay,NilBohr.separatingLocalPhase_log_bound,NilBohr.eventually_separating_test_length,NilBohr.separatingCount_log_bound,NilBohr.separatingGlobalPhase_tendsto_zero,NilBohr.separatingLocalPhase_of_obstructions,NilBohr.separatingCount_of_kmtt}\leanok
+The centered progression estimate gives arbitrary logarithmic
+saving in the local phase tests at the separating scales.
+Every progression required by Theorem~4.2 at $\rho=(\log M)^{-1}$
+meets the local length threshold. Testing $[M]$ in particular
+gives convergence to zero for its ordinary global $u^3$ norm.
+\end{lemma}
+\begin{proof}
+\proves{checked-separating-local}\uses{p:heisenberg-phase,t:main,checked-separating-scales}\leanok
+Reparametrize the integer progressions and transport the
+polynomial tests along the affine change. The exact cardinality
+bound for the residue class loses at most one. The small powers
+of $q$ leave the required length margin.
+\end{proof}
+
+\begin{lemma}[Continuous circle tests]\label{checked-separating-fourier}
+\lean{NilBohr.exists_nonzero_fourierCoeff_of_nonconstant,NilBohr.circleMean_centered_mul_fourier,NilBohr.tendsto_circle_average_of_fourier}\leanok
+A nonconstant continuous circle function has a nonzero Fourier
+coefficient at some nonzero frequency. The mean of its centered
+function times the matching conjugate character is that coefficient.
+Cancellation of every nonzero mode on finite rows gives
+equidistribution under continuous tests.
+\end{lemma}
+\begin{proof}
+\proves{checked-separating-fourier}\leanok
+Use uniqueness of circle Fourier coefficients for the first
+claim and trigonometric polynomial approximation for the last.
+\end{proof}
+
+\begin{lemma}[Quadratic correlation on the denominator multiples]\label{checked-separating-quadratic}
+\uses{selector,d:Cq}
+\lean{NilBohr.prefixAverage_tendsto_zero_of_shift_correlations,NilBohr.separatingQuadratic_modes_tendsto_zero,NilBohr.separatingQuadratic_mode_sq_le_growing_shift,NilBohr.tendsto_separatingCoefficient_div_lengthQuotient_pow,NilBohr.separatingGlobalPhase_lower_bound}\leanok
+At the separating scales the phase on the denominator multiples
+is approximated by a quadratic. Its nonzero Fourier modes have
+vanishing averages. The correlation with a quadratic test and
+the residue expansion give a positive multiple of $r_j^{-1}$
+as a lower bound for the full-interval phase norm.
+\end{lemma}
+\begin{proof}
+\proves{checked-separating-quadratic}\uses{checked-separating-finite,checked-separating-scales,checked-separating-fourier}\leanok
+The geometric-series and bad-approximation bounds control each
+nonzero shift in the quadratic sequence. Growing-shift van der
+Corput gives the displayed $H^{-1/3}+|k|a_jq^2r_jH^{-2/3}$ bound,
+whose terms vanish at the separating scales. A second checked
+proof takes fixed shifts first. Trigonometric approximation gives
+the limit, and the surviving constant is a nonzero Fourier coefficient.
+\end{proof}
+
+\begin{lemma}[A full Gowers lower bound]\label{checked-separating-gowers}
+\uses{selector,d:Cq}
+\lean{NilBohr.separating_gowers_lower_bound}\leanok
+For every fixed $S\ge3$, scalar Heisenberg equidistribution on
+the long, coprime progression and the localized vertical
+multiplier give a positive lower bound for $U^S[M]$.
+\end{lemma}
+\begin{proof}
+\proves{checked-separating-gowers}\uses{p:heisenberg-phase,l:vertical-mode-multiplier,checked-separating-scales,checked-separating-fourier}\leanok
+The product of the horizontal cutoff mean and a nonzero
+vertical Fourier coefficient is the limit of the tested
+average. The Gowers mean bound and Lemma~4.5 bound the
+average by a constant times the full Gowers norm.
+\end{proof}

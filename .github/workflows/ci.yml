@@ -1,0 +1,71 @@
+name: Verification
+
+on: [push, pull_request, workflow_dispatch]
+
+permissions:
+  contents: read
+
+jobs:
+  lean:
+    name: Lean build and audits
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          persist-credentials: false
+      - name: Set up Lean and download the Mathlib cache
+        uses: leanprover/lean-action@c544e89643240c6b398f14a431bcdc6309e36b3e # v1.4.0
+        with:
+          auto-config: false
+          build: false
+          test: false
+          lint: false
+          use-github-cache: false
+          use-mathlib-cache: true
+      - name: Build project from clean sources and audit named theorems
+        run: |
+          command -v rg
+          bash scripts/verify.sh --two-jobs
+      - name: Audit project declarations and elaborate mapped theorem types
+        run: |
+          lake env lean scripts/CheckProjectAxioms.lean
+          lake env lean scripts/CheckHeadlines.lean
+          lake env lean scripts/CheckBlueprint.lean
+          lake env lean scripts/CheckCatalogues.lean
+      - name: Verify release files
+        run: |
+          sha256sum -c SHA256SUMS.txt
+          python3 scripts/verify_release.py
+
+  blueprints:
+    name: Blueprint PDFs and dependency graphs
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          persist-credentials: false
+      - name: Install TeX and Graphviz
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y latexmk texlive-latex-extra texlive-pictures graphviz libgraphviz-dev python3-venv
+      - name: Compile both blueprint PDFs
+        working-directory: blueprint
+        run: |
+          mkdir -p "$RUNNER_TEMP/blueprint-pdf"
+          latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir="$RUNNER_TEMP/blueprint-pdf" compact.tex full.tex
+      - name: Compile the final manuscript and check its label ledger
+        run: |
+          mkdir -p "$RUNNER_TEMP/manuscript-pdf"
+          latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir="$RUNNER_TEMP/manuscript-pdf" paper/current.tex
+          python3 scripts/verify_release.py --manuscript-aux "$RUNNER_TEMP/manuscript-pdf/current.aux"
+      - name: Render and verify both dependency graphs
+        working-directory: blueprint
+        run: |
+          venv="$RUNNER_TEMP/blueprint-venv"
+          python3 -m venv "$venv"
+          "$venv/bin/python" -m pip install -r requirements.txt
+          "$venv/bin/plastex" -c plastex.cfg -d "$RUNNER_TEMP/compact-web" web.tex
+          "$venv/bin/plastex" -c plastex.cfg -d "$RUNNER_TEMP/full-web" full-web.tex
+          python3 ../scripts/check_blueprint_dag.py "$RUNNER_TEMP/compact-web" "$RUNNER_TEMP/full-web"

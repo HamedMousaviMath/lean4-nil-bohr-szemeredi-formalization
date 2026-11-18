@@ -1,0 +1,311 @@
+{
+  "schema_version": 1,
+  "manuscript": {
+    "path": "paper/current.tex",
+    "sha256": "ad9ff1b545796ca105b454e1d5765511454be94ff505a5b4991f3bbf9c06f4dc",
+    "numbering": "The 19 active numbered theorem-like environments retain their numbers. The final manuscript adds e:phitildeonprog as (44), shifting each subsequent equation number by one."
+  },
+  "scope": {
+    "numbered_items": 19,
+    "formalized_definitions": 1,
+    "proved_under_paper_hypotheses": 2,
+    "checked_conditional_deductions": 16,
+    "quoted_only_numbered_results": 0,
+    "open_numbered_results": 0,
+    "corrections_catalogue": "docs/CORRECTIONS.md",
+    "assumption_catalogue": "docs/ASSUMPTIONS.md",
+    "machine_readable_assumption_catalogue": "docs/EXTERNAL_INPUTS.json",
+    "human_readable_map": "docs/PAPER_MAP.md",
+    "note": "The statement_tex field reproduces each active environment body from the final supplied source. For substantial equations and unnumbered results see the human-readable map. The manuscript uses positive natural numbers."
+  },
+  "statements": [
+    {
+      "number": "1.1",
+      "kind": "corollary",
+      "latex_label": "c:bohr",
+      "title": "Bohr restrictions",
+      "status": "checked_conditional_deduction",
+      "source_start_line": 128,
+      "source_end_line": 135,
+      "statement_tex": "Assume \\eqref{e:fixed-polynomials} and $P_1(y)=ay$ with\n $a\\in\\mathbb Z\\setminus\\{0\\}$. Fix real numbers\n $\\alpha_1,\\ldots,\\alpha_r$ and $\\varepsilon>0$. There exists\n $\\kappa>0$ such that, for every sufficiently large $N$, every\n $A\\subset[N]$ with $|A|\\geq N(\\log N)^{-\\kappa}$ contains a configuration \\eqref{e:intro-pattern} of pairwise distinct\npoints, with $n=p-1$ for a prime $p$ satisfying \\eqref{e:bohrcondition}.",
+      "lean_declarations": [
+        "NilBohr.bohr_recurrence",
+        "NilBohr.KMTTShiftedPrimeDensityBound"
+      ],
+      "scope_note": "`bohr_recurrence` proves the simultaneous linear restrictions for any finite set of real frequencies, for either sign of the nonzero linear coefficient. Its only mathematical premise beyond the corollary is `KMTTShiftedPrimeDensityBound`."
+    },
+    {
+      "number": "1.2",
+      "kind": "theorem",
+      "latex_label": "t:recurrence",
+      "title": null,
+      "status": "checked_conditional_deduction",
+      "source_start_line": 314,
+      "source_end_line": 327,
+      "statement_tex": "Assume \\eqref{e:fixed-polynomials}, and let $Z$ and $J$ be as in\n \\eqref{e:heisenberg-phase}--\\eqref{e:explicit-B}. There exists\n $\\kappa>0$, depending only on these fixed data, such that, for every\n sufficiently large $N$, every $A\\subset[N]$ with\n \\[\n  |A|\\geq N(\\log N)^{-\\kappa}\n \\]\n contains pairwise distinct integers\n \\[\n  x,\\quad x+P_1(p-1),\\quad\\ldots,\\quad x+P_\\ell(p-1)\n \\]\n for a prime $p\\in\\mathcal P_{Z,J}$.",
+      "lean_declarations": [
+        "NilBohr.heisenbergRecurrence_of_analytic_inputs",
+        "NilBohr.HeisenbergRecurrence"
+      ],
+      "scope_note": "`heisenbergRecurrence_of_analytic_inputs` derives `HeisenbergRecurrence` from the prime-model, zero exclusion, inverse, weighted count and quantitative Leibman inputs. The proof uses Theorem 3.2 for a nonnegative Lipschitz minorant and derives weak regularity from the inverse theorem. The exponent and large-scale cutoff are uniform in sets and sizes once the family and phase are fixed. The selected prime and signed shifts are preserved, and all points including the base are distinct."
+    },
+    {
+      "number": "1.3",
+      "kind": "corollary",
+      "latex_label": "c:bracket-recurrence",
+      "title": null,
+      "status": "checked_conditional_deduction",
+      "source_start_line": 340,
+      "source_end_line": 343,
+      "statement_tex": "In Theorem~\\ref{t:recurrence}, we may replace\n$\\mathcal P_{Z,J}$ with $\\mathcal P_{Z_{\\mathrm{br}},J}$.",
+      "lean_declarations": [
+        "NilBohr.bracketRecurrence_of_analytic_inputs",
+        "NilBohr.BracketRecurrence"
+      ],
+      "scope_note": "`bracketRecurrence_of_analytic_inputs` deduces `BracketRecurrence` with the same inputs as Theorem 1.2. Degree enlargement, sorting, the four-coordinate pigeonhole and floor carry are checked."
+    },
+    {
+      "number": "1.4",
+      "kind": "theorem",
+      "latex_label": "t:pointwise",
+      "title": null,
+      "status": "checked_conditional_deduction",
+      "source_start_line": 429,
+      "source_end_line": 442,
+      "statement_tex": "Assume \\eqref{e:fixed-polynomials}, and let $Z$ and $J$ be as in\n \\eqref{e:heisenberg-phase}--\\eqref{e:explicit-B}.\n Let $(X,\\nu,T)$ be an invertible probability measure-preserving\n system, and let $f_1,\\ldots,f_\\ell\\in L^\\infty(X)$. Then\n $\\pi_{Z,J}(N)\\sim |J|\\pi(N)$, and the averages\n \\[\n  \\frac1{\\pi_{Z,J}(N)}\n   \\sum_{\\substack{p\\leq N\\\\p\\in\\mathcal P_{Z,J}}}\n        \\prod_{i=1}^{\\ell}f_i(T^{P_i(p-1)}x)\n \\]\n converge almost everywhere to the same limit as\n $A_N^T(\\mathbf f)(x)$.",
+      "lean_declarations": [
+        "NilBohr.heisenberg_pointwise_of_prime_model"
+      ],
+      "scope_note": "`heisenberg_pointwise_of_prime_model` proves the common selected and unrestricted limit almost everywhere and prime-relative density equal to the arc length. It derives Proposition 6.2 using Green–Tao quantitative Leibman, then uses Teräväinen, Mirek–Wan–Wright and PNT derived from the prime-model and sieve premises of Proposition 6.2."
+    },
+    {
+      "number": "1.5",
+      "kind": "corollary",
+      "latex_label": "c:bracket-pointwise",
+      "title": null,
+      "status": "checked_conditional_deduction",
+      "source_start_line": 445,
+      "source_end_line": 449,
+      "statement_tex": "In Theorem~\\ref{t:pointwise}, we may replace $\\mathcal P_{Z,J}$\nand $\\pi_{Z,J}(N)$ with $\\mathcal P_{Z_{\\mathrm{br}},J}$\nand $\\pi_{Z_{\\mathrm{br}},J}(N)$, respectively.",
+      "lean_declarations": [
+        "NilBohr.bracket_pointwise_of_prime_model"
+      ],
+      "scope_note": "`bracket_pointwise_of_prime_model` supplies the scalar equidistribution from the available prime model and sieve. The Fourier cancellation over a countable set of frequencies, boundary interval approximation, product rotation and Fubini extraction are checked. Translation gives the horizontal equidistribution at $p-1$.",
+      "proof_clarification": "The final product-rotation proof uses the reindexed functions g_i for all coordinates, including i at least three."
+    },
+    {
+      "number": "1.6",
+      "kind": "remark",
+      "latex_label": null,
+      "title": null,
+      "status": "checked_conditional_deduction",
+      "source_start_line": 629,
+      "source_end_line": 640,
+      "statement_tex": "At the moduli used in the density increment, where\n$\\operatorname{lcm}(1,\\ldots,w)\\mid q$, the bound $|T_{N,M,F_q-\\mu_F}(\\mathbf f)|\\ll w^{-\\eta}$ needed for the\ndensity increment can be proved directly using the fixed local\nfactors from the proof of \\cite[Lemma~5.3]{KMTT}. The argument\nuses the same spatial differencing, duality, and extraction of\nlocal linear phases as the proof of Theorem~\\ref{t:main}.\nHere the divisibility of $q$ absorbs the auxiliary denominators\nand eliminates the pigeonholing over major-arc frequencies.\nTheorem~\\ref{t:main} gives polynomial-phase control for arbitrary\nbounded weights over a wider range of moduli.",
+      "lean_declarations": [
+        "NilBohr.centeredSelectorComparison_on_lcm_moduli_of_obstructions"
+      ],
+      "scope_note": "`centeredSelectorComparison_on_lcm_moduli_of_obstructions` uses $\\mathcal L(w)\\mid q$ to absorb the auxiliary denominator into a fixed power of $q$. The zero derivative frequency is explicit, and the phase and count estimates retain their logarithmic power and uniformity. The final manuscript states the least-common-multiple hypothesis explicitly.",
+      "source_scope_clarification": "The direct local-factor argument is checked at the density-increment moduli after making \\mathcal L(w)\\mid q explicit. The comparison over the wider smooth-modulus range follows by applying Theorem 4.2 with the centered phase bound."
+    },
+    {
+      "number": "2.1",
+      "kind": "definition",
+      "latex_label": "d:Cq",
+      "title": "$(C,q)$-coefficients",
+      "status": "formalized_definition",
+      "source_start_line": 737,
+      "source_end_line": 748,
+      "statement_tex": "Let $C\\ge1$ and $q\\in\\mathbb N$.  A polynomial\n\\[\n P(y)=a_ey^e+\\cdots+a_1y\\in\\Z[y],\\qquad e\\ge1,\n\\]\nwith $P(0)=0$ has \\emph{$(C,q)$-coefficients} if\n\\[\n |a_j|\\le C|a_e|\\quad(1\\le j<e),\n \\qquad a_e=a'_eq^{e-1}\n\\]\nfor some $a'_e\\in\\Z$ with $0<|a'_e|\\le C$.",
+      "lean_declarations": [
+        "NilBohr.HasCoefficients",
+        "NilBohr.HasCoefficients.rescale"
+      ],
+      "scope_note": "`HasCoefficients` and `HasCoefficients.rescale`; negative leading coefficients, positive modulus, zero constant term, polynomial degree and the exact $q^{e-1}$ scaling are accounted for."
+    },
+    {
+      "number": "3.1",
+      "kind": "proposition",
+      "latex_label": "p:selected-density-increment",
+      "title": "Density increment",
+      "status": "checked_conditional_deduction",
+      "source_start_line": 794,
+      "source_end_line": 814,
+      "statement_tex": "There are constants \\(c,\\eta,K,E,C_1>0\\) and \\(B_*\\in\\mathbb N\\),\ndepending only on the fixed data of Theorem~\\ref{t:recurrence}, with the\nfollowing property for sufficiently large \\(N\\). Let \\(A\\subset[N]\\)\nhave density \\(0<\\delta\\le1\\), and suppose \\(q,w\\in\\mathbb N\\) satisfy\n\\begin{equation}\\label{e:increment-hypotheses}\n K\\delta^{-E}\\le w\\le(\\log N)^c,\\qquad\n \\mathcal L(w)\\mid q,\\qquad P^+(q)\\le w,\\qquad \\log q\\le w^2.\n\\end{equation}\nPut \\(M=\\lfloor(N/q^{d-1})^{1/d}\\rfloor\\). Suppose that \\(A\\) contains\nno configuration of pairwise distinct points\n\\(x,x+P_{1,q}(y),\\ldots,x+P_{\\ell,q}(y)\\) with\n\\(y\\ge1\\) and \\(qy+1\\in\\mathcal P_{Z,J}\\).\nThen there are \\(1\\le B\\le B_*\\), \\(a\\in\\mathbb Z\\), and \\(N'\\in\\mathbb N\\)\nsuch that\n\\begin{equation}\\label{e:increment-output}\n a+q^B[N']\\subset[N],\\qquad\n |A\\cap(a+q^B[N'])|\\ge(1+\\eta)\\delta N',\\qquad\n N'\\gg q^{-C_1}\\delta^{C_1}M^r.\n\\end{equation}",
+      "lean_declarations": [
+        "NilBohr.densityIncrementFor_of_relativeSelectorComparison",
+        "NilBohr.KMTTLocalInverse.toLocalWeakRegularity"
+      ],
+      "scope_note": "`densityIncrementFor_of_relativeSelectorComparison` derives the full uniform increment with the selected count, excluding collisions and prime powers. It uses the relative comparison for the fixed minorant and the weak-regularity interface proved by `KMTTLocalInverse.toLocalWeakRegularity`. Scale choice, projection, atom progression length and the increment exponent are checked."
+    },
+    {
+      "number": "3.2",
+      "kind": "theorem",
+      "latex_label": "t:relative-selector-comparison",
+      "title": null,
+      "status": "checked_conditional_deduction",
+      "source_start_line": 1008,
+      "source_end_line": 1023,
+      "statement_tex": "Fix $C,d,k$, the parameters of $Z$, and a Lipschitz function\n$F:\\mathbb T\\to\\mathbb C$. There are $c_{\\rm rel},\\eta_{\\rm sel}>0$\nand an integer $w_0\\geq16$ such that the following holds for all\nsufficiently large integers $N$. Let $q,w\\in\\mathbb N$ satisfy\n\\eqref{e:relative-smooth-hypotheses}, and put\n$M=\\lfloor(N/q^{d-1})^{1/d}\\rfloor$. Let $P_1,\\ldots,P_{k-1}$\nhave distinct increasing degrees, largest degree $d$, and\n$(C,q)$-coefficients. Then for all $1$-bounded\n$f_0,\\ldots,f_{k-1}$ supported on $[N]$,\n\\begin{equation}\\label{e:relative-selector-constant}\n T_{N,M,\\Lambda_q F_q}(\\mathbf f)\n =\\mu_F T_{N,M,1}(\\mathbf f)+O(w^{-\\eta_{\\rm sel}}).\n\\end{equation}\nThe implied constant is uniform over the stated coefficient class.",
+      "lean_declarations": [
+        "NilBohr.relativeSelectorComparison_of_obstructions",
+        "NilBohr.RelativeSelectorComparison"
+      ],
+      "scope_note": "`relativeSelectorComparison_of_obstructions` proves `RelativeSelectorComparison`. The cutoff partition, localized multiplier, Gowers-to-counting estimate, boundary contribution, floor scales and error absorption are checked. The centered input (27) is supplied by its own checked proof."
+    },
+    {
+      "number": "4.1",
+      "kind": "proposition",
+      "latex_label": "p:high-order-relative-prime",
+      "title": null,
+      "status": "checked_conditional_deduction",
+      "source_start_line": 1150,
+      "source_end_line": 1168,
+      "statement_tex": "Fix integers $d\\geq1$ and $S\\geq2$. There are\n$c_{\\rm rel},\\eta_{\\rm rel}>0$ and an integer $w_0\\geq16$,\ndepending only on $d,S$, such that for all sufficiently large\nintegers $N$ and all $q,w,M\\in\\mathbb N$ satisfying\n\\eqref{e:relative-smooth-hypotheses} and\n\\begin{equation}\\label{e:relative-scale-window}\n N^{1/d}\\exp(-d\\sqrt{\\log N})\\leq M\\leq N^{1/d},\n\\end{equation}\none has\n\\begin{equation}\\label{e:high-order-relative-prime}\n \\|\\Lambda_q-1\\|_{U^S[M]}\\ll_{d,S}w^{-\\eta_{\\rm rel}}.\n\\end{equation}\nIn particular,\n\\begin{equation}\\label{e:relative-first-moment}\n \\mathbb E_{y\\leq M}\\Lambda_q(y)\n =1+O_{d,S}(w^{-\\eta_{\\rm rel}}).\n\\end{equation}",
+      "lean_declarations": [
+        "NilBohr.high_order_relative_prime_of_analytic_inputs"
+      ],
+      "scope_note": "`high_order_relative_prime_of_analytic_inputs` checks the exclusion, the ambient interval $[1,qM+1]$, the independent scale window (21), the residue $1$, the totient normalization and error absorption. Lean supplies dilation and the norm laws."
+    },
+    {
+      "number": "4.2",
+      "kind": "theorem",
+      "latex_label": "t:main",
+      "title": "Local generalized von Neumann estimate",
+      "status": "checked_conditional_deduction",
+      "source_start_line": 1218,
+      "source_end_line": 1238,
+      "statement_tex": "Fix $C\\geq1$ and $d,k\\in\\mathbb N$, with $k\\geq2$. There are\n$\\eta,A_1,A_2>0$ and $B\\in\\mathbb N$, depending only on $C,d,k$,\nwith the following property. Let $N,q\\in\\mathbb N$ satisfy\n$N\\geq3$ and $1\\leq q\\leq\\exp((\\log N)^{1/10})$, and put\n$M=\\lfloor(N/q^{d-1})^{1/d}\\rfloor\\geq1$.\nLet $P_1,\\ldots,P_{k-1}$ have distinct increasing degrees, largest\ndegree $d$, and $(C,q)$-coefficients. Suppose that $v$ is $1$-bounded\non $[M]$ and that the $f_i$ are $1$-bounded and supported on\n$[-CN,CN]$. For $0<\\rho\\leq1/2$, one has\n\\begin{equation}\\label{e:main}\n |T_{N,M,v}(\\mathbf f)|\n \\ll_{C,d,k} N^{-\\eta}+\\rho+\n \\left(\\sup_{I,b,u}\n \\|v\\|_{u^{d+1}[I\\cap(u+q^b\\mathbb Z)]}\\right)^\\eta,\n\\end{equation}\nwhere $b,u\\in\\mathbb Z$, $0\\leq b\\leq B$, and $I\\subset[M]$ is\nan integer interval with $|I|\\geq Mq^{-A_1}\\rho^{A_2}$ and\n$I\\cap(u+q^b\\mathbb Z)\\ne\\varnothing$. For $k=2$ one can take\n$b=0$ and $I=[M]$.",
+      "lean_declarations": [
+        "NilBohr.localGeneralizedVonNeumann_of_kmtt",
+        "NilBohr.localGeneralizedVonNeumann_twoInput"
+      ],
+      "scope_note": "`localGeneralizedVonNeumann_of_kmtt` verifies the full coefficient-uniform estimate, both small-scale and long-progression alternatives, and ordinary-phase degree $d$ on an admissible local progression. The longer-family proof checks simultaneous inverse extraction, dual replacements and the quantitative deletion budget. `localGeneralizedVonNeumann_twoInput` is independent of KMTT."
+    },
+    {
+      "number": "4.3",
+      "kind": "proposition",
+      "latex_label": "p:heisenberg-phase",
+      "title": null,
+      "status": "checked_conditional_deduction",
+      "source_start_line": 1252,
+      "source_end_line": 1280,
+      "statement_tex": "Fix $d\\in\\mathbb N$ and $A,L>0$. For sufficiently large $X$,\nchoose $j$ so that $r_j\\leq X^{1/100}<r_{j+1}$.\nSuppose $a\\in\\mathbb Z$ and $v,K\\in\\mathbb N$, with\n$v\\leq X^{1/10000}$, $r_j\\nmid v$, and $K\\geq X^{1/2}$.\nFor every Lipschitz $\\Phi$ on $H/\\Gamma$ with\n$\\|\\Phi\\|_{\\mathrm{Lip}}\\leq(\\log X)^L$,\n\\begin{equation}\\label{e:heisenberg-equidistribution}\n \\left|\\mathbb E_{t\\leq K}\\Phi(g_0^{a+vt}\\Gamma)\n       -\\int_{H/\\Gamma}\\Phi\\,dm_H\\right|\n \\ll_{A,L,\\alpha,\\beta}(\\log X)^{-A}.\n\\end{equation}\nIf $\\Phi$ has zero vertical mean, then also\n\\begin{equation}\\label{e:heisenberg-twisted}\n \\sup_{\\deg\\phi\\leq d}\n \\left|\\mathbb E_{t\\leq K}\n   \\Phi(g_0^{a+vt}\\Gamma)\\e(-\\phi(t))\\right|\n \\ll_{A,L,d,\\alpha,\\beta}(\\log X)^{-A},\n\\end{equation}\nwhere the supremum is over real polynomials. In particular, for\nfixed Lipschitz $F:\\mathbb T\\to\\mathbb C$, with\n$\\mu_F=\\int_{\\mathbb T}F$,\n\\begin{equation}\\label{e:heisenberg-centered}\n \\sup_{\\deg\\phi\\leq d}\n \\left|\\mathbb E_{t\\leq K}\n   \\bigl(F(Z(a+vt))-\\mu_F\\bigr)\\e(-\\phi(t))\\right|\n \\ll_{A,d,\\alpha,\\beta,F}(\\log X)^{-A}.\n\\end{equation}",
+      "lean_declarations": [
+        "NilBohr.heisenbergPhaseEstimates_of_quantitativeLeibman"
+      ],
+      "scope_note": "`heisenbergPhaseEstimates_of_quantitativeLeibman` states (25)–(27) on the same admissible denominator sequence for the manuscript's positive degree parameters. The Lean theorem also covers degree zero. The checked proof supplies both specialized obstructions from the general theorem, verifies the cover phase identity, signed coefficient rounding, integer period and partial summation, and removes the boundary cutoff for the full centered Lipschitz vertical test.",
+      "proof_clarification": "The newly numbered maximum-prefix bound (44), e:phitildeonprog, uses heisenbergCoverSequence_prefix_eq_scalarAverage and norm_heisenbergCoverSequence_prefix_le."
+    },
+    {
+      "number": "4.4",
+      "kind": "lemma",
+      "latex_label": "l:unweighted-selector-relative-range",
+      "title": null,
+      "status": "checked_conditional_deduction",
+      "source_start_line": 1287,
+      "source_end_line": 1300,
+      "statement_tex": "Fix \\(C,d,k\\), the parameters of \\(Z\\), and a Lipschitz function\n\\(F:\\mathbb T\\to\\mathbb C\\). Let \\(N\\) be sufficiently large and\nsuppose \\(q,w\\in\\mathbb N\\) satisfy \\eqref{e:relative-smooth-hypotheses},\nwhere \\(w_0\\ge16\\) and \\(c_{\\rm rel}>0\\) is sufficiently small.\nPut \\(M=\\lfloor(N/q^{d-1})^{1/d}\\rfloor\\). Let\n\\(P_1,\\ldots,P_{k-1}\\) have \\((C,q)\\)-coefficients and distinct\nincreasing degrees, with largest degree \\(d\\). Then for every\nfixed \\(A>0\\) and every tuple \\(\\mathbf f=(f_0,\\ldots,f_{k-1})\\)\nof \\(1\\)-bounded functions supported on \\([N]\\),\n\\begin{equation}\\label{e:bare-selector-comparison}\n |T_{N,M,F_q-\\mu_F}(\\mathbf f)|\\ll_{C,d,k,\\alpha,\\beta,F,A}w^{-A}.\n\\end{equation}",
+      "lean_declarations": [
+        "NilBohr.unweightedSelectorComparison_of_local_phase"
+      ],
+      "scope_note": "`unweightedSelectorComparison_of_local_phase` deduces the exact bare selector comparison from Theorem 4.2 and the centered Heisenberg phase estimate along the same admissible denominators. Both have separate checked conditional proofs. It checks progression sizes, starting residues, step and coprimality, and logarithmic rates over the prescribed modulus range."
+    },
+    {
+      "number": "4.5",
+      "kind": "lemma",
+      "latex_label": "l:vertical-mode-multiplier",
+      "title": "Localized Fourier multipliers",
+      "status": "proved_under_paper_hypotheses",
+      "source_start_line": 1334,
+      "source_end_line": 1344,
+      "statement_tex": "Let \\(S\\geq3\\), let \\(I\\) be a finite nonempty interval of integers, and let\n\\(a,v,h\\) be integers. Suppose that \\(\\chi\\) is a Lipschitz function\non \\(\\mathbb T\\) supported on an interval of length less than \\(1/2\\)\ninside \\((0,1)\\). For every function \\(f\\) on \\(I\\),\n\\begin{align}\n \\|f(t)\\chi(\\{\\beta(a+vt)\\})\\e(hZ(a+vt))\\|_{U^S[I]}\n &\\leq\\|\\widehat\\chi\\|_{\\ell^1}\\|f\\|_{U^S[I]}.\n \\label{e:vertical-mode-multiplier}\n\\end{align}",
+      "lean_declarations": [
+        "NilBohr.localized_vertical_multiplier",
+        "NilBohr.gowersCubePower_localized_vertical",
+        "NilBohr.normalizedGowers_localized_vertical"
+      ],
+      "scope_note": "`localized_vertical_multiplier` proves (29) for every finite nonempty interval and $S\\ge3$. `gowersCubePower_localized_vertical` and `normalizedGowers_localized_vertical` prove (45). The triangle law, absolute summability, Fourier limit and norm homogeneity all have checked proofs.",
+      "source_scope_clarification": "The normalized norm requires a finite nonempty interval, as recorded in the current replacement list."
+    },
+    {
+      "number": "5.1",
+      "kind": "lemma",
+      "latex_label": "p:localinverse",
+      "title": null,
+      "status": "checked_conditional_deduction",
+      "source_start_line": 1485,
+      "source_end_line": 1519,
+      "statement_tex": "Fix \\(C\\ge1\\) and \\(d,k\\in\\mathbb N\\), with \\(k\\ge2\\). Let \\(N\\ge3\\),\nlet \\(q\\) be a positive integer with\n\\(q\\le\\exp((\\log N)^{1/10})\\), and put\n\\(M=\\lfloor(N/q^{d-1})^{1/d}\\rfloor\\ge1\\).\nLet \\(P_1,\\ldots,P_{k-1}\\) have \\((C,q)\\)-coefficients and distinct\nincreasing degrees, with largest degree \\(d\\). Let \\(v\\) be\n\\(1\\)-bounded on \\([M]\\), and let\n\\(\\mathbf f=(f_0,\\ldots,f_{k-1})\\) consist of \\(1\\)-bounded functions\nsupported on \\([-CN,CN]\\).\nSuppose that \n\\begin{align}\\label{e:Tmnvcondition}\n    \\lvert T_{N,M,v}(\\mathbf f)\\rvert\\ge\\delta, \\qquad 0<\\delta<1/2.\n\\end{align}\n Then either \\(N\\ll_{C,d,k}\\delta^{-O_{C,d,k}(1)}\\)\nor the following holds. For a fixed integer \\(B=O_d(1)\\), put \\(L=q^B\\).\nFor each \\(1\\le i\\le k-1\\), there is an integer \\(V_i\\) satisfying\n\\[\n M^{\\deg P_i}(q/\\delta)^{-O_{C,d,k}(1)}\n \\ll_{C,d,k} V_i\\le M^{\\deg P_i},\n \\qquad LV_i\\le N,\n\\]\nand a function \\(\\Psi_i\\) satisfying\n\\[\n \\left|\\sum_x f_i(x)\\Psi_i(x)\\right|\n \\gg_{C,d,k}\\delta^{O_{C,d,k}(1)}N,\n\\]\nwhere for every \\(j\\in\\mathbb Z\\) and \\(a\\in\\{0,\\ldots,L-1\\}\\), there are\nreal \\(\\theta_{i,j,a}\\) and \\(\\gamma_{i,j,a}\\) such that\n\\[\n \\Psi_i(x)=\\e\\bigl(\\theta_{i,j,a}x+\\gamma_{i,j,a}\\bigr)\n \\qquad\n \\text{for }x\\in ((j-1)LV_i,jLV_i]\\cap(a+L\\mathbb Z).\n\\]",
+      "lean_declarations": [
+        "NilBohr.weighted_local_inverse_of_kmtt_degree_uniform",
+        "NilBohr.WeightedLocalInverseEstimate",
+        "NilBohr.KMTTLocalInverseDegreeUniform"
+      ],
+      "scope_note": "`weighted_local_inverse_of_kmtt_degree_uniform` derives `WeightedLocalInverseEstimate` from `KMTTLocalInverseDegreeUniform`, choosing the exponent bound after $d$ and before the coefficient constant and family length. The spatial differencing, common witnesses, localization, Plancherel and small-scale alternative are checked. The fixed-family wrapper is retained for the deduction of Theorem 4.2."
+    },
+    {
+      "number": "6.1",
+      "kind": "lemma",
+      "latex_label": "l:heisenberg-horizontal",
+      "title": null,
+      "status": "proved_under_paper_hypotheses",
+      "source_start_line": 1943,
+      "source_end_line": 1957,
+      "statement_tex": "For sufficiently large \\(X\\), choose \\(j\\) so that\n\\(r_j\\leq X^{1/100}<r_{j+1}\\). For every fixed \\(L>0\\),\n\\begin{align}\\label{e:infcondition}\n    \\frac{r_j}{(\\log X)^L}\\longrightarrow\\infty\n \\qquad\\text{as }X\\to\\infty.\n\\end{align}\nMoreover, for sufficiently large \\(X\\), if \\(v,k,l\\) are integers\nwith \\(1\\leq v\\leq X^{1/5000}\\), \\(r_j\\nmid v\\), and\n\\(0<\\max(|k|,|l|)\\leq(\\log X)^L\\), then\n\\[\n \\|v(k\\alpha+l\\beta)\\|_{\\mathbb T}\\gg_\\alpha X^{-1/20}\n\\]\nuniformly in \\(v,k,l\\).",
+      "lean_declarations": [
+        "NilBohr.heisenberg_horizontal",
+        "NilBohr.horizontal_diophantine_bound_uniform_in_beta"
+      ],
+      "scope_note": "`heisenberg_horizontal` supplies the bracketing denominators and their growth against every logarithmic power, and the mixed-frequency lower bound for every coprime step and logarithmically bounded frequency in range. `horizontal_diophantine_bound_uniform_in_beta` chooses the lower-bound constant from $\\alpha$ before $\\beta$ and the approximation constants. The large-scale threshold may depend on those approximation constants."
+    },
+    {
+      "number": "6.2",
+      "kind": "proposition",
+      "latex_label": "p:prime-phase",
+      "title": null,
+      "status": "checked_conditional_deduction",
+      "source_start_line": 2426,
+      "source_end_line": 2441,
+      "statement_tex": "Fix $d\\geq1$ and $B,K,L,A>0$. Let $F:\\mathbb T\\to\\mathbb C$\nbe Lipschitz and let $Z$ be as in \\eqref{e:heisenberg-phase}, with\n\\eqref{e:badly-approximable} and \\eqref{e:horizontal-approximants}.\nFor sufficiently large $N$, suppose that $1\\leq q\\leq(\\log N)^L$\nis an integer and put $M=\\lfloor(N/q^{d-1})^{1/d}\\rfloor$.\nIf $0\\leq b\\leq B$ and $u$ are integers, $I\\subset[M]$ is an interval\nwith $|I|\\geq M(\\log N)^{-K}$, and $P=I\\cap(u+q^b\\mathbb Z)$, then\n\\begin{equation}\\label{e:prime-local-phase}\n \\sup_{\\substack{\\phi\\in\\mathbb R[y]\\\\\\deg\\phi\\leq d}}\n \\left|\\mathbb E_{y\\in P}\\Lambda_q(y)\n       \\bigl(F_q(y)-\\mu_F\\bigr)\\e(-\\phi(y))\\right|\n \\ll_{d,\\alpha,\\beta,F,A,B,K,L}(\\log N)^{-A}.\n\\end{equation}",
+      "lean_declarations": [
+        "NilBohr.primeLocalPhase_of_literature",
+        "NilBohr.heisenbergPrimeLocalPhase_of_literature",
+        "NilBohr.PrimeLocalPhase",
+        "NilBohr.fourierCoeff_tail_eta_le",
+        "NilBohr.norm_fourierSeries_truncation_eta_le"
+      ],
+      "scope_note": "`primeLocalPhase_of_literature` and `heisenbergPrimeLocalPhase_of_literature` prove `PrimeLocalPhase` with the original modulus and length ranges, eventual nonempty progressions and arbitrary fixed logarithmic savings. They combine the seam error, Fourier and Gowers comparison, and full chart Cramér estimate. The totient factor and both sides of the logarithmic scale comparison are checked. `fourierCoeff_tail_eta_le` and `norm_fourierSeries_truncation_eta_le` supply the manuscript’s quantitative Fourier tail and uniform truncation error. The main proof uses the full absolutely convergent series in the model comparison and sifts the full centered chart test.",
+      "proof_clarification": "The final manuscript uses the saving -A' - 2 in both sieve displays before multiplying by the logarithmic amplitude."
+    },
+    {
+      "number": "7.1",
+      "kind": "proposition",
+      "latex_label": "p:ergodic-comparison",
+      "title": null,
+      "status": "checked_conditional_deduction",
+      "source_start_line": 2825,
+      "source_end_line": 2853,
+      "statement_tex": "Let $P_1,\\ldots,P_\\ell\\in\\mathbb Z[y]$ have zero constant terms\nand distinct positive degrees. Let $\\alpha$ be badly approximable\nand let $\\beta\\in(0,1)$ be the limit of an increasing sequence\nof rationals $a_j/r_j$ with prime denominators $r_j\\to\\infty$\nsatisfying\n\\[\n r_{j+1}\\asymp\\exp\\!\\bigl(\\exp(\\sqrt{\\log r_j})\\bigr),\n \\qquad 0<\\beta-a_j/r_j\\ll r_{j+1}^{-1}.\n\\]\nSet $Z(n)=\\alpha\\beta n(n-1)/2-\\alpha n\\lfloor\\beta n\\rfloor$.\nLet $(X,\\nu,T)$ be an invertible probability measure-preserving\nsystem, let $f_1,\\ldots,f_\\ell\\in L^\\infty(X)$, and fix a Lipschitz\nfunction $F:\\mathbb T\\to\\mathbb C$ with mean\n$\\mu_F=\\int_{\\mathbb T}F$. Then for every $A>0$ and every integer\n$H\\geq2$,\n\\begin{equation}\\label{e:ergodic-L1-log}\n \\|\\mathcal A_H^F(\\mathbf f)-\\mu_F\\mathcal A_H^1(\\mathbf f)\\|_{L^1(X)}\n \\ll_{\\mathbf P,\\alpha,\\beta,F,A}\n       (\\log H)^{-A}\\prod_{i=1}^{\\ell}\\|f_i\\|_\\infty.\n\\end{equation}\nThe difference tends to zero almost everywhere. Moreover,\n\\begin{equation}\\label{e:smooth-prime-comparison}\n \\frac1{\\pi(H)}\\sum_{p\\le H}\n (F(Z(p-1))-\\mu_F)\\prod_{i=1}^{\\ell} f_i(T^{P_i(p-1)}x)\n \\longrightarrow 0\n \\qquad\\text{for almost every }x.\n\\end{equation}",
+      "lean_declarations": [
+        "NilBohr.smoothErgodicComparison_of_prime_model_distinct_degrees"
+      ],
+      "scope_note": "`smoothErgodicComparison_of_prime_model_distinct_degrees` orders the positive distinct degrees by a permutation and reindexes both the product of iterates and the product of essential sup norms. The $L^1$ constant is chosen before the probability system, inputs and scale. Both almost-everywhere limits are checked. Prime normalization follows from the model and sieve already used for Proposition 6.2.",
+      "proof_clarification": "The final proof explicitly reorders the polynomials with their inputs and works with bounded representatives on a common conull set."
+    },
+    {
+      "number": "A.1",
+      "kind": "proposition",
+      "latex_label": "p:separating-family",
+      "title": null,
+      "status": "checked_conditional_deduction",
+      "source_start_line": 3220,
+      "source_end_line": 3234,
+      "statement_tex": "Let $F:\\mathbb T\\to\\mathbb C$ be Lipschitz and nonconstant.\nThere are sequences $q=q_j$, $M=M_j$, and $N=qM^2$ in the\nsmooth-modulus range of Theorem~\\ref{t:relative-selector-comparison},\nwith $\\log q\\asymp(\\log r_j)^2$, such that\n\\begin{equation}\\label{e:separating-global-u}\n \\|G_q\\|_{u^3[M]}\\gg_F r_j^{-1}.\n\\end{equation}\nFor every fixed $A,B>0$, we have\n$\\|G_q\\|_{u^3[P]}\\ll_{A,B,F}(\\log M)^{-A}$ on every progression\n$P=I\\cap(u+q^b\\mathbb Z)$, where $I\\subset[M]$ is an integer\ninterval, $b,u\\in\\mathbb Z$, $0\\leq b\\leq B$, and\n$|P|\\geq(qM)^{1/2}$. Also, $\\|G_q\\|_{U^S[M]}\\gg_{F,S}1$\nfor each fixed integer $S\\geq3$.",
+      "lean_declarations": [
+        "NilBohr.appendixA_separating_family_of_quantitativeLeibman"
+      ],
+      "scope_note": "`appendixA_separating_family_of_quantitativeLeibman` constructs the exact floored scales, verifies the smooth-modulus and length ranges, and proves all three norm estimates. The $u^3[M]$ lower bound uses the checked quadratic Weyl argument and residue Fourier extraction. The tested progression upper bound and the $U^S[M]$ lower bound hold on that same sequence for each prescribed saving and order."
+    }
+  ]
+}

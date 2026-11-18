@@ -1,0 +1,183 @@
+--- a/paper/current.tex
++++ b/paper/current.tex
+@@ -198,7 +198,7 @@
+ 
+ For an open interval $J\subset\mathbb T$ with $0<|J|<1$, define
+ \begin{equation}\label{e:explicit-B}
+- \mathcal B_{Z,J}:=\{n\in\mathbb N:\{Z(n)\}\in J\},
++ \mathcal B_{Z,J}:=\{n\in\mathbb Z_{>0}:\{Z(n)\}\in J\},
+  \qquad
+  \mathcal P_{Z,J}:=\{p\in\mathbb P:p-1\in\mathcal B_{Z,J}\}.
+ \end{equation}
+@@ -382,8 +382,9 @@
+  \qquad e(t):=e^{2\pi it},
+ \]
+ for each fixed $\omega\in\mathbb R$. Adjoining the linear iterate $n$
+-with the constant function $1$ if necessary, we may assume that
+-$P_1(n)=an$, with $a\ne0$. On $X\times\mathbb T$, set
++with the constant function $1$ if necessary and relabelling the
++polynomials and their inputs, we may assume that $P_1(n)=an$,
++with $a\ne0$. On $X\times\mathbb T$, set
+ $S(x,t)=(Tx,t+\omega/a)$, $G_1(x,t)=f_1(x)e(t)$ and
+ $G_i(x,t)=f_i(x)$ for $i\geq2$. The corresponding polynomial average
+ on the product system is exactly $e(t)B_N^\omega(x)$.
+@@ -470,12 +471,13 @@
+ Green--Tao theorem \cite{GreenTao}. If $J=J_N$ shrinks with $N$, then for $k\geq4$ the quantitative
+ Green--Tao theorem of the second author and Wang
+ \cite[Theorem~1.1]{TeravainenWang} gives a $k$-term progression
+-among the selected primes up to $N$ whenever
++among the selected primes up to $N$ for all sufficiently large
++$N$ whenever
+ \[
+  \frac{\pi_{Z,J_N}(N)}{\pi(N)}
+  > C_k\exp\bigl(-(\log\log\log N)^{c_k}\bigr)
+ \]
+-for the constants in their theorem.
++for suitable constants $C_k,c_k>0$ depending only on $k$.
+ 
+ On the ergodic side, one can ask how far the pointwise comparison
+ extends to inputs in $L^p$. Where a suitable maximal estimate is available for the unrestricted
+@@ -620,14 +622,16 @@
+ the density exceeds one, or $\delta=o(\log N)^{-\kappa}$.
+ 
+ For pointwise convergence the polynomial family stays fixed.
+-The prime-weighted phase bound at $q=1$ and \cite[Theorem~4.1]{Teravainen} give an $L^1$ comparison summable along a lacunary subsequence.
++The prime-weighted phase bound at $q=1$ and \cite[Theorem~4.1]{Teravainen} give an $L^1$ comparison summable along an increasing subsequence whose consecutive
++ratios tend to one.
+ A gap estimate extends the comparison to all scales. Smoothing
+ passes to the interval, and taking all inputs equal to one
+ gives the normalization by the number of selected primes.
+ The unrestricted prime averages \cite{MirekWanWright} then identify the common limit.
+ 
+ \begin{remark}
+-At the smooth moduli considered here, the bound
++At the moduli $q$ used in the density increment, which are divisible
++by $\operatorname{lcm}(1,\ldots,w)$, the bound
+ $|T_{N,M,F_q-\mu_F}(\mathbf f)|\ll w^{-\eta}$ needed for the
+ density increment can be proved directly using the fixed local
+ factors from the proof of \cite[Lemma~5.3]{KMTT}. The argument
+@@ -710,7 +714,7 @@
+    \prod_{\omega\in\{0,1\}^s}
+    \mathcal C^{|\omega|}g(x+\omega\cdot h),
+ \]
+-where \(\mathcal C\) denotes complex conjugation.  On a finite interval or arithmetic progression
++where \(\mathcal C\) denotes complex conjugation.  On a finite nonempty interval or arithmetic progression
+ \(I\), functions are extended by zero and we normalize as in
+ \cite[Section~2.3]{KMTT}:
+ \begin{equation}\label{e:normalized-gowers}
+@@ -722,7 +726,7 @@
+ normalized Gowers monotonicity gives
+ \(\|g\|_{U^r[I]}\ll_{r,s}\|g\|_{U^s[I]}\) when \(1\le r\le s\).
+ 
+-For a finite arithmetic progression \(P\), define
++For a finite nonempty arithmetic progression \(P\), define
+ \begin{equation}\label{e:u-def}
+  \|w\|_{u^s[P]}:=\sup_{\phi\in\mathbb R[y],\ \deg\phi<s}
+  \left|\mathbb E_{n\in P}w(n)\e(-\phi(n))\right|.
+@@ -1332,7 +1336,7 @@
+ multiplier estimate for each localized mode.
+ 
+ \begin{lemma}[Localized Fourier multipliers]\label{l:vertical-mode-multiplier}
+-Let \(S\geq3\), let \(I\) be a finite interval of integers, and let
++Let \(S\geq3\), let \(I\) be a finite nonempty interval of integers, and let
+ \(a,v,h\) be integers. Suppose that \(\chi\) is a Lipschitz function
+ on \(\mathbb T\) supported on an interval of length less than \(1/2\)
+ inside \((0,1)\). For every function \(f\) on \(I\),
+@@ -1386,10 +1390,10 @@
+      \e(hZ(q\,\cdot))}(\mathbf f).
+ \end{aligned}
+ \]
+-By \cite[Proposition~3.3]{KMTT} and Gowers monotonicity, we may
+-choose \(S\ge3\) so that the first inequality below holds for
+-every \(\nu\) and \(h\in\mathbb Z\). 
+-Lemma~\ref{l:vertical-mode-multiplier} implies
++By \cite[Proposition~3.3]{KMTT} and Gowers monotonicity, choose a
++common \(S\ge3\) for the weighted count estimate. Applying that
++estimate and then Lemma~\ref{l:vertical-mode-multiplier} gives,
++for every \(\nu\) and \(h\in\mathbb Z\),
+ \begin{equation}\label{e:high-order-gvn}
+ \begin{aligned}
+  \bigl|T_{N,M,(\Lambda_q-1)\chi_\nu(\beta q\,\cdot)
+@@ -2071,7 +2075,8 @@
+ For \eqref{e:heisenberg-twisted}, suppose the average has modulus
+ greater than \((\log X)^{-A}\) for some \(\phi\). On
+ \((H/\Gamma)\times\mathbb T\), equip the circle with its degree-\(d\)
+-filtration and consider the polynomial orbit
++filtration and use the product filtration of degree \(\max(2,d)\).
++Consider the polynomial orbit
+ \((g_0^{a+vt}\Gamma,\phi(t)\bmod 1)\). The test function
+ \((g\Gamma,z)\mapsto\Phi(g\Gamma)\e(-z)\) has zero Haar integral
+ and Lipschitz norm \(O((\log X)^L)\). Hence this orbit fails
+@@ -2690,7 +2695,7 @@
+  \leq\sum_{\ell\mid(m,W)}\lambda_\ell^+,
+  \qquad
+  \sum_{\ell\mid W}\frac{\lambda_\ell^+-\lambda_\ell^-}{\ell}
+- \ll_{A'}(\log X)^{-A'}.
++ \ll_{A'}(\log X)^{-A'-2}.
+ \]
+ The midpoint of the two sieve sums thus has average absolute
+ error at most
+@@ -2703,7 +2708,7 @@
+  &\qquad\leq
+  \frac12\sum_{\ell\mid W}
+     (\lambda_\ell^+-\lambda_\ell^-)\frac{H_\ell}{H}
+- \ll_{A'}(\log X)^{-A'}+\frac{\mathcal D}{H}.
++ \ll_{A'}(\log X)^{-A'-2}+\frac{\mathcal D}{H}.
+ \end{aligned}
+ \]
+ The last bound uses $H_\ell/H=1/\ell+O(1/H)$ and the support
+@@ -2812,6 +2817,11 @@
+ fixed-family estimate converts this cancellation into an
+ \(L^1\) bound for the difference of the ergodic averages.
+ 
++We choose bounded measurable representatives of the $f_i$, with
++$|f_i(x)|\leq\|f_i\|_\infty$ everywhere. Since $T$ preserves measure,
++these choices do not affect any of the averages outside the union
++of the integer translates of the exceptional null sets.
++
+ For a Lipschitz function \(F:\mathbb T\to\mathbb C\), put
+ \[
+  \mathcal A_H^F(\mathbf f)(x)
+@@ -2912,7 +2922,10 @@
+ \end{proof}
+ 
+ \begin{proof}[Proof of Proposition~\ref{p:ergodic-comparison}]
+-By homogeneity assume that the \(f_i\) are \(1\)-bounded. Write
++By homogeneity assume that the \(f_i\) are \(1\)-bounded. Relabel
++the polynomials in increasing order of degree and permute the
++corresponding inputs together with them. The products in the
++averages and of the input norms are unchanged. Write
+ $$  \qquad \theta_H(n):=\Lambda(n+1)(F(Z(n))-\mu_F), \quad n\in [H].$$
+ Proposition~\ref{p:prime-phase}, with \(q=1\), \(N=H^d\), and
+ the full interval \([H]\), gives
+@@ -3000,7 +3013,7 @@
+  G_1(x,u,v)=g_1(x)\e(u),\quad
+  G_2(x,u,v)=g_2(x)\e(v),
+ \]
+-and take $G_i(x,u,v)=f_i(x)$ for $i\geq3$. Since
++and take $G_i(x,u,v)=g_i(x)$ for $i\geq3$. Since
+ $S^m(x,u,v)=(T^m x,u+m\omega_1,v+m\omega_2)$, we have
+ \begin{align}\label{e:prodidentity}
+  \prod_{i=1}^{r}G_i(S^{Q_i(n)}(x,u,v))
+@@ -3160,8 +3173,10 @@
+ $G_q(y)=F(Z(qy))-\mu_F$, with the same $\alpha,\beta$ as in the
+ main theorems, and the scales satisfy
+ $$\log q\asymp(\log\log M)^4.$$
+-The full Gowers norms of $G_q$ stay bounded below for $S\geq3$,
+-so the estimate of \cite[Proposition~3.3]{KMTT} gives no decay.
++At every fixed order $S\geq3$, the full Gowers norm of $G_q$
++stays bounded below. Thus the estimate from
++\cite[Proposition~3.3]{KMTT}, at an order $S\geq3$ chosen using
++Gowers monotonicity if necessary, gives no decay.
+ The quadratic-phase norm has arbitrary logarithmic decay, yet
+ a single residue class gives a correlation large enough to make
+ the bound from dilation to the fixed shifts $n,n^2$ vacuous
+@@ -3312,7 +3327,7 @@
+  =-k\alpha a_jq^2r_jv\,t
+   -\frac{k\alpha a_j}{2}(q^2r_jv^2+qv).
+ \]
+-The constant term contributes a factor of modulus one. For
++The constant term contributes a factor of modulus one. For large \(j\) we have \(0<a_j<r_j\). For
+ \(1\leq v<H\), the geometric-series formula and bad approximability
+ give
+ \[

@@ -1,0 +1,11 @@
+Verified source snapshot on 18 November 2026.
+Lean 4.19.0, commit 6caaee842e94. Mathlib c44e0c8ee63ca166450922a373c7409c5d26b00b.
+LEAN_NUM_THREADS=2 bash scripts/verify.sh --two-jobs exited successfully.
+All 122 project modules and the umbrella import were compiled after clearing .lake/build.
+The pinned dependency artifacts were reused. Nine dependency checkout revisions matched lake-manifest.json.
+The axiom audit passed for 819 public theorems. The union of kernel axiom dependencies is Classical.choice, Quot.sound and propext.
+Production source screening passed for proof placeholders and forbidden commands.
+lake env lean scripts/CheckBlueprint.lean resolved all 234 distinct tagged declarations.
+Both blueprints compiled without LaTeX warnings. Compact PDF 16 pages, full PDF 32 pages.
+The rendered dependency graphs have 48 nodes and 74 edges, and 56 nodes and 90 edges, respectively. Both are acyclic.
+The preserved LaTeX and PDF matched the recorded hashes and the prior Appendix archive bytes.

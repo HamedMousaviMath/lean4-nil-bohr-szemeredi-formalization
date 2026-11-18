@@ -1,0 +1,5 @@
+Both PDFs have 39 A4 pages.
+All 78157 visible glyphs match by page in font and glyph identity.
+Glyph order is identical on 38 pages. On page 4 it agrees after omitting line-end hyphens.
+The two builds use different PDF Unicode maps, so raw extracted text varies on some math symbols.
+Verified visually on pages 24 and 28, including the new equation (44) and the estimate numbered (48).

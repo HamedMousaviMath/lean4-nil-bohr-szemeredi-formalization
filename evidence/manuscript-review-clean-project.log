@@ -1,0 +1,302 @@
+Clean verification copy with empty project .lake/build and reused pinned dependency artifacts
+Lean (version 4.19.0, x86_64-unknown-linux-gnu, commit 6caaee842e94, Release)
+Lake version 5.0.0-6caaee8 (Lean version 4.19.0)
+Mathlib revision: c44e0c8ee63ca166450922a373c7409c5d26b00b
+Running LEAN_NUM_THREADS=2 python3 scripts/build_two_jobs.py on the initial verification source set
+✔ [6653/6654] Built NilBohr.Arithmetic
+✔ [6654/6654] Built NilBohr.Convergence
+Build completed successfully.
+✔ [6654/6655] Built NilBohr.GreenTaoQuotientMetric
+✔ [6655/6655] Built NilBohr.Definitions
+Build completed successfully.
+✔ [6655/6656] Built NilBohr.AdmissibleDenominators
+✔ [6656/6656] Built NilBohr.ArcApproximation
+Build completed successfully.
+✔ [6655/6656] Built NilBohr.Bohr
+✔ [6656/6656] Built NilBohr.BetaDensity
+Build completed successfully.
+✔ [6656/6657] Built NilBohr.Counting
+✔ [6657/6657] Built NilBohr.BracketRecurrence
+Build completed successfully.
+✔ [6656/6657] Built NilBohr.Ergodic
+✔ [6657/6657] Built NilBohr.Density
+Build completed successfully.
+✔ [6658/6659] Built NilBohr.BohrPrimeProgressions
+✔ [6659/6659] Built NilBohr.DensityParameters
+Build completed successfully.
+✔ [6658/6659] Built NilBohr.AppendixSmallModuli
+✔ [6659/6659] Built NilBohr.Horizontal
+Build completed successfully.
+✔ [6656/6657] Built NilBohr.IntroFastDensity
+✔ [6657/6657] Built NilBohr.IntroFastApproximants
+Build completed successfully.
+✔ [6657/6658] Built NilBohr.IntroductionObservations
+✔ [6658/6658] Built NilBohr.IntroFastObstruction
+Build completed successfully.
+✔ [6662/6663] Built NilBohr.LcmMangoldt
+✔ [6663/6663] Built NilBohr.IntroFastCounterexample
+Build completed successfully.
+✔ [6656/6657] Built NilBohr.LocalPhases
+✔ [6657/6657] Built NilBohr.LocalBlocks
+Build completed successfully.
+✔ [6657/6658] Built NilBohr.MalcevChainMetric
+✔ [6658/6658] Built NilBohr.Differencing
+Build completed successfully.
+✔ [6660/6661] Built NilBohr.DualReplacement
+✔ [6661/6661] Built NilBohr.OrbitEquidistribution
+Build completed successfully.
+✔ [6658/6659] Built NilBohr.PrimePhaseApproximants
+✔ [6659/6659] Built NilBohr.HorizontalCircleEstimate
+Build completed successfully.
+✔ [6658/6659] Built NilBohr.PrimeProgressionDensity
+✔ [6659/6659] Built NilBohr.PrimePowers
+Build completed successfully.
+✔ [6661/6662] Built NilBohr.ChebyshevBounds
+✔ [6662/6662] Built NilBohr.DensityCounting
+Build completed successfully.
+✔ [6660/6661] Built NilBohr.ErgodicLimits
+✔ [6661/6661] Built NilBohr.RestrictedMaximalDomination
+Build completed successfully.
+✔ [6661/6662] Built NilBohr.PointwiseSelector
+✔ [6662/6662] Built NilBohr.PrimeCountingNormalization
+Build completed successfully.
+✔ [6664/6665] Built NilBohr.RestrictedMaximalEstimate
+✔ [6665/6665] Built NilBohr.Rotations
+Build completed successfully.
+✔ [6665/6666] Built NilBohr.BohrPointwise
+✔ [6666/6666] Built NilBohr.BracketPointwise
+Build completed successfully.
+✔ [6667/6668] Built NilBohr.BohrEigenfunction
+✔ [6668/6668] Built NilBohr.BohrWeights
+Build completed successfully.
+✔ [6668/6669] Built NilBohr.BohrPeriodic
+✔ [6669/6669] Built NilBohr.Selector
+Build completed successfully.
+✔ [6670/6671] Built NilBohr.CoprimeFourier
+✔ [6671/6671] Built NilBohr.BohrIntervalWeights
+Build completed successfully.
+✔ [6669/6670] Built NilBohr.SelectorCutoffInput
+✔ [6670/6670] Built NilBohr.PrimeProgressionNormalization
+Build completed successfully.
+✔ [6663/6664] Built NilBohr.SeparatingFourier
+✔ [6664/6664] Built NilBohr.ShortIntervalChoice
+Build completed successfully.
+✔ [6658/6659] Built NilBohr.Sieve
+✔ [6659/6659] Built NilBohr.SpatialInverseInput
+Build completed successfully.
+✔ [6658/6659] Built NilBohr.Statements
+✔ [6659/6659] Built NilBohr.Transference
+Build completed successfully.
+✔ [6671/6672] Built NilBohr.TwistedOrbit
+✔ [6672/6672] Built NilBohr.External
+Build completed successfully.
+✔ [6667/6668] Built NilBohr.DensityRegularity
+✔ [6668/6668] Built NilBohr.DifferenceWitnesses
+Build completed successfully.
+✔ [6671/6672] Built NilBohr.DensityIncrementProof
+✔ [6672/6672] Built NilBohr.ErgodicRate
+Build completed successfully.
+✔ [6676/6677] Built NilBohr.ConditionalPointwise
+✔ [6677/6677] Built NilBohr.DensityIncrementParameters
+Build completed successfully.
+✔ [6669/6670] Built NilBohr.GowersComparison
+✔ [6670/6670] Built NilBohr.DensityIncrement
+Build completed successfully.
+✔ [6664/6665] Built NilBohr.CramerSieveWeight
+✔ [6665/6665] Built NilBohr.GowersCubeVolume
+Build completed successfully.
+✔ [6664/6665] Built NilBohr.GowersDilationRatio
+✔ [6665/6665] Built NilBohr.GowersMultiplier
+Build completed successfully.
+✔ [6664/6665] Built NilBohr.GowersTriangle
+✔ [6665/6665] Built NilBohr.GowersOrderComparison
+Build completed successfully.
+✔ [6664/6665] Built NilBohr.PolynomialGowers
+✔ [6665/6665] Built NilBohr.LipschitzFourier
+Build completed successfully.
+✔ [6668/6669] Built NilBohr.LocalizedPrimeModel
+✔ [6669/6669] Built NilBohr.GreenTaoModel
+Build completed successfully.
+✔ [6673/6674] Built NilBohr.GreenTaoCoordinateIndex
+✔ [6674/6674] Built NilBohr.GowersDilation
+Build completed successfully.
+✔ [6669/6670] Built NilBohr.GreenTaoHaar
+✔ [6670/6670] Built NilBohr.GreenTaoLeibman
+Build completed successfully.
+✔ [6679/6680] Built NilBohr.GreenTaoLiterature
+✔ [6680/6680] Built NilBohr.GreenTaoBinomial
+Build completed successfully.
+✔ [6680/6681] Built NilBohr.GreenTaoNilpotence
+✔ [6681/6681] Built NilBohr.GreenTaoCharacters
+Build completed successfully.
+✔ [6677/6678] Built NilBohr.GreenTaoProductMetric
+✔ [6678/6678] Built NilBohr.GreenTaoTopology
+Build completed successfully.
+✔ [6671/6672] Built NilBohr.GreenTaoHaarQuotient
+✔ [6672/6672] Built NilBohr.GreenTaoProductTopology
+Build completed successfully.
+✔ [6673/6674] Built NilBohr.GreenTaoContinuous
+✔ [6674/6674] Built NilBohr.GreenTaoHaarAmbient
+Build completed successfully.
+✔ [6675/6676] Built NilBohr.GreenTaoProductHaar
+✔ [6676/6676] Built NilBohr.GreenTaoLieAlgebra
+Build completed successfully.
+✔ [6678/6679] Built NilBohr.GreenTaoProductHaarAmbient
+✔ [6679/6679] Built NilBohr.GreenTaoMalcev
+Build completed successfully.
+✔ [6680/6681] Built NilBohr.GreenTaoScalarMetric
+✔ [6681/6681] Built NilBohr.GreenTaoHaarUnique
+Build completed successfully.
+✔ [6687/6688] Built NilBohr.GreenTaoProductMetricTopology
+✔ [6688/6688] Built NilBohr.HeisenbergWindow
+Build completed successfully.
+✔ [6700/6701] Built NilBohr.HeisenbergWindowTest
+✔ [6701/6701] Built NilBohr.GreenTaoObstructions
+Build completed successfully.
+✔ [6667/6668] Built NilBohr.PrimeSiftedAverage
+✔ [6668/6668] Built NilBohr.PrimeSelectorDiscrepancy
+Build completed successfully.
+✔ [6668/6669] Built NilBohr.SeparatingScales
+✔ [6669/6669] Built NilBohr.SelectorCutoffs
+Build completed successfully.
+✔ [6680/6681] Built NilBohr.SeparatingComparison
+✔ [6681/6681] Built NilBohr.SeparatingQuadraticLimit
+Build completed successfully.
+✔ [6684/6685] Built NilBohr.PrimeLinearPhaseSums
+✔ [6685/6685] Built NilBohr.SeparatingScaleConstruction
+Build completed successfully.
+✔ [6678/6679] Built NilBohr.SeparatingLogGrowth
+✔ [6679/6679] Built NilBohr.SieveLiterature
+Build completed successfully.
+✔ [6689/6690] Built NilBohr.SeparatingExactScales
+✔ [6690/6690] Built NilBohr.CramerModelMean
+Build completed successfully.
+✔ [6678/6679] Built NilBohr.SieveFourierComparison
+✔ [6679/6679] Built NilBohr.TwistedEstimates
+Build completed successfully.
+✔ [6689/6690] Built NilBohr.SievedLinearPhase
+✔ [6690/6690] Built NilBohr.HeisenbergCutoff
+Build completed successfully.
+✔ [6693/6694] Built NilBohr.CramerLinearCancellation
+✔ [6694/6694] Built NilBohr.SeparatingGowers
+Build completed successfully.
+✔ [6684/6685] Built NilBohr.TwoInput
+✔ [6685/6685] Built NilBohr.AmbientNormObstructions
+Build completed successfully.
+✔ [6667/6668] Built NilBohr.InverseFourier
+✔ [6668/6668] Built NilBohr.InverseTestBound
+Build completed successfully.
+✔ [6684/6685] Built NilBohr.PhaseReplacement
+✔ [6685/6685] Built NilBohr.BareSelectorComparison
+Build completed successfully.
+✔ [6694/6695] Built NilBohr.GowersProgression
+✔ [6695/6695] Built NilBohr.LocalTestReduction
+Build completed successfully.
+✔ [6701/6702] Built NilBohr.AmbientPrimeMean
+✔ [6702/6702] Built NilBohr.ParameterPartition
+Build completed successfully.
+✔ [6700/6701] Built NilBohr.PrimeLinearEquidistribution
+ℹ [6701/6701] Built NilBohr.PrimeProgressions
+info: ././././NilBohr/PrimeProgressions.lean:522:39: Try this: ring_nf
+Build completed successfully.
+ℹ [6690/6719] Replayed NilBohr.PrimeProgressions
+info: ././././NilBohr/PrimeProgressions.lean:522:39: Try this: ring_nf
+✔ [6718/6719] Built NilBohr.PrimeDistributionFromModel
+✔ [6719/6719] Built NilBohr.PrimeCutoff
+Build completed successfully.
+ℹ [6684/6697] Replayed NilBohr.PrimeProgressions
+info: ././././NilBohr/PrimeProgressions.lean:522:39: Try this: ring_nf
+✔ [6696/6697] Built NilBohr.PrimeDivisorOscillation
+✔ [6697/6697] Built NilBohr.PrimeModelReplacement
+Build completed successfully.
+ℹ [6692/6704] Replayed NilBohr.PrimeProgressions
+info: ././././NilBohr/PrimeProgressions.lean:522:39: Try this: ring_nf
+✔ [6713/6714] Built NilBohr.PrimeProgressionFromModel
+✔ [6714/6714] Built NilBohr.PrimeCramerPhase
+Build completed successfully.
+ℹ [6693/6708] Replayed NilBohr.PrimeProgressions
+info: ././././NilBohr/PrimeProgressions.lean:522:39: Try this: ring_nf
+✔ [6707/6708] Built NilBohr.RemarkLocalFactors
+✔ [6708/6708] Built NilBohr.PrimeLocalProof
+Build completed successfully.
+ℹ [6693/6713] Replayed NilBohr.PrimeProgressions
+info: ././././NilBohr/PrimeProgressions.lean:522:39: Try this: ring_nf
+✔ [6712/6713] Built NilBohr.ReplacementRates
+✔ [6713/6713] Built NilBohr.AmbientSelectorComparison
+Build completed successfully.
+ℹ [6693/6711] Replayed NilBohr.PrimeProgressions
+info: ././././NilBohr/PrimeProgressions.lean:522:39: Try this: ring_nf
+✔ [6710/6711] Built NilBohr.WeakRegularityReanchor
+✔ [6711/6711] Built NilBohr.AmbientSharpSelector
+Build completed successfully.
+✔ [6673/6674] Built NilBohr.WeakRegularity
+ℹ [6674/6674] Built NilBohr.WeightedLocalInverse
+info: ././././NilBohr/WeightedLocalInverse.lean:295:92: Try this: ring_nf
+info: ././././NilBohr/WeightedLocalInverse.lean:573:10: Try this: ring_nf
+Build completed successfully.
+ℹ [6679/6680] Replayed NilBohr.WeightedLocalInverse
+info: ././././NilBohr/WeightedLocalInverse.lean:295:92: Try this: ring_nf
+info: ././././NilBohr/WeightedLocalInverse.lean:573:10: Try this: ring_nf
+✔ [6680/6680] Built NilBohr.LocalPhaseSubstitution
+Build completed successfully.
+ℹ [6680/6685] Replayed NilBohr.WeightedLocalInverse
+info: ././././NilBohr/WeightedLocalInverse.lean:295:92: Try this: ring_nf
+info: ././././NilBohr/WeightedLocalInverse.lean:573:10: Try this: ring_nf
+✔ [6685/6685] Built NilBohr.LocalGeneralized
+Build completed successfully.
+ℹ [6693/6704] Replayed NilBohr.WeightedLocalInverse
+info: ././././NilBohr/WeightedLocalInverse.lean:295:92: Try this: ring_nf
+info: ././././NilBohr/WeightedLocalInverse.lean:573:10: Try this: ring_nf
+✔ [6704/6704] Built NilBohr.RelativeSelectorProof
+Build completed successfully.
+ℹ [6699/6709] Replayed NilBohr.WeightedLocalInverse
+info: ././././NilBohr/WeightedLocalInverse.lean:295:92: Try this: ring_nf
+info: ././././NilBohr/WeightedLocalInverse.lean:573:10: Try this: ring_nf
+✔ [6709/6709] Built NilBohr.CenteredHeisenbergEstimate
+Build completed successfully.
+ℹ [6699/6715] Replayed NilBohr.WeightedLocalInverse
+info: ././././NilBohr/WeightedLocalInverse.lean:295:92: Try this: ring_nf
+info: ././././NilBohr/WeightedLocalInverse.lean:573:10: Try this: ring_nf
+✔ [6714/6715] Built NilBohr.Remark
+✔ [6715/6715] Built NilBohr.SeparatingLocal
+Build completed successfully.
+ℹ [6705/6719] Replayed NilBohr.WeightedLocalInverse
+info: ././././NilBohr/WeightedLocalInverse.lean:295:92: Try this: ring_nf
+info: ././././NilBohr/WeightedLocalInverse.lean:573:10: Try this: ring_nf
+✔ [6719/6719] Built NilBohr.SeparatingExample
+Build completed successfully.
+ℹ [6723/6776] Replayed NilBohr.WeightedLocalInverse
+info: ././././NilBohr/WeightedLocalInverse.lean:295:92: Try this: ring_nf
+info: ././././NilBohr/WeightedLocalInverse.lean:573:10: Try this: ring_nf
+ℹ [6738/6776] Replayed NilBohr.PrimeProgressions
+info: ././././NilBohr/PrimeProgressions.lean:522:39: Try this: ring_nf
+✔ [6776/6776] Built NilBohr.LiteratureAssembly
+Build completed successfully.
+ℹ [6723/6777] Replayed NilBohr.WeightedLocalInverse
+info: ././././NilBohr/WeightedLocalInverse.lean:295:92: Try this: ring_nf
+info: ././././NilBohr/WeightedLocalInverse.lean:573:10: Try this: ring_nf
+ℹ [6738/6777] Replayed NilBohr.PrimeProgressions
+info: ././././NilBohr/PrimeProgressions.lean:522:39: Try this: ring_nf
+✔ [6777/6777] Built NilBohr.UnorderedErgodicComparison
+Build completed successfully.
+ℹ [6709/6809] Replayed NilBohr.PrimeProgressions
+info: ././././NilBohr/PrimeProgressions.lean:522:39: Try this: ring_nf
+ℹ [6739/6809] Replayed NilBohr.WeightedLocalInverse
+info: ././././NilBohr/WeightedLocalInverse.lean:295:92: Try this: ring_nf
+info: ././././NilBohr/WeightedLocalInverse.lean:573:10: Try this: ring_nf
+✔ [6804/6809] Built NilBohr.HeisenbergPhaseEndpoints
+✔ [6807/6809] Built NilBohr.PrescribedCutoffObstruction
+✔ [6808/6809] Built NilBohr
+Build completed successfully.
+
+Checking the final project with lake --no-build build
+ℹ [6709/6809] Replayed NilBohr.PrimeProgressions
+info: ././././NilBohr/PrimeProgressions.lean:522:39: Try this: ring_nf
+ℹ [6739/6809] Replayed NilBohr.WeightedLocalInverse
+info: ././././NilBohr/WeightedLocalInverse.lean:295:92: Try this: ring_nf
+info: ././././NilBohr/WeightedLocalInverse.lean:573:10: Try this: ring_nf
+Build completed successfully.
+
+Comparing the compiled project sources and pins against the release sources
+All project sources and pins are identical.
+Freshly compiled project modules including umbrella: 156

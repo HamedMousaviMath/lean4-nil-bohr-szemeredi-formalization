@@ -1,0 +1,17 @@
+'NilBohr.auxiliary_step_dvd_fixed_power' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.modular_lipschitz_of_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.zero_frequency_correlation_of_fixed_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.exists_localBlockPhase_of_fixed_frequency' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.exists_localBlockPhase_of_fixed_step_correlations' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.lcmCutoff_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.lcmCutoff_at_replacementRate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.lcmCutoff_of_le_cutoff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.weighted_local_inverse_on_lcm_moduli' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.local_phase_substitution_on_lcm_moduli' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.largeCountLocalTest_on_lcm_moduli' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.localGeneralizedVonNeumann_on_lcm_moduli' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.centeredSelectorComparison_using_local_phase' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.centeredSelectorComparison_on_lcm_moduli' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NilBohr.centeredSelectorComparison_on_lcm_moduli_of_obstructions' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

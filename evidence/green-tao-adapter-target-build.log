@@ -1,0 +1,13 @@
+✔ [6694/6698] Built NilBohr.GreenTaoLieAlgebra
+✔ [6696/6698] Built NilBohr.GreenTaoNilpotence
+⚠ [6697/6698] Built NilBohr.GreenTaoMalcev
+warning: ././././NilBohr/GreenTaoMalcev.lean:42:6: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: ././././NilBohr/GreenTaoMalcev.lean:67:6: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: ././././NilBohr/GreenTaoMalcev.lean:69:6: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: ././././NilBohr/GreenTaoMalcev.lean:400:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [6698/6698] Built NilBohr.GreenTaoObstructions
+Build completed successfully.

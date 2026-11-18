@@ -1,0 +1,127 @@
+NilBohr.bohr_recurrence {ℓ r : ℕ} (P : Fin (ℓ + 1) → Polynomial ℤ) (hP : NilBohr.FixedPolynomialFamily P)
+  (hKMTT : NilBohr.KMTTShiftedPrimeDensityBound) (a : ℤ) (ha : a ≠ 0) (hlinear : P 1 = Polynomial.C a * Polynomial.X)
+  (ω : Fin r → ℝ) {ε : ℝ} (hε : 0 < ε) : NilBohr.RecurrenceConclusion P fun p => ∀ (i : Fin r), ‖↑(ω i * ↑(↑p - 1))‖ < ε
+'NilBohr.bohr_recurrence' depends on axioms: [propext, Classical.choice, Quot.sound]
+NilBohr.heisenbergRecurrence_of_analytic_inputs {c₀ : ℝ} (hc₀ : 0 < c₀) (hc₁ : c₀ < 1 / 11)
+  (hBanks : NilBohr.BanksRealZeroBound) (hAmbient : NilBohr.KMTTAmbientPrimeModel c₀)
+  (hCramer : NilBohr.KMTTRelativeCramer c₀) (hInverse : NilBohr.KMTTLocalInverse)
+  (hWeighted : NilBohr.KMTTWeightedGowers) (hGT : NilBohr.GreenTaoQuantitativeLeibman) : NilBohr.HeisenbergRecurrence
+'NilBohr.heisenbergRecurrence_of_analytic_inputs' depends on axioms: [propext, Classical.choice, Quot.sound]
+NilBohr.bracketRecurrence_of_analytic_inputs {c₀ : ℝ} (hc₀ : 0 < c₀) (hc₁ : c₀ < 1 / 11)
+  (hBanks : NilBohr.BanksRealZeroBound) (hAmbient : NilBohr.KMTTAmbientPrimeModel c₀)
+  (hCramer : NilBohr.KMTTRelativeCramer c₀) (hInverse : NilBohr.KMTTLocalInverse)
+  (hWeighted : NilBohr.KMTTWeightedGowers) (hGT : NilBohr.GreenTaoQuantitativeLeibman) : NilBohr.BracketRecurrence
+'NilBohr.bracketRecurrence_of_analytic_inputs' depends on axioms: [propext, Classical.choice, Quot.sound]
+NilBohr.heisenberg_pointwise_of_prime_model.{u_1} (X : Type u_1) [MeasurableSpace X] {c₀ : ℝ} (hc₀ : 0 < c₀)
+  (hc₁ : c₀ < 1 / 11) (hBanks : NilBohr.BanksRealZeroBound) (hAmbient : NilBohr.KMTTAmbientPrimeModel c₀)
+  (hMertens : NilBohr.MertensIntervalProductBound) (hSieve : NilBohr.FundamentalSieveLemma)
+  (hGT : NilBohr.GreenTaoQuantitativeLeibman) (hMWW : NilBohr.MirekWanWrightPointwise X)
+  (hTer : NilBohr.TeravainenFixedFamily) : NilBohr.PrimePointwiseFor X NilBohr.heisenbergPhase
+'NilBohr.heisenberg_pointwise_of_prime_model' depends on axioms: [propext, Classical.choice, Quot.sound]
+NilBohr.bracket_pointwise_of_prime_model.{u_1} (X : Type u_1) [MeasurableSpace X] {c₀ : ℝ} (hc₀ : 0 < c₀)
+  (hc₁ : c₀ < 1 / 11) (hBanks : NilBohr.BanksRealZeroBound) (hAmbient : NilBohr.KMTTAmbientPrimeModel c₀)
+  (hMertens : NilBohr.MertensIntervalProductBound) (hSieve : NilBohr.FundamentalSieveLemma)
+  (hGT : NilBohr.GreenTaoQuantitativeLeibman) (hMWW : NilBohr.MirekWanWrightPointwise X)
+  (hTer : NilBohr.TeravainenFixedFamily) : NilBohr.PrimePointwiseFor X NilBohr.bracketPhase
+'NilBohr.bracket_pointwise_of_prime_model' depends on axioms: [propext, Classical.choice, Quot.sound]
+NilBohr.centeredSelectorComparison_on_lcm_moduli_of_obstructions (hInv : NilBohr.KMTTLocalInverse)
+  (hGT : NilBohr.ProductHeisenbergObstruction) (hScalar : NilBohr.ScalarHeisenbergObstruction) {c₀ cRel C : ℝ}
+  (hc₀ : 0 < c₀) (hc₀' : c₀ < 1 / 11) (hcRel : 0 < cRel) (hcRel' : cRel ≤ 1 / 10) (hC : 1 ≤ C) {d ℓ : ℕ} (hd : 0 < d)
+  (hℓ : 0 < ℓ) {α β : ℝ} (hα : NilBohr.BadlyApproximable α) (hβ : NilBohr.AdmissibleBeta β) (F : NilBohr.Circle → ℂ)
+  {κ : NNReal} (hF : LipschitzWith κ F) :
+  ∃ A w₀,
+    0 < A ∧
+      16 ≤ w₀ ∧
+        NilBohr.CenteredSelectorComparisonAt (fun q w => NilBohr.initialModulus w ∣ q) c₀ cRel C w₀ d ℓ
+          (NilBohr.heisenbergPhase α β) F A
+'NilBohr.centeredSelectorComparison_on_lcm_moduli_of_obstructions' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+NilBohr.relativeSelectorComparison_of_obstructions {c₀ C : ℝ} (hc₀ : 0 < c₀) (hc₀' : c₀ < 1 / 11) (hC : 1 ≤ C) {d ℓ : ℕ}
+  (hd : 0 < d) (hℓ : 0 < ℓ) (hExt : NilBohr.SelectorLiteratureInputs c₀) (hGT : NilBohr.ProductHeisenbergObstruction)
+  {α β : ℝ} (hα : NilBohr.BadlyApproximable α) (hβ : NilBohr.AdmissibleBeta β) (F : C(NilBohr.Circle, ℂ)) (κF : NNReal)
+  (hF : LipschitzWith κF ⇑F) : NilBohr.RelativeSelectorComparison c₀ C d ℓ (NilBohr.heisenbergPhase α β) ⇑F
+'NilBohr.relativeSelectorComparison_of_obstructions' depends on axioms: [propext, Classical.choice, Quot.sound]
+NilBohr.high_order_relative_prime_of_analytic_inputs {c₀ : ℝ} (hc₀ : 0 < c₀) (hc₁ : c₀ < 1 / 11)
+  (hBanks : NilBohr.BanksRealZeroBound) (hAmbient : NilBohr.KMTTAmbientPrimeModel c₀)
+  (hRelative : NilBohr.KMTTRelativeCramer c₀) {d S : ℕ} (hd : 0 < d) (hS : 2 ≤ S) :
+  NilBohr.HighOrderRelativePrimeUniformity c₀ d S
+'NilBohr.high_order_relative_prime_of_analytic_inputs' depends on axioms: [propext, Classical.choice, Quot.sound]
+NilBohr.localGeneralizedVonNeumann_of_kmtt (hKMTT : NilBohr.KMTTLocalInverse) : NilBohr.LocalGeneralizedVonNeumann
+'NilBohr.localGeneralizedVonNeumann_of_kmtt' depends on axioms: [propext, Classical.choice, Quot.sound]
+NilBohr.heisenbergPhaseEstimates_of_quantitativeLeibman (hGT : NilBohr.GreenTaoQuantitativeLeibman) {α β : ℝ}
+  (hα : NilBohr.BadlyApproximable α) (hβ : NilBohr.AdmissibleBeta β) :
+  ∃ r,
+    NilBohr.AdmissibleBetaDenominators β r ∧
+      (∀ᶠ (X : ℝ) in Filter.atTop, ∃ j, ↑(r j) ≤ X ^ (1 / 100) ∧ X ^ (1 / 100) < ↑(r (j + 1))) ∧
+        (∀ (d : ℕ) (A L : ℝ),
+            0 < A →
+              0 < L →
+                ∀ᶠ (X : ℝ) in Filter.atTop,
+                  ∀ (j : ℕ),
+                    ↑(r j) ≤ X ^ (1 / 100) →
+                      X ^ (1 / 100) < ↑(r (j + 1)) →
+                        ∀ (a : ℤ) (v K : ℕ),
+                          ↑v ≤ X ^ (1 / 10000) →
+                            ¬r j ∣ v →
+                              X ^ (1 / 2) ≤ ↑K →
+                                ∀ (Φ : NilBohr.HeisenbergPoint → ℂ),
+                                  NilBohr.HeisenbergLipschitzNormLE Φ (Real.log X ^ L) →
+                                    ‖NilBohr.heisenbergOrbitAverage α β a v 1 K Φ - NilBohr.heisenbergChartMean Φ‖ ≤
+                                        Real.log X ^ (-A) ∧
+                                      ((∀ x ∈ Set.Ico 0 1, ∀ y ∈ Set.Ico 0 1, ∫ (z : ℝ) in 0 ..1, Φ (x, y, z) = 0) →
+                                        (NilBohr.phaseNorm (d + 1) (NilBohr.positiveInterval K) fun t =>
+                                            Φ (NilBohr.heisenbergOrbit α β (a + ↑v * t))) ≤
+                                          2 * Real.log X ^ (-A))) ∧
+          ∀ (d : ℕ) (F : NilBohr.Circle → ℂ) (κ : NNReal),
+            LipschitzWith κ F → NilBohr.CenteredHeisenbergPhaseEstimate d (NilBohr.heisenbergPhase α β) F r
+'NilBohr.heisenbergPhaseEstimates_of_quantitativeLeibman' depends on axioms: [propext, Classical.choice, Quot.sound]
+NilBohr.heisenbergPrimeLocalPhase_of_literature {c₀ : ℝ} (hc₀ : 0 < c₀) (hc₁ : c₀ < 1 / 11)
+  (hLit : NilBohr.PrimePhaseLiteratureInputs c₀) (α β : ℝ) :
+  NilBohr.BadlyApproximable α →
+    NilBohr.AdmissibleBeta β →
+      ∀ (d : ℕ),
+        0 < d →
+          ∀ (F : NilBohr.Circle → ℂ),
+            (∃ κ, LipschitzWith κ F) → NilBohr.PrimeLocalPhase d (NilBohr.heisenbergPhase α β) F
+'NilBohr.heisenbergPrimeLocalPhase_of_literature' depends on axioms: [propext, Classical.choice, Quot.sound]
+NilBohr.smoothErgodicComparison_of_prime_model_distinct_degrees.{u} {c₀ : ℝ} (hc₀ : 0 < c₀) (hc₁ : c₀ < 1 / 11)
+  (hBanks : NilBohr.BanksRealZeroBound) (hAmbient : NilBohr.KMTTAmbientPrimeModel c₀)
+  (hMertens : NilBohr.MertensIntervalProductBound) (hSieve : NilBohr.FundamentalSieveLemma)
+  (hGT : NilBohr.GreenTaoQuantitativeLeibman) (hTer : NilBohr.TeravainenFixedFamily) {α β : ℝ}
+  (hα : NilBohr.BadlyApproximable α) (hβ : NilBohr.AdmissibleBeta β) {ℓ : ℕ} (hℓ : 0 < ℓ) (P : Fin ℓ → Polynomial ℤ)
+  (hP : ∀ (i : Fin ℓ), 0 < (P i).natDegree ∧ (P i).coeff 0 = 0)
+  (hDistinct : Function.Injective fun i => (P i).natDegree) (F : NilBohr.Circle → ℂ) {κ : NNReal}
+  (hF : LipschitzWith κ F) :
+  (∀ (A : ℝ),
+      0 < A →
+        ∃ C,
+          0 < C ∧
+            ∀ {X : Type u} [inst : MeasurableSpace X] {μ : MeasureTheory.Measure X}
+              [inst_1 : MeasureTheory.IsProbabilityMeasure μ] (T : NilBohr.ProbabilitySystem X μ) (f : Fin ℓ → X → ℂ),
+              (∀ (i : Fin ℓ), MeasureTheory.MemLp (f i) ⊤ μ) →
+                ∀ (H : ℕ),
+                  2 ≤ H →
+                    let w := fun n => F ↑(NilBohr.heisenbergPhase α β n) - NilBohr.circleMean F;
+                    (MeasureTheory.eLpNorm (NilBohr.mangoldtAverage T P f w H) 1 μ).toReal ≤
+                      C * Real.log ↑H ^ (-A) * ∏ i, (MeasureTheory.eLpNorm (f i) ⊤ μ).toReal) ∧
+    ∀ {X : Type u} [inst : MeasurableSpace X] {μ : MeasureTheory.Measure X}
+      [inst_1 : MeasureTheory.IsProbabilityMeasure μ] (T : NilBohr.ProbabilitySystem X μ) (f : Fin ℓ → X → ℂ),
+      (∀ (i : Fin ℓ), MeasureTheory.MemLp (f i) ⊤ μ) →
+        NilBohr.SmoothErgodicComparison T P f (NilBohr.heisenbergPhase α β) F
+'NilBohr.smoothErgodicComparison_of_prime_model_distinct_degrees' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+NilBohr.appendixA_separating_family_of_quantitativeLeibman (hGT : NilBohr.GreenTaoQuantitativeLeibman) {α β : ℝ}
+  (hα : NilBohr.BadlyApproximable α) (hβ : NilBohr.AdmissibleBeta β) (F : NilBohr.Circle → ℂ) {κ : NNReal}
+  (hF : LipschitzWith κ F) (hNonconstant : ∃ x y, F x ≠ F y) :
+  ∃ r w q M, NilBohr.AdmissibleBetaDenominators β r ∧ NilBohr.SeparatingFamilyClaims α β F r w q M
+'NilBohr.appendixA_separating_family_of_quantitativeLeibman' depends on axioms: [propext, Classical.choice, Quot.sound]
+NilBohr.appendixA_count_comparison (hKMTT : NilBohr.KMTTLocalInverse) (hTer : NilBohr.TeravainenFixedFamily)
+  (hGT : NilBohr.ProductHeisenbergObstruction) (hScalar : NilBohr.ScalarHeisenbergObstruction)
+  (hBernstein : NilBohr.BernsteinCircleLipschitzFourier) (hG : ∀ (S : ℕ), 3 ≤ S → NilBohr.NormalizedGowersLaws S)
+  {α β : ℝ} (hα : NilBohr.BadlyApproximable α) {r : ℕ → ℕ} (hr : NilBohr.AdmissibleBetaDenominators β r)
+  (F : C(NilBohr.Circle, ℂ)) {κ : NNReal} (hF : LipschitzWith κ ⇑F) (hNonconstant : ∃ x y, F x ≠ F y) :
+  NilBohr.SeparatingCountComparison α β (⇑F) (fun j => NilBohr.separatingModulus (r j)) fun j =>
+    NilBohr.separatingLength (r j) (r (j + 1))
+'NilBohr.appendixA_count_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]

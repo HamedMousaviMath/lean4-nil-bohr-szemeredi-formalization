@@ -1,0 +1,4 @@
+5889 exact checks in Z[z]/Phi_q(z).
+Squarefree W from 1 to 64, q from 1 to 16, signed a from -7 to 7 with gcd(a,q)=1.
+Both complete-period windows checked. The integer numerator after clearing totient denominators has remainder zero.
+Finite diagnostic only. The general statement is proved in NilBohr/CoprimeFourier.lean.

@@ -1,0 +1,32 @@
+\usepackage[a4paper,margin=24mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,longtable,array}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,positioning}
+\usepackage[unicode,colorlinks,linkcolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\definecolor{ink}{HTML}{23354A}
+\definecolor{mist}{HTML}{EAF0F5}
+\definecolor{leaf}{HTML}{E9F3EF}
+\definecolor{sand}{HTML}{F7F1E6}
+\hypersetup{pdfauthor={Nil-Bohr Lean development},pdfsubject={Lean 4 formalization of the supplied manuscript}}
+\setlength{\emergencystretch}{2em}
+\raggedbottom
+\input{common}
+% Upstream leanblueprint parses these commands in its web renderer.
+% For PDF builds, validate all referenced labels and print Lean links.
+\ExplSyntaxOn
+\NewDocumentCommand{\uses}{m}
+ {\clist_map_inline:nn {#1}{\vphantom{\ref{##1}}}\ignorespaces}
+\NewDocumentCommand{\proves}{m}
+ {\clist_map_inline:nn {#1}{\vphantom{\ref{##1}}}\ignorespaces}
+\NewDocumentCommand{\lean}{m}
+ {\par\smallskip\noindent\begingroup\normalfont\small\raggedright
+  \textbf{Lean.}\space
+  \clist_map_inline:nn {#1}{\nolinkurl{##1}\quad\allowbreak}
+  \par\endgroup\smallskip}
+\ExplSyntaxOff
+\newcommand{\leanok}{}
+\newcommand{\notready}{}
+\newcommand{\printgraph}{\input{dependency-graph}}
+\newcommand{\printmapping}{\input{mapping}}

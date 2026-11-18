@@ -1,0 +1,2915 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dependency graph</title>
+  <meta name="generator" content="plasTeX" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles/theme-white.css" />
+  <link rel="stylesheet" href="styles/dep_graph.css" />
+  
+  <script type="text/x-mathjax-config">
+  
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  
+  </script>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+
+
+</head>
+
+<body>
+<header>
+  <a class="toc" href="index.html">Home</a>
+  <h1 id="doc_title">Dependencies</h1>
+</header>
+<div class="wrapper">
+<div class="content">
+  <div id="Legend">
+    <span id="legend_title" class="title">Legend
+    <div class="btn">
+       <div class="bar"></div>
+       <div class="bar"></div>
+       <div class="bar"></div>
+    </div></span> 
+    <dl class="legend">
+      
+      <dt>Boxes</dt><dd>definitions</dd>
+      
+      <dt>Ellipses</dt><dd>theorems and lemmas</dd>
+      
+      <dt>Blue border</dt><dd>the <em>statement</em> of this result is ready to be formalized; all prerequisites are done</dd>
+      
+      <dt>Orange border</dt><dd>the <em>statement</em> of this result is not ready to be formalized; the blueprint needs more work</dd>
+      
+      <dt>Blue background</dt><dd>the <em>proof</em> of this result is ready to be formalized; all prerequisites are done</dd>
+      
+      <dt>Green border</dt><dd>the <em>statement</em> of this result is formalized</dd>
+      
+      <dt>Green background</dt><dd>the <em>proof</em> of this result is formalized</dd>
+      
+      <dt>Dark green background</dt><dd>the <em>proof</em> of this result and all its ancestors are formalized</dd>
+      
+      <dt>Dark green border</dt><dd>this is in Mathlib</dd>
+      
+    </dl>
+  </div>
+    <div id="graph"></div>
+<div id="statements">
+
+    
+    <div class="dep-modal-container" id="c:bohr_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="c:bohr" style="display: none">
+    <div class="thm_thmheading">
+      <span class="corollary_thmcaption">
+      Corollary
+      </span>
+      <span class="corollary_thmlabel">16</span><span class="corollary_thmtitle">1.1, finite Bohr constraints</span></div>
+    <div class="thm_thmcontent"><p> If the polynomial family includes \(P_1(n)=an\) with \(a\ne 0\), one can force finitely many conditions \(\lVert \alpha _j(p-1)\rVert _{\mathbb T}{\lt}\varepsilon \) in the shifted-prime recurrence conclusion, with a fixed polylogarithmic density threshold. </p>
+</div>
+
+    <a class="latex_link" href="index.html#c:bohr">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.bohr_recurrence">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="c:bracket-pointwise_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="c:bracket-pointwise" style="display: none">
+    <div class="thm_thmheading">
+      <span class="corollary_thmcaption">
+      Corollary
+      </span>
+      <span class="corollary_thmlabel">20</span><span class="corollary_thmtitle">1.5, bracket selected prime averages</span></div>
+    <div class="thm_thmcontent"><p>  The conclusion of Theorem&#160;1.4 holds for \(Z_{\rm br}\) in place of \(Z\). </p>
+</div>
+
+    <a class="latex_link" href="index.html#c:bracket-pointwise">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.bracket_pointwise_of_prime_model" class="lean_decl">NilBohr.bracket_pointwise_of_prime_model</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.bracket_pointwise_of_analytic_inputs" class="lean_decl">NilBohr.bracket_pointwise_of_analytic_inputs</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.bracket_pointwise_of_literature" class="lean_decl">NilBohr.bracket_pointwise_of_literature</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.bracket_pointwise_of_primeLocalPhase" class="lean_decl">NilBohr.bracket_pointwise_of_primeLocalPhase</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="c:bracket-recurrence_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="c:bracket-recurrence" style="display: none">
+    <div class="thm_thmheading">
+      <span class="corollary_thmcaption">
+      Corollary
+      </span>
+      <span class="corollary_thmlabel">15</span><span class="corollary_thmtitle">1.3, bracket recurrence</span></div>
+    <div class="thm_thmcontent"><p> Theorem&#160;1.2 holds with \(Z_{\rm br}\) in place of \(Z\). </p>
+</div>
+
+    <a class="latex_link" href="index.html#c:bracket-recurrence">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.bracket_recurrence_of_heisenberg_recurrence" class="lean_decl">NilBohr.bracket_recurrence_of_heisenberg_recurrence</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.bracketRecurrence_of_analytic_inputs" class="lean_decl">NilBohr.bracketRecurrence_of_analytic_inputs</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.bracketRecurrence_of_obstructions" class="lean_decl">NilBohr.bracketRecurrence_of_obstructions</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.bracketRecurrence_of_centered_phase" class="lean_decl">NilBohr.bracketRecurrence_of_centered_phase</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-ambient-discrete_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-ambient-discrete" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">24</span><span class="lemma_thmtitle">Ambient counting comparison</span></div>
+    <div class="thm_thmcontent"><p> For the shifts \(n,n^2\), set \(M=\lfloor \sqrt N\rfloor \) and let \(\mathcal C(F)\) be the Mangoldt weighted count with selector test \(F(Z(n))\). For each fixed Lipschitz \(F\), \(\mathcal C(F)-\mu _F\mathcal C(1)=o(1)\) uniformly in \(A\subset [N]\). For each fixed open arc \(J\) the same comparison holds with \(F=\mathbf1_J\) and \(\mu _F=|J|\). The smooth comparison uses Proposition&#160;6.2 and Teräväinen’s fixed-family estimate as inputs. The sharp comparison also uses the prime number theorem. </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-ambient-discrete">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.ambientSelectorCount_eq_explicit" class="lean_decl">NilBohr.ambientSelectorCount_eq_explicit</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.ambientSelectorCount_centered" class="lean_decl">NilBohr.ambientSelectorCount_centered</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.ambientSelectorCount_sharp" class="lean_decl">NilBohr.ambientSelectorCount_sharp</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenbergAmbientSelectorCount_sharp_of_literature" class="lean_decl">NilBohr.heisenbergAmbientSelectorCount_sharp_of_literature</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-ambient-norm_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-ambient-norm" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">25</span><span class="lemma_thmtitle">Ambient Gowers obstructions</span></div>
+    <div class="thm_thmcontent"><p> For the paper’s \(\alpha ,\beta \) and Lipschitz \(F\), prescribe \(h\ne 0\) with \(\widehat F(h)\ne 0\) and a nonzero nonnegative Lipschitz cutoff \(\chi \) supported on an interval of length \({\lt}1/2\) inside \((0,1)\). Then, for all sufficiently large \(M\), </p>
+<div class="displaymath" id="a0000000105">
+  \[  0{\lt}|\widehat F(h)|\int _{\mathbb T}\chi \ll \lVert \widehat\chi \rVert _{\ell ^1}\lVert F(Z(\cdot ))-\mu _F\rVert _{U^3[M]}.  \]
+</div>
+<p> The implicit constant is universal. In particular a nonconstant \(F\) gives nondecay at every fixed order \(S\ge 3\). For any irrational \(\theta \), the weight \(\mathrm e(-\theta n^2)\) has \(U^2[M]\to 0\), yet has count \(1/2\) for suitable \(1\)-bounded inputs supported on \([2M^2]\) for the shifts \(n,n^2\). The quadratic example is checked from irrationality alone. </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-ambient-norm">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.ambient_centered_gowers_prescribed_cutoff" class="lean_decl">NilBohr.ambient_centered_gowers_prescribed_cutoff</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.tendsto_ambient_centered_localized_mode" class="lean_decl">NilBohr.tendsto_ambient_centered_localized_mode</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.ambient_centered_gowers_lower_bound" class="lean_decl">NilBohr.ambient_centered_gowers_lower_bound</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.irrational_quadratic_gowers_two_tendsto_zero" class="lean_decl">NilBohr.irrational_quadratic_gowers_two_tendsto_zero</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.quadratic_obstruction_common_window" class="lean_decl">NilBohr.quadratic_obstruction_common_window</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.no_uniform_weighted_gowers_two" class="lean_decl">NilBohr.no_uniform_weighted_gowers_two</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-beta_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-beta" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">38</span><span class="lemma_thmtitle">Existence of admissible Liouville parameters</span></div>
+    <div class="thm_thmcontent"><p>  Every nonempty interval inside \((0,1)\) contains an admissible \(\beta \), and each admissible \(\beta \) is a Liouville number. </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-beta">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.exists_admissibleBeta_between" class="lean_decl">NilBohr.exists_admissibleBeta_between</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.AdmissibleBeta.liouville" class="lean_decl">NilBohr.AdmissibleBeta.liouville</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-bohr-eigenfunction_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-bohr-eigenfunction" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">27</span><span class="lemma_thmtitle">The introductory Bohr eigenfunction example</span></div>
+    <div class="thm_thmcontent"><p> Let \(Tt=t+\theta \) on \(\mathbb T\) with \(\theta \) irrational, \(f(t)=\mathrm e(t)\), \(P(n)=n\), and \(0{\lt}\varepsilon {\lt}1/2\). The unrestricted prime average of \(f(T^{p-1}t)\) tends to zero. The average over primes with \(\lVert \theta (p-1)\rVert _{\mathbb T}{\lt}\varepsilon \), divided by their count, tends to \(\mathrm e(t)\sin (2\pi \varepsilon )/(2\pi \varepsilon )\ne 0\) for every \(t\). </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-bohr-eigenfunction">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.symmetricBohr_selected_exponential_tendsto" class="lean_decl">NilBohr.symmetricBohr_selected_exponential_tendsto</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.bohr_rotation_eigenfunction_example" class="lean_decl">NilBohr.bohr_rotation_eigenfunction_example</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-bohr-weights_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-bohr-weights" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">26</span><span class="lemma_thmtitle">Pointwise limits with Bohr weights</span></div>
+    <div class="thm_thmcontent"><p> For the polynomial ergodic averages, fixed linear twists, continuous weights of finitely many linear torus coordinates, fixed congruence classes, and simultaneous interval cutoffs have almost-everywhere limits at the unrestricted prime normalization. For reduced congruence classes, and for interval conditions with positive limiting relative density, the selected-prime normalization also converges. The proof uses the unrestricted prime pointwise theorem on the product system, the prime number theorem and Vinogradov. Reduced congruence normalization uses the progression form of the prime number theorem. </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-bohr-weights">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.ae_bohrPrimeMode_tendsto" class="lean_decl">NilBohr.ae_bohrPrimeMode_tendsto</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.ae_continuousBohrPrimeAverage_tendsto" class="lean_decl">NilBohr.ae_continuousBohrPrimeAverage_tendsto</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.ae_primeAverage_congruence_tendsto" class="lean_decl">NilBohr.ae_primeAverage_congruence_tendsto</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.ae_primeAverage_reduced_congruence_tendsto" class="lean_decl">NilBohr.ae_primeAverage_reduced_congruence_tendsto</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.ae_simultaneousBohrIntervalAverage_tendsto" class="lean_decl">NilBohr.ae_simultaneousBohrIntervalAverage_tendsto</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.simultaneousBohrIntervalDensity_tendsto" class="lean_decl">NilBohr.simultaneousBohrIntervalDensity_tendsto</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.ae_selectedSimultaneousBohrIntervalAverage_tendsto" class="lean_decl">NilBohr.ae_selectedSimultaneousBohrIntervalAverage_tendsto</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-centered_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-centered" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">51</span><span class="lemma_thmtitle">Centered chart test and seam removal</span></div>
+    <div class="thm_thmcontent"><p>  A Lipschitz circle weight centered at its Haar mean yields a right lattice-invariant, vertically mean-zero test after cutting off the horizontal seam. Its quotient Lipschitz norm is \(O_F(1+\varepsilon ^{-1})\). The scalar and twisted orbit estimates then give Equation&#160;(27) uniformly. </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-centered">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenbergCenteredTest_orbit" class="lean_decl">NilBohr.heisenbergCenteredTest_orbit</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenbergCenteredTest_verticalMean_zero" class="lean_decl">NilBohr.heisenbergCenteredTest_verticalMean_zero</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenbergCenteredTest_lipschitz" class="lean_decl">NilBohr.heisenbergCenteredTest_lipschitz</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenberg_seamAverage_of_horizontal" class="lean_decl">NilBohr.heisenberg_seamAverage_of_horizontal</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.centeredHeisenbergPhaseEstimate_of_obstructions" class="lean_decl">NilBohr.centeredHeisenbergPhaseEstimate_of_obstructions</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-cube_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-cube" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">39</span><span class="lemma_thmtitle">Localized \(U^S\) equality</span></div>
+    <div class="thm_thmcontent"><p>  For \(S\ge 3\), the exact equality (45) holds between the norm of \(f\chi \) with and without the localized vertical exponential, using the finite zero-extended cube-power model. Multiplication by an ordinary polynomial phase of degree less than \(S\) also leaves the normalized \(U^S\) quantity unchanged. </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-cube">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.cubeDifference_heisenberg_of_short" class="lean_decl">NilBohr.cubeDifference_heisenberg_of_short</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.gowersCubePower_localized_vertical" class="lean_decl">NilBohr.gowersCubePower_localized_vertical</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.normalizedGowers_localized_vertical" class="lean_decl">NilBohr.normalizedGowers_localized_vertical</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.normalizedGowers_mul_polynomial_phase" class="lean_decl">NilBohr.normalizedGowers_mul_polynomial_phase</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-density_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-density" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">42</span><span class="lemma_thmtitle">Count splitting and density step</span></div>
+    <div class="thm_thmcontent"><p>  The selector count splits by linearity. Given equal-mass factor averages with sufficient count discrepancy, one of them exceeds the prescribed density ceiling. There is a densest residue progression, and rescaled configurations preserve the selected prime. The logarithm of the initial modulus is the Mangoldt sum through \(w\), hence \(O(w)\). A finite sequence of admissible fixed-factor density increments contradicts density at most one. </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-density">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.selector_count_split" class="lean_decl">NilBohr.selector_count_split</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.exists_density_increase_of_count_discrepancy" class="lean_decl">NilBohr.exists_density_increase_of_count_discrepancy</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.exists_densest_residue_progression" class="lean_decl">NilBohr.exists_densest_residue_progression</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.lift_scaled_configuration" class="lean_decl">NilBohr.lift_scaled_configuration</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.density_iteration_contradiction" class="lean_decl">NilBohr.density_iteration_contradiction</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.recurrence_of_density_increment_at_scale" class="lean_decl">NilBohr.recurrence_of_density_increment_at_scale</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenbergRecurrence_of_density_increment" class="lean_decl">NilBohr.heisenbergRecurrence_of_density_increment</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.density_increment_atom_from_count_inputs" class="lean_decl">NilBohr.density_increment_atom_from_count_inputs</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.density_model_count_lower" class="lean_decl">NilBohr.density_model_count_lower</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.regularized_count_discrepancy" class="lean_decl">NilBohr.regularized_count_discrepancy</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.card_coincidentShiftParameters_le" class="lean_decl">NilBohr.card_coincidentShiftParameters_le</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.norm_selected_count_le_exception_mass" class="lean_decl">NilBohr.norm_selected_count_le_exception_mass</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.log_initialModulus_eq_mangoldt_sum" class="lean_decl">NilBohr.log_initialModulus_eq_mangoldt_sum</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.exists_log_initialModulus_le_linear" class="lean_decl">NilBohr.exists_log_initialModulus_le_linear</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.eventually_log_initialModulus_at_density_le" class="lean_decl">NilBohr.eventually_log_initialModulus_at_density_le</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.exists_log_iteration_modulus_le_linear_in_w" class="lean_decl">NilBohr.exists_log_iteration_modulus_le_linear_in_w</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-difference_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-difference" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">47</span><span class="lemma_thmtitle">Spatial differencing and exceptional weights</span></div>
+    <div class="thm_thmcontent"><p>  Cauchy–Schwarz removes a bounded parameter weight, and grouping spatial pairs by their difference gives the exact squared slice in Lemma&#160;5.1. The separate real-zero threshold comparison uses the explicit Banks premise and the conductor bound. </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-difference">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.countingForm_sq_le_spatial_energy" class="lean_decl">NilBohr.countingForm_sq_le_spatial_energy</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.spatial_slice_square_eq_differences" class="lean_decl">NilBohr.spatial_slice_square_eq_differences</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.exclude_exceptional_model_zero" class="lean_decl">NilBohr.exclude_exceptional_model_zero</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.weighted_local_inverse_of_kmtt_degree_uniform" class="lean_decl">NilBohr.weighted_local_inverse_of_kmtt_degree_uniform</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-ergodic_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-ergodic" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">45</span><span class="lemma_thmtitle">Pointwise convergence and normalization steps</span></div>
+    <div class="thm_thmcontent"><p>  For logarithmically bounded summands, a prescribed \(L^1\) rate \(O((\log H)^{-6})\) implies almost-everywhere convergence to zero of the prefix averages. Given the scalar counting and logarithmic mass asymptotics, bounded log-weighted averages and unweighted averages have the same limit. Scalar gap bounds turn centered lower approximants into a centered interval weight. A positive prime-density ratio and a centered comparison identify the selected prime limit. </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-ergodic">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.ae_mangoldtAverage_tendsto_zero_of_log_decay" class="lean_decl">NilBohr.ae_mangoldtAverage_tendsto_zero_of_log_decay</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.ae_primeAverage_tendsto_zero_of_mangoldt_log_decay" class="lean_decl">NilBohr.ae_primeAverage_tendsto_zero_of_mangoldt_log_decay</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.ae_unrestrictedPrimeAverage_tendsto" class="lean_decl">NilBohr.ae_unrestrictedPrimeAverage_tendsto</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.OpenArc.exists_lipschitz_sandwich" class="lean_decl">NilBohr.OpenArc.exists_lipschitz_sandwich</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.centered_primeAverage_of_sandwich" class="lean_decl">NilBohr.centered_primeAverage_of_sandwich</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.ae_centered_selector_of_smooth_limits" class="lean_decl">NilBohr.ae_centered_selector_of_smooth_limits</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.pointwise_of_smooth_limits" class="lean_decl">NilBohr.pointwise_of_smooth_limits</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.pointwise_of_smooth_log_decay" class="lean_decl">NilBohr.pointwise_of_smooth_log_decay</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-floor_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-floor" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">40</span><span class="lemma_thmtitle">Horizontal Diophantine and floor identities</span></div>
+    <div class="thm_thmcontent"><p>  The finite separation inequalities have a main term \(c_\alpha /(|k|vr^2)\) when \(k\ne 0\) and \(1/r\) when \(k=0\), minus the corresponding approximation error \(|l|v|\beta -a/r|\). The bracket carry identity and small positive approximation floor identity hold under the displayed arithmetic hypotheses. </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-floor">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.horizontal_nonzero_alpha_bound" class="lean_decl">NilBohr.horizontal_nonzero_alpha_bound</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.horizontal_zero_alpha_bound" class="lean_decl">NilBohr.horizontal_zero_alpha_bound</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.bracketPhase_add_heisenbergPhase" class="lean_decl">NilBohr.bracketPhase_add_heisenbergPhase</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.floor_mul_eq_int_of_small_error" class="lean_decl">NilBohr.floor_mul_eq_int_of_small_error</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.horizontal_scale_bounds" class="lean_decl">NilBohr.horizontal_scale_bounds</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenberg_horizontal" class="lean_decl">NilBohr.heisenberg_horizontal</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-fourier-restriction_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-fourier-restriction" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">54</span><span class="lemma_thmtitle">Fourier restriction on a progression</span></div>
+    <div class="thm_thmcontent"><p>  A localized and polynomially twisted progression average of an ambient weight is controlled by its ambient \(U^S\) quantity, with the length ratio \(X/|P'|\), the Fourier mass of the circle cutoff, and a factor bounded by \(2+\log X\). The bound extends to the full centered seam test and yields arbitrary logarithmic saving for the ambient prime-model discrepancy on the progressions of Proposition&#160;6.2. </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-fourier-restriction">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.localized_prime_model_replacement_progression" class="lean_decl">NilBohr.localized_prime_model_replacement_progression</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.residue_indicator_fourier_l1" class="lean_decl">NilBohr.residue_indicator_fourier_l1</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.intervalCyclicFourierCoefficient_l1_le" class="lean_decl">NilBohr.intervalCyclicFourierCoefficient_l1_le</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.quantitativePrimeSelectorCutoffs" class="lean_decl">NilBohr.quantitativePrimeSelectorCutoffs</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.localized_prime_model_replacement_full_chart" class="lean_decl">NilBohr.localized_prime_model_replacement_full_chart</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.prime_model_replacement_centered_chart" class="lean_decl">NilBohr.prime_model_replacement_centered_chart</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.primeModelReplacement_log_saving_of_kmtt" class="lean_decl">NilBohr.primeModelReplacement_log_saving_of_kmtt</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-green-tao-adapter_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-green-tao-adapter" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">56</span><span class="lemma_thmtitle">Quantitative Leibman specialization</span></div>
+    <div class="thm_thmcontent"><p> The general quantitative Leibman input gives the scalar and product character criteria used in Proposition&#160;4.3 on the respective nilmanifolds of Lemma&#160;<a href="index.html#checked-group-model">55</a>. The recurrence and prime-phase input bundles can therefore be assembled directly from the listed source interfaces. </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-green-tao-adapter">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.scalarHeisenbergObstruction_of_greenTao" class="lean_decl">NilBohr.scalarHeisenbergObstruction_of_greenTao</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.productHeisenbergObstruction_of_greenTao" class="lean_decl">NilBohr.productHeisenbergObstruction_of_greenTao</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.SelectorLiteratureInputs.of_quantitativeLeibman" class="lean_decl">NilBohr.SelectorLiteratureInputs.of_quantitativeLeibman</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.PrimePhaseLiteratureInputs.of_quantitativeLeibman" class="lean_decl">NilBohr.PrimePhaseLiteratureInputs.of_quantitativeLeibman</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-group-model_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-group-model" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">55</span><span class="lemma_thmtitle">Scalar and product Heisenberg models</span></div>
+    <div class="thm_thmcontent"><p>  The scalar and product quotients have adapted Mal’cev bases of rationality height at most one. Their chain metrics induce the quotient topologies. Unit-cube volume pushes forward to the normalized Haar probabilities and gives the chart integral on each. The dilated scalar orbit is filtered polynomial of degree at most two. Adjoining an ordinary polynomial of degree at most \(d\) gives the product of filtration degree \(\max (2,d)\). The twist \(\Phi (g)\mathrm e(-u)\) is lattice invariant, has mean zero after circle integration, and increases the scalar supremum-plus-Lipschitz bound by at most an absolute factor. </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-group-model">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenbergLeibmanBasis_rational" class="lean_decl">NilBohr.heisenbergLeibmanBasis_rational</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenbergProductLeibmanBasis_rational" class="lean_decl">NilBohr.heisenbergProductLeibmanBasis_rational</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenbergNilmanifoldMetric_topology" class="lean_decl">NilBohr.heisenbergNilmanifoldMetric_topology</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenbergProductNilmanifoldMetric_topology" class="lean_decl">NilBohr.heisenbergProductNilmanifoldMetric_topology</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.malcevQuotientChainDistance_eq_heisenbergQuotientDistance" class="lean_decl">NilBohr.malcevQuotientChainDistance_eq_heisenbergQuotientDistance</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.malcevQuotientChainDistance_eq_heisenbergProductQuotientDistance" class="lean_decl">NilBohr.malcevQuotientChainDistance_eq_heisenbergProductQuotientDistance</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.isLeibmanHaar_heisenbergNilmanifoldMeasure" class="lean_decl">NilBohr.isLeibmanHaar_heisenbergNilmanifoldMeasure</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.isLeibmanHaar_heisenbergProductNilmanifoldMeasure" class="lean_decl">NilBohr.isLeibmanHaar_heisenbergProductNilmanifoldMeasure</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenbergNilmanifoldMeasure_unique" class="lean_decl">NilBohr.heisenbergNilmanifoldMeasure_unique</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenbergProductNilmanifoldMeasure_unique" class="lean_decl">NilBohr.heisenbergProductNilmanifoldMeasure_unique</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenbergTwist_productLipschitzBound" class="lean_decl">NilBohr.heisenbergTwist_productLipschitzBound</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-heisenberg-window_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-heisenberg-window" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">34</span><span class="lemma_thmtitle">The Heisenberg return window</span></div>
+    <div class="thm_thmcontent"><p> The window \(0{\lt}y{\lt}1\), \(z\bmod 1\in J\) defines an open subset of the right-coset quotient and has Haar mass \(|J|\). For admissible \(\beta \) and each nonzero integer \(n\), the orbit at time \(n\) belongs to this window exactly when \(Z(n)\bmod 1\in J\). A basic polynomial nilsequence realizes the window by the open right half-plane in \(\mathbb C\). </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-heisenberg-window">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenbergWindow" class="lean_decl">NilBohr.heisenbergWindow</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.isOpen_heisenbergWindow" class="lean_decl">NilBohr.isOpen_heisenbergWindow</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenbergWindow_measure" class="lean_decl">NilBohr.heisenbergWindow_measure</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenbergRotation_mem_window_iff" class="lean_decl">NilBohr.heisenbergRotation_mem_window_iff</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenbergWindow_basicNilsequence" class="lean_decl">NilBohr.heisenbergWindow_basicNilsequence</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenbergWindowNilsequence_re_pos_iff" class="lean_decl">NilBohr.heisenbergWindowNilsequence_re_pos_iff</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenbergWindowNilsequence_prime_re_pos_iff" class="lean_decl">NilBohr.heisenbergWindowNilsequence_prime_re_pos_iff</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-intro-fast-obstruction_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-intro-fast-obstruction" style="display: none">
+    <div class="thm_thmheading">
+      <span class="proposition_thmcaption">
+      Proposition
+      </span>
+      <span class="proposition_thmlabel">30</span><span class="proposition_thmtitle">Introductory counterexample</span></div>
+    <div class="thm_thmcontent"><p>  There are \(\beta \in (0,1)\setminus \mathbb Q\) and strictly increasing prime denominators \(r_j\) with \(0{\lt}a_j{\lt}r_j\) such that \(0{\lt}\beta -a_j/r_j{\lt}\exp (-r_j^j)\) for every \(j\). Set \(N_j=\lfloor \exp (r_j^j/6)\rfloor \). For each \(\alpha \in \mathbb R\) there are sets \(A_j\subset [N_j]\) with the following properties. If \(x,x+n,x+n^2\) are in \(A_j\) with \(n\ge 1\), then \(Z(n)\bmod 1\notin J=(1/4,1/2)\). The scales tend to infinity and the density satisfies \(|A_j|/N_j\ge 1/(578r_j)\) eventually. For every fixed \(\kappa {\gt}0\), the same sets satisfy \(|A_j|/N_j{\gt}(\log N_j)^{-\kappa }\) eventually. </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-intro-fast-obstruction">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.intro_fast_approximation_counterexample">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-iteration-moduli_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-iteration-moduli" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">36</span><span class="lemma_thmtitle">Modulus budgets in Appendix A</span></div>
+    <div class="thm_thmcontent"><p> Given the Section&#160;3 iteration budgets, \(\log q_i\ll \delta ^{-D_0}\) for a fixed \(D_0\). If \(\delta \ge (\log \log N)^{-c}\) and \(cD_0{\lt}1\), then \(q_i\le (\log N_i)^\epsilon \) for every fixed \(\epsilon {\gt}0\), uniformly over stages. Every fixed power loss in \(q_i\) can be absorbed by any positive slack in a logarithmic saving. At the polylogarithmic threshold the admissible numerical parameters allow \(q{\gt}(\log N)^A\) for each fixed \(A\ge 0\). </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-iteration-moduli">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.log_iteration_modulus_le_density_power" class="lean_decl">NilBohr.log_iteration_modulus_le_density_power</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.eventually_density_iteration_moduli_small" class="lean_decl">NilBohr.eventually_density_iteration_moduli_small</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.eventually_small_modulus_absorbed_by_logarithmic_saving" class="lean_decl">NilBohr.eventually_small_modulus_absorbed_by_logarithmic_saving</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.eventually_large_admissible_modulus_at_polylog_density" class="lean_decl">NilBohr.eventually_large_admissible_modulus_at_polylog_density</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-local-phase_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-local-phase" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">43</span><span class="lemma_thmtitle">Local phases on one parameter cell</span></div>
+    <div class="thm_thmcontent"><p>  For fixed spatial \(x\), the product of the local linear phases on a single retained progression in \(y\) is a polynomial phase of degree at most \(d\). Its average against the test weight is bounded by the local polynomial-phase norm. </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-local-phase">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.product_local_linear_phases" class="lean_decl">NilBohr.product_local_linear_phases</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.norm_local_phase_product_average_le" class="lean_decl">NilBohr.norm_local_phase_product_average_le</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.norm_partition_delete_le" class="lean_decl">NilBohr.norm_partition_delete_le</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.norm_countingForm_le_local_tests_after_replacement" class="lean_decl">NilBohr.norm_countingForm_le_local_tests_after_replacement</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-maximal-domination_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-maximal-domination" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">29</span><span class="lemma_thmtitle">Restricted maximal domination</span></div>
+    <div class="thm_thmcontent"><p> A fixed window with a positive relative-prime density limit has a constant \(C{\gt}0\) so that for every summand sequence and every cutoff, the modulus of its selected-prime average is bounded by \(C\) times the unrestricted prime average of the moduli. The same constant transfers an \(L^p\) estimate for the positive unrestricted maximal operator to the selected maximal operator, including \(p=\infty \). </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-maximal-domination">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.selectedPrimeAverage_domination" class="lean_decl">NilBohr.selectedPrimeAverage_domination</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.selectedPrimeMaximal_domination" class="lean_decl">NilBohr.selectedPrimeMaximal_domination</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.eLpNorm_selectedPrimeMaximal_le" class="lean_decl">NilBohr.eLpNorm_selectedPrimeMaximal_le</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.memLp_selectedErgodicPrimeMaximal" class="lean_decl">NilBohr.memLp_selectedErgodicPrimeMaximal</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.selectedErgodicPrimeMaximal_congr_ae" class="lean_decl">NilBohr.selectedErgodicPrimeMaximal_congr_ae</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-norm-foundations_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-norm-foundations" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">31</span><span class="lemma_thmtitle">Finite norms and Lipschitz circle Fourier series</span></div>
+    <div class="thm_thmcontent"><p> The interval cube norm obeys the triangle inequality for every positive order. On every nonempty finite arithmetic progression, normalized order comparison and \(u^s\ll _s U^s\) have uniform constants. In the change of variable \(x=qy+b\) the normalized dilation bound loses at most an order-dependent constant times \(q^{(s+1)/2^s}\). Lipschitz circle cutoffs have absolute Fourier mass bounded by a universal constant times their supremum norm plus Lipschitz seminorm. </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-norm-foundations">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.intervalGowersForm_norm_le" class="lean_decl">NilBohr.intervalGowersForm_norm_le</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.normalizedGowers_triangle" class="lean_decl">NilBohr.normalizedGowers_triangle</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.normalizedGowersAdjacentMonotonicity" class="lean_decl">NilBohr.normalizedGowersAdjacentMonotonicity</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.NormalizedGowersLaws.checked" class="lean_decl">NilBohr.NormalizedGowersLaws.checked</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.progressionGowers_one_eq_norm_mean" class="lean_decl">NilBohr.progressionGowers_one_eq_norm_mean</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.progressionGowers_le_of_le" class="lean_decl">NilBohr.progressionGowers_le_of_le</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.phaseNorm_le_progressionGowers" class="lean_decl">NilBohr.phaseNorm_le_progressionGowers</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.normalizedGowers_dilation" class="lean_decl">NilBohr.normalizedGowers_dilation</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.kmttNormalizedDilation" class="lean_decl">NilBohr.kmttNormalizedDilation</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.bernsteinCircleLipschitzFourier" class="lean_decl">NilBohr.bernsteinCircleLipschitzFourier</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.fourierCoeff_tail_eta_le" class="lean_decl">NilBohr.fourierCoeff_tail_eta_le</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.norm_fourierSeries_truncation_eta_le" class="lean_decl">NilBohr.norm_fourierSeries_truncation_eta_le</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-orbit_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-orbit" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">46</span><span class="lemma_thmtitle">Orbit transference and duality</span></div>
+    <div class="thm_thmcontent"><p>  For integrable weighted averages and a common spatial window containing all shifted orbit arguments, a uniform bound on the discrete shifted count transfers to the \(L^1\) norm of the weighted ergodic average. </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-orbit">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.orbit_counting_eq_average" class="lean_decl">NilBohr.orbit_counting_eq_average</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.integral_orbit_countingForm" class="lean_decl">NilBohr.integral_orbit_countingForm</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.integral_norm_weightedErgodicAverage_le_of_orbit_bound" class="lean_decl">NilBohr.integral_norm_weightedErgodicAverage_le_of_orbit_bound</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.orbit_bound_of_teravainen" class="lean_decl">NilBohr.orbit_bound_of_teravainen</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.exists_polynomial_orbit_window" class="lean_decl">NilBohr.exists_polynomial_orbit_window</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.mangoldt_L1_log_decay_of_primeLocalPhase" class="lean_decl">NilBohr.mangoldt_L1_log_decay_of_primeLocalPhase</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-prime-cramer_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-prime-cramer" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">53</span><span class="lemma_thmtitle">Cramér cancellation with the full chart test</span></div>
+    <div class="thm_thmcontent"><p> The full centered chart test at seam width \((\log X)^{-E}\), for any fixed \(E{\gt}0\), has arbitrary logarithmic saving on the prime progression against the Cramér model, uniformly in the polynomial test of degree at most \(d\). </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-prime-cramer">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.norm_cramerPhaseAverage_le_of_sieve" class="lean_decl">NilBohr.norm_cramerPhaseAverage_le_of_sieve</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.eventually_siftedPhase_error" class="lean_decl">NilBohr.eventually_siftedPhase_error</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.primeCramerPhase_log_saving" class="lean_decl">NilBohr.primeCramerPhase_log_saving</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-prime-distribution_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-prime-distribution" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">35</span><span class="lemma_thmtitle">Prime distribution from the model and sieve</span></div>
+    <div class="thm_thmcontent"><p> Banks’s zero exclusion, the ambient Gowers model, Mertens’ interval bound and the fundamental sieve lemma supply the ordinary prime number theorem, its fixed reduced progression form, and irrational linear equidistribution over primes against continuous tests. </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-prime-distribution">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.tendsto_cramerWeight_mean" class="lean_decl">NilBohr.tendsto_cramerWeight_mean</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.ambient_prime_polynomial_test_error_tendsto" class="lean_decl">NilBohr.ambient_prime_polynomial_test_error_tendsto</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.primeNumberTheorem_of_prime_model" class="lean_decl">NilBohr.primeNumberTheorem_of_prime_model</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.primeNumberTheoremInProgressions_of_kmtt_and_sieve" class="lean_decl">NilBohr.primeNumberTheoremInProgressions_of_kmtt_and_sieve</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.tendsto_cramer_linear_mean" class="lean_decl">NilBohr.tendsto_cramer_linear_mean</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.vinogradov_of_prime_model" class="lean_decl">NilBohr.vinogradov_of_prime_model</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-prime-normalization_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-prime-normalization" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">33</span><span class="lemma_thmtitle">Equivalent prime number theorem limits</span></div>
+    <div class="thm_thmcontent"><p> The theta, psi and normalized ordinary prime-count asymptotics give equivalent premises for the conversion to ordinary prime averages. The fixed-modulus prime count can use either \(\operatorname {Li}(N)\) or \(N/\log N\) as its scale. </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-prime-normalization">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.PrimeNumberTheorem.of_theta" class="lean_decl">NilBohr.PrimeNumberTheorem.of_theta</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.PrimeNumberTheorem.of_psi" class="lean_decl">NilBohr.PrimeNumberTheorem.of_psi</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.PrimeNumberTheorem.of_count" class="lean_decl">NilBohr.PrimeNumberTheorem.of_count</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.PrimeNumberTheorem.to_psi" class="lean_decl">NilBohr.PrimeNumberTheorem.to_psi</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.logarithmicIntegral_normalization_tendsto" class="lean_decl">NilBohr.logarithmicIntegral_normalization_tendsto</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.PrimeNumberTheoremInProgressions.of_logarithmicIntegral" class="lean_decl">NilBohr.PrimeNumberTheoremInProgressions.of_logarithmicIntegral</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-prime-progressions_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-prime-progressions" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">28</span><span class="lemma_thmtitle">Progressions in selected primes</span></div>
+    <div class="thm_thmcontent"><p> For fixed \(J\), positive limiting relative prime density implies a nontrivial progression of every length \(k\ge 2\). For \(N\ge 100\) and \(k\ge 4\), the selected primes through \(N\) contain such a progression if their relative density exceeds \(C_k\exp (-(\log \log \log N)^{c_k})\), by Teräväinen–Wang Theorem&#160;1.1. The constants depend only on \(k\) and the latter implication tests the actual density with the arc at scale \(N\). </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-prime-progressions">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.fixedWindow_primeProgression_of_sparse" class="lean_decl">NilBohr.fixedWindow_primeProgression_of_sparse</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.greenTaoRelativeDensity_of_sparse" class="lean_decl">NilBohr.greenTaoRelativeDensity_of_sparse</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.shrinkingWindow_primeProgression" class="lean_decl">NilBohr.shrinkingWindow_primeProgression</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-prime-seam_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-prime-seam" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">52</span><span class="lemma_thmtitle">Prime-weighted seam error</span></div>
+    <div class="thm_thmcontent"><p> At the seam width \(\eta =(\log X)^{-A-2}\), replacing the centered selector on the shifted-prime progression by the full cutoff chart test costs \(O_F((\log X)^{-A})\) against \(\Lambda \), uniformly in the polynomial phase. </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-prime-seam">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.primeProgression_mangoldt_seam_error">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-rescaling_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-rescaling" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">37</span><span class="lemma_thmtitle">Rescaling and the vertical chart</span></div>
+    <div class="thm_thmcontent"><p>  For a polynomial with zero constant coefficient, rescaling has the prescribed coefficients and commutes with successive affine lifts. The Heisenberg coordinate change under the right lattice is integral in the vertical phase and preserves the horizontal fractional part. </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-rescaling">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.eval_rescalePolynomial" class="lean_decl">NilBohr.eval_rescalePolynomial</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.eval_rescalePolynomial_mul" class="lean_decl">NilBohr.eval_rescalePolynomial_mul</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.HasCoefficients.rescale" class="lean_decl">NilBohr.HasCoefficients.rescale</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenberg_chart_right_lattice" class="lean_decl">NilBohr.heisenberg_chart_right_lattice</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-rotations_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-rotations" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">48</span><span class="lemma_thmtitle">Product rotations and the bracket identity</span></div>
+    <div class="thm_thmcontent"><p>  The enlarged family and the circle-product system recover the quadratic twist in (54). Equations (53) and (55) follow from the smooth comparison on the product system. The bracket carry decomposition preceding (56) also holds exactly. </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-rotations">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.exists_quadratic_completion" class="lean_decl">NilBohr.exists_quadratic_completion</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.ergodicSequence_circleRotationExtension" class="lean_decl">NilBohr.ergodicSequence_circleRotationExtension</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.ae_quadratic_twisted_interval_of_smooth" class="lean_decl">NilBohr.ae_quadratic_twisted_interval_of_smooth</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.ae_tendsto_primeAverage_fourier_quadratic_twist" class="lean_decl">NilBohr.ae_tendsto_primeAverage_fourier_quadratic_twist</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.phase_bracket_eq_piecewise" class="lean_decl">NilBohr.phase_bracket_eq_piecewise</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.ae_bracket_fourier_cancellation" class="lean_decl">NilBohr.ae_bracket_fourier_cancellation</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.pointwise_bracket_of_heisenberg_smooth" class="lean_decl">NilBohr.pointwise_bracket_of_heisenberg_smooth</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-scalar_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-scalar" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">41</span><span class="lemma_thmtitle">Scalar Heisenberg equidistribution</span></div>
+    <div class="thm_thmcontent"><p>  The scalar estimate (25) follows from the fixed-Heisenberg horizontal-character obstruction. </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-scalar">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.scalar_heisenberg_equidistribution" class="lean_decl">NilBohr.scalar_heisenberg_equidistribution</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.scalar_heisenberg_log_saving" class="lean_decl">NilBohr.scalar_heisenberg_log_saving</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-selector-cutoffs_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-selector-cutoffs" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">50</span><span class="lemma_thmtitle">Selector cutoffs and discrepancy</span></div>
+    <div class="thm_thmcontent"><p>  Three nonnegative short-arc cutoffs and a boundary cutoff give a partition of unity. The Lipschitz bounds are \(O(\varepsilon ^{-1})\) and the boundary mean is \(O(\varepsilon )\). The finite count discrepancy splits into the localized prime-versus-model counts and the boundary count. </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-selector-cutoffs">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.quantitativeSelectorCutoffs" class="lean_decl">NilBohr.quantitativeSelectorCutoffs</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.horizontalCircleEstimate_of_scalar" class="lean_decl">NilBohr.horizontalCircleEstimate_of_scalar</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.norm_countingForm_localized_selector_le" class="lean_decl">NilBohr.norm_countingForm_localized_selector_le</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.norm_countingForm_selector_boundary_le" class="lean_decl">NilBohr.norm_countingForm_selector_boundary_le</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.norm_countingForm_selector_discrepancy_le" class="lean_decl">NilBohr.norm_countingForm_selector_discrepancy_le</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-separating-comparison_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-separating-comparison" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">22</span><span class="lemma_thmtitle">The two dilation bounds and the direct estimate</span></div>
+    <div class="thm_thmcontent"><p>  Use the shifts \(y,qy^2\) and \(1\)-bounded spatial inputs supported on \([-N,N]\). With \(K\ge 1\) from the fixed-family theorem, the dilated upper bound is proportional to </p>
+<div class="displaymath" id="a0000000100">
+  \[  q^2\left((qM)^{-1}+q^{-1}\lVert G_q\rVert _{u^3[M]}\right)^{1/K},  \]
+</div>
+<p> or to the same expression with \(q\) in place of \(q^2\) when the spatial inputs repeat on the \(q\) residue classes. The first expression diverges on the separating scales. The repeated expression diverges for \(K{\gt}1\), and tends to zero at \(K=1\). The direct estimate of Theorem&#160;4.2 gives \(|T_{N,M,G_q}(\mathbf f)|\ll _F (\log M)^{-1}\) uniformly in the inputs on those scales. </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-separating-comparison">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.SeparatingCountComparison" class="lean_decl">NilBohr.SeparatingCountComparison</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.appendixA_count_comparison" class="lean_decl">NilBohr.appendixA_count_comparison</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.separatingFixedFamily_bounds_of_bounded" class="lean_decl">NilBohr.separatingFixedFamily_bounds_of_bounded</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.separating_fixedDilationBound_tendsto" class="lean_decl">NilBohr.separating_fixedDilationBound_tendsto</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.repeatedDilationPhaseBound_one" class="lean_decl">NilBohr.repeatedDilationPhaseBound_one</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-separating-finite_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-separating-finite" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">57</span><span class="lemma_thmtitle">Finite identities for Appendix A</span></div>
+    <div class="thm_thmcontent"><p>  Zero extension to \(q\mathbb Z\) gives a phase norm of exactly \(q^{-1}\) times the original phase norm. The fixed-family count normalization contributes \(q^2\), or \(q\) when the spatial inputs repeat on all \(q\) residue classes. For a rational approximation with \(0\le \beta -a/r\le E\) and \(E qM{\lt}1\), the error in the quadratic approximation to \(Z(qy)\) on \(r\mid y\) is at most \(|\alpha |E(qM)^2/2\). </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-separating-finite">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.phaseNorm_dilatedWeight" class="lean_decl">NilBohr.phaseNorm_dilatedWeight</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.parameterLength_separatingFamily" class="lean_decl">NilBohr.parameterLength_separatingFamily</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.countingForm_separatingFamily_dilate" class="lean_decl">NilBohr.countingForm_separatingFamily_dilate</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.countingForm_separatingFamily_repeat" class="lean_decl">NilBohr.countingForm_separatingFamily_repeat</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.residueCorrelation_le_phaseNorm" class="lean_decl">NilBohr.residueCorrelation_le_phaseNorm</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.abs_heisenbergPhase_sub_separatingQuadratic_le" class="lean_decl">NilBohr.abs_heisenbergPhase_sub_separatingQuadratic_le</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-separating-fourier_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-separating-fourier" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">60</span><span class="lemma_thmtitle">Continuous circle tests</span></div>
+    <div class="thm_thmcontent"><p> A nonconstant continuous circle function has a nonzero Fourier coefficient at some nonzero frequency. The mean of its centered function times the matching conjugate character is that coefficient. Cancellation of every nonzero mode on finite rows gives equidistribution under continuous tests. </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-separating-fourier">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.exists_nonzero_fourierCoeff_of_nonconstant" class="lean_decl">NilBohr.exists_nonzero_fourierCoeff_of_nonconstant</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.circleMean_centered_mul_fourier" class="lean_decl">NilBohr.circleMean_centered_mul_fourier</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.tendsto_circle_average_of_fourier" class="lean_decl">NilBohr.tendsto_circle_average_of_fourier</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-separating-gowers_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-separating-gowers" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">62</span><span class="lemma_thmtitle">A full Gowers lower bound</span></div>
+    <div class="thm_thmcontent"><p>  For every fixed \(S\ge 3\), scalar Heisenberg equidistribution on the long, coprime progression and the localized vertical multiplier give a positive lower bound for \(U^S[M]\). </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-separating-gowers">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.separating_gowers_lower_bound">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-separating-local_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-separating-local" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">59</span><span class="lemma_thmtitle">Local tests at the separating scales</span></div>
+    <div class="thm_thmcontent"><p>  The centered progression estimate gives arbitrary logarithmic saving in the local phase tests at the separating scales. Every progression required by Theorem&#160;4.2 at \(\rho =(\log M)^{-1}\) meets the local length threshold. Testing \([M]\) in particular gives convergence to zero for its ordinary global \(u^3\) norm. </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-separating-local">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.SeparatingLocalPhaseDecay" class="lean_decl">NilBohr.SeparatingLocalPhaseDecay</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.separatingLocalPhase_log_bound" class="lean_decl">NilBohr.separatingLocalPhase_log_bound</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.eventually_separating_test_length" class="lean_decl">NilBohr.eventually_separating_test_length</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.separatingCount_log_bound" class="lean_decl">NilBohr.separatingCount_log_bound</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.separatingGlobalPhase_tendsto_zero" class="lean_decl">NilBohr.separatingGlobalPhase_tendsto_zero</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.separatingLocalPhase_of_obstructions" class="lean_decl">NilBohr.separatingLocalPhase_of_obstructions</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.separatingCount_of_kmtt" class="lean_decl">NilBohr.separatingCount_of_kmtt</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-separating-quadratic_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-separating-quadratic" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">61</span><span class="lemma_thmtitle">Quadratic correlation on the denominator multiples</span></div>
+    <div class="thm_thmcontent"><p>  At the separating scales the phase on the denominator multiples is approximated by a quadratic. Its nonzero Fourier modes have vanishing averages. The correlation with a quadratic test and the residue expansion give a positive multiple of \(r_j^{-1}\) as a lower bound for the full-interval phase norm. </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-separating-quadratic">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.prefixAverage_tendsto_zero_of_shift_correlations" class="lean_decl">NilBohr.prefixAverage_tendsto_zero_of_shift_correlations</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.separatingQuadratic_modes_tendsto_zero" class="lean_decl">NilBohr.separatingQuadratic_modes_tendsto_zero</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.separatingQuadratic_mode_sq_le_growing_shift" class="lean_decl">NilBohr.separatingQuadratic_mode_sq_le_growing_shift</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.tendsto_separatingCoefficient_div_lengthQuotient_pow" class="lean_decl">NilBohr.tendsto_separatingCoefficient_div_lengthQuotient_pow</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.separatingGlobalPhase_lower_bound" class="lean_decl">NilBohr.separatingGlobalPhase_lower_bound</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-separating-scales_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-separating-scales" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">58</span><span class="lemma_thmtitle">The separating scales</span></div>
+    <div class="thm_thmcontent"><p>  The floored power of \(\mathcal L(w)\) and the integer multiple of the denominator in the definition of \(M\) give positive scales, \(\log q\asymp (\log r_j)^2\), and \(q\le M\). The logarithmic ratios give \(\log M\sim \tfrac 14\exp (\sqrt{\log r_j})\) and \(qM=r_{j+1}^{1/4+o(1)}\). At \(X=qM\), the denominator bracket and the bounded powers of the progression step are valid for large \(j\). </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-separating-scales">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.SeparatingScale" class="lean_decl">NilBohr.SeparatingScale</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.eventually_separatingScale" class="lean_decl">NilBohr.eventually_separatingScale</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.tendsto_separatingLengthQuotient" class="lean_decl">NilBohr.tendsto_separatingLengthQuotient</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.tendsto_separatingLength" class="lean_decl">NilBohr.tendsto_separatingLength</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.eventually_separatingStep" class="lean_decl">NilBohr.eventually_separatingStep</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.eventually_separatingRelativeModulus" class="lean_decl">NilBohr.eventually_separatingRelativeModulus</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.eventually_separatingRelativeScaleWindow" class="lean_decl">NilBohr.eventually_separatingRelativeScaleWindow</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.tendsto_separatingCoefficient_div_lengthQuotient" class="lean_decl">NilBohr.tendsto_separatingCoefficient_div_lengthQuotient</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.tendsto_separatingApproximation" class="lean_decl">NilBohr.tendsto_separatingApproximation</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.eventually_separatingLogModulus_logLogLength" class="lean_decl">NilBohr.eventually_separatingLogModulus_logLogLength</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.tendsto_logDenominator_div_logSeparatingModulus" class="lean_decl">NilBohr.tendsto_logDenominator_div_logSeparatingModulus</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.tendsto_separatingLogLength_div_exp_sqrt_log" class="lean_decl">NilBohr.tendsto_separatingLogLength_div_exp_sqrt_log</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.tendsto_logSeparatingScaleX_div_logNext" class="lean_decl">NilBohr.tendsto_logSeparatingScaleX_div_logNext</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.eventually_initialModulus_dvd_separatingModulus" class="lean_decl">NilBohr.eventually_initialModulus_dvd_separatingModulus</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.tendsto_separatingW_div_logSpatialScale_pow" class="lean_decl">NilBohr.tendsto_separatingW_div_logSpatialScale_pow</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.tendsto_logSeparatingModulus_div_sqrt_logSpatialScale" class="lean_decl">NilBohr.tendsto_logSeparatingModulus_div_sqrt_logSpatialScale</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-sieve_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-sieve" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">44</span><span class="lemma_thmtitle">Sieve midpoint on a progression</span></div>
+    <div class="thm_thmcontent"><p>  With upper and lower divisor envelopes, replacing the indicator by their midpoint incurs at most half their average gap. For a divisor coprime to the progression step, divisibility restricts to a single residue class of parameter indices, whose count differs from length divided by the divisor by at most one. The change to \(m=qy+1\) preserves the finite average and the degree of its polynomial test. The resulting sieve progressions have the uniform length and step bounds stated in Proposition&#160;6.2. On the residue-one progression the Cramér weight is its Euler product normalization times the coprimality indicator omitting primes that divide \(q\). From the quoted sieve and interval-product assumptions, the envelopes have absolute reciprocal-weighted gap at most \((\log X)^{-D}\) for any fixed \(D{\gt}0\) and all sufficiently large \(X\). </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-sieve">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.sieveMidpoint_bound" class="lean_decl">NilBohr.sieveMidpoint_bound</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.exists_modEq_of_dvd_affine" class="lean_decl">NilBohr.exists_modEq_of_dvd_affine</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.abs_card_dvd_affine_sub_le_one" class="lean_decl">NilBohr.abs_card_dvd_affine_sub_le_one</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.primeProgression_as_affine" class="lean_decl">NilBohr.primeProgression_as_affine</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.primeProgression_sieve_scales" class="lean_decl">NilBohr.primeProgression_sieve_scales</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.cramerWeight_eq_sieveIndicator" class="lean_decl">NilBohr.cramerWeight_eq_sieveIndicator</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.cramerSieve_correlation_bound" class="lean_decl">NilBohr.cramerSieve_correlation_bound</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.primeDivisors_heisenberg_log_saving" class="lean_decl">NilBohr.primeDivisors_heisenberg_log_saving</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.eventually_cramerSieve_coefficients" class="lean_decl">NilBohr.eventually_cramerSieve_coefficients</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.MertensIntervalProductBound.eulerProduct_le_log" class="lean_decl">NilBohr.MertensIntervalProductBound.eulerProduct_le_log</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-smooth-factors_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-smooth-factors" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">23</span><span class="lemma_thmtitle">1.6, fixed local factors</span></div>
+    <div class="thm_thmcontent"><p> On the smooth moduli with \(\mathcal L(w)\mid q\) reached by the density iteration, the centered count is \(O(w^{-A})\) for a fixed \(A{\gt}0\), uniformly over the families and inputs of Lemma&#160;4.4. </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-smooth-factors">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.auxiliary_step_dvd_fixed_power" class="lean_decl">NilBohr.auxiliary_step_dvd_fixed_power</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.localGeneralizedVonNeumann_on_lcm_moduli" class="lean_decl">NilBohr.localGeneralizedVonNeumann_on_lcm_moduli</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.centeredSelectorComparison_on_lcm_moduli_of_obstructions" class="lean_decl">NilBohr.centeredSelectorComparison_on_lcm_moduli_of_obstructions</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-twisted_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-twisted" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">49</span><span class="lemma_thmtitle">Product obstruction and twisted prefixes</span></div>
+    <div class="thm_thmcontent"><p>  Given the fixed scalar and product character criteria and explicit bounds on the finite prefix scales, the polynomially twisted Heisenberg average is bounded in terms of the two obstruction thresholds and the variation of the residual twist. Under the dilated scalar and horizontal estimates this yields a uniform logarithmic saving at every exponent. </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-twisted">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.choose_modEq_of_modEq_factorial_mul" class="lean_decl">NilBohr.choose_modEq_of_modEq_factorial_mul</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.realBinomialPhase_exp_totalVariation_le" class="lean_decl">NilBohr.realBinomialPhase_exp_totalVariation_le</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenbergCoverTest_chartMean_eq_zero_of_lipschitz" class="lean_decl">NilBohr.heisenbergCoverTest_chartMean_eq_zero_of_lipschitz</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.norm_heisenbergTwistedAverage_le_of_product_obstruction" class="lean_decl">NilBohr.norm_heisenbergTwistedAverage_le_of_product_obstruction</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.twisted_heisenberg_log_saving_of_dilated" class="lean_decl">NilBohr.twisted_heisenberg_log_saving_of_dilated</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.twisted_heisenberg_log_saving_for_denominators" class="lean_decl">NilBohr.twisted_heisenberg_log_saving_for_denominators</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.twisted_heisenberg_phaseNorm" class="lean_decl">NilBohr.twisted_heisenberg_phaseNorm</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="checked-weak-regularity_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="checked-weak-regularity" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">32</span><span class="lemma_thmtitle">Fixed local factors from the inverse theorem</span></div>
+    <div class="thm_thmcontent"><p> The local inverse estimate supplies the weak-regularity interface used in Proposition&#160;3.1, including the partition, progression length and small-scale alternative. </p>
+</div>
+
+    <a class="latex_link" href="index.html#checked-weak-regularity">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.KMTTLocalInverse.toLocalWeakRegularity" class="lean_decl">NilBohr.KMTTLocalInverse.toLocalWeakRegularity</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.exists_localInverse_fixed_coordinate" class="lean_decl">NilBohr.exists_localInverse_fixed_coordinate</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.fixedStep_progression_partition" class="lean_decl">NilBohr.fixedStep_progression_partition</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="d:Cq_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="d:Cq" style="display: none">
+    <div class="thm_thmheading">
+      <span class="definition_thmcaption">
+      Definition
+      </span>
+      <span class="definition_thmlabel">1</span><span class="definition_thmtitle">Configuration and arithmetic rescaling</span></div>
+    <div class="thm_thmcontent"><p> Write \([N]=\{ 1,\ldots ,N\} \) and \(P_0=0\). The original integer polynomials satisfy \(P_i(0)=0\) and \(1\le \deg P_1{\lt}\cdots {\lt}\deg P_\ell =d\). A configuration is an \(x\in \mathbb Z\) and positive integer \(n\) such that every \(x+P_i(n)\) belongs to \(A\), and the map from \(i\in \{ 0,\ldots ,\ell \} \) to these points is injective. For a positive integer \(q\) put \(P_{i,q}(y)=P_i(qy)/q\). For \(P(y)=a_ey^e+\cdots +a_1y\), \(e\ge 1\), the \((C,q)\)-coefficient condition is </p>
+<div class="displaymath" id="a0000000004">
+  \[  |a_j|\le C|a_e|\quad (1\le j{\lt}e),\qquad a_e=a'_e q^{e-1},\qquad a'_e\in \mathbb Z,\quad 0{\lt}|a'_e|\le C.  \]
+</div>
+<p> For \(R_0=0\) and a given family \(R_1,\ldots ,R_{k-1}\), define </p>
+<div class="displaymath" id="a0000000005">
+  \[  T^{\mathbf R}_{N,M,v}(\mathbf f) =\frac{1}{NM}\sum _{x\in \mathbb Z}\sum _{y\in [M]} v(y)\prod _{i=0}^{k-1} f_i(x+R_i(y)).  \]
+</div>
+</div>
+
+    <a class="latex_link" href="index.html#d:Cq">LaTeX</a>
+    
+    
+  
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="external-inputs_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="external-inputs" style="display: none">
+    <div class="thm_thmheading">
+      <span class="proposition_thmcaption">
+      Proposition
+      </span>
+      <span class="proposition_thmlabel">4</span><span class="proposition_thmtitle">Quoted inputs</span></div>
+    <div class="thm_thmcontent"><p>  The independent analytic inputs include the KMTT prime-model estimates (Lemmas 3.1 and 4.3(i)), its generalized von Neumann estimate (Proposition 3.3), inverse estimate (Lemma 3.4), and shifted-prime theorem (Theorem 1.2). The other analytic inputs are Banks’s explicit zero-free bound (Theorem 1.1), Green–Tao quantitative Leibman (Theorem 2.9 and its erratum), the dimension-one fundamental sieve lemma and Mertens interval bound (Koukoulopoulos, Theorems 19.1 and 3.4(c)), Teräväinen’s fixed-family estimate (Theorem 4.1), and Mirek–Wan–Wright pointwise convergence (Theorem 1.1(ii)). Teräväinen–Wang’s finite density bound (Theorem&#160;1.1) supplies both progression implications. The degree-uniform KMTT inverse interface fixes a bound for the modulus exponent before the coefficient constant or family length is chosen. </p>
+</div>
+
+    <a class="latex_link" href="index.html#external-inputs">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.KMTTShiftedPrimeDensityBound" class="lean_decl">NilBohr.KMTTShiftedPrimeDensityBound</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.KMTTLocalInverse" class="lean_decl">NilBohr.KMTTLocalInverse</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.KMTTLocalInverseDegreeUniform" class="lean_decl">NilBohr.KMTTLocalInverseDegreeUniform</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.KMTTWeightedGowers" class="lean_decl">NilBohr.KMTTWeightedGowers</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.KMTTAmbientPrimeModel" class="lean_decl">NilBohr.KMTTAmbientPrimeModel</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.KMTTRelativeCramer" class="lean_decl">NilBohr.KMTTRelativeCramer</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.BanksRealZeroBound" class="lean_decl">NilBohr.BanksRealZeroBound</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.GreenTaoQuantitativeLeibman" class="lean_decl">NilBohr.GreenTaoQuantitativeLeibman</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.MertensIntervalProductBound" class="lean_decl">NilBohr.MertensIntervalProductBound</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.FundamentalSieveLemma" class="lean_decl">NilBohr.FundamentalSieveLemma</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.TeravainenFixedFamily" class="lean_decl">NilBohr.TeravainenFixedFamily</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.MirekWanWrightPointwise" class="lean_decl">NilBohr.MirekWanWrightPointwise</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.TeravainenWangSparseGreenTao" class="lean_decl">NilBohr.TeravainenWangSparseGreenTao</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="l:heisenberg-horizontal_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="l:heisenberg-horizontal" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">7</span><span class="lemma_thmtitle">6.1, horizontal Diophantine separation</span></div>
+    <div class="thm_thmcontent"><p>   Choose \(r_j\le X^{1/100}{\lt}r_{j+1}\) for sufficiently large \(X\). For each fixed \(L{\gt}0\), \(r_j/(\log X)^L\to \infty \). Uniformly when \(1\le v\le X^{1/5000}\), \(r_j\nmid v\) and \(0{\lt}\max (|k|,|l|)\le (\log X)^L\) for integers \(v,k,l\), one has \(\lVert v(k\alpha +l\beta )\rVert _{\mathbb T}\gg _\alpha X^{-1/20}\). </p>
+</div>
+
+    <a class="latex_link" href="index.html#l:heisenberg-horizontal">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenberg_horizontal" class="lean_decl">NilBohr.heisenberg_horizontal</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.horizontal_scale_bounds" class="lean_decl">NilBohr.horizontal_scale_bounds</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.horizontal_diophantine_bound_uniform_in_beta" class="lean_decl">NilBohr.horizontal_diophantine_bound_uniform_in_beta</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.horizontal_diophantine_bound" class="lean_decl">NilBohr.horizontal_diophantine_bound</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="l:unweighted-selector-relative-range_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="l:unweighted-selector-relative-range" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">11</span><span class="lemma_thmtitle">4.4, centered selector count</span></div>
+    <div class="thm_thmcontent"><p>  Fix \(C,d,k\), selector data and a Lipschitz \(F\). For \(N\) sufficiently large and smooth moduli with \(c_{\rm rel}\) sufficiently small, put \(M=\lfloor (N/q^{d-1})^{1/d}\rfloor \). For every fixed \(A{\gt}0\), the bound \(|T_{N,M,F_q-\mu _F}(\mathbf f)|\ll _{C,d,k,\alpha ,\beta ,F,A}w^{-A}\) holds uniformly for the distinct-degree \((C,q)\)-families and \(1\)-bounded inputs supported on \([N]\). </p>
+</div>
+
+    <a class="latex_link" href="index.html#l:unweighted-selector-relative-range">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.unweightedSelectorComparison_of_local_phase">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="l:vertical-mode-multiplier_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="l:vertical-mode-multiplier" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">9</span><span class="lemma_thmtitle">4.5, multiplication by a localized vertical mode</span></div>
+    <div class="thm_thmcontent"><p>  Let \(S\ge 3\), let \(I\) be a finite nonempty integer interval, and let \(a,v,h\in \mathbb Z\). If the Lipschitz function \(\chi \) is supported on an interval of length \({\lt}1/2\) inside \((0,1)\), then </p>
+<div class="displaymath" id="a0000000039">
+  \[  \lVert f(t)\chi (\{ \beta (a+vt)\} )\mathrm e(hZ(a+vt))\rVert _{U^S[I]} \le \lVert \widehat\chi \rVert _{\ell ^1}\lVert f\rVert _{U^S[I]} .  \]
+</div>
+</div>
+
+    <a class="latex_link" href="index.html#l:vertical-mode-multiplier">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.localized_vertical_multiplier" class="lean_decl">NilBohr.localized_vertical_multiplier</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.localized_vertical_multiplier_of_bernstein" class="lean_decl">NilBohr.localized_vertical_multiplier_of_bernstein</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="p:ergodic-comparison_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="p:ergodic-comparison" style="display: none">
+    <div class="thm_thmheading">
+      <span class="proposition_thmcaption">
+      Proposition
+      </span>
+      <span class="proposition_thmlabel">18</span><span class="proposition_thmtitle">7.1, smooth ergodic comparison</span></div>
+    <div class="thm_thmcontent"><p>  Fix the polynomial family with distinct positive degrees in arbitrary order and zero constant terms. Fix the selector data, a Lipschitz \(F:\mathbb T\to \mathbb C\), and \(A{\gt}0\). For every integer \(H\ge 2\), </p>
+<div class="displaymath" id="a0000000075">
+  \[  \lVert \mathcal A_H^F-\mu _F\mathcal A_H^1\rVert _{L^1(X)} \ll _{\mathbf P,\alpha ,\beta ,F,A} (\log H)^{-A}\prod _i\lVert f_i\rVert _\infty .  \]
+</div>
+<p> The difference tends to zero almost everywhere. Furthermore, </p>
+<div class="displaymath" id="a0000000076">
+  \[  \frac1{\pi (H)}\sum _{p\le H} (F(Z(p-1))-\mu _F)z_{p-1}(x)\longrightarrow 0 \quad \text{for almost every }x .  \]
+</div>
+</div>
+
+    <a class="latex_link" href="index.html#p:ergodic-comparison">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.smoothErgodicComparison_of_prime_model_distinct_degrees" class="lean_decl">NilBohr.smoothErgodicComparison_of_prime_model_distinct_degrees</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.smoothErgodicComparison_of_literature" class="lean_decl">NilBohr.smoothErgodicComparison_of_literature</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.smoothErgodicComparison_of_primeLocalPhase" class="lean_decl">NilBohr.smoothErgodicComparison_of_primeLocalPhase</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.smoothErgodicLogDecay_of_primeLocalPhase" class="lean_decl">NilBohr.smoothErgodicLogDecay_of_primeLocalPhase</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="p:heisenberg-phase_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="p:heisenberg-phase" style="display: none">
+    <div class="thm_thmheading">
+      <span class="proposition_thmcaption">
+      Proposition
+      </span>
+      <span class="proposition_thmlabel">8</span><span class="proposition_thmtitle">4.3, uniform Heisenberg phase bounds</span></div>
+    <div class="thm_thmcontent"><p>  At the scale of Lemma&#160;6.1 let \(a\in \mathbb Z\), \(1\le v\le X^{1/10000}\), \(r_j\nmid v\), and \(K\ge X^{1/2}\). For fixed \(A,L{\gt}0\), a positive integer \(d\), and a Lipschitz function \(\Phi \) on \(H/\Gamma \) with \(\lVert \Phi \rVert _{\mathrm{Lip}}\le (\log X)^L\), one has </p>
+<div class="displaymath" id="a0000000031">
+  \[  \lvert \mathbb E_{t\in [K]}\Phi (g_0^{a+vt}\Gamma )-\int \Phi \rvert  \ll _{A,L,\alpha ,\beta }(\log X)^{-A}.  \]
+</div>
+<p> With zero integral over every vertical fibre, one also has </p>
+<div class="displaymath" id="a0000000032">
+  \[  \sup _{\deg \phi \le d} \lvert \mathbb E_{t\in [K]}\Phi (g_0^{a+vt}\Gamma )\mathrm e(-\phi (t))\rvert  \ll _{A,L,d,\alpha ,\beta }(\log X)^{-A}.  \]
+</div>
+<p> For fixed Lipschitz \(F\), the same twisted bound holds with \(\Phi (g_0^{a+vt}\Gamma )\) replaced by \(F(Z(a+vt))-\mu _F\). The twisted and centered statements also cover constant tests, by restricting the degree-one range. </p>
+</div>
+
+    <a class="latex_link" href="index.html#p:heisenberg-phase">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenbergPhaseEstimates_of_quantitativeLeibman" class="lean_decl">NilBohr.heisenbergPhaseEstimates_of_quantitativeLeibman</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.scalar_heisenberg_log_saving" class="lean_decl">NilBohr.scalar_heisenberg_log_saving</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.twisted_heisenberg_log_saving" class="lean_decl">NilBohr.twisted_heisenberg_log_saving</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.centeredHeisenbergPhaseEstimate_of_obstructions" class="lean_decl">NilBohr.centeredHeisenbergPhaseEstimate_of_obstructions</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="p:high-order-relative-prime_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="p:high-order-relative-prime" style="display: none">
+    <div class="thm_thmheading">
+      <span class="proposition_thmcaption">
+      Proposition
+      </span>
+      <span class="proposition_thmlabel">10</span><span class="proposition_thmtitle">4.1, high-order relative prime model</span></div>
+    <div class="thm_thmcontent"><p>  Fix \(d\ge 1\) and \(S\ge 2\). There exist \(c_{\rm rel},\eta _{\rm rel}{\gt}0\), \(w_0\ge 16\) such that, for all large \(N\), all smooth moduli above, and all integer \(M\) with \(N^{1/d}\exp (-d\sqrt{\log N})\le M\le N^{1/d}\), </p>
+<div class="displaymath" id="a0000000044">
+  \[  \lVert \Lambda _q-1\rVert _{U^S[M]}\ll _{d,S}w^{-\eta _{\rm rel}}.  \]
+</div>
+<p> In particular \(\mathbb E_{y\in [M]}\Lambda _q(y)=1+O_{d,S}(w^{-\eta _{\rm rel}})\). </p>
+</div>
+
+    <a class="latex_link" href="index.html#p:high-order-relative-prime">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.high_order_relative_prime_of_analytic_inputs" class="lean_decl">NilBohr.high_order_relative_prime_of_analytic_inputs</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.high_order_relative_prime_of_kmtt" class="lean_decl">NilBohr.high_order_relative_prime_of_kmtt</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="p:localinverse_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="p:localinverse" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">5</span><span class="lemma_thmtitle">5.1, inverse estimate with a common modulus</span></div>
+    <div class="thm_thmcontent"><p>  Fix \(C,d,k\), \(k\ge 2\), and let \(N\ge 3\), \(1\le q\le \exp ((\log N)^{1/10})\) and \(M=\lfloor (N/q^{d-1})^{1/d}\rfloor \ge 1\). Assume the shifts have \((C,q)\)-coefficients, distinct increasing degrees ending in \(d\), and the \(f_i\) are \(1\)-bounded with support in \([-CN,CN]\). If \(|v|\le 1\) and \(|T_{N,M,v}(\mathbf f)|\ge \delta \) with \(0{\lt}\delta {\lt}1/2\), then either \(N\ll \delta ^{-O(1)}\), or there is a fixed \(L=q^B\), \(B=O_d(1)\), and for each \(i\ge 1\) an integer \(V_i\) and a unit phase \(\Psi _i\) with </p>
+<div class="displaymath" id="a0000000016">
+  \[  M^{\deg P_i}(q/\delta )^{-O(1)}\ll V_i\le M^{\deg P_i},\quad LV_i\le N,\qquad \lvert \sum _x f_i(x)\Psi _i(x)\rvert \gg \delta ^{O(1)}N.  \]
+</div>
+<p> The phase is linear on each intersection of a block \(((j-1)LV_i,jLV_i]\) and a residue class modulo \(L\). </p>
+</div>
+
+    <a class="latex_link" href="index.html#p:localinverse">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.WeightedLocalInverseEstimate" class="lean_decl">NilBohr.WeightedLocalInverseEstimate</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.weighted_local_inverse_of_kmtt_degree_uniform" class="lean_decl">NilBohr.weighted_local_inverse_of_kmtt_degree_uniform</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.weighted_local_inverse_of_kmtt" class="lean_decl">NilBohr.weighted_local_inverse_of_kmtt</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="p:prime-phase_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="p:prime-phase" style="display: none">
+    <div class="thm_thmheading">
+      <span class="proposition_thmcaption">
+      Proposition
+      </span>
+      <span class="proposition_thmlabel">17</span><span class="proposition_thmtitle">6.2, prime-weighted local cancellation</span></div>
+    <div class="thm_thmcontent"><p>  Fix \(d\ge 1\), \(A,B,K,L{\gt}0\) and Lipschitz \(F\). For large \(N\), let \(1\le q\le (\log N)^L\), \(M=\lfloor (N/q^{d-1})^{1/d}\rfloor \), and \(P=I\cap (u+q^b\mathbb Z)\) with \(I\subset [M]\), \(|I|\ge M(\log N)^{-K}\), \(0\le b\le B\) and \(b,u\in \mathbb Z\). Then </p>
+<div class="displaymath" id="a0000000064">
+  \[  \sup _{\deg \phi \le d}\lvert \mathbb E_{y\in P}\Lambda _q(y) (F_q(y)-\mu _F)\mathrm e(-\phi (y))\rvert  \ll _{d,\alpha ,\beta ,F,A,B,K,L}(\log N)^{-A}.  \]
+</div>
+</div>
+
+    <a class="latex_link" href="index.html#p:prime-phase">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.PrimeLocalPhase" class="lean_decl">NilBohr.PrimeLocalPhase</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.primeLocalPhase_of_literature" class="lean_decl">NilBohr.primeLocalPhase_of_literature</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenbergPrimeLocalPhase_of_literature" class="lean_decl">NilBohr.heisenbergPrimeLocalPhase_of_literature</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="p:selected-density-increment_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="p:selected-density-increment" style="display: none">
+    <div class="thm_thmheading">
+      <span class="proposition_thmcaption">
+      Proposition
+      </span>
+      <span class="proposition_thmlabel">13</span><span class="proposition_thmtitle">3.1, one density increment</span></div>
+    <div class="thm_thmcontent"><p>  There exist \(c,\eta ,K,E,C_1{\gt}0\) and \(B_*\in \mathbb N\), depending only on the fixed data of Theorem&#160;1.2, with the following property for all large \(N\). Let \(A\subset [N]\) have density \(0{\lt}\delta \le 1\) and suppose </p>
+<div class="displaymath" id="a0000000052">
+  \[  K\delta ^{-E}\le w\le (\log N)^c,\quad \mathcal L(w)\mid q,\quad P^+(q)\le w,\quad \log q\le w^2.  \]
+</div>
+<p> Take \(M=\lfloor (N/q^{d-1})^{1/d}\rfloor \). If \(A\) contains no pairwise distinct configuration with shifts \(P_{i,q}(y)\) and \(qy+1\in \mathcal P_{Z,J}\), then there are \(1\le B\le B_*\), \(a\in \mathbb Z\) and \(N'\in \mathbb N\) with </p>
+<div class="displaymath" id="a0000000053">
+  \[  a+q^B[N']\subset [N],\quad |A\cap (a+q^B[N'])|\ge (1+\eta )\delta N',\quad N'\gg q^{-C_1}\delta ^{C_1}M^{\deg P_1}.  \]
+</div>
+</div>
+
+    <a class="latex_link" href="index.html#p:selected-density-increment">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.DensityIncrementFor" class="lean_decl">NilBohr.DensityIncrementFor</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.densityIncrementFor_of_relativeSelectorComparison" class="lean_decl">NilBohr.densityIncrementFor_of_relativeSelectorComparison</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="p:separating-family_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="p:separating-family" style="display: none">
+    <div class="thm_thmheading">
+      <span class="proposition_thmcaption">
+      Proposition
+      </span>
+      <span class="proposition_thmlabel">21</span><span class="proposition_thmtitle">A.1, separating family</span></div>
+    <div class="thm_thmcontent"><p>  Fix nonconstant Lipschitz \(F\) and put \(G_q(y)=F(Z(qy))-\mu _F\). There are sequences \(q,M,N=qM^2\) in the smooth-modulus range with \(\log q\asymp (\log r_j)^2\) such that \(\lVert G_q\rVert _{u^3[M]}\gg _F r_j^{-1}\). For fixed \(A,B{\gt}0\) and every \(P=I\cap (u+q^b\mathbb Z)\) with \(I\subset [M]\), \(0\le b\le B\) and \(|P|\ge (qM)^{1/2}\), the bound \(\lVert G_q\rVert _{u^3[P]}\ll _{A,B,F}(\log M)^{-A}\) holds. Also, for each fixed integer \(S\ge 3\), \(\lVert G_q\rVert _{U^S[M]}\gg _{F,S}1\). </p>
+</div>
+
+    <a class="latex_link" href="index.html#p:separating-family">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.SeparatingFamilyClaims" class="lean_decl">NilBohr.SeparatingFamilyClaims</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.appendixA_separating_family_of_quantitativeLeibman" class="lean_decl">NilBohr.appendixA_separating_family_of_quantitativeLeibman</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.separatingFamily_of_obstructions" class="lean_decl">NilBohr.separatingFamily_of_obstructions</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.appendixA_separating_family" class="lean_decl">NilBohr.appendixA_separating_family</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="phase-tests_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="phase-tests" style="display: none">
+    <div class="thm_thmheading">
+      <span class="definition_thmcaption">
+      Definition
+      </span>
+      <span class="definition_thmlabel">2</span><span class="definition_thmtitle">Phase tests and Gowers normalization</span></div>
+    <div class="thm_thmcontent"><p> For a finite nonempty progression \(P\) and real polynomial tests, put </p>
+<div class="displaymath" id="a0000000007">
+  \[  \lVert v\rVert _{u^s[P]} =\sup _{\substack {\phi \in \mathbb R[y]\\ \deg \phi {\lt}s}} \lvert \frac1{|P|}\sum _{y\in P}v(y)\mathrm e(-\phi (y))\rvert , \qquad \mathrm e(t)=e^{2\pi it}.  \]
+</div>
+<p> For a finitely supported \(g:\mathbb Z\to \mathbb C\), let </p>
+<div class="displaymath" id="a0000000008">
+  \[  \lVert g\rVert ^{2^s}_{U^s(\mathbb Z)} =\sum _{x,h_1,\ldots ,h_s\in \mathbb Z} \prod _{\omega \in \{ 0,1\} ^s} \mathcal C^{|\omega |}g(x+\omega \cdot h), \qquad \lVert g\rVert _{U^s[I]} =\frac{\lVert g\mathbf1_I\rVert _{U^s(\mathbb Z)}}{\lVert \mathbf1_I\rVert _{U^s(\mathbb Z)}}.  \]
+</div>
+<p> Here \(\mathcal C\) is complex conjugation and \(I\) is a finite nonempty interval or progression. For \(s=1\) this is the absolute average. Normalized monotonicity bounds \(U^r[I]\) by \(U^s[I]\) up to constants depending only on \(r,s\), for \(1\le r\le s\). Multiplication by \(\mathrm e(\phi )\) with \(\deg \phi {\lt}s\) preserves \(U^s[I]\), so these facts also give \(u^s[I]\ll _s U^s[I]\). </p>
+</div>
+
+    <a class="latex_link" href="index.html#phase-tests">LaTeX</a>
+    
+    
+  
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="selector_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="selector" style="display: none">
+    <div class="thm_thmheading">
+      <span class="definition_thmcaption">
+      Definition
+      </span>
+      <span class="definition_thmlabel">3</span><span class="definition_thmtitle">Heisenberg and bracket selectors</span></div>
+    <div class="thm_thmcontent"><p> Put </p>
+<div class="displaymath" id="a0000000011">
+  \[  \theta =\frac{\alpha \beta }{2},\qquad Z(n)=\theta n(n-1)-\alpha n\lfloor \beta n\rfloor , \qquad Z_{\rm br}(n)=\alpha (n+1)\lfloor \beta (n+1)\rfloor .  \]
+</div>
+<p> The assumptions are \(c_\alpha =\inf _{m\ge 1}m\lVert m\alpha \rVert _{\mathbb T}{\gt}0\) and \(\beta \in (0,1)\) with an increasing sequence of reduced rationals \(a_j/r_j\) of increasing prime denominator \(r_j\), tending to \(\beta \), such that </p>
+<div class="displaymath" id="a0000000012">
+  \[  r_{j+1}\asymp \exp (\exp (\sqrt{\log r_j})),\qquad 0{\lt}\beta -a_j/r_j\ll r_{j+1}^{-1}.  \]
+</div>
+<p> Write \(\mathbb T=\mathbb R/\mathbb Z\) and let \(J\) be an open arc of length in \((0,1)\). The return set is \(\mathcal B_{Z,J}=\{ n\in \mathbb Z_{{\gt}0}:Z(n)\bmod 1\in J\} \). For \(V=Z\) or \(Z_{\rm br}\) set </p>
+<div class="displaymath" id="a0000000013">
+  \[  \mathcal P_{V,J}=\{ p\in \mathbb P:V(p-1)\bmod 1\in J\} ,\qquad \pi _{V,J}(N)=|\mathcal P_{V,J}\cap [N]|.  \]
+</div>
+<p> Set \(\Lambda _q(y)=(\varphi (q)/q)\Lambda (qy+1)\), \(F_q(y)=F(Z(qy))\) and \(\mu _F=\int _\mathbb TF\). </p>
+</div>
+
+    <a class="latex_link" href="index.html#selector">LaTeX</a>
+    
+    
+  
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="t:main_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="t:main" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">6</span><span class="theorem_thmtitle">4.2, local generalized von Neumann</span></div>
+    <div class="thm_thmcontent"><p>  Under the scale, support and coefficient assumptions of Lemma&#160;5.1, there exist \(\eta ,A_1,A_2{\gt}0\) and \(B\in \mathbb N\), depending only on \(C,d,k\), such that, for every \(0{\lt}\rho \le 1/2\), </p>
+<div class="displaymath" id="a0000000022">
+  \[  \lvert T_{N,M,v}(\mathbf f)\rvert  \ll _{C,d,k} N^{-\eta }+\rho + \left(\sup _{I,b,u}\lVert v\rVert _{u^{d+1}[I\cap (u+q^b\mathbb Z)]}\right)^\eta .  \]
+</div>
+<p> The supremum ranges over integer intervals \(I\subset [M]\) with \(|I|\ge Mq^{-A_1}\rho ^{A_2}\) and integers \(0\le b\le B\) and \(u\) such that \(I\cap (u+q^b\mathbb Z)\) is nonempty. For \(k=2\), use \(b=0\) and \(I=[M]\). </p>
+</div>
+
+    <a class="latex_link" href="index.html#t:main">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.LocalGeneralizedVonNeumann" class="lean_decl">NilBohr.LocalGeneralizedVonNeumann</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.localGeneralizedVonNeumann_of_kmtt" class="lean_decl">NilBohr.localGeneralizedVonNeumann_of_kmtt</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.localGeneralizedVonNeumann_twoInput" class="lean_decl">NilBohr.localGeneralizedVonNeumann_twoInput</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.countingForm_twoInput_le" class="lean_decl">NilBohr.countingForm_twoInput_le</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="t:pointwise_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="t:pointwise" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">19</span><span class="theorem_thmtitle">1.4, Heisenberg selected prime averages</span></div>
+    <div class="thm_thmcontent"><p>  Under the fixed hypotheses and for every bounded input family, \(\pi _{Z,J}(H)/\pi (H)\to |J|\) and </p>
+<div class="displaymath" id="a0000000081">
+  \[  \frac1{\pi _{Z,J}(H)} \sum _{p\le H,\  p\in \mathcal P_{Z,J}}z_{p-1}(x) \longrightarrow \lim _{H\to \infty } A_H(x) \quad \text{for almost every }x ,  \]
+</div>
+<p> where the unrestricted limit exists almost everywhere. </p>
+</div>
+
+    <a class="latex_link" href="index.html#t:pointwise">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.PrimePointwiseFor" class="lean_decl">NilBohr.PrimePointwiseFor</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenberg_pointwise_of_prime_model" class="lean_decl">NilBohr.heisenberg_pointwise_of_prime_model</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenberg_pointwise_of_analytic_inputs" class="lean_decl">NilBohr.heisenberg_pointwise_of_analytic_inputs</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenberg_pointwise_of_literature" class="lean_decl">NilBohr.heisenberg_pointwise_of_literature</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.primePointwiseFor_of_primeLocalPhase" class="lean_decl">NilBohr.primePointwiseFor_of_primeLocalPhase</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="t:recurrence_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="t:recurrence" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">14</span><span class="theorem_thmtitle">1.2, quantitative selected-prime recurrence</span></div>
+    <div class="thm_thmcontent"><p>  For each fixed polynomial family and selector data there is \(\kappa {\gt}0\) such that for every sufficiently large \(N\), every \(A\subset [N]\) with \(|A|\ge N(\log N)^{-\kappa }\) contains a pairwise distinct configuration with prime parameter \(p\in \mathcal P_{Z,J}\), so \(n=p-1\). </p>
+</div>
+
+    <a class="latex_link" href="index.html#t:recurrence">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.HeisenbergRecurrence" class="lean_decl">NilBohr.HeisenbergRecurrence</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenbergRecurrence_of_analytic_inputs" class="lean_decl">NilBohr.heisenbergRecurrence_of_analytic_inputs</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenbergRecurrence_of_obstructions" class="lean_decl">NilBohr.heisenbergRecurrence_of_obstructions</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenbergRecurrence_of_centered_phase" class="lean_decl">NilBohr.heisenbergRecurrence_of_centered_phase</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.heisenbergRecurrence_of_relativeSelectorComparison" class="lean_decl">NilBohr.heisenbergRecurrence_of_relativeSelectorComparison</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="t:relative-selector-comparison_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="t:relative-selector-comparison" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">12</span><span class="theorem_thmtitle">3.2, smooth-modulus count comparison</span></div>
+    <div class="thm_thmcontent"><p>  Fix \(C,d,k\), selector data and Lipschitz \(F:\mathbb T\to \mathbb C\). For all sufficiently large \(N\) and all smooth moduli above with suitable constants \(c_{\rm rel},\eta _{\rm sel}, w_0\), take \(M=\lfloor (N/q^{d-1})^{1/d}\rfloor \). For \((C,q)\)-shifts of distinct increasing degrees ending in \(d\) and \(1\)-bounded \(f_i\) supported on \([N]\), </p>
+<div class="displaymath" id="a0000000048">
+  \[  T_{N,M,\Lambda _qF_q}(\mathbf f) =\mu _F T_{N,M,1}(\mathbf f)+O(w^{-\eta _{\rm sel}}).  \]
+</div>
+<p> The constants are uniform in the shifts, \(q,w,N\) and inputs. </p>
+</div>
+
+    <a class="latex_link" href="index.html#t:relative-selector-comparison">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.RelativeSelectorComparison" class="lean_decl">NilBohr.RelativeSelectorComparison</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.relativeSelectorComparison_of_obstructions" class="lean_decl">NilBohr.relativeSelectorComparison_of_obstructions</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.relativeSelectorComparison_of_centered_phase" class="lean_decl">NilBohr.relativeSelectorComparison_of_centered_phase</a></li>
+        
+           <li><a href="https://leanprover-community.github.io/mathlib4_docs/find/#doc/NilBohr.relativeSelectorComparison_of_progression_estimates" class="lean_decl">NilBohr.relativeSelectorComparison_of_progression_estimates</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+</div>
+</div> <!-- content -->
+</div> <!-- wrapper -->
+<script src="js/jquery.min.js" type="text/javascript"></script>
+
+<script src="js/d3.min.js"></script>
+<script src="js/hpcc.min.js"></script>
+<script src="js/d3-graphviz.js"></script>
+
+<script type="text/javascript">
+const graphContainer = d3.select("#graph");
+const width = graphContainer.node().clientWidth;
+const height = graphContainer.node().clientHeight;
+
+
+graphContainer.graphviz({useWorker: true})
+    .width(width)
+    .height(height)
+    .fit(true)
+    .renderDot(`strict digraph "" {	graph [bgcolor=transparent];	node [label="\N",		penwidth=1.8	];	edge [arrowhead=vee];	selector	[color=blue,		fillcolor="#A3D6FF",		label=selector,		shape=box,		style=filled];	"l:heisenberg-horizontal"	[color=green,		fillcolor="#1CAC78",		label="heisenberg-horizontal",		shape=ellipse,		style=filled];	selector -> "l:heisenberg-horizontal"	[style=dashed];	"l:vertical-mode-multiplier"	[color=green,		fillcolor="#1CAC78",		label="vertical-mode-multiplier",		shape=ellipse,		style=filled];	selector -> "l:vertical-mode-multiplier"	[style=dashed];	"checked-group-model"	[color=green,		fillcolor="#1CAC78",		label="checked-group-model",		shape=ellipse,		style=filled];	selector -> "checked-group-model"	[style=dashed];	"checked-heisenberg-window"	[color=green,		fillcolor="#1CAC78",		label="checked-heisenberg-window",		shape=ellipse,		style=filled];	selector -> "checked-heisenberg-window";	"checked-separating-finite"	[color=green,		fillcolor="#9CEC8B",		label="checked-separating-finite",		shape=ellipse,		style=filled];	selector -> "checked-separating-finite"	[style=dashed];	"p:high-order-relative-prime"	[color=green,		fillcolor="#9CEC8B",		label="high-order-relative-prime",		shape=ellipse,		style=filled];	selector -> "p:high-order-relative-prime"	[style=dashed];	"checked-intro-fast-obstruction"	[color=green,		fillcolor="#1CAC78",		label="checked-intro-fast-obstruction",		shape=ellipse,		style=filled];	selector -> "checked-intro-fast-obstruction"	[style=dashed];	"p:heisenberg-phase"	[color=green,		fillcolor="#9CEC8B",		label="heisenberg-phase",		shape=ellipse,		style=filled];	"l:heisenberg-horizontal" -> "p:heisenberg-phase";	"checked-separating-gowers"	[color=green,		fillcolor="#9CEC8B",		label="checked-separating-gowers",		shape=ellipse,		style=filled];	"l:vertical-mode-multiplier" -> "checked-separating-gowers";	"p:prime-phase"	[color=green,		fillcolor="#9CEC8B",		label="prime-phase",		shape=ellipse,		style=filled];	"l:vertical-mode-multiplier" -> "p:prime-phase";	"t:relative-selector-comparison"	[color=green,		fillcolor="#9CEC8B",		label="relative-selector-comparison",		shape=ellipse,		style=filled];	"l:vertical-mode-multiplier" -> "t:relative-selector-comparison";	"checked-green-tao-adapter"	[color=green,		fillcolor="#9CEC8B",		label="checked-green-tao-adapter",		shape=ellipse,		style=filled];	"checked-group-model" -> "checked-green-tao-adapter";	"checked-separating-scales"	[color=green,		fillcolor="#9CEC8B",		label="checked-separating-scales",		shape=ellipse,		style=filled];	"checked-separating-finite" -> "checked-separating-scales";	"p:high-order-relative-prime" -> "t:relative-selector-comparison";	"checked-separating-local"	[color=green,		fillcolor="#9CEC8B",		label="checked-separating-local",		shape=ellipse,		style=filled];	"checked-separating-scales" -> "checked-separating-local";	"checked-separating-quadratic"	[color=green,		fillcolor="#9CEC8B",		label="checked-separating-quadratic",		shape=ellipse,		style=filled];	"checked-separating-scales" -> "checked-separating-quadratic";	"checked-separating-scales" -> "checked-separating-gowers";	"p:separating-family"	[color=green,		fillcolor="#9CEC8B",		label="separating-family",		shape=ellipse,		style=filled];	"checked-separating-local" -> "p:separating-family";	"checked-separating-quadratic" -> "p:separating-family";	"checked-ambient-norm"	[color=green,		fillcolor="#9CEC8B",		label="checked-ambient-norm",		shape=ellipse,		style=filled];	"checked-separating-quadratic" -> "checked-ambient-norm";	"checked-separating-gowers" -> "p:separating-family";	"checked-separating-gowers" -> "checked-ambient-norm";	"p:ergodic-comparison"	[color=green,		fillcolor="#9CEC8B",		label="ergodic-comparison",		shape=ellipse,		style=filled];	"t:pointwise"	[color=green,		fillcolor="#9CEC8B",		label=pointwise,		shape=ellipse,		style=filled];	"p:ergodic-comparison" -> "t:pointwise";	"c:bracket-pointwise"	[color=green,		fillcolor="#9CEC8B",		label="bracket-pointwise",		shape=ellipse,		style=filled];	"t:pointwise" -> "c:bracket-pointwise";	"checked-prime-progressions"	[color=green,		fillcolor="#9CEC8B",		label="checked-prime-progressions",		shape=ellipse,		style=filled];	"t:pointwise" -> "checked-prime-progressions";	"checked-maximal-domination"	[color=green,		fillcolor="#9CEC8B",		label="checked-maximal-domination",		shape=ellipse,		style=filled];	"t:pointwise" -> "checked-maximal-domination";	"p:heisenberg-phase" -> "checked-separating-local";	"p:heisenberg-phase" -> "checked-separating-gowers";	"p:heisenberg-phase" -> "p:prime-phase";	"l:unweighted-selector-relative-range"	[color=green,		fillcolor="#9CEC8B",		label="unweighted-selector-relative-range",		shape=ellipse,		style=filled];	"p:heisenberg-phase" -> "l:unweighted-selector-relative-range";	"checked-smooth-factors"	[color=green,		fillcolor="#9CEC8B",		label="checked-smooth-factors",		shape=ellipse,		style=filled];	"p:heisenberg-phase" -> "checked-smooth-factors";	"p:prime-phase" -> "p:ergodic-comparison";	"checked-ambient-discrete"	[color=green,		fillcolor="#9CEC8B",		label="checked-ambient-discrete",		shape=ellipse,		style=filled];	"p:prime-phase" -> "checked-ambient-discrete";	"c:bracket-recurrence"	[color=green,		fillcolor="#9CEC8B",		label="bracket-recurrence",		shape=ellipse,		style=filled];	"p:selected-density-increment"	[color=green,		fillcolor="#9CEC8B",		label="selected-density-increment",		shape=ellipse,		style=filled];	"t:relative-selector-comparison" -> "p:selected-density-increment";	"checked-green-tao-adapter" -> "p:heisenberg-phase";	"checked-separating-comparison"	[color=green,		fillcolor="#9CEC8B",		label="checked-separating-comparison",		shape=ellipse,		style=filled];	"p:separating-family" -> "checked-separating-comparison"	[style=dashed];	"l:unweighted-selector-relative-range" -> "t:relative-selector-comparison";	"t:recurrence"	[color=green,		fillcolor="#9CEC8B",		label=recurrence,		shape=ellipse,		style=filled];	"t:recurrence" -> "c:bracket-recurrence";	"p:selected-density-increment" -> "t:recurrence";	"checked-bohr-eigenfunction"	[color=green,		fillcolor="#9CEC8B",		label="checked-bohr-eigenfunction",		shape=ellipse,		style=filled];	"checked-orbit"	[color=green,		fillcolor="#1CAC78",		label="checked-orbit",		shape=ellipse,		style=filled];	"checked-orbit" -> "p:ergodic-comparison";	"checked-prime-seam"	[color=green,		fillcolor="#9CEC8B",		label="checked-prime-seam",		shape=ellipse,		style=filled];	"checked-prime-seam" -> "p:prime-phase";	"checked-prime-distribution"	[color=green,		fillcolor="#9CEC8B",		label="checked-prime-distribution",		shape=ellipse,		style=filled];	"checked-prime-distribution" -> "p:ergodic-comparison";	"checked-prime-distribution" -> "checked-bohr-eigenfunction";	"checked-bohr-weights"	[color=green,		fillcolor="#9CEC8B",		label="checked-bohr-weights",		shape=ellipse,		style=filled];	"checked-prime-distribution" -> "checked-bohr-weights";	"checked-beta"	[color=green,		fillcolor="#1CAC78",		label="checked-beta",		shape=ellipse,		style=filled];	"checked-scalar"	[color=green,		fillcolor="#9CEC8B",		label="checked-scalar",		shape=ellipse,		style=filled];	"checked-selector-cutoffs"	[color=green,		fillcolor="#9CEC8B",		label="checked-selector-cutoffs",		shape=ellipse,		style=filled];	"checked-scalar" -> "checked-selector-cutoffs";	"checked-twisted"	[color=green,		fillcolor="#9CEC8B",		label="checked-twisted",		shape=ellipse,		style=filled];	"checked-scalar" -> "checked-twisted";	"checked-selector-cutoffs" -> "t:relative-selector-comparison";	"checked-fourier-restriction"	[color=green,		fillcolor="#9CEC8B",		label="checked-fourier-restriction",		shape=ellipse,		style=filled];	"checked-selector-cutoffs" -> "checked-fourier-restriction";	"checked-centered"	[color=green,		fillcolor="#9CEC8B",		label="checked-centered",		shape=ellipse,		style=filled];	"checked-twisted" -> "checked-centered";	"checked-sieve"	[color=green,		fillcolor="#9CEC8B",		label="checked-sieve",		shape=ellipse,		style=filled];	"checked-twisted" -> "checked-sieve";	"checked-fourier-restriction" -> "checked-separating-finite";	"checked-fourier-restriction" -> "p:prime-phase";	"checked-centered" -> "p:heisenberg-phase";	"checked-centered" -> "checked-prime-seam";	"checked-prime-cramer"	[color=green,		fillcolor="#9CEC8B",		label="checked-prime-cramer",		shape=ellipse,		style=filled];	"checked-centered" -> "checked-prime-cramer";	"checked-sieve" -> "checked-prime-seam";	"checked-sieve" -> "checked-prime-cramer";	"checked-prime-cramer" -> "p:prime-phase";	"checked-density"	[color=green,		fillcolor="#1CAC78",		label="checked-density",		shape=ellipse,		style=filled];	"checked-density" -> "p:selected-density-increment";	"checked-ergodic"	[color=green,		fillcolor="#1CAC78",		label="checked-ergodic",		shape=ellipse,		style=filled];	"checked-ergodic" -> "p:ergodic-comparison";	"checked-ergodic" -> "checked-ambient-discrete";	"checked-rotations"	[color=green,		fillcolor="#1CAC78",		label="checked-rotations",		shape=ellipse,		style=filled];	"checked-ergodic" -> "checked-rotations";	"checked-rotations" -> "c:bracket-pointwise";	"checked-separating-fourier"	[color=green,		fillcolor="#1CAC78",		label="checked-separating-fourier",		shape=ellipse,		style=filled];	"checked-separating-fourier" -> "checked-separating-quadratic";	"checked-separating-fourier" -> "checked-separating-gowers";	"phase-tests"	[color=blue,		fillcolor="#A3D6FF",		label="phase-tests",		shape=box,		style=filled];	"phase-tests" -> "l:vertical-mode-multiplier"	[style=dashed];	"phase-tests" -> "p:high-order-relative-prime"	[style=dashed];	"phase-tests" -> "p:heisenberg-phase"	[style=dashed];	"t:main"	[color=green,		fillcolor="#9CEC8B",		label=main,		shape=ellipse,		style=filled];	"phase-tests" -> "t:main"	[style=dashed];	"t:main" -> "checked-separating-local";	"t:main" -> "l:unweighted-selector-relative-range";	"d:Cq"	[color=blue,		fillcolor="#A3D6FF",		label=Cq,		shape=box,		style=filled];	"d:Cq" -> "checked-separating-finite"	[style=dashed];	"d:Cq" -> "p:prime-phase"	[style=dashed];	"c:bohr"	[color=green,		fillcolor="#9CEC8B",		label=bohr,		shape=ellipse,		style=filled];	"d:Cq" -> "c:bohr"	[style=dashed];	"p:localinverse"	[color=green,		fillcolor="#9CEC8B",		label=localinverse,		shape=ellipse,		style=filled];	"d:Cq" -> "p:localinverse"	[style=dashed];	"p:localinverse" -> "t:main";	"checked-rescaling"	[color=green,		fillcolor="#1CAC78",		label="checked-rescaling",		shape=ellipse,		style=filled];	"checked-rescaling" -> "checked-density";	"checked-norm-foundations"	[color=green,		fillcolor="#1CAC78",		label="checked-norm-foundations",		shape=ellipse,		style=filled];	"checked-norm-foundations" -> "l:vertical-mode-multiplier";	"checked-norm-foundations" -> "p:high-order-relative-prime";	"checked-norm-foundations" -> "checked-prime-distribution";	"checked-floor"	[color=green,		fillcolor="#1CAC78",		label="checked-floor",		shape=ellipse,		style=filled];	"checked-floor" -> "l:heisenberg-horizontal";	"checked-floor" -> "checked-group-model";	"checked-floor" -> "checked-scalar";	"checked-floor" -> "checked-rotations";	"checked-local-phase"	[color=green,		fillcolor="#1CAC78",		label="checked-local-phase",		shape=ellipse,		style=filled];	"checked-local-phase" -> "t:main";	"checked-difference"	[color=green,		fillcolor="#9CEC8B",		label="checked-difference",		shape=ellipse,		style=filled];	"checked-difference" -> "checked-smooth-factors";	"checked-difference" -> "p:localinverse";	"checked-weak-regularity"	[color=green,		fillcolor="#9CEC8B",		label="checked-weak-regularity",		shape=ellipse,		style=filled];	"checked-weak-regularity" -> "p:selected-density-increment";	"checked-iteration-moduli"	[color=green,		fillcolor="#1CAC78",		label="checked-iteration-moduli",		shape=ellipse,		style=filled];	"external-inputs"	[color=blue,		label="external-inputs",		shape=ellipse];	"external-inputs" -> "p:high-order-relative-prime";	"external-inputs" -> "checked-green-tao-adapter";	"external-inputs" -> "checked-prime-distribution";	"external-inputs" -> "checked-scalar";	"external-inputs" -> "c:bohr";	"external-inputs" -> "checked-difference";	"external-inputs" -> "checked-weak-regularity";	"checked-prime-normalization"	[color=green,		fillcolor="#1CAC78",		label="checked-prime-normalization",		shape=ellipse,		style=filled];	"checked-prime-normalization" -> "checked-prime-distribution";	"checked-cube"	[color=green,		fillcolor="#1CAC78",		label="checked-cube",		shape=ellipse,		style=filled];	"checked-cube" -> "l:vertical-mode-multiplier";	"checked-cube" -> "checked-selector-cutoffs";}`)
+    .on("end", interactive);
+
+latexLabelEscaper = function(label) {
+  return label.replace(/\./g, '\\.').replace(/:/g, '\\:')
+}
+
+clickNode = function() {
+  $("#statements div").hide()
+  var node_id = $('text', this).text();
+  $('.thm').hide();
+  $('#'+latexLabelEscaper(node_id)).show().children().show();
+}
+function interactive() {
+    $("span#legend_title").on("click", function () {
+           $(this).siblings('dl').toggle();
+        })
+
+    d3.selectAll('.node')
+        .attr('pointer-events', 'fill')
+        .on('click', function () {
+           var title = d3.select(this).selectAll('title').text().trim();
+           $('#statements > div').hide()
+           $('.thm').hide();
+           $('#'+latexLabelEscaper(title)+'_modal').show().children().show().children().show();
+           $('#statements').show()
+        });
+
+    d3.selectAll('.dep-closebtn').on('click', function() {
+        var modal =
+            d3.select(this).node().parentNode.parentNode.parentNode ;
+        d3.select(modal).style('display', 'none');
+    });
+}
+
+</script>
+
+</body>
+</html>

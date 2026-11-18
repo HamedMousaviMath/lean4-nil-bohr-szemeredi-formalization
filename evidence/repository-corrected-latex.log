@@ -1,0 +1,1470 @@
+Rc files read:
+  /etc/LatexMk
+Latexmk: This is Latexmk, John Collins, 11 Dec. 2024. Version 4.86.
+No existing .aux file, so I'll make a simple one, and require run of *latex.
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Category 'other':
+  Rerun of 'pdflatex' forced or previously required:
+    Reason or flag: 'Initial setup'
+
+------------
+Run number 1 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -interaction=nonstopmode -halt-on-error -recorder -output-directory="/tmp/nilbohr-publication-paper-build"  "paper/corrected.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./paper/corrected.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsart.cls
+Document Class: amsart 2020/05/29 v2.20.6
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/mathtools/mathtools.sty
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/mathtools/mhsetup.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(/tmp/nilbohr-publication-paper-build/corrected.aux)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+))) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg)))
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg)
+No file corrected.toc.
+
+LaTeX Warning: Citation `Szemeredi' on page 1 undefined on input line 66.
+
+
+LaTeX Warning: Citation `BergelsonLeibman' on page 1 undefined on input line 67
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg)
+
+LaTeX Warning: Citation `Sarkozy' on page 1 undefined on input line 101.
+
+
+LaTeX Warning: Citation `WooleyZiegler' on page 1 undefined on input line 103.
+
+
+LaTeX Warning: Citation `FHK' on page 1 undefined on input line 104.
+
+
+[1{/tmp/nilbohr-next-texmf/fonts/map/pdftex/updmap/pdftex.map}]
+
+LaTeX Warning: Reference `e:fixed-polynomials' on page 2 undefined on input lin
+e 129.
+
+
+LaTeX Warning: Reference `e:intro-pattern' on page 2 undefined on input line 13
+3.
+
+
+LaTeX Warning: Reference `e:bohrcondition' on page 2 undefined on input line 13
+4.
+
+
+LaTeX Warning: Citation `KMTT' on page 2 undefined on input line 147.
+
+
+LaTeX Warning: Reference `e:horizontal-approximants' on page 2 undefined on inp
+ut line 193.
+
+
+LaTeX Warning: Reference `e:intro-pattern' on page 2 undefined on input line 20
+6.
+
+
+[2]
+
+LaTeX Warning: Reference `e:explicit-B' on page 3 undefined on input line 254.
+
+
+LaTeX Warning: Citation `ShaoTeravainen' on page 3 undefined on input line 263.
+
+
+
+LaTeX Warning: Reference `e:explicit-B' on page 3 undefined on input line 267.
+
+
+LaTeX Warning: Citation `Peluse' on page 3 undefined on input line 292.
+
+
+LaTeX Warning: Citation `PP' on page 3 undefined on input line 295.
+
+
+LaTeX Warning: Citation `ShaoWang' on page 3 undefined on input line 296.
+
+
+LaTeX Warning: Citation `KMTT' on page 3 undefined on input line 299.
+
+
+LaTeX Warning: Reference `e:fixed-polynomials' on page 3 undefined on input lin
+e 315.
+
+
+LaTeX Warning: Reference `e:heisenberg-phase' on page 3 undefined on input line
+ 316.
+
+
+LaTeX Warning: Reference `e:explicit-B' on page 3 undefined on input line 316.
+
+
+LaTeX Warning: Reference `t:recurrence' on page 3 undefined on input line 341.
+
+
+LaTeX Warning: Reference `e:bracket-phase' on page 3 undefined on input line 34
+5.
+
+
+[3]
+
+LaTeX Warning: Citation `Furstenberg' on page 4 undefined on input line 362.
+
+
+LaTeX Warning: Citation `BergelsonLeibman' on page 4 undefined on input line 36
+3.
+
+
+LaTeX Warning: Citation `WooleyZiegler' on page 4 undefined on input line 365.
+
+
+LaTeX Warning: Citation `KMTTPrimes' on page 4 undefined on input line 367.
+
+
+LaTeX Warning: Citation `MirekWanWright' on page 4 undefined on input line 369.
+
+
+
+LaTeX Warning: Citation `ShaoTeravainen' on page 4 undefined on input line 423.
+
+
+
+LaTeX Warning: Reference `e:fixed-polynomials' on page 4 undefined on input lin
+e 431.
+
+
+LaTeX Warning: Reference `e:heisenberg-phase' on page 4 undefined on input line
+ 432.
+
+
+LaTeX Warning: Reference `e:explicit-B' on page 4 undefined on input line 432.
+
+
+[4]
+
+LaTeX Warning: Reference `c:bracket-recurrence' on page 5 undefined on input li
+ne 444.
+
+
+LaTeX Warning: Reference `t:pointwise' on page 5 undefined on input line 447.
+
+
+LaTeX Warning: Citation `GreenTao' on page 5 undefined on input line 471.
+
+
+LaTeX Warning: Citation `TeravainenWang' on page 5 undefined on input line 473.
+
+
+
+[5]
+
+LaTeX Warning: Citation `Teravainen' on page 6 undefined on input line 533.
+
+
+LaTeX Warning: Citation `KMTT' on page 6 undefined on input line 534.
+
+
+LaTeX Warning: Citation `Teravainen' on page 6 undefined on input line 561.
+
+
+LaTeX Warning: Reference `s:why-Cq' on page 6 undefined on input line 562.
+
+
+LaTeX Warning: Citation `Teravainen' on page 6 undefined on input line 565.
+
+
+LaTeX Warning: Citation `KMTT' on page 6 undefined on input line 570.
+
+
+LaTeX Warning: Citation `ShaoWang' on page 6 undefined on input line 571.
+
+
+LaTeX Warning: Citation `BanksSiegel' on page 6 undefined on input line 580.
+
+
+LaTeX Warning: Citation `GreenTaoNil' on page 6 undefined on input line 599.
+
+
+[6]
+
+LaTeX Warning: Citation `KMTT' on page 7 undefined on input line 618.
+
+
+LaTeX Warning: Citation `Teravainen' on page 7 undefined on input line 625.
+
+
+LaTeX Warning: Citation `MirekWanWright' on page 7 undefined on input line 630.
+
+
+
+LaTeX Warning: Citation `KMTT' on page 7 undefined on input line 637.
+
+
+LaTeX Warning: Reference `t:main' on page 7 undefined on input line 639.
+
+
+LaTeX Warning: Reference `t:main' on page 7 undefined on input line 642.
+
+
+LaTeX Warning: Reference `s:recurrence' on page 7 undefined on input line 648.
+
+
+LaTeX Warning: Reference `t:recurrence' on page 7 undefined on input line 648.
+
+
+LaTeX Warning: Reference `p:selected-density-increment' on page 7 undefined on 
+input line 649.
+
+
+LaTeX Warning: Reference `t:relative-selector-comparison' on page 7 undefined o
+n input line 651.
+
+
+LaTeX Warning: Reference `s:relative' on page 7 undefined on input line 652.
+
+
+LaTeX Warning: Reference `t:main' on page 7 undefined on input line 653.
+
+
+LaTeX Warning: Reference `p:heisenberg-phase' on page 7 undefined on input line
+ 654.
+
+
+LaTeX Warning: Reference `s:local-vn' on page 7 undefined on input line 655.
+
+
+LaTeX Warning: Reference `s:example' on page 7 undefined on input line 656.
+
+
+LaTeX Warning: Reference `s:example' on page 7 undefined on input line 656.
+
+
+LaTeX Warning: Reference `s:ergodic' on page 7 undefined on input line 658.
+
+
+LaTeX Warning: Reference `s:why-Cq' on page 7 undefined on input line 659.
+
+
+[7]
+
+LaTeX Warning: Citation `GreenTaoNil' on page 8 undefined on input line 705.
+
+
+LaTeX Warning: Citation `KMTT' on page 8 undefined on input line 719.
+
+
+LaTeX Warning: Citation `ShaoWang' on page 8 undefined on input line 738.
+
+
+LaTeX Warning: Reference `t:recurrence' on page 8 undefined on input line 786.
+
+
+[8]
+
+LaTeX Warning: Reference `t:recurrence' on page 9 undefined on input line 800.
+
+
+LaTeX Warning: Reference `t:recurrence' on page 9 undefined on input line 820.
+
+
+LaTeX Warning: Citation `KMTT' on page 9 undefined on input line 821.
+
+
+LaTeX Warning: Reference `t:recurrence' on page 9 undefined on input line 829.
+
+
+LaTeX Warning: Reference `p:selected-density-increment' on page 9 undefined on 
+input line 829.
+
+
+LaTeX Warning: Reference `p:selected-density-increment' on page 9 undefined on 
+input line 832.
+
+
+LaTeX Warning: Reference `p:selected-density-increment' on page 9 undefined on 
+input line 849.
+
+
+LaTeX Warning: Reference `e:increment-hypotheses' on page 9 undefined on input 
+line 868.
+
+
+[9]
+
+LaTeX Warning: Reference `e:increment-output' on page 10 undefined on input lin
+e 880.
+
+
+LaTeX Warning: Reference `t:recurrence' on page 10 undefined on input line 902.
+
+
+
+LaTeX Warning: Reference `c:bracket-recurrence' on page 10 undefined on input l
+ine 906.
+
+
+LaTeX Warning: Reference `t:recurrence' on page 10 undefined on input line 934.
+
+
+
+[10]
+
+LaTeX Warning: Citation `KMTT' on page 11 undefined on input line 999.
+
+
+LaTeX Warning: Reference `e:Tdef' on page 11 undefined on input line 1010.
+
+
+LaTeX Warning: Reference `e:relative-smooth-hypotheses' on page 11 undefined on
+ input line 1017.
+
+
+LaTeX Warning: Reference `t:relative-selector-comparison' on page 11 undefined 
+on input line 1029.
+
+
+LaTeX Warning: Reference `s:relative' on page 11 undefined on input line 1030.
+
+
+LaTeX Warning: Reference `p:selected-density-increment' on page 11 undefined on
+ input line 1039.
+
+
+LaTeX Warning: Reference `t:relative-selector-comparison' on page 11 undefined 
+on input line 1039.
+
+
+LaTeX Warning: Reference `e:increment-hypotheses' on page 11 undefined on input
+ line 1041.
+
+
+LaTeX Warning: Reference `e:relative-smooth-hypotheses' on page 11 undefined on
+ input line 1047.
+
+
+LaTeX Warning: Reference `e:relative-selector-constant' on page 11 undefined on
+ input line 1048.
+
+
+LaTeX Warning: Reference `e:increment-hypotheses' on page 11 undefined on input
+ line 1070.
+
+
+[11]
+
+LaTeX Warning: Citation `KMTT' on page 12 undefined on input line 1079.
+
+
+LaTeX Warning: Reference `e:unweighted-discrepancy-hyp' on page 12 undefined on
+ input line 1096.
+
+
+LaTeX Warning: Reference `e:diff1a' on page 12 undefined on input line 1130.
+
+
+LaTeX Warning: Reference `t:relative-selector-comparison' on page 12 undefined 
+on input line 1136.
+
+
+LaTeX Warning: Reference `s:recurrence' on page 12 undefined on input line 1138
+.
+
+
+LaTeX Warning: Reference `e:relative-smooth-hypotheses' on page 12 undefined on
+ input line 1159.
+
+
+[12]
+
+LaTeX Warning: Citation `BanksSiegel' on page 13 undefined on input line 1177.
+
+
+LaTeX Warning: Citation `KMTT' on page 13 undefined on input line 1184.
+
+
+LaTeX Warning: Citation `KMTT' on page 13 undefined on input line 1185.
+
+
+LaTeX Warning: Citation `KMTT' on page 13 undefined on input line 1196.
+
+
+LaTeX Warning: Citation `KMTT' on page 13 undefined on input line 1196.
+
+
+LaTeX Warning: Citation `KMTT' on page 13 undefined on input line 1198.
+
+
+LaTeX Warning: Citation `KMTT' on page 13 undefined on input line 1206.
+
+
+LaTeX Warning: Reference `e:high-order-relative-prime' on page 13 undefined on 
+input line 1214.
+
+
+LaTeX Warning: Reference `e:relative-first-moment' on page 13 undefined on inpu
+t line 1214.
+
+
+LaTeX Warning: Reference `t:main' on page 13 undefined on input line 1244.
+
+
+LaTeX Warning: Reference `s:local-vn' on page 13 undefined on input line 1245.
+
+
+[13]
+
+LaTeX Warning: Reference `p:heisenberg-phase' on page 14 undefined on input lin
+e 1286.
+
+
+LaTeX Warning: Reference `s:example' on page 14 undefined on input line 1287.
+
+
+LaTeX Warning: Reference `t:main' on page 14 undefined on input line 1287.
+
+
+LaTeX Warning: Reference `p:heisenberg-phase' on page 14 undefined on input lin
+e 1288.
+
+
+LaTeX Warning: Reference `e:relative-smooth-hypotheses' on page 14 undefined on
+ input line 1294.
+
+
+LaTeX Warning: Reference `t:main' on page 14 undefined on input line 1307.
+
+
+LaTeX Warning: Reference `e:horizontal-approximants' on page 14 undefined on in
+put line 1320.
+
+
+LaTeX Warning: Reference `e:heisenberg-centered' on page 14 undefined on input 
+line 1324.
+
+
+LaTeX Warning: Reference `e:main' on page 14 undefined on input line 1330.
+
+
+LaTeX Warning: Reference `e:bare-selector-comparison' on page 14 undefined on i
+nput line 1330.
+
+
+[14]
+
+LaTeX Warning: Reference `l:vertical-mode-multiplier' on page 15 undefined on i
+nput line 1350.
+
+
+LaTeX Warning: Reference `s:example' on page 15 undefined on input line 1351.
+
+
+LaTeX Warning: Reference `p:heisenberg-phase' on page 15 undefined on input lin
+e 1352.
+
+
+LaTeX Warning: Reference `t:relative-selector-comparison' on page 15 undefined 
+on input line 1357.
+
+
+LaTeX Warning: Reference `e:relative-selector-constant' on page 15 undefined on
+ input line 1359.
+
+
+LaTeX Warning: Reference `l:unweighted-selector-relative-range' on page 15 unde
+fined on input line 1363.
+
+
+LaTeX Warning: Citation `KMTT' on page 15 undefined on input line 1393.
+
+
+LaTeX Warning: Reference `l:vertical-mode-multiplier' on page 15 undefined on i
+nput line 1395.
+
+
+LaTeX Warning: Reference `e:high-order-gvn' on page 15 undefined on input line 
+1411.
+
+
+LaTeX Warning: Reference `l:unweighted-selector-relative-range' on page 15 unde
+fined on input line 1420.
+
+
+LaTeX Warning: Reference `p:high-order-relative-prime' on page 15 undefined on 
+input line 1421.
+
+
+LaTeX Warning: Reference `e:relative-scale-window' on page 15 undefined on inpu
+t line 1423.
+
+
+[15]
+
+LaTeX Warning: Reference `e:heisenberg-equidistribution' on page 16 undefined o
+n input line 1450.
+
+
+LaTeX Warning: Reference `e:firstsecondterms' on page 16 undefined on input lin
+e 1459.
+
+
+LaTeX Warning: Reference `e:secondterm' on page 16 undefined on input line 1459
+.
+
+
+LaTeX Warning: Reference `e:second2' on page 16 undefined on input line 1459.
+
+
+LaTeX Warning: Reference `e:firstterm' on page 16 undefined on input line 1459.
+
+
+
+LaTeX Warning: Reference `e:first2' on page 16 undefined on input line 1459.
+
+
+LaTeX Warning: Reference `e:f-muf' on page 16 undefined on input line 1465.
+
+
+LaTeX Warning: Reference `e:relative-selector-constant' on page 16 undefined on
+ input line 1465.
+
+
+LaTeX Warning: Reference `t:main' on page 16 undefined on input line 1479.
+
+
+LaTeX Warning: Reference `l:unweighted-selector-relative-range' on page 16 unde
+fined on input line 1480.
+
+
+LaTeX Warning: Reference `e:Tmnvcondition' on page 16 undefined on input line 1
+530.
+
+
+[16]
+
+LaTeX Warning: Citation `KMTT' on page 17 undefined on input line 1549.
+
+
+LaTeX Warning: Citation `ShaoWang' on page 17 undefined on input line 1550.
+
+
+LaTeX Warning: Reference `e:d9ffbound1' on page 17 undefined on input line 1586
+.
+
+
+[17]
+
+LaTeX Warning: Reference `e:local-plancherel' on page 18 undefined on input lin
+e 1660.
+
+
+[18]
+
+LaTeX Warning: Reference `t:main' on page 19 undefined on input line 1718.
+
+
+LaTeX Warning: Reference `p:localinverse' on page 19 undefined on input line 17
+52.
+
+
+LaTeX Warning: Reference `p:localinverse' on page 19 undefined on input line 17
+54.
+
+
+[19]
+
+LaTeX Warning: Reference `p:localinverse' on page 20 undefined on input line 17
+74.
+
+
+LaTeX Warning: Reference `e:distancecondition' on page 20 undefined on input li
+ne 1848.
+
+
+[20]
+
+LaTeX Warning: Reference `e:main' on page 21 undefined on input line 1912.
+
+
+LaTeX Warning: Reference `e:main' on page 21 undefined on input line 1922.
+
+
+LaTeX Warning: Reference `e:main' on page 21 undefined on input line 1926.
+
+
+LaTeX Warning: Reference `e:main' on page 21 undefined on input line 1933.
+
+
+LaTeX Warning: Reference `p:heisenberg-phase' on page 21 undefined on input lin
+e 1938.
+
+
+LaTeX Warning: Reference `l:vertical-mode-multiplier' on page 21 undefined on i
+nput line 1939.
+
+
+LaTeX Warning: Reference `s:relative' on page 21 undefined on input line 1940.
+
+
+LaTeX Warning: Reference `t:pointwise' on page 21 undefined on input line 1945.
+
+
+
+[21]
+
+LaTeX Warning: Reference `e:horizontal-approximants' on page 22 undefined on in
+put line 1964.
+
+
+LaTeX Warning: Reference `e:infcondition' on page 22 undefined on input line 19
+65.
+
+
+LaTeX Warning: Reference `e:horizontal-approximants' on page 22 undefined on in
+put line 1969.
+
+
+LaTeX Warning: Reference `e:badly-approximable' on page 22 undefined on input l
+ine 1973.
+
+
+LaTeX Warning: Reference `e:horizontal-approximants' on page 22 undefined on in
+put line 1984.
+
+
+LaTeX Warning: Reference `e:infcondition' on page 22 undefined on input line 19
+97.
+
+
+LaTeX Warning: Reference `p:heisenberg-phase' on page 22 undefined on input lin
+e 2025.
+
+
+LaTeX Warning: Reference `e:heisenberg-equidistribution' on page 22 undefined o
+n input line 2031.
+
+
+LaTeX Warning: Citation `GreenTaoNil' on page 22 undefined on input line 2048.
+
+
+[22]
+
+LaTeX Warning: Reference `l:heisenberg-horizontal' on page 23 undefined on inpu
+t line 2061.
+
+
+LaTeX Warning: Reference `e:heisenberg-equidistribution' on page 23 undefined o
+n input line 2072.
+
+
+LaTeX Warning: Reference `e:heisenberg-twisted' on page 23 undefined on input l
+ine 2075.
+
+
+LaTeX Warning: Reference `l:heisenberg-horizontal' on page 23 undefined on inpu
+t line 2092.
+
+
+[23]
+
+LaTeX Warning: Reference `e:partialsumest' on page 24 undefined on input line 2
+222.
+
+
+LaTeX Warning: Reference `e:varupestimate' on page 24 undefined on input line 2
+222.
+
+
+LaTeX Warning: Reference `e:heisenberg-twisted' on page 24 undefined on input l
+ine 2231.
+
+
+[24]
+
+LaTeX Warning: Reference `e:heisenberg-centered' on page 25 undefined on input 
+line 2257.
+
+
+LaTeX Warning: Reference `e:heisenberg-twisted' on page 25 undefined on input l
+ine 2278.
+
+
+LaTeX Warning: Reference `e:heisenberg-equidistribution' on page 25 undefined o
+n input line 2295.
+
+
+LaTeX Warning: Reference `e:heisenberg-centered' on page 25 undefined on input 
+line 2298.
+
+
+LaTeX Warning: Reference `l:vertical-mode-multiplier' on page 25 undefined on i
+nput line 2303.
+
+
+LaTeX Warning: Reference `l:vertical-mode-multiplier' on page 25 undefined on i
+nput line 2307.
+
+
+[25]
+
+LaTeX Warning: Reference `e:heisenberg-phase' on page 26 undefined on input lin
+e 2358.
+
+
+LaTeX Warning: Reference `e:twolocalizednorm' on page 26 undefined on input lin
+e 2380.
+
+
+LaTeX Warning: Reference `e:vertical-mode-multiplier' on page 26 undefined on i
+nput line 2382.
+
+
+LaTeX Warning: Reference `e:twolocalizednorm' on page 26 undefined on input lin
+e 2400.
+
+
+LaTeX Warning: Reference `s:relative' on page 26 undefined on input line 2415.
+
+
+[26]
+
+LaTeX Warning: Citation `Teravainen' on page 27 undefined on input line 2423.
+
+
+LaTeX Warning: Reference `e:heisenberg-phase' on page 27 undefined on input lin
+e 2434.
+
+
+LaTeX Warning: Reference `e:badly-approximable' on page 27 undefined on input l
+ine 2435.
+
+
+LaTeX Warning: Reference `e:horizontal-approximants' on page 27 undefined on in
+put line 2435.
+
+
+LaTeX Warning: Reference `p:heisenberg-phase' on page 27 undefined on input lin
+e 2513.
+
+
+LaTeX Warning: Reference `e:infcondition' on page 27 undefined on input line 25
+17.
+
+
+LaTeX Warning: Reference `e:heisenberg-equidistribution' on page 27 undefined o
+n input line 2519.
+
+
+[27]
+
+LaTeX Warning: Reference `e:heisenberg-equidistribution' on page 28 undefined o
+n input line 2538.
+
+
+LaTeX Warning: Citation `KMTT' on page 28 undefined on input line 2573.
+
+
+LaTeX Warning: Reference `e:vertical-mode-multiplier' on page 28 undefined on i
+nput line 2605.
+
+
+LaTeX Warning: Reference `e:diffgowersnorm' on page 28 undefined on input line 
+2606.
+
+
+LaTeX Warning: Citation `KMTT' on page 28 undefined on input line 2617.
+
+
+[28]
+
+LaTeX Warning: Citation `BanksSiegel' on page 29 undefined on input line 2621.
+
+
+LaTeX Warning: Citation `KMTT' on page 29 undefined on input line 2627.
+
+
+LaTeX Warning: Citation `KMTT' on page 29 undefined on input line 2637.
+
+
+LaTeX Warning: Reference `e:ambient-cramer' on page 29 undefined on input line 
+2638.
+
+
+LaTeX Warning: Reference `e:ambient-cramer' on page 29 undefined on input line 
+2639.
+
+
+LaTeX Warning: Reference `e:diffgowersnorm' on page 29 undefined on input line 
+2639.
+
+
+LaTeX Warning: Reference `e:reductiontoexpfun' on page 29 undefined on input li
+ne 2643.
+
+
+LaTeX Warning: Reference `e:diffgowersnorm' on page 29 undefined on input line 
+2643.
+
+
+LaTeX Warning: Citation `IwaniecKowalski' on page 29 undefined on input line 26
+74.
+
+
+[29]
+
+LaTeX Warning: Reference `e:heisenberg-twisted' on page 30 undefined on input l
+ine 2742.
+
+
+LaTeX Warning: Reference `e:cramerreduest' on page 30 undefined on input line 2
+759.
+
+
+LaTeX Warning: Reference `e:prime-local-phase' on page 30 undefined on input li
+ne 2761.
+
+
+LaTeX Warning: Reference `t:pointwise' on page 30 undefined on input line 2811.
+
+
+
+LaTeX Warning: Reference `p:prime-phase' on page 30 undefined on input line 281
+2.
+
+
+LaTeX Warning: Reference `t:pointwise' on page 30 undefined on input line 2831.
+
+
+
+[30]
+
+LaTeX Warning: Reference `t:pointwise' on page 31 undefined on input line 2871.
+
+
+
+LaTeX Warning: Reference `p:ergodic-comparison' on page 31 undefined on input l
+ine 2871.
+
+
+LaTeX Warning: Citation `MirekWanWright' on page 31 undefined on input line 287
+4.
+
+
+LaTeX Warning: Reference `e:prime-ergodic-average' on page 31 undefined on inpu
+t line 2887.
+
+
+LaTeX Warning: Reference `e:smooth-prime-comparison' on page 31 undefined on in
+put line 2892.
+
+
+LaTeX Warning: Reference `e:smooth-prime-comparison' on page 31 undefined on in
+put line 2907.
+
+
+LaTeX Warning: Reference `p:ergodic-comparison' on page 31 undefined on input l
+ine 2924.
+
+
+[31]
+
+LaTeX Warning: Reference `p:prime-phase' on page 32 undefined on input line 293
+0.
+
+
+LaTeX Warning: Citation `Teravainen' on page 32 undefined on input line 2949.
+
+
+LaTeX Warning: Reference `e:ergodic-L1-log' on page 32 undefined on input line 
+2958.
+
+
+LaTeX Warning: Reference `e:ergodic-L1-log' on page 32 undefined on input line 
+2961.
+
+
+LaTeX Warning: Reference `e:smooth-prime-comparison' on page 32 undefined on in
+put line 2984.
+
+
+[32]
+
+LaTeX Warning: Reference `t:pointwise' on page 33 undefined on input line 2987.
+
+
+
+LaTeX Warning: Reference `c:bracket-pointwise' on page 33 undefined on input li
+ne 2991.
+
+
+LaTeX Warning: Reference `c:bracket-recurrence' on page 33 undefined on input l
+ine 3001.
+
+
+LaTeX Warning: Reference `t:pointwise' on page 33 undefined on input line 3027.
+
+
+
+LaTeX Warning: Reference `e:prodidentity' on page 33 undefined on input line 30
+38.
+
+
+[33]
+
+LaTeX Warning: Reference `diffsumtozero' on page 34 undefined on input line 307
+5.
+
+
+LaTeX Warning: Reference `e:quadratic-twist' on page 34 undefined on input line
+ 3086.
+
+
+LaTeX Warning: Reference `e:quadratic-twist' on page 34 undefined on input line
+ 3122.
+
+
+LaTeX Warning: Reference `e:quadratic-twist' on page 34 undefined on input line
+ 3126.
+
+
+LaTeX Warning: Reference `e:limitofprimesexp' on page 34 undefined on input lin
+e 3138.
+
+
+LaTeX Warning: Reference `t:pointwise' on page 34 undefined on input line 3150.
+
+
+
+[34]
+
+LaTeX Warning: Citation `KMTT' on page 35 undefined on input line 3178.
+
+
+LaTeX Warning: Citation `Teravainen' on page 35 undefined on input line 3183.
+
+
+LaTeX Warning: Citation `Teravainen' on page 35 undefined on input line 3218.
+
+
+LaTeX Warning: Reference `t:relative-selector-comparison' on page 35 undefined 
+on input line 3235.
+
+
+[35]
+
+LaTeX Warning: Reference `e:horizontal-approximants' on page 36 undefined on in
+put line 3260.
+
+
+LaTeX Warning: Reference `e:separating-global-u' on page 36 undefined on input 
+line 3273.
+
+
+LaTeX Warning: Reference `e:horizontal-approximants' on page 36 undefined on in
+put line 3294.
+
+
+LaTeX Warning: Reference `e:heisenberg-phase' on page 36 undefined on input lin
+e 3297.
+
+
+LaTeX Warning: Reference `e:uniappzq' on page 36 undefined on input line 3304.
+
+
+[36]
+
+LaTeX Warning: Reference `e:heisenberg-centered' on page 37 undefined on input 
+line 3364.
+
+
+LaTeX Warning: Reference `e:heisenberg-equidistribution' on page 37 undefined o
+n input line 3378.
+
+
+LaTeX Warning: Reference `e:vertical-mode-multiplier' on page 37 undefined on i
+nput line 3399.
+
+
+LaTeX Warning: Reference `e:estimateexpsum' on page 37 undefined on input line 
+3410.
+
+
+LaTeX Warning: Reference `e:moduleinvus' on page 37 undefined on input line 341
+0.
+
+
+LaTeX Warning: Reference `p:separating-family' on page 37 undefined on input li
+ne 3424.
+
+
+LaTeX Warning: Reference `e:lift-teravainen-bound' on page 37 undefined on inpu
+t line 3432.
+
+
+[37]
+
+LaTeX Warning: Reference `e:lift-teravainen-bound' on page 38 undefined on inpu
+t line 3441.
+
+
+LaTeX Warning: Reference `t:main' on page 38 undefined on input line 3447.
+
+
+LaTeX Warning: Reference `e:main' on page 38 undefined on input line 3448.
+
+
+LaTeX Warning: Reference `e:main' on page 38 undefined on input line 3457.
+
+
+LaTeX Warning: Reference `p:separating-family' on page 38 undefined on input li
+ne 3459.
+
+
+LaTeX Warning: Reference `t:recurrence' on page 38 undefined on input line 3480
+.
+
+
+[38]
+pdfTeX warning (font expansion): font should be expanded before its first use
+
+[39] (/tmp/nilbohr-publication-paper-build/corrected.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `corrected.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
+(see the transcript file for additional information)</usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
+y6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on /tmp/nilbohr-publication-paper-build/corrected.pdf (39 pages,
+ 550310 bytes).
+Transcript written on /tmp/nilbohr-publication-paper-build/corrected.log.
+Latexmk: Getting log file '/tmp/nilbohr-publication-paper-build/corrected.log'
+Latexmk: Examining '/tmp/nilbohr-publication-paper-build/corrected.fls'
+Latexmk: Examining '/tmp/nilbohr-publication-paper-build/corrected.log'
+Latexmk: Missing input file 'corrected.toc' (or dependence on it) from following:
+  No file corrected.toc.
+Latexmk: References changed.
+Latexmk: References changed.
+Latexmk: Log file says output to '/tmp/nilbohr-publication-paper-build/corrected.pdf'
+Latexmk: Log file says output to '/tmp/nilbohr-publication-paper-build/corrected.pdf'
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Changed files or newly in use/created:
+  /tmp/nilbohr-publication-paper-build/corrected.aux
+  /tmp/nilbohr-publication-paper-build/corrected.out
+  /tmp/nilbohr-publication-paper-build/corrected.toc
+
+------------
+Run number 2 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -interaction=nonstopmode -halt-on-error -recorder -output-directory="/tmp/nilbohr-publication-paper-build"  "paper/corrected.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./paper/corrected.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsart.cls
+Document Class: amsart 2020/05/29 v2.20.6
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/mathtools/mathtools.sty
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/mathtools/mhsetup.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(/tmp/nilbohr-publication-paper-build/corrected.aux)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+))) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg)))
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg)
+(/tmp/nilbohr-publication-paper-build/corrected.out)
+(/tmp/nilbohr-publication-paper-build/corrected.out)
+(/tmp/nilbohr-publication-paper-build/corrected.toc)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg)
+[1{/tmp/nilbohr-next-texmf/fonts/map/pdftex/updmap/pdftex.map}]
+[2]
+[3]
+[4]
+[5]
+[6]
+[7]
+[8]
+[9]
+[10]
+[11]
+[12]
+[13]
+[14]
+[15]
+[16]
+[17]
+[18]
+[19]
+[20]
+[21]
+[22]
+[23]
+[24]
+[25]
+[26]
+[27]
+[28]
+[29]
+[30]
+[31]
+[32]
+[33]
+[34]
+[35]
+[36]
+[37]
+[38]
+pdfTeX warning (font expansion): font should be expanded before its first use
+
+[39] (/tmp/nilbohr-publication-paper-build/corrected.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
+(see the transcript file for additional information)</usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
+y6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on /tmp/nilbohr-publication-paper-build/corrected.pdf (39 pages,
+ 561223 bytes).
+Transcript written on /tmp/nilbohr-publication-paper-build/corrected.log.
+Latexmk: Getting log file '/tmp/nilbohr-publication-paper-build/corrected.log'
+Latexmk: Examining '/tmp/nilbohr-publication-paper-build/corrected.fls'
+Latexmk: Examining '/tmp/nilbohr-publication-paper-build/corrected.log'
+Latexmk: References changed.
+Latexmk: Log file says output to '/tmp/nilbohr-publication-paper-build/corrected.pdf'
+Latexmk: Log file says output to '/tmp/nilbohr-publication-paper-build/corrected.pdf'
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Changed files or newly in use/created:
+  /tmp/nilbohr-publication-paper-build/corrected.aux
+  /tmp/nilbohr-publication-paper-build/corrected.toc
+
+------------
+Run number 3 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -interaction=nonstopmode -halt-on-error -recorder -output-directory="/tmp/nilbohr-publication-paper-build"  "paper/corrected.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./paper/corrected.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsart.cls
+Document Class: amsart 2020/05/29 v2.20.6
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/mathtools/mathtools.sty
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/mathtools/mhsetup.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(/tmp/nilbohr-publication-paper-build/corrected.aux)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+))) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg)))
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg)
+(/tmp/nilbohr-publication-paper-build/corrected.out)
+(/tmp/nilbohr-publication-paper-build/corrected.out)
+(/tmp/nilbohr-publication-paper-build/corrected.toc)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg)
+[1{/tmp/nilbohr-next-texmf/fonts/map/pdftex/updmap/pdftex.map}]
+[2]
+[3]
+[4]
+[5]
+[6]
+[7]
+[8]
+[9]
+[10]
+[11]
+[12]
+[13]
+[14]
+[15]
+[16]
+[17]
+[18]
+[19]
+[20]
+[21]
+[22]
+[23]
+[24]
+[25]
+[26]
+[27]
+[28]
+[29]
+[30]
+[31]
+[32]
+[33]
+[34]
+[35]
+[36]
+[37]
+[38]
+pdfTeX warning (font expansion): font should be expanded before its first use
+
+[39] (/tmp/nilbohr-publication-paper-build/corrected.aux) )
+(see the transcript file for additional information)</usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
+y6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on /tmp/nilbohr-publication-paper-build/corrected.pdf (39 pages,
+ 561226 bytes).
+Transcript written on /tmp/nilbohr-publication-paper-build/corrected.log.
+Latexmk: Getting log file '/tmp/nilbohr-publication-paper-build/corrected.log'
+Latexmk: Examining '/tmp/nilbohr-publication-paper-build/corrected.fls'
+Latexmk: Examining '/tmp/nilbohr-publication-paper-build/corrected.log'
+Latexmk: Log file says output to '/tmp/nilbohr-publication-paper-build/corrected.pdf'
+Latexmk: Log file says output to '/tmp/nilbohr-publication-paper-build/corrected.pdf'
+Latexmk: All targets (/tmp/nilbohr-publication-paper-build/corrected.pdf) are up-to-date
+

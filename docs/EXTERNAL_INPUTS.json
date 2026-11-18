@@ -1,0 +1,570 @@
+[
+  {
+    "id": "KMTT_SHIFTED_PRIME_RECURRENCE",
+    "status": "consumed_explicit_hypothesis",
+    "scope": "For each fixed distinct-degree zero-constant-term integer polynomial family, a subset of [N] without a pairwise distinct shifted-prime configuration has at most C N (log N)^(-c) elements for all sufficiently large N. The source theorem is explicit. Lean carries out the torus partition and absorbs the fixed cell loss in Corollary 1.1.",
+    "declared_as_Lean_axiom": false,
+    "lean_interfaces": [
+      {
+        "declaration": "NilBohr.KMTTShiftedPrimeDensityBound",
+        "file": "NilBohr/Bohr.lean"
+      }
+    ],
+    "references": [
+      {
+        "title": "Krause–Mousavi–Tao–Teräväinen, Quantitative bounds for sets lacking polynomial progressions with shifted prime difference",
+        "result": "Theorem 1.2",
+        "url": "https://arxiv.org/html/2608.19525v1"
+      }
+    ],
+    "consumed_by": [
+      "NilBohr.bohr_recurrence"
+    ]
+  },
+  {
+    "id": "KMTT_LOCAL_INVERSE",
+    "status": "consumed_explicit_hypothesis",
+    "scope": "Unweighted coefficient-uniform local inverse theorem for 1-bounded, zero-extended inputs on [N], with 0 < rho < 1/2, and integer M at most floor((N/q^(d-1))^(1/d)). Either M is bounded by a power of q/rho, or one common q' and exponent b' give a bounded correlating function at each shifted position, with modulus q' q^b' and the degree-specific Lipschitz bound. The degree-uniform form chooses the upper bound for b' before the coefficient bound and family length. The weaker form is its checked consequence and suffices for the headline recurrence proofs. The weighted inverse and the original local ordinary-phase bound are downstream checked proofs.",
+    "declared_as_Lean_axiom": false,
+    "lean_interfaces": [
+      {
+        "declaration": "NilBohr.KMTTLocalInverseDegreeUniform",
+        "file": "NilBohr/External.lean"
+      },
+      {
+        "declaration": "NilBohr.KMTTLocalInverse",
+        "file": "NilBohr/External.lean"
+      }
+    ],
+    "references": [
+      {
+        "title": "Krause–Mousavi–Tao–Teräväinen, Quantitative bounds for sets lacking polynomial progressions with shifted prime difference",
+        "result": "Lemma 3.4",
+        "url": "https://arxiv.org/html/2608.19525v1#S3.Thmtheorem4"
+      },
+      {
+        "title": "Shao–Wang",
+        "result": "Theorem 2.4, upstream source used by KMTT",
+        "url": "https://doi.org/10.1017/prm.2025.10103"
+      }
+    ],
+    "consumed_by": [
+      "NilBohr.weighted_local_inverse_of_kmtt_degree_uniform",
+      "NilBohr.localGeneralizedVonNeumann_of_kmtt",
+      "NilBohr.heisenbergRecurrence_of_analytic_inputs",
+      "NilBohr.bracketRecurrence_of_analytic_inputs",
+      "NilBohr.appendixA_count_comparison",
+      "NilBohr.centeredSelectorComparison_on_lcm_moduli_of_obstructions"
+    ],
+    "checked_proofs": [
+      {
+        "declaration": "NilBohr.KMTTLocalInverseDegreeUniform.toLocalInverse",
+        "file": "NilBohr/External.lean"
+      }
+    ]
+  },
+  {
+    "id": "KMTT_WEIGHTED_GOWERS",
+    "status": "consumed_explicit_hypothesis",
+    "scope": "General weighted generalized von Neumann inequality with independent positive M,N, polynomial degrees at most d, 1-bounded functions on supports of cardinality at most C N, and arbitrary complex parameter weight. It gives a Gowers order S at least 2 and a constant uniform in the scales and polynomials once d, the family length and C are fixed. Lean increases the order when needed and carries out selector multiplication and comparison.",
+    "declared_as_Lean_axiom": false,
+    "lean_interfaces": [
+      {
+        "declaration": "NilBohr.KMTTWeightedGowers",
+        "file": "NilBohr/External.lean"
+      }
+    ],
+    "references": [
+      {
+        "title": "Krause–Mousavi–Tao–Teräväinen, Quantitative bounds for sets lacking polynomial progressions with shifted prime difference",
+        "result": "Proposition 3.3",
+        "url": "https://arxiv.org/html/2608.19525v1"
+      }
+    ],
+    "consumed_by": [
+      "NilBohr.relativeSelectorComparison_of_centered_phase",
+      "NilBohr.heisenbergRecurrence_of_analytic_inputs",
+      "NilBohr.bracketRecurrence_of_analytic_inputs"
+    ]
+  },
+  {
+    "id": "BANKS_REAL_ZERO_BOUND",
+    "status": "consumed_explicit_hypothesis",
+    "scope": "For a primitive real character of conductor r at least 3 and a real zero beta in (0,1), (1-beta) log r is at least 3/1000. The Lean interface uses Mathlib Dirichlet L-functions and tests real-valuedness on ZMod r. The source's all-conductor assertion uses its cited small-conductor computation. Lean checks the inequality excluding the exceptional model at the KMTT threshold.",
+    "declared_as_Lean_axiom": false,
+    "lean_interfaces": [
+      {
+        "declaration": "NilBohr.BanksRealZeroBound",
+        "file": "NilBohr/External.lean"
+      }
+    ],
+    "references": [
+      {
+        "title": "Banks, arXiv:2610.15483v1",
+        "result": "Theorem 1.1",
+        "url": "https://arxiv.org/html/2610.15483v1"
+      },
+      {
+        "title": "Krause–Mousavi–Tao–Teräväinen, Quantitative bounds for sets lacking polynomial progressions with shifted prime difference",
+        "result": "Definition 2.3 and (2.4), exceptional model threshold",
+        "url": "https://arxiv.org/html/2608.19525v1"
+      }
+    ],
+    "consumed_by": [
+      "NilBohr.high_order_relative_prime_of_analytic_inputs",
+      "NilBohr.heisenbergRecurrence_of_analytic_inputs",
+      "NilBohr.bracketRecurrence_of_analytic_inputs",
+      "NilBohr.heisenberg_pointwise_of_prime_model",
+      "NilBohr.bracket_pointwise_of_prime_model",
+      "NilBohr.smoothErgodicComparison_of_prime_model_distinct_degrees"
+    ],
+    "checked_proofs": [
+      {
+        "declaration": "NilBohr.exclude_exceptional_model_zero",
+        "file": "NilBohr/External.lean"
+      }
+    ]
+  },
+  {
+    "id": "KMTT_AMBIENT_PRIME_MODEL",
+    "status": "consumed_explicit_hypothesis",
+    "scope": "Ambient Gowers approximation of Mangoldt by the Siegel model for each order S >= 2, with independent model and norm scales X,Y >= 3. For Q = ceil(exp((log X)^c0)) in the stated window exp((log log Y)^(1/c)) <= Q <= exp((log Y)^(1/10)), the error is at most A exp(-(log Q)^c). The interface precedes exceptional-zero exclusion. The end-to-end analytic wrappers use 0 < c0 < 1/11 and prove the model substitutions.",
+    "declared_as_Lean_axiom": false,
+    "lean_interfaces": [
+      {
+        "declaration": "NilBohr.KMTTAmbientPrimeModel",
+        "file": "NilBohr/GowersComparison.lean"
+      }
+    ],
+    "references": [
+      {
+        "title": "Krause–Mousavi–Tao–Teräväinen, Quantitative bounds for sets lacking polynomial progressions with shifted prime difference",
+        "result": "Lemma 3.1 and (3.1)",
+        "url": "https://arxiv.org/html/2608.19525v1"
+      }
+    ],
+    "consumed_by": [
+      "NilBohr.high_order_relative_prime_of_analytic_inputs",
+      "NilBohr.heisenbergRecurrence_of_analytic_inputs",
+      "NilBohr.bracketRecurrence_of_analytic_inputs",
+      "NilBohr.heisenberg_pointwise_of_prime_model",
+      "NilBohr.bracket_pointwise_of_prime_model",
+      "NilBohr.smoothErgodicComparison_of_prime_model_distinct_degrees",
+      "NilBohr.primeNumberTheorem_of_prime_model",
+      "NilBohr.primeNumberTheoremInProgressions_of_kmtt_and_sieve",
+      "NilBohr.vinogradov_of_prime_model"
+    ]
+  },
+  {
+    "id": "KMTT_RELATIVE_CRAMER",
+    "status": "consumed_explicit_hypothesis",
+    "scope": "Relative Cramér Gowers estimate at order S >= 2 and degree d >= 1 for the full parameter interval [M], a specialization of the source interval version. It uses RelativeModulus and RelativeScaleWindow, in particular the positive smooth modulus q divisible by 8 times the product of primes up to w, log q <= w^2 and N^(1/d) exp(-d sqrt(log N)) <= M <= N^(1/d). The reduced residue b runs through 1 <= b <= q. The Gowers norm of (phi(q)/q) Lambda_Cramér(qn+b)-1 is bounded by A w^(-eta).",
+    "declared_as_Lean_axiom": false,
+    "lean_interfaces": [
+      {
+        "declaration": "NilBohr.KMTTRelativeCramer",
+        "file": "NilBohr/GowersComparison.lean"
+      }
+    ],
+    "references": [
+      {
+        "title": "Krause–Mousavi–Tao–Teräväinen, Quantitative bounds for sets lacking polynomial progressions with shifted prime difference",
+        "result": "Lemma 4.3(i) and (4.28)",
+        "url": "https://arxiv.org/html/2608.19525v1"
+      }
+    ],
+    "consumed_by": [
+      "NilBohr.high_order_relative_prime_of_analytic_inputs",
+      "NilBohr.heisenbergRecurrence_of_analytic_inputs",
+      "NilBohr.bracketRecurrence_of_analytic_inputs"
+    ]
+  },
+  {
+    "id": "GREEN_TAO_QUANTITATIVE_LEIBMAN",
+    "status": "consumed_explicit_hypothesis",
+    "scope": "One-parameter quantitative Leibman obstruction. At fixed dimension m and filtration degree d, uniform constants control a nonzero integer horizontal character and its binomial coefficient norm when a complex test on the compact nilmanifold gives discrepancy exceeding delta times its supplied supremum-plus-Lipschitz bound. The interface uses 0 < delta < 1/2, N > 1, the stated rational Mal'cev basis and Haar structure, and coordinatewise norms read from circle differences at zero. The general source-to-interface interpretation is documented in ASSUMPTIONS.md. Both concrete nilmanifold and character specializations are checked.",
+    "declared_as_Lean_axiom": false,
+    "lean_interfaces": [
+      {
+        "declaration": "NilBohr.GreenTaoQuantitativeLeibman",
+        "file": "NilBohr/GreenTaoLiterature.lean"
+      }
+    ],
+    "references": [
+      {
+        "title": "Green–Tao, The quantitative behaviour of polynomial orbits on nilmanifolds",
+        "result": "Theorem 2.9 and Definitions 2.1–2.7",
+        "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v175-n2-p02-p.pdf"
+      },
+      {
+        "title": "Green–Tao, erratum",
+        "result": "One-parameter theorem unchanged",
+        "url": "https://annals.math.princeton.edu/2014/179-3/p08"
+      }
+    ],
+    "consumed_by": [
+      "NilBohr.heisenbergPhaseEstimates_of_quantitativeLeibman",
+      "NilBohr.heisenbergRecurrence_of_analytic_inputs",
+      "NilBohr.bracketRecurrence_of_analytic_inputs",
+      "NilBohr.heisenberg_pointwise_of_prime_model",
+      "NilBohr.bracket_pointwise_of_prime_model",
+      "NilBohr.smoothErgodicComparison_of_prime_model_distinct_degrees",
+      "NilBohr.appendixA_separating_family_of_quantitativeLeibman",
+      "NilBohr.ambient_centered_gowers_prescribed_cutoff"
+    ],
+    "checked_proofs": [
+      {
+        "declaration": "NilBohr.scalarHeisenbergObstruction_of_greenTao",
+        "file": "NilBohr/GreenTaoObstructions.lean"
+      },
+      {
+        "declaration": "NilBohr.productHeisenbergObstruction_of_greenTao",
+        "file": "NilBohr/GreenTaoObstructions.lean"
+      }
+    ]
+  },
+  {
+    "id": "MERTENS_INTERVAL_PRODUCT",
+    "status": "consumed_explicit_hypothesis",
+    "scope": "Uniform upper bound for the product of (1-1/p)^(-1) over u < p <= v, namely (1+C/log u) log v / log u for all real 3/2 <= u <= v and one C >= 1. The ratio of two Mertens asymptotics and handling the bounded initial range belong to the external interpretation. Lean proves the product bounds for the retained prime subsets and the Euler-product normalization.",
+    "declared_as_Lean_axiom": false,
+    "lean_interfaces": [
+      {
+        "declaration": "NilBohr.MertensIntervalProductBound",
+        "file": "NilBohr/SieveLiterature.lean"
+      }
+    ],
+    "references": [
+      {
+        "title": "Koukoulopoulos, The Distribution of Prime Numbers",
+        "result": "Theorem 3.4(c), p. 40",
+        "url": "https://dms.umontreal.ca/~koukoulo/documents/publications/primes.pdf"
+      },
+      {
+        "title": "Iwaniec–Kowalski, Analytic Number Theory",
+        "result": "(2.16)",
+        "url": "https://bookstore.ams.org/coll-53"
+      }
+    ],
+    "consumed_by": [
+      "NilBohr.eventually_cramerSieve_coefficients",
+      "NilBohr.heisenberg_pointwise_of_prime_model",
+      "NilBohr.bracket_pointwise_of_prime_model",
+      "NilBohr.smoothErgodicComparison_of_prime_model_distinct_degrees",
+      "NilBohr.primeNumberTheorem_of_prime_model",
+      "NilBohr.primeNumberTheoremInProgressions_of_kmtt_and_sieve",
+      "NilBohr.vinogradov_of_prime_model"
+    ],
+    "checked_proofs": [
+      {
+        "declaration": "NilBohr.MertensIntervalProductBound.eulerProduct_le_log",
+        "file": "NilBohr/SieveLiterature.lean"
+      }
+    ]
+  },
+  {
+    "id": "FUNDAMENTAL_SIEVE_LEMMA",
+    "status": "consumed_explicit_hypothesis",
+    "scope": "Uniform dimension-one bracketing for any nonempty finite retained prime set P up to Q satisfying the specified interval product bound, with local densities 1/p and sufficiently large D and U = log D/log Q. The real divisor weights lie in [-1,1] on the divisors of the product W up to D. The pointwise bounds hold for every positive integer, and the expected upper-lower gap is at most C1 U^(-U/2) times the product of (1-1/p). The specialized source theorem is external. Empty retained support, complex midpoint comparison, omitted primes, progression counting and the phase test are checked.",
+    "declared_as_Lean_axiom": false,
+    "lean_interfaces": [
+      {
+        "declaration": "NilBohr.FundamentalSieveLemma",
+        "file": "NilBohr/SieveLiterature.lean"
+      }
+    ],
+    "references": [
+      {
+        "title": "Koukoulopoulos, The Distribution of Prime Numbers",
+        "result": "Theorem 19.1, pp. 195–196, dimension 1 with Axiom 2, p. 187",
+        "url": "https://dms.umontreal.ca/~koukoulo/documents/publications/primes.pdf"
+      },
+      {
+        "title": "Iwaniec–Kowalski, Analytic Number Theory",
+        "result": "Chapter 6, §6.4, Fundamental Lemma 6.3",
+        "url": "https://bookstore.ams.org/coll-53"
+      }
+    ],
+    "consumed_by": [
+      "NilBohr.eventually_cramerSieve_coefficients",
+      "NilBohr.heisenberg_pointwise_of_prime_model",
+      "NilBohr.bracket_pointwise_of_prime_model",
+      "NilBohr.smoothErgodicComparison_of_prime_model_distinct_degrees",
+      "NilBohr.primeNumberTheorem_of_prime_model",
+      "NilBohr.primeNumberTheoremInProgressions_of_kmtt_and_sieve",
+      "NilBohr.vinogradov_of_prime_model"
+    ]
+  },
+  {
+    "id": "TERAVAINEN_FIXED_FAMILY",
+    "status": "consumed_explicit_hypothesis",
+    "scope": "For each top degree d > 0, the exponent parameter K >= 1 is fixed before the positive distinct-degree, zero-constant-term ordered polynomial family and spatial support constant. For H > 0, 1-bounded inputs on the spatial window of order H^d and 1-bounded parameter weight on [H], the count normalized by H^(d+1) is bounded by a fixed constant times (H^(-1) + ordinary phase norm of order d+1)^(1/K). Lean handles the orbit transfer, weight rescaling, arbitrary ordering in Proposition 7.1, and the comparison of Appendix A dilation losses.",
+    "declared_as_Lean_axiom": false,
+    "lean_interfaces": [
+      {
+        "declaration": "NilBohr.TeravainenFixedFamily",
+        "file": "NilBohr/External.lean"
+      }
+    ],
+    "references": [
+      {
+        "title": "Teräväinen, Pointwise convergence of ergodic averages with Möbius weight",
+        "result": "Theorem 4.1, (4.1)",
+        "url": "https://arxiv.org/html/2401.03174v2"
+      }
+    ],
+    "consumed_by": [
+      "NilBohr.uniform_orbit_bound_of_teravainen",
+      "NilBohr.smoothErgodicComparison_of_prime_model_distinct_degrees",
+      "NilBohr.heisenberg_pointwise_of_prime_model",
+      "NilBohr.bracket_pointwise_of_prime_model",
+      "NilBohr.heisenbergAmbientSelectorCount_sharp_of_literature",
+      "NilBohr.appendixA_count_comparison"
+    ],
+    "checked_proofs": [
+      {
+        "declaration": "NilBohr.uniform_orbit_bound_of_teravainen",
+        "file": "NilBohr/External.lean"
+      }
+    ]
+  },
+  {
+    "id": "MIREK_WAN_WRIGHT_POINTWISE",
+    "status": "consumed_explicit_hypothesis",
+    "scope": "Unrestricted full-scale Mangoldt-weighted convergence in an invertible probability system for a nonempty ordered family of distinct positive degrees with arbitrary constants, and inputs in the common L^(2 ell) class. The source allows more general exponents. Lean proves the shift P_i(t-1), the bounded-function specialization and conversion to an ordinary prime average using the derived PNT.",
+    "declared_as_Lean_axiom": false,
+    "lean_interfaces": [
+      {
+        "declaration": "NilBohr.MirekWanWrightPointwise",
+        "file": "NilBohr/ErgodicLimits.lean"
+      }
+    ],
+    "references": [
+      {
+        "title": "Mirek–Wan–Wright, Pointwise convergence of polynomial multiple ergodic averages along the primes",
+        "result": "Theorem 1.1(ii), p. 4, version 2",
+        "url": "https://arxiv.org/pdf/2505.15549v2"
+      }
+    ],
+    "consumed_by": [
+      "NilBohr.ae_unrestrictedPrimeAverage_tendsto",
+      "NilBohr.heisenberg_pointwise_of_prime_model",
+      "NilBohr.bracket_pointwise_of_prime_model",
+      "NilBohr.ae_primeAverage_congruence_tendsto"
+    ],
+    "checked_proofs": [
+      {
+        "declaration": "NilBohr.ae_unrestrictedPrimeAverage_tendsto",
+        "file": "NilBohr/ErgodicLimits.lean"
+      }
+    ]
+  },
+  {
+    "id": "TERAVAINEN_WANG_SPARSE_GREEN_TAO",
+    "status": "consumed_explicit_hypothesis",
+    "scope": "For each k >= 4 and N >= 100, a subset of primes up to N with no nontrivial k-term progression has relative density at most C (log log N)^(-c) if k=4, and at most C exp(-(log log log N)^c) if k>=5. Constants depend on k. Lean deduces the manuscript's common finite threshold and the positive-density fixed-window implication from this same source assumption.",
+    "declared_as_Lean_axiom": false,
+    "lean_interfaces": [
+      {
+        "declaration": "NilBohr.TeravainenWangSparseGreenTao",
+        "file": "NilBohr/BohrPrimeProgressions.lean"
+      }
+    ],
+    "references": [
+      {
+        "title": "Teräväinen–Wang, On the Green–Tao theorem for sparse sets",
+        "result": "Theorem 1.1",
+        "url": "https://arxiv.org/html/2603.09281v1"
+      }
+    ],
+    "consumed_by": [
+      "NilBohr.shrinkingWindow_primeProgression",
+      "NilBohr.fixedWindow_primeProgression_of_sparse"
+    ],
+    "checked_proofs": [
+      {
+        "declaration": "NilBohr.greenTaoRelativeDensity_of_sparse",
+        "file": "NilBohr/PrimeProgressionDensity.lean"
+      }
+    ]
+  },
+  {
+    "id": "PRIME_DISTRIBUTION",
+    "status": "derived_from_recorded_inputs",
+    "scope": "The ordinary PNT, fixed reduced congruence-class PNT and irrational scalar equidistribution along primes are derived using the ambient prime model and sieve. Earlier parameterized wrappers accepting these statements are retained. The primary pointwise wrappers use the checked deductions from the existing independent inputs.",
+    "declared_as_Lean_axiom": false,
+    "lean_interfaces": [
+      {
+        "declaration": "NilBohr.PrimeNumberTheorem",
+        "file": "NilBohr/ErgodicLimits.lean"
+      },
+      {
+        "declaration": "NilBohr.PrimeNumberTheoremInProgressions",
+        "file": "NilBohr/BohrPeriodic.lean"
+      },
+      {
+        "declaration": "NilBohr.VinogradovPrimeEquidistribution",
+        "file": "NilBohr/BracketPointwise.lean"
+      }
+    ],
+    "independent_input_ids": [
+      "BANKS_REAL_ZERO_BOUND",
+      "KMTT_AMBIENT_PRIME_MODEL",
+      "MERTENS_INTERVAL_PRODUCT",
+      "FUNDAMENTAL_SIEVE_LEMMA"
+    ],
+    "checked_proofs": [
+      {
+        "declaration": "NilBohr.primeNumberTheorem_of_prime_model",
+        "file": "NilBohr/PrimeDistributionFromModel.lean"
+      },
+      {
+        "declaration": "NilBohr.primeNumberTheoremInProgressions_of_kmtt_and_sieve",
+        "file": "NilBohr/PrimeProgressionFromModel.lean"
+      },
+      {
+        "declaration": "NilBohr.vinogradov_of_prime_model",
+        "file": "NilBohr/PrimeDistributionFromModel.lean"
+      }
+    ]
+  },
+  {
+    "id": "KMTT_WEAK_REGULARITY",
+    "status": "derived_from_recorded_inputs",
+    "scope": "The unweighted local weak-regularity interface used in the density increment is obtained from the KMTT inverse input. The floor scale, common power of q, lcm condition, atom lengths and atom-average count are supplied by the project.",
+    "declared_as_Lean_axiom": false,
+    "lean_interfaces": [
+      {
+        "declaration": "NilBohr.KMTTLocalWeakRegularity",
+        "file": "NilBohr/External.lean"
+      }
+    ],
+    "references": [
+      {
+        "title": "Krause–Mousavi–Tao–Teräväinen, Quantitative bounds for sets lacking polynomial progressions with shifted prime difference",
+        "result": "Lemma 5.3, (5.25)–(5.33)",
+        "url": "https://arxiv.org/html/2608.19525v1"
+      }
+    ],
+    "independent_input_ids": [
+      "KMTT_LOCAL_INVERSE"
+    ],
+    "checked_proofs": [
+      {
+        "declaration": "NilBohr.KMTTLocalInverse.toLocalWeakRegularity",
+        "file": "NilBohr/WeakRegularity.lean"
+      }
+    ]
+  },
+  {
+    "id": "GOWERS_LAWS_AND_DILATION",
+    "status": "proved_in_project_not_an_external_assumption",
+    "scope": "Finite normalized Gowers triangle and adjacent-order comparison, multilinear Cauchy–Schwarz and exact progression restriction and dilation accounting are obtained in Lean with one-point and other endpoints included.",
+    "declared_as_Lean_axiom": false,
+    "lean_interfaces": [
+      {
+        "declaration": "NilBohr.NormalizedGowersLaws",
+        "file": "NilBohr/GowersComparison.lean"
+      },
+      {
+        "declaration": "NilBohr.KMTTNormalizedDilation",
+        "file": "NilBohr/GowersComparison.lean"
+      }
+    ],
+    "references": [
+      {
+        "title": "Krause–Mousavi–Tao–Teräväinen, Quantitative bounds for sets lacking polynomial progressions with shifted prime difference",
+        "result": "Lemma 2.2, (2.6) and §2.3",
+        "url": "https://arxiv.org/html/2608.19525v1"
+      }
+    ],
+    "checked_proofs": [
+      {
+        "declaration": "NilBohr.normalizedGowers_triangle",
+        "file": "NilBohr/GowersTriangle.lean"
+      },
+      {
+        "declaration": "NilBohr.normalizedGowersAdjacentMonotonicity",
+        "file": "NilBohr/GowersOrderComparison.lean"
+      },
+      {
+        "declaration": "NilBohr.kmttNormalizedDilation",
+        "file": "NilBohr/GowersDilation.lean"
+      }
+    ]
+  },
+  {
+    "id": "BERNSTEIN_CIRCLE_LIPSCHITZ_FOURIER",
+    "status": "proved_in_project_not_an_external_assumption",
+    "scope": "The project proves the normalized circle Fourier absolute summability and uniform coefficient bound for Lipschitz tests by difference quotients, Parseval and Cauchy–Schwarz. This supplies the multiplier lemma and the truncation control.",
+    "declared_as_Lean_axiom": false,
+    "lean_interfaces": [
+      {
+        "declaration": "NilBohr.BernsteinCircleLipschitzFourier",
+        "file": "NilBohr/GowersMultiplier.lean"
+      }
+    ],
+    "references": [
+      {
+        "title": "Katznelson, An Introduction to Harmonic Analysis, 3rd ed.",
+        "result": "Chapter I, Theorem 6.3, p. 33, (6.3)",
+        "url": "https://doi.org/10.1017/CBO9781139165372.003"
+      }
+    ],
+    "checked_proofs": [
+      {
+        "declaration": "NilBohr.bernsteinCircleLipschitzFourier",
+        "file": "NilBohr/LipschitzFourier.lean"
+      },
+      {
+        "declaration": "NilBohr.localized_vertical_multiplier",
+        "file": "NilBohr/LiteratureAssembly.lean"
+      }
+    ]
+  },
+  {
+    "id": "GREEN_TAO_RELATIVE_DENSITY",
+    "status": "derived_from_recorded_inputs",
+    "scope": "The fixed-window application uses the checked eventual-positive-relative-density interface. It follows from the Teräväinen–Wang hypothesis and the elementary short progression cases.",
+    "declared_as_Lean_axiom": false,
+    "lean_interfaces": [
+      {
+        "declaration": "NilBohr.GreenTaoRelativeDensity",
+        "file": "NilBohr/BohrPrimeProgressions.lean"
+      }
+    ],
+    "references": [
+      {
+        "title": "Green–Tao, The primes contain arbitrarily long arithmetic progressions",
+        "result": "Theorem 1.2, contextual comparison",
+        "url": "https://annals.math.princeton.edu/2008/167-2/p03"
+      }
+    ],
+    "independent_input_ids": [
+      "TERAVAINEN_WANG_SPARSE_GREEN_TAO"
+    ],
+    "checked_proofs": [
+      {
+        "declaration": "NilBohr.greenTaoRelativeDensity_of_sparse",
+        "file": "NilBohr/PrimeProgressionDensity.lean"
+      }
+    ]
+  },
+  {
+    "id": "CONDITIONAL_MAXIMAL_TRANSFER",
+    "status": "conditional_transfer_hypothesis",
+    "scope": "The introductory selected positive maximal norm is proved to be bounded by a constant times the unrestricted positive maximal norm under the indicated positive density limit. For a fixed family of inputs, its MemLp consequence also assumes finiteness of the unrestricted norm. This is a hypothesis in the transfer statement itself, independently of the cited theorem premises used by the main conclusions.",
+    "declared_as_Lean_axiom": false,
+    "lean_interfaces": [],
+    "checked_proofs": [
+      {
+        "declaration": "NilBohr.eLpNorm_selectedPrimeMaximal_le",
+        "file": "NilBohr/RestrictedMaximalEstimate.lean"
+      },
+      {
+        "declaration": "NilBohr.memLp_selectedErgodicPrimeMaximal",
+        "file": "NilBohr/RestrictedMaximalEstimate.lean"
+      }
+    ]
+  }
+]

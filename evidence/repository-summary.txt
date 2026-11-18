@@ -1,0 +1,16 @@
+Repository package for the latest supplied manuscript
+Reference layout: HamedMousaviMath/lean4-paper-On-Distribution-of-Prime-Squares-formalization, commit 29a84c0da99c77cc7bad4823a465804db1ab83b6
+Production Lean sources and version files are byte-identical to the manuscript-review archive.
+That archive's clean project build compiled 156 modules with Lean 4.19.0 and Mathlib c44e0c8ee63ca166450922a373c7409c5d26b00b.
+The archived audit checked 975 public theorem declarations and a separate aggregate audit checked 3554 safe declarations.
+The only axiom dependencies were propext, Classical.choice and Quot.sound.
+The repository release reuses that clean-build evidence and dependency artifacts.
+lake env lean scripts/CheckHeadlines.lean: 14 signatures and axiom dependencies checked.
+lake env lean scripts/CheckCatalogues.lean: 79 distinct names checked.
+lake env lean scripts/CheckBlueprint.lean: 292 names checked, output identical to the audited snapshot.
+Current manuscript: 38 pages. Corrected manuscript: 39 pages.
+All 87 active LaTeX labels and their numbers agree with the initially supplied manuscript.
+Compact blueprint: 19 pages, dependency graph 54 nodes and 81 edges, acyclic.
+Expository blueprint: 37 pages, dependency graph 62 nodes and 98 edges, acyclic.
+Both generated HTML documents have their local assets.
+actionlint 1.7.10: passed. Hosted GitHub Actions execution has not been run.

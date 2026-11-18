@@ -1,0 +1,7 @@
+import NilBohr
+
+#print axioms NilBohr.coeff_zero_rescalePolynomial
+#print axioms NilBohr.card_positiveInterval
+#print axioms NilBohr.phase_zero
+#print axioms NilBohr.norm_phase
+#print axioms NilBohr.phaseExponential_zero

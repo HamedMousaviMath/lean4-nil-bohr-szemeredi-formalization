@@ -1,0 +1,1342 @@
+NilBohr.AdmissibleBeta.liouville {β : ℝ} (hβ : NilBohr.AdmissibleBeta β) : Liouville β
+NilBohr.BanksRealZeroBound : Prop
+NilBohr.BernsteinCircleLipschitzFourier : Prop
+NilBohr.DensityIncrementFor {ℓ : ℕ} (P : Fin (ℓ + 1) → Polynomial ℤ) (selector : ℕ → Prop) : Prop
+NilBohr.FundamentalSieveLemma : Prop
+NilBohr.HasCoefficients.rescale {C : ℝ} {q : ℕ} {P : Polynomial ℤ} (hP : NilBohr.HasCoefficients C 1 P) (hq : 0 < q) :
+  NilBohr.HasCoefficients C q (NilBohr.rescalePolynomial (↑q) P)
+NilBohr.HeisenbergGroup.character_eq_one_centralAxis (η : NilBohr.HeisenbergGroup →* Multiplicative NilBohr.Circle)
+  (t : ℝ) : η { x := 0, y := 0, z := t } = 1
+NilBohr.HeisenbergGroup.dilatedProgression_isFilteredPolynomial (α β : ℝ) (s : ℕ) (hs : s ≠ 0) (a v : ℤ) :
+  NilBohr.IsFilteredPolynomial NilBohr.HeisenbergGroup.lowerCentral fun n =>
+    NilBohr.HeisenbergGroup.coordinates.symm (NilBohr.dilatedHeisenbergOrbit α β s (a + v * n))
+NilBohr.HeisenbergGroup.existsUnique_cube_representative (g : NilBohr.HeisenbergGroup) :
+  ∃! h, (∃ γ ∈ NilBohr.HeisenbergGroup.lattice, h = g * γ) ∧ h.x ∈ Set.Ico 0 1 ∧ h.y ∈ Set.Ico 0 1 ∧ h.z ∈ Set.Ico 0 1
+NilBohr.HeisenbergGroup.mem_lattice_iff_integer_malcevCoordinates (g : NilBohr.HeisenbergGroup) :
+  g ∈ NilBohr.HeisenbergGroup.lattice ↔ ∃ u v w, NilBohr.HeisenbergGroup.malcevCoordinates g = (↑u, ↑v, ↑w)
+NilBohr.HeisenbergRecurrence : Prop
+NilBohr.KMTTAmbientPrimeModel (c₀ : ℝ) : Prop
+NilBohr.KMTTLocalInverse : Prop
+NilBohr.KMTTLocalWeakRegularity : Prop
+NilBohr.KMTTNormalizedDilation : Prop
+NilBohr.KMTTRelativeCramer (c₀ : ℝ) : Prop
+NilBohr.KMTTShiftedPrimeDensityBound : Prop
+NilBohr.KMTTWeightedGowers : Prop
+NilBohr.LocalGeneralizedVonNeumann : Prop
+NilBohr.MertensIntervalProductBound : Prop
+NilBohr.MertensIntervalProductBound.eulerProduct_le_log (hM : NilBohr.MertensIntervalProductBound) :
+  ∃ C, 0 < C ∧ ∀ (Q : ℕ), 2 ≤ Q → ∏ p ∈ NilBohr.primesThrough Q, (1 - (↑p)⁻¹)⁻¹ ≤ C * Real.log ↑Q
+NilBohr.MirekWanWrightPointwise.{u_2} (X : Type u_2) [MeasurableSpace X] : Prop
+NilBohr.NormalizedGowersLaws (S : ℕ) : Prop
+NilBohr.OpenArc.exists_lipschitz_sandwich (J : NilBohr.OpenArc) {ε : ℝ} (hε : 0 < ε) :
+  ∃ lower upper K,
+    LipschitzWith K lower ∧
+      LipschitzWith K upper ∧
+        (∀ (x : NilBohr.Circle),
+            0 ≤ lower x ∧ lower x ≤ J.circleIndicator x ∧ J.circleIndicator x ≤ upper x ∧ upper x ≤ 1) ∧
+          |∫ (x : AddCircle 1), lower x ∂AddCircle.haarAddCircle - J.length| < ε ∧
+            ∫ (x : AddCircle 1), upper x - lower x ∂AddCircle.haarAddCircle < ε
+NilBohr.PrimeLocalPhase (d : ℕ) (V : ℤ → ℝ) (F : NilBohr.Circle → ℂ) : Prop
+NilBohr.PrimeNumberTheorem : Prop
+NilBohr.PrimePhaseLiteratureInputs (c₀ : ℝ) : Prop
+NilBohr.PrimePointwiseFor.{u_1} (X : Type u_1) [MeasurableSpace X] (phaseFamily : ℝ → ℝ → ℤ → ℝ) : Prop
+NilBohr.ProductHeisenbergObstruction : Prop
+NilBohr.RelativeSelectorComparison (c₀ C : ℝ) (d ℓ : ℕ) (V : ℤ → ℝ) (F : NilBohr.Circle → ℂ) : Prop
+NilBohr.ScalarHeisenbergObstruction : Prop
+NilBohr.SelectorLiteratureInputs (c₀ : ℝ) : Prop
+NilBohr.TeravainenFixedFamily : Prop
+NilBohr.VinogradovPrimeEquidistribution : Prop
+NilBohr.abs_card_dvd_affine_sub_le_one (offset step divisor H : ℕ) (hDivisor : 0 < divisor)
+  (hCoprime : step.Coprime divisor) : |↑{t ∈ Finset.range H | divisor ∣ offset + step * t}.card - ↑H / ↑divisor| ≤ 1
+NilBohr.abs_heisenbergPhase_sub_separatingQuadratic_le (α β : ℝ) (a r : ℤ) (hr : r ≠ 0) {q M : ℕ} (hq : 0 < q) {y : ℤ}
+  (hy : y ∈ NilBohr.positiveInterval M) (hdiv : r ∣ y) {E : ℝ} (hE : 0 ≤ β - ↑a / ↑r) (hE' : β - ↑a / ↑r ≤ E)
+  (hsmall : E * (↑q * ↑M) < 1) :
+  |NilBohr.heisenbergPhase α β (↑q * y) - Polynomial.eval (↑y) (NilBohr.separatingQuadratic α a r q)| ≤
+    |α| * E * (↑q * ↑M) ^ 2 / 2
+NilBohr.ae_bracket_fourier_cancellation.{u_1} {X : Type u_1} [MeasurableSpace X] {μ : MeasureTheory.Measure X}
+  [MeasureTheory.IsProbabilityMeasure μ] (hV : NilBohr.VinogradovPrimeEquidistribution)
+  (T : NilBohr.ProbabilitySystem X μ) {ℓ : ℕ} (P : Fin ℓ → Polynomial ℤ) (hP : NilBohr.ErgodicPolynomialFamily P)
+  (f : Fin ℓ → X → ℂ) (hf : ∀ (i : Fin ℓ), MeasureTheory.MemLp (f i) ⊤ μ) (α β : ℝ) (hβ : NilBohr.AdmissibleBeta β)
+  (hs :
+    ∀ (S : NilBohr.ProbabilitySystem (X × NilBohr.Circle × NilBohr.Circle) (μ.prod NilBohr.twoTorusHaar)) {d : ℕ}
+      (Q : Fin d → Polynomial ℤ),
+      NilBohr.ErgodicPolynomialFamily Q → NilBohr.SmoothPrimeLimit S Q (NilBohr.heisenbergPhase α β))
+  (h : ℤ) (hh : h ≠ 0) :
+  ∀ᵐ (x : X) ∂μ,
+    Filter.Tendsto
+      (NilBohr.primeAverage fun p =>
+        (fourier h) ↑(NilBohr.bracketPhase α β (↑p - 1)) * NilBohr.ergodicSequence T P f (↑p - 1) x)
+      Filter.atTop (nhds 0)
+NilBohr.ae_centered_selector_of_smooth_limits.{u_1} {X : Type u_1} [MeasurableSpace X] {μ : MeasureTheory.Measure X}
+  [MeasureTheory.IsProbabilityMeasure μ] (T : NilBohr.ProbabilitySystem X μ) {ℓ : ℕ} (P : Fin ℓ → Polynomial ℤ)
+  (f : Fin ℓ → X → ℂ) (hf : ∀ (i : Fin ℓ), MeasureTheory.MemLp (f i) ⊤ μ) (V : ℤ → ℝ) (J : NilBohr.OpenArc)
+  (h : NilBohr.SmoothPrimeLimit T P V) :
+  ∀ᵐ (x : X) ∂μ,
+    let a := fun p => NilBohr.ergodicSequence T P f (↑p - 1) x;
+    Filter.Tendsto (fun N => NilBohr.selectedOverPrimes V J a N - ↑J.length * NilBohr.primeAverage a N) Filter.atTop
+      (nhds 0)
+NilBohr.ae_mangoldtAverage_tendsto_zero_of_log_decay.{u_1} {X : Type u_1} [MeasurableSpace X]
+  {μ : MeasureTheory.Measure X} [MeasureTheory.IsFiniteMeasure μ] (T : NilBohr.ProbabilitySystem X μ) {ℓ : ℕ}
+  (P : Fin ℓ → Polynomial ℤ) (f : Fin ℓ → X → ℂ) (hf : ∀ (i : Fin ℓ), MeasureTheory.MemLp (f i) ⊤ μ) (w : ℤ → ℂ)
+  {W C : ℝ} (hW : 0 ≤ W) (hw : ∀ (n : ℤ), ‖w n‖ ≤ W) (hC : 0 ≤ C)
+  (h_L1 : ∀ H ≥ 2, ∫ (x : X), ‖NilBohr.mangoldtAverage T P f w H x‖ ∂μ ≤ C / Real.log ↑H ^ 6) :
+  ∀ᵐ (x : X) ∂μ, Filter.Tendsto (fun H => NilBohr.mangoldtAverage T P f w H x) Filter.atTop (nhds 0)
+NilBohr.ae_primeAverage_tendsto_zero_of_mangoldt_log_decay.{u_1} {X : Type u_1} [MeasurableSpace X]
+  {μ : MeasureTheory.Measure X} [MeasureTheory.IsFiniteMeasure μ] (hPNT : NilBohr.PrimeNumberTheorem)
+  (T : NilBohr.ProbabilitySystem X μ) {ℓ : ℕ} (P : Fin ℓ → Polynomial ℤ) (f : Fin ℓ → X → ℂ)
+  (hf : ∀ (i : Fin ℓ), MeasureTheory.MemLp (f i) ⊤ μ) (w : ℤ → ℂ) {W C : ℝ} (hW : 0 ≤ W) (hw : ∀ (n : ℤ), ‖w n‖ ≤ W)
+  (hC : 0 ≤ C) (h_L1 : ∀ H ≥ 2, ∫ (x : X), ‖NilBohr.mangoldtAverage T P f w H x‖ ∂μ ≤ C / Real.log ↑H ^ 6) :
+  ∀ᵐ (x : X) ∂μ,
+    Filter.Tendsto (NilBohr.primeAverage fun p => w (↑p - 1) * NilBohr.ergodicSequence T P f (↑p - 1) x) Filter.atTop
+      (nhds 0)
+NilBohr.ae_quadratic_twisted_interval_of_smooth.{u_1} {X : Type u_1} [MeasurableSpace X] {μ : MeasureTheory.Measure X}
+  [MeasureTheory.IsProbabilityMeasure μ] (T : NilBohr.ProbabilitySystem X μ) {ℓ : ℕ} (P : Fin ℓ → Polynomial ℤ)
+  (hP : NilBohr.ErgodicPolynomialFamily P) (f : Fin ℓ → X → ℂ) (hf : ∀ (i : Fin ℓ), MeasureTheory.MemLp (f i) ⊤ μ)
+  (V : ℤ → ℝ) (J : NilBohr.OpenArc) (ψ : Polynomial ℝ) (hψ : ψ.natDegree ≤ 2)
+  (h_smooth :
+    ∀ (S : NilBohr.ProbabilitySystem (X × NilBohr.Circle × NilBohr.Circle) (μ.prod NilBohr.twoTorusHaar)) {d : ℕ}
+      (Q : Fin d → Polynomial ℤ), NilBohr.ErgodicPolynomialFamily Q → NilBohr.SmoothPrimeLimit S Q V) :
+  ∀ᵐ (x : X) ∂μ,
+    Filter.Tendsto
+      (NilBohr.primeAverage fun p =>
+        (↑(J.indicator (V (↑p - 1))) - ↑J.length) * NilBohr.phase (Polynomial.eval (↑p - 1) ψ) *
+          NilBohr.ergodicSequence T P f (↑p - 1) x)
+      Filter.atTop (nhds 0)
+NilBohr.ae_tendsto_primeAverage_fourier_quadratic_twist.{u_1} {X : Type u_1} [MeasurableSpace X]
+  {μ : MeasureTheory.Measure X} [MeasureTheory.IsProbabilityMeasure μ] (T : NilBohr.ProbabilitySystem X μ) {ℓ : ℕ}
+  (P : Fin ℓ → Polynomial ℤ) (hP : NilBohr.ErgodicPolynomialFamily P) (f : Fin ℓ → X → ℂ)
+  (hf : ∀ (i : Fin ℓ), MeasureTheory.MemLp (f i) ⊤ μ) (V : ℤ → ℝ) (h : ℤ) (hh : h ≠ 0) (ψ : Polynomial ℝ)
+  (hψ : ψ.natDegree ≤ 2)
+  (h_smooth :
+    ∀ (S : NilBohr.ProbabilitySystem (X × NilBohr.Circle × NilBohr.Circle) (μ.prod NilBohr.twoTorusHaar)) {d : ℕ}
+      (Q : Fin d → Polynomial ℤ), NilBohr.ErgodicPolynomialFamily Q → NilBohr.SmoothPrimeLimit S Q V) :
+  ∀ᵐ (x : X) ∂μ,
+    Filter.Tendsto
+      (NilBohr.primeAverage fun p =>
+        NilBohr.phase (↑h * V (↑p - 1) + Polynomial.eval (↑p - 1) ψ) * NilBohr.ergodicSequence T P f (↑p - 1) x)
+      Filter.atTop (nhds 0)
+NilBohr.ae_unrestrictedPrimeAverage_tendsto.{u_1} {X : Type u_1} [MeasurableSpace X] {μ : MeasureTheory.Measure X}
+  [MeasureTheory.IsProbabilityMeasure μ] (hPNT : NilBohr.PrimeNumberTheorem) (hMWW : NilBohr.MirekWanWrightPointwise X)
+  (T : NilBohr.ProbabilitySystem X μ) {ℓ : ℕ} (P : Fin ℓ → Polynomial ℤ) (hP : NilBohr.ErgodicPolynomialFamily P)
+  (f : Fin ℓ → X → ℂ) (hf : ∀ (i : Fin ℓ), MeasureTheory.MemLp (f i) ⊤ μ) :
+  ∀ᵐ (x : X) ∂μ,
+    ∃ L, Filter.Tendsto (NilBohr.primeAverage fun p => NilBohr.ergodicSequence T P f (↑p - 1) x) Filter.atTop (nhds L)
+NilBohr.bohr_recurrence {ℓ r : ℕ} (P : Fin (ℓ + 1) → Polynomial ℤ) (hP : NilBohr.FixedPolynomialFamily P)
+  (hKMTT : NilBohr.KMTTShiftedPrimeDensityBound) (a : ℤ) (ha : a ≠ 0) (hlinear : P 1 = Polynomial.C a * Polynomial.X)
+  (ω : Fin r → ℝ) {ε : ℝ} (hε : 0 < ε) : NilBohr.RecurrenceConclusion P fun p => ∀ (i : Fin r), ‖↑(ω i * ↑(↑p - 1))‖ < ε
+NilBohr.bracketPhase_add_heisenbergPhase (α β : ℝ) (n : ℤ) (hβ₀ : 0 ≤ β) (hβ₁ : β ≤ 1) :
+  NilBohr.bracketPhase α β n + NilBohr.heisenbergPhase α β n =
+    α * β / 2 * (↑n ^ 2 + ↑n) - α * Int.fract (β * ↑n) +
+      α * (↑n + 1) * ↑(NilBohr.horizontalCarry β (Int.fract (β * ↑n)))
+NilBohr.bracketRecurrence_of_centered_phase {c₀ : ℝ} (hc₀ : 0 < c₀) (hc₀' : c₀ < 1 / 11)
+  (hExt : NilBohr.SelectorLiteratureInputs c₀) (hWeak : NilBohr.KMTTLocalWeakRegularity)
+  (hPhase : NilBohr.UniformCenteredHeisenbergPhase) : NilBohr.BracketRecurrence
+NilBohr.bracketRecurrence_of_obstructions {c₀ : ℝ} (hc₀ : 0 < c₀) (hc₀' : c₀ < 1 / 11)
+  (hExt : NilBohr.SelectorLiteratureInputs c₀) (hWeak : NilBohr.KMTTLocalWeakRegularity)
+  (hGT : NilBohr.ProductHeisenbergObstruction) : NilBohr.BracketRecurrence
+NilBohr.bracket_pointwise_of_literature.{u_1} (X : Type u_1) [MeasurableSpace X] {c₀ : ℝ} (hc₀ : 0 < c₀)
+  (hc₁ : c₀ < 1 / 11) (hLit : NilBohr.PrimePhaseLiteratureInputs c₀) (hV : NilBohr.VinogradovPrimeEquidistribution)
+  (hPNT : NilBohr.PrimeNumberTheorem) (hMWW : NilBohr.MirekWanWrightPointwise X)
+  (hTer : NilBohr.TeravainenFixedFamily) : NilBohr.PrimePointwiseFor X NilBohr.bracketPhase
+NilBohr.bracket_pointwise_of_primeLocalPhase.{u_1} (X : Type u_1) [MeasurableSpace X]
+  (hV : NilBohr.VinogradovPrimeEquidistribution) (hPNT : NilBohr.PrimeNumberTheorem)
+  (hMWW : NilBohr.MirekWanWrightPointwise X) (hTer : NilBohr.TeravainenFixedFamily)
+  (hp :
+    ∀ (α β : ℝ),
+      NilBohr.BadlyApproximable α →
+        NilBohr.AdmissibleBeta β →
+          ∀ (d : ℕ),
+            0 < d →
+              ∀ (F : NilBohr.Circle → ℂ),
+                (∃ K, LipschitzWith K F) → NilBohr.PrimeLocalPhase d (NilBohr.heisenbergPhase α β) F) :
+  NilBohr.PrimePointwiseFor X NilBohr.bracketPhase
+NilBohr.bracket_recurrence_of_heisenberg_recurrence (hrec : NilBohr.HeisenbergRecurrence) : NilBohr.BracketRecurrence
+NilBohr.card_coincidentShiftParameters_le {k d : ℕ} (P : Fin k → Polynomial ℤ) (hP : Function.Injective P)
+  (hdeg : ∀ (i : Fin k), (P i).natDegree ≤ d) (Y : Finset ℤ) : (NilBohr.coincidentShiftParameters P Y).card ≤ k ^ 2 * d
+NilBohr.centeredHeisenbergPhaseEstimate_of_obstructions (hGT : NilBohr.ProductHeisenbergObstruction)
+  (hScalar : NilBohr.ScalarHeisenbergObstruction) {α β : ℝ} (hα : NilBohr.BadlyApproximable α) {r : ℕ → ℕ}
+  (hr : NilBohr.AdmissibleBetaDenominators β r) (d : ℕ) (F : NilBohr.Circle → ℂ) {κ : NNReal} (hF : LipschitzWith κ F) :
+  NilBohr.CenteredHeisenbergPhaseEstimate d (NilBohr.heisenbergPhase α β) F r
+NilBohr.centered_primeAverage_of_sandwich (a : ℕ → ℂ) (u : ℕ → ℝ) (m B : ℝ) (hB : 0 ≤ B) (ha : ∀ (p : ℕ), ‖a p‖ ≤ B)
+  (happrox :
+    ∀ (ε : ℝ),
+      0 < ε →
+        ∃ l gap mₗ m₉,
+          (∀ (p : ℕ), l p ≤ u p) ∧
+            (∀ (p : ℕ), u p ≤ l p + gap p) ∧
+              |mₗ - m| ≤ ε ∧
+                m₉ ≤ ε ∧
+                  Filter.Tendsto
+                      (fun N => NilBohr.primeAverage (fun p => ↑(l p) * a p) N - ↑mₗ * NilBohr.primeAverage a N)
+                      Filter.atTop (nhds 0) ∧
+                    Filter.Tendsto (fun N => (∑ p ∈ NilBohr.primesThrough N, gap p) / ↑(NilBohr.primesThrough N).card)
+                      Filter.atTop (nhds m₉)) :
+  Filter.Tendsto (fun N => NilBohr.primeAverage (fun p => ↑(u p) * a p) N - ↑m * NilBohr.primeAverage a N) Filter.atTop
+    (nhds 0)
+NilBohr.choose_modEq_of_modEq_factorial_mul {s d i t u : ℕ} (hi : i ≤ d) (h : t ≡ u [MOD s * d.factorial]) :
+  t.choose i ≡ u.choose i [MOD s]
+NilBohr.countingForm_separatingFamily_dilate {N M q : ℕ} (hN : 0 < N) (hM : 0 < M) (hq : 0 < q) (I : Finset ℤ)
+  (v : ℤ → ℂ) (f : Fin 3 → ℤ → ℂ) :
+  NilBohr.countingForm N M I (NilBohr.separatingFamily q) v f =
+    ↑q ^ 2 *
+      NilBohr.countingForm (q * N) (q * M) (Finset.image (fun x => ↑q * x) I) (NilBohr.separatingFamily 1)
+        (NilBohr.dilatedWeight q v) fun i => NilBohr.dilatedWeight q (f i)
+NilBohr.countingForm_separatingFamily_repeat {N M q : ℕ} (hN : 0 < N) (hM : 0 < M) (hq : 0 < q) (I : Finset ℤ)
+  (v : ℤ → ℂ) (f : Fin 3 → ℤ → ℂ) :
+  NilBohr.countingForm N M I (NilBohr.separatingFamily q) v f =
+    ↑q *
+      NilBohr.countingForm (q * N) (q * M) (NilBohr.repeatedSpatialWindow q I) (NilBohr.separatingFamily 1)
+        (NilBohr.dilatedWeight q v) fun i x => f i (x / ↑q)
+NilBohr.countingForm_sq_le_spatial_energy {k M N : ℕ} (hM : 0 < M) (X : Finset ℤ) (P : Fin k → Polynomial ℤ)
+  (f : Fin k → ℤ → ℂ) (v : ℤ → ℂ) (hv : NilBohr.OneBoundedOn (NilBohr.positiveInterval M) v) :
+  ‖NilBohr.countingForm N M X P v f‖ ^ 2 ≤
+    (∑ y ∈ NilBohr.positiveInterval M, ‖NilBohr.spatialSlice X P f y‖ ^ 2) / (↑N ^ 2 * ↑M)
+NilBohr.countingForm_twoInput_le (N M d : ℕ) (X : Finset ℤ) (P : Fin 2 → Polynomial ℤ) (v : ℤ → ℂ) (f : Fin 2 → ℤ → ℂ)
+  (hN : 0 < N) (hM : 0 < M) (hP : P 0 = 0) (hDegree : (P 1).natDegree ≤ d)
+  (hv : NilBohr.OneBoundedOn (NilBohr.positiveInterval M) v) (hf : ∀ (i : Fin 2), NilBohr.OneBoundedOn X (f i))
+  (hFs : ∀ (i : Fin 2), NilBohr.SupportedOn X (f i)) :
+  ‖NilBohr.countingForm N M X P v f‖ ≤ ↑X.card / ↑N * NilBohr.phaseNorm (d + 1) (NilBohr.positiveInterval M) v
+NilBohr.cramerSieve_correlation_bound (W offset step H D r : ℕ) (divisors : Finset ℕ) (hW : 0 < W) (hH : 0 < H)
+  (hr : 0 < r) (hStep : step.Coprime W) (hDivisors : ∀ l ∈ divisors, l ∣ W ∧ l ≤ D) (lower upper : ℕ → ℝ) (test : ℕ → ℂ)
+  (ε gap : ℝ) (hε : 0 ≤ ε) (hLower : ∀ l ∈ divisors, |lower l| ≤ 1) (hUpper : ∀ l ∈ divisors, |upper l| ≤ 1)
+  (hBracket :
+    ∀ t ∈ Finset.range H,
+      NilBohr.sieveDivisorSum divisors (fun l t => l ∣ offset + step * t) lower t ≤
+          NilBohr.coprimeSieveIndicator W (offset + step * t) ∧
+        NilBohr.coprimeSieveIndicator W (offset + step * t) ≤
+          NilBohr.sieveDivisorSum divisors (fun l t => l ∣ offset + step * t) upper t)
+  (hTest : ∀ t ∈ Finset.range H, ‖test t‖ ≤ 1) (hGap : ∑ l ∈ divisors, (upper l - lower l) / ↑l ≤ gap)
+  (hGood :
+    ∀ l ∈ divisors,
+      ¬r ∣ l →
+        ‖∑ t ∈ {t ∈ Finset.range H | l ∣ offset + step * t}, test t‖ ≤
+          ε * ↑{t ∈ Finset.range H | l ∣ offset + step * t}.card) :
+  ‖(∑ t ∈ Finset.range H, ↑(NilBohr.coprimeSieveIndicator W (offset + step * t)) * test t) / ↑H‖ ≤
+    ε * (1 + Real.log ↑(max D 1)) + (1 + Real.log ↑(max D 1)) / ↑r + gap / 2 + (2 + ε) * (↑divisors.card / ↑H)
+NilBohr.cramerWeight_eq_sieveIndicator {Q q : ℕ} (hQ : 2 ≤ Q) (m : ℤ) (hmq : m.toNat.Coprime q) :
+  NilBohr.cramerWeight Q m =
+    ↑(∏ p ∈ NilBohr.primesThrough Q, (1 - (↑p)⁻¹)⁻¹) *
+      ↑(NilBohr.coprimeSieveIndicator (NilBohr.cramerSieveModulus Q q) m.toNat)
+NilBohr.cubeDifference_heisenberg_of_short (α β lo hi : ℝ) (hs : 2 * (hi - lo) < 1) (steps : List ℤ) (n : ℤ)
+  (horder : 3 ≤ steps.length) (h : NilBohr.cubeEvery steps (fun t => Int.fract (β * ↑t) ∈ Set.Icc lo hi) n) :
+  NilBohr.cubeDifference steps (NilBohr.heisenbergPhase α β) n = 0
+NilBohr.densityIncrementFor_of_relativeSelectorComparison (hreg : NilBohr.KMTTLocalWeakRegularity) {ℓ : ℕ}
+  (P : Fin (ℓ + 1) → Polynomial ℤ) (hP : NilBohr.FixedPolynomialFamily P) {c₀ C : ℝ} (hc₀ : 0 < c₀) (hC : 1 ≤ C)
+  (hcoeff : ∀ (i : Fin (ℓ + 1)), i ≠ 0 → NilBohr.HasCoefficients C 1 (P i)) (V : ℤ → ℝ) (J : NilBohr.OpenArc)
+  (F : NilBohr.Circle → ℝ) (hsupp : tsupport F ⊆ J.carrier) (hF : ∀ (x : NilBohr.Circle), 0 ≤ F x ∧ F x ≤ 1)
+  (hμ : 0 < ∫ (x : AddCircle 1), F x ∂AddCircle.haarAddCircle)
+  (hcmp : NilBohr.RelativeSelectorComparison c₀ C (P (Fin.last ℓ)).natDegree ℓ V fun x => ↑(F x)) :
+  NilBohr.DensityIncrementFor P fun p => J.Contains (V (↑p - 1))
+NilBohr.density_increment_atom_from_count_inputs {k N M q B : ℕ} (hN : 0 < N) (P : Fin k → Polynomial ℤ) (A : Finset ℤ)
+  (H : Fin k → ℤ → ℝ) {δ η μ v L : ℝ} (hδ : 0 ≤ δ) (hη : 0 ≤ η) (hμ : 0 < μ) (hH₀ : ∀ (i : Fin k) (z : ℤ), 0 ≤ H i z)
+  (hHsupp : ∀ (i : Fin k), ∀ z ∉ NilBohr.positiveInterval N, H i z = 0)
+  (hmass : ∀ (i : Fin k), ∑ z ∈ NilBohr.positiveInterval N, H i z = ↑N * δ)
+  (hatom :
+    ∀ (i : Fin k),
+      ∀ z ∈ NilBohr.positiveInterval N,
+        ∃ a N',
+          0 < N' ∧
+            L ≤ ↑N' ∧
+              Finset.image (fun x => a + ↑(q ^ B) * x) (NilBohr.positiveInterval N') ⊆ NilBohr.positiveInterval N ∧
+                H i z = NilBohr.setDensity (NilBohr.progressionPullback A a (q ^ B) N') N')
+  (weight : ℤ → ℂ)
+  (hweighted :
+    ‖NilBohr.countingForm N M (NilBohr.positiveInterval N) P weight fun x z => if z ∈ A then 1 else 0‖ ≤ μ * v / 4)
+  (hcompare :
+    ‖(NilBohr.countingForm N M (NilBohr.positiveInterval N) P weight fun x z => if z ∈ A then 1 else 0) -
+          ↑μ * NilBohr.countingForm N M (NilBohr.positiveInterval N) P (fun x => 1) fun x z => if z ∈ A then 1 else 0‖ ≤
+      μ * v / 4)
+  (hreg :
+    ‖(NilBohr.countingForm N M (NilBohr.positiveInterval N) P (fun x => 1) fun i z => ↑(H i z)) -
+          NilBohr.countingForm N M (NilBohr.positiveInterval N) P (fun x => 1) fun x z => if z ∈ A then 1 else 0‖ ≤
+      v / 8)
+  (hmodel :
+    v ≤ ‖NilBohr.countingForm N M (NilBohr.positiveInterval N) P (fun x => 1) fun x => NilBohr.densityModel N δ‖)
+  (hgain : ↑k * (2 * η * δ) * ((1 + η) * δ) ^ (k - 1) < 3 * v / 8) :
+  ∃ a N',
+    L ≤ ↑N' ∧
+      Finset.image (fun x => a + ↑(q ^ B) * x) (NilBohr.positiveInterval N') ⊆ NilBohr.positiveInterval N ∧
+        (1 + η) * δ * ↑N' ≤ ↑(NilBohr.progressionPullback A a (q ^ B) N').card
+NilBohr.density_iteration_contradiction.{u_1} {State : Type u_1} (valid : State → Prop)
+  (density logModulus logLength : State → ℝ) (s₀ : State) {η a b loss : ℝ} (hη : 0 < η) (ha : 0 ≤ a) (ha₁ : a ≤ 1)
+  (hb : 0 ≤ b) (hloss : 0 ≤ loss) (h₀ : valid s₀) (hδ : 0 < density s₀)
+  (hbound : ∀ (s : State), valid s → density s ≤ 1)
+  (step :
+    ∀ (i : ℕ) (s : State),
+      i < NilBohr.densityIterationSteps η (density s₀) →
+        valid s →
+          (1 + η) ^ i * density s₀ ≤ density s →
+            logModulus s ≤ b ^ i * logModulus s₀ →
+              a ^ i * logLength s₀ - ↑i * loss ≤ logLength s →
+                ∃ t,
+                  valid t ∧
+                    (1 + η) * density s ≤ density t ∧
+                      logModulus t ≤ b * logModulus s ∧ a * logLength s - loss ≤ logLength t) :
+  False
+NilBohr.density_model_count_lower {k N M : ℕ} (hN : 0 < N) (hM : 0 < M) (P : Fin k → Polynomial ℤ) (Y : Finset ℤ)
+  (hY : Y ⊆ NilBohr.positiveInterval M) (hshift : ∀ y ∈ Y, ∀ (i : Fin k), |Polynomial.eval y (P i)| ≤ ↑(N / 4)) {δ : ℝ}
+  (hδ : 0 ≤ δ) :
+  ↑Y.card / (2 * ↑M) * δ ^ k ≤
+    ‖NilBohr.countingForm N M (NilBohr.positiveInterval N) P (fun x => 1) fun x => NilBohr.densityModel N δ‖
+NilBohr.ergodicSequence_circleRotationExtension.{u_1} {X : Type u_1} [MeasurableSpace X] {μ : MeasureTheory.Measure X}
+  [MeasureTheory.IsFiniteMeasure μ] (T : NilBohr.ProbabilitySystem X μ) {ℓ : ℕ} (Q : Fin ℓ → Polynomial ℤ)
+  (f : Fin ℓ → X → ℂ) (i₁ i₂ : Fin ℓ) (ω₁ ω₂ : ℝ) (n : ℤ) (x : X) (t : NilBohr.Circle × NilBohr.Circle) :
+  NilBohr.ergodicSequence (NilBohr.circleRotationExtension T ω₁ ω₂) Q (NilBohr.rotationInputs f i₁ i₂) n (x, t) =
+    NilBohr.circleCharacter t.1 * NilBohr.circleCharacter t.2 *
+      (NilBohr.phase (ω₁ * ↑(Polynomial.eval n (Q i₁)) + ω₂ * ↑(Polynomial.eval n (Q i₂))) *
+        NilBohr.ergodicSequence T Q f n x)
+NilBohr.eval_rescalePolynomial (q : ℤ) (P : Polynomial ℤ) (hP : P.coeff 0 = 0) (y : ℤ) :
+  q * Polynomial.eval y (NilBohr.rescalePolynomial q P) = Polynomial.eval (q * y) P
+NilBohr.eval_rescalePolynomial_mul (q r : ℤ) (P : Polynomial ℤ) (hP : P.coeff 0 = 0) (hq : q ≠ 0) (y : ℤ) :
+  r * Polynomial.eval y (NilBohr.rescalePolynomial (q * r) P) = Polynomial.eval (r * y) (NilBohr.rescalePolynomial q P)
+NilBohr.eventually_cramerSieve_coefficients (hM : NilBohr.MertensIntervalProductBound)
+  (hS : NilBohr.FundamentalSieveLemma) {c₀ A : ℝ} (hc₀ : 0 < c₀) (hc₁ : c₀ < 1) (hA : 0 < A) :
+  ∀ᶠ (X : ℕ) in Filter.atTop,
+    ∀ (q : ℕ),
+      ∃ lower upper,
+        NilBohr.SieveBracketingWeights (NilBohr.cramerSieveModulus (NilBohr.cramerCutoff c₀ X) q) ⌊↑X ^ (1 / 20000)⌋₊
+          (Real.log ↑X ^ (-A)) lower upper
+NilBohr.eventually_siftedPhase_error {A : ℝ} (hA : 0 < A) :
+  ∀ᶠ (X : ℕ) in Filter.atTop,
+    1 ≤ Real.log ↑X ∧
+      ∀ (D H r S : ℕ),
+        ↑D ≤ ↑X ^ (1 / 20000) →
+          ↑X ^ (1 / 2) ≤ ↑H →
+            Real.log ↑X ^ (A + 2) ≤ ↑r →
+              S ≤ D →
+                let t := Real.log ↑X;
+                let ε := 2 * t ^ (-(A + 2));
+                ε * (1 + Real.log ↑(max D 1)) + (1 + Real.log ↑(max D 1)) / ↑r + t ^ (-(A + 1)) / 2 +
+                    (2 + ε) * (↑S / ↑H) ≤
+                  11 * t ^ (-(A + 1))
+NilBohr.exclude_exceptional_model_zero (hBanks : NilBohr.BanksRealZeroBound) {r Q : ℕ} [NeZero r] (hr : 3 ≤ r)
+  (hrQ : r ≤ Q) (χ : DirichletCharacter ℂ r) (hprim : χ.IsPrimitive) (hreal : ∀ (x : ZMod r), (χ x).im = 0) {β : ℝ}
+  (hβ : 0 < β) (hβ' : β < 1) (hzero : DirichletCharacter.LFunction χ ↑β = 0) : ¬(1 - β) * Real.log ↑Q ≤ 1 / 1000
+NilBohr.exists_admissibleBeta_between {u v : ℝ} (hu : 0 ≤ u) (huv : u < v) (hv : v ≤ 1) :
+  ∃ β, u < β ∧ β < v ∧ NilBohr.AdmissibleBeta β
+NilBohr.exists_densest_residue_progression {N q : ℕ} (hN : 0 < N) (hq : 0 < q) (A : Finset ℤ)
+  (hA : A ⊆ NilBohr.positiveInterval N) :
+  ∃ a L,
+    0 < L ∧
+      ↑N / ↑q - 1 < ↑L ∧
+        Finset.image (fun t => a + ↑q * t) (NilBohr.positiveInterval L) ⊆ NilBohr.positiveInterval N ∧
+          NilBohr.setDensity A N ≤ NilBohr.setDensity (NilBohr.progressionPullback A a q L) L
+NilBohr.exists_density_increase_of_count_discrepancy {k N M : ℕ} (hN : 0 < N) (P : Fin k → Polynomial ℤ)
+  (H : Fin k → ℤ → ℝ) {δ η : ℝ} (hδ : 0 ≤ δ) (hη : 0 ≤ η) (hH₀ : ∀ (i : Fin k) (z : ℤ), 0 ≤ H i z)
+  (hHsupp : ∀ (i : Fin k), ∀ z ∉ NilBohr.positiveInterval N, H i z = 0)
+  (hmass : ∀ (i : Fin k), ∑ z ∈ NilBohr.positiveInterval N, H i z = ↑N * δ)
+  (hdisc :
+    ↑k * (2 * η * δ) * ((1 + η) * δ) ^ (k - 1) <
+      ‖(NilBohr.countingForm N M (NilBohr.positiveInterval N) P (fun x => 1) fun i z => ↑(H i z)) -
+          NilBohr.countingForm N M (NilBohr.positiveInterval N) P (fun x => 1) fun x => NilBohr.densityModel N δ‖) :
+  ∃ i, ∃ z ∈ NilBohr.positiveInterval N, (1 + η) * δ < H i z
+NilBohr.exists_modEq_of_dvd_affine (offset step divisor : ℕ) (hDivisor : 0 < divisor)
+  (hCoprime : step.Coprime divisor) : ∃ residue, ∀ (t : ℕ), divisor ∣ offset + step * t ↔ t ≡ residue [MOD divisor]
+NilBohr.exists_polynomial_orbit_window {ℓ d : ℕ} (P : Fin ℓ → Polynomial ℤ)
+  (hdeg : ∀ (i : Fin ℓ), (P i).natDegree ≤ d) :
+  ∃ C,
+    1 ≤ C ∧
+      ∀ (H : ℕ),
+        0 < H →
+          NilBohr.positiveInterval (H ^ d) ⊆ NilBohr.spatialInterval C (H ^ d) ∧
+            ∀ m ∈ NilBohr.positiveInterval (H ^ d),
+              ∀ n ∈ NilBohr.positiveInterval H,
+                ∀ (i : Fin ℓ), m + Polynomial.eval n (P i) ∈ NilBohr.spatialInterval C (H ^ d)
+NilBohr.exists_quadratic_completion.{u_1} {X : Type u_1} [MeasurableSpace X] {μ : MeasureTheory.Measure X}
+  [MeasureTheory.IsFiniteMeasure μ] (T : NilBohr.ProbabilitySystem X μ) {ℓ : ℕ} (P : Fin ℓ → Polynomial ℤ)
+  (hP : NilBohr.ErgodicPolynomialFamily P) (f : Fin ℓ → X → ℂ) (hf : ∀ (i : Fin ℓ), MeasureTheory.MemLp (f i) ⊤ μ) :
+  ∃ d Q g i₁ i₂,
+    NilBohr.ErgodicPolynomialFamily Q ∧
+      (Q i₁).natDegree = 1 ∧
+        (Q i₂).natDegree = 2 ∧
+          (∀ (i : Fin d), MeasureTheory.MemLp (g i) ⊤ μ) ∧
+            ∀ (n : ℤ) (x : X), NilBohr.ergodicSequence T Q g n x = NilBohr.ergodicSequence T P f n x
+NilBohr.floor_mul_eq_int_of_small_error (β : ℝ) (a r n m : ℤ) (hr : r ≠ 0) (hdvd : a * n = r * m)
+  (hsmall₀ : 0 ≤ (β - ↑a / ↑r) * ↑n) (hsmall₁ : (β - ↑a / ↑r) * ↑n < 1) : ⌊β * ↑n⌋ = m
+NilBohr.gowersCubePower_localized_vertical (S : ℕ) (hS : 3 ≤ S) (L U : ℤ) (α β lo hi : ℝ) (hs : 2 * (hi - lo) < 1)
+  (a v h : ℤ) (f : ℤ → ℂ) (χ : ℝ → ℂ) (hχ : ∀ (t : ℝ), χ t ≠ 0 → t ∈ Set.Icc lo hi) :
+  (NilBohr.gowersCubePower S L U fun t =>
+      f t * χ (Int.fract (β * ↑(a + v * t))) *
+        NilBohr.phaseExponential (↑h * NilBohr.heisenbergPhase α β (a + v * t))) =
+    NilBohr.gowersCubePower S L U fun t => f t * χ (Int.fract (β * ↑(a + v * t)))
+NilBohr.heisenbergCenteredTest_lipschitz (F : NilBohr.Circle → ℂ) {L : NNReal} (hF : LipschitzWith L F) :
+  ∃ C, 0 < C ∧ ∀ (ε : ℝ), 0 < ε → NilBohr.HeisenbergLipschitzNormLE (NilBohr.heisenbergCenteredTest F ε) (C * (1 + ε⁻¹))
+NilBohr.heisenbergCenteredTest_orbit (F : NilBohr.Circle → ℂ) (ε α β : ℝ) (n : ℤ) :
+  NilBohr.heisenbergCenteredTest F ε (NilBohr.heisenbergOrbit α β n) =
+    ↑(NilBohr.heisenbergSeamCutoff ε ↑(β * ↑n)) * (F ↑(NilBohr.heisenbergPhase α β n) - NilBohr.circleMean F)
+NilBohr.heisenbergCenteredTest_verticalMean_zero (F : NilBohr.Circle → ℂ) {L : NNReal} (hF : LipschitzWith L F)
+  (ε x y : ℝ) : ∫ (z : ℝ) in 0 ..1, NilBohr.heisenbergCenteredTest F ε (x, y, z) = 0
+NilBohr.heisenbergChartMean_leftInvariant (Φ : NilBohr.HeisenbergPoint → ℂ)
+  (hΦ : ∀ (g : ℝ × ℝ × ℝ) (u v w : ℤ), Φ (NilBohr.heisenbergMul g (↑u, ↑v, ↑w)) = Φ g) (a : NilBohr.HeisenbergPoint) :
+  (NilBohr.heisenbergChartMean fun g => Φ (NilBohr.heisenbergMul a g)) = NilBohr.heisenbergChartMean Φ
+NilBohr.heisenbergChartMean_one : (NilBohr.heisenbergChartMean fun x => 1) = 1
+NilBohr.heisenbergCoverTest_chartMean_eq_zero_of_lipschitz (Φ : NilBohr.HeisenbergPoint → ℂ) (U : ℝ)
+  (hΦ : NilBohr.HeisenbergLipschitzNormLE Φ U) (k l : ℤ) {m : ℤ} (hm : m ≠ 0)
+  (hzero : ∀ (x y : ℝ), ∫ (z : ℝ) in 0 ..1, Φ (x, y, z) = 0) :
+  NilBohr.heisenbergChartMean (NilBohr.heisenbergCoverTest Φ k l m) = 0
+NilBohr.heisenbergPrimeLocalPhase_of_literature {c₀ : ℝ} (hc₀ : 0 < c₀) (hc₁ : c₀ < 1 / 11)
+  (hLit : NilBohr.PrimePhaseLiteratureInputs c₀) (α β : ℝ) :
+  NilBohr.BadlyApproximable α →
+    NilBohr.AdmissibleBeta β →
+      ∀ (d : ℕ),
+        0 < d →
+          ∀ (F : NilBohr.Circle → ℂ),
+            (∃ κ, LipschitzWith κ F) → NilBohr.PrimeLocalPhase d (NilBohr.heisenbergPhase α β) F
+NilBohr.heisenbergProductChartMean_twist_eq_zero (Φ : NilBohr.HeisenbergPoint → ℂ) :
+  (NilBohr.heisenbergProductChartMean fun p => Φ p.1 * NilBohr.phase (-p.2)) = 0
+NilBohr.heisenbergProductMalcevCoordinates_norm (d : ℕ) (g : NilBohr.HeisenbergGroup × Multiplicative ℝ) :
+  let p := NilBohr.heisenbergProductMalcevCoordinates d g;
+  max |p.1| (max |p.2.1| (max |p.2.2.1| |p.2.2.2|)) =
+    max (NilBohr.heisenbergMalcevNorm (NilBohr.HeisenbergGroup.coordinates g.1)) |Multiplicative.toAdd g.2|
+NilBohr.heisenbergProductOrbit_isFilteredPolynomial (α β : ℝ) (s : ℕ) (hs : s ≠ 0) (a v : ℤ) {d : ℕ} {p : Polynomial ℝ}
+  (hp : p.natDegree ≤ d) :
+  NilBohr.IsFilteredPolynomial (NilBohr.heisenbergProductFiltration d) fun n =>
+    (NilBohr.HeisenbergGroup.coordinates.symm (NilBohr.dilatedHeisenbergOrbit α β s (a + v * n)),
+      Multiplicative.ofAdd (Polynomial.eval (↑n) p))
+NilBohr.heisenbergRecurrence_of_centered_phase {c₀ : ℝ} (hc₀ : 0 < c₀) (hc₀' : c₀ < 1 / 11)
+  (hExt : NilBohr.SelectorLiteratureInputs c₀) (hWeak : NilBohr.KMTTLocalWeakRegularity)
+  (hPhase : NilBohr.UniformCenteredHeisenbergPhase) : NilBohr.HeisenbergRecurrence
+NilBohr.heisenbergRecurrence_of_density_increment
+  (hinc :
+    ∀ {ℓ : ℕ} (P : Fin (ℓ + 1) → Polynomial ℤ),
+      NilBohr.FixedPolynomialFamily P →
+        ∀ (α β : ℝ),
+          NilBohr.BadlyApproximable α →
+            NilBohr.AdmissibleBeta β →
+              ∀ (J : NilBohr.OpenArc),
+                NilBohr.DensityIncrementFor P fun p => J.Contains (NilBohr.heisenbergPhase α β (↑p - 1))) :
+  NilBohr.HeisenbergRecurrence
+NilBohr.heisenbergRecurrence_of_obstructions {c₀ : ℝ} (hc₀ : 0 < c₀) (hc₀' : c₀ < 1 / 11)
+  (hExt : NilBohr.SelectorLiteratureInputs c₀) (hWeak : NilBohr.KMTTLocalWeakRegularity)
+  (hGT : NilBohr.ProductHeisenbergObstruction) : NilBohr.HeisenbergRecurrence
+NilBohr.heisenbergRecurrence_of_relativeSelectorComparison (hreg : NilBohr.KMTTLocalWeakRegularity) {c₀ : ℝ}
+  (hc₀ : 0 < c₀)
+  (hcmp :
+    ∀ (C : ℝ) (d ℓ : ℕ),
+      1 ≤ C →
+        0 < d →
+          0 < ℓ →
+            ∀ (α β : ℝ),
+              NilBohr.BadlyApproximable α →
+                NilBohr.AdmissibleBeta β →
+                  ∀ (F : NilBohr.Circle → ℂ),
+                    (∃ K, LipschitzWith K F) →
+                      NilBohr.RelativeSelectorComparison c₀ C d ℓ (NilBohr.heisenbergPhase α β) F) :
+  NilBohr.HeisenbergRecurrence
+NilBohr.heisenberg_chart_right_lattice (g : ℝ × ℝ × ℝ) (u v w : ℤ) :
+  Int.fract (NilBohr.heisenbergMul g (↑u, ↑v, ↑w)).2.1 = Int.fract g.2.1 ∧
+    Int.fract (NilBohr.reducedVertical (NilBohr.heisenbergMul g (↑u, ↑v, ↑w))) = Int.fract (NilBohr.reducedVertical g)
+NilBohr.heisenberg_horizontal (α β : ℝ) (hα : NilBohr.BadlyApproximable α) (hβ : NilBohr.AdmissibleBeta β) :
+  ∃ r,
+    StrictMono r ∧
+      (∀ᶠ (X : ℝ) in Filter.atTop, ∃ j, ↑(r j) ≤ X ^ (1 / 100) ∧ X ^ (1 / 100) < ↑(r (j + 1))) ∧
+        (∀ (L K : ℝ),
+            0 < L →
+              0 < K →
+                ∀ᶠ (X : ℝ) in Filter.atTop,
+                  ∀ (j : ℕ), ↑(r j) ≤ X ^ (1 / 100) → X ^ (1 / 100) < ↑(r (j + 1)) → K * Real.log X ^ L < ↑(r j)) ∧
+          ∃ η,
+            0 < η ∧
+              ∀ (L : ℝ),
+                0 < L →
+                  ∀ᶠ (X : ℝ) in Filter.atTop,
+                    ∀ (j : ℕ),
+                      ↑(r j) ≤ X ^ (1 / 100) →
+                        X ^ (1 / 100) < ↑(r (j + 1)) →
+                          ∀ (v : ℕ) (k l : ℤ),
+                            0 < v →
+                              ↑v ≤ X ^ (1 / 5000) →
+                                ¬r j ∣ v →
+                                  0 < max |↑k| |↑l| →
+                                    max |↑k| |↑l| ≤ Real.log X ^ L →
+                                      η * X ^ (-(1 / 20)) ≤ NilBohr.torusNorm (↑v * (↑k * α + ↑l * β))
+NilBohr.heisenberg_pointwise_of_literature.{u_1} (X : Type u_1) [MeasurableSpace X] {c₀ : ℝ} (hc₀ : 0 < c₀)
+  (hc₁ : c₀ < 1 / 11) (hLit : NilBohr.PrimePhaseLiteratureInputs c₀) (hPNT : NilBohr.PrimeNumberTheorem)
+  (hMWW : NilBohr.MirekWanWrightPointwise X) (hTer : NilBohr.TeravainenFixedFamily) :
+  NilBohr.PrimePointwiseFor X NilBohr.heisenbergPhase
+NilBohr.heisenberg_seamAverage_of_horizontal {β : ℝ} {r : ℕ → ℕ} (hHorizontal : NilBohr.HorizontalCircleEstimate β r)
+  {E : ℝ} (hE : 0 < E) :
+  ∃ D,
+    0 < D ∧
+      ∀ᶠ (X : ℝ) in Filter.atTop,
+        ∀ (j : ℕ),
+          ↑(r j) ≤ X ^ (1 / 100) →
+            X ^ (1 / 100) < ↑(r (j + 1)) →
+              ∀ (a : ℤ) (v H : ℕ),
+                0 < v →
+                  ↑v ≤ X ^ (1 / 10000) →
+                    ¬r j ∣ v →
+                      X ^ (1 / 2) ≤ ↑H →
+                        let ε := Real.log X ^ (-E);
+                        (∑ t ∈ NilBohr.positiveInterval H, (1 - NilBohr.heisenbergSeamCutoff ε ↑(β * ↑(a + ↑v * t)))) /
+                            ↑H ≤
+                          D * ε
+NilBohr.high_order_relative_prime_of_kmtt {c₀ : ℝ} (hc₀ : 0 < c₀) (hc₀' : c₀ < 1 / 11)
+  (hBanks : NilBohr.BanksRealZeroBound) (hAmbient : NilBohr.KMTTAmbientPrimeModel c₀)
+  (hDilation : NilBohr.KMTTNormalizedDilation) (hRelative : NilBohr.KMTTRelativeCramer c₀) {d S : ℕ} (hd : 0 < d)
+  (hS : 2 ≤ S) (hG : NilBohr.NormalizedGowersLaws S) : NilBohr.HighOrderRelativePrimeUniformity c₀ d S
+NilBohr.horizontalCircleEstimate_of_scalar (hGT : NilBohr.ScalarHeisenbergObstruction) (α β : ℝ)
+  (hα : NilBohr.BadlyApproximable α) {r : ℕ → ℕ} (hr : NilBohr.AdmissibleBetaDenominators β r) :
+  NilBohr.HorizontalCircleEstimate β r
+NilBohr.horizontal_diophantine_bound (α β : ℝ) (hα : NilBohr.BadlyApproximable α) :
+  ∃ η,
+    0 < η ∧
+      ∀ (c C D L : ℝ),
+        0 < c →
+          0 < C →
+            0 < D →
+              0 < L →
+                ∀ᶠ (X : ℝ) in Filter.atTop,
+                  ∀ (a r rNext : ℕ),
+                    Nat.Prime r →
+                      0 < a →
+                        a < r →
+                          c * NilBohr.denominatorScale r ≤ ↑rNext →
+                            ↑rNext ≤ C * NilBohr.denominatorScale r →
+                              |β - ↑a / ↑r| ≤ D / ↑rNext →
+                                ↑r ≤ X ^ (1 / 100) →
+                                  X ^ (1 / 100) < ↑rNext →
+                                    ∀ (v : ℕ) (k l : ℤ),
+                                      0 < v →
+                                        ↑v ≤ X ^ (1 / 5000) →
+                                          ¬r ∣ v →
+                                            0 < max |↑k| |↑l| →
+                                              max |↑k| |↑l| ≤ Real.log X ^ L →
+                                                η * X ^ (-(1 / 20)) ≤ NilBohr.torusNorm (↑v * (↑k * α + ↑l * β))
+NilBohr.horizontal_nonzero_alpha_bound (α β c : ℝ) (r v : ℕ) (a k l : ℤ) (hr : 0 < r) (hv : 0 < v) (hk : k ≠ 0)
+  (hα : ∀ (m : ℕ), 0 < m → c ≤ ↑m * NilBohr.torusNorm (↑m * α)) :
+  c / (|↑k| * ↑v * ↑r ^ 2) - |↑l| * ↑v * |β - ↑a / ↑r| ≤ NilBohr.torusNorm (↑v * (↑k * α + ↑l * β))
+NilBohr.horizontal_scale_bounds (c C L K : ℝ) (hc : 0 < c) (hC : 0 < C) (hL : 0 < L) (hK : 0 < K) :
+  ∀ᶠ (X : ℝ) in Filter.atTop,
+    ∀ (r rNext : ℕ),
+      0 < r →
+        c * NilBohr.denominatorScale r ≤ ↑rNext →
+          ↑rNext ≤ C * NilBohr.denominatorScale r →
+            X ^ (1 / 100) < ↑rNext → K * Real.log X ^ L < ↑r ∧ X ^ (1 / 200) * ↑r ^ 2 ≤ ↑rNext
+NilBohr.horizontal_zero_alpha_bound (β : ℝ) (r v a l : ℤ) (hr : 0 < r) (hv : 0 ≤ v) (hnd : ¬r ∣ v * l * a) :
+  1 / ↑r - |↑l| * ↑v * |β - ↑a / ↑r| ≤ NilBohr.torusNorm (↑v * ↑l * β)
+NilBohr.integral_norm_weightedErgodicAverage_le_of_orbit_bound.{u_1} {X : Type u_1} [MeasurableSpace X]
+  {μ : MeasureTheory.Measure X} [MeasureTheory.IsProbabilityMeasure μ] (T : NilBohr.ProbabilitySystem X μ) {ℓ : ℕ}
+  (P : Fin ℓ → Polynomial ℤ) (f : Fin ℓ → X → ℂ) (v : ℤ → ℂ) {N H : ℕ} (hN : 0 < N) (Z : Finset ℤ)
+  (hz :
+    ∀ m ∈ NilBohr.positiveInterval N, ∀ n ∈ NilBohr.positiveInterval H, ∀ (i : Fin ℓ), m + Polynomial.eval n (P i) ∈ Z)
+  (hA : MeasureTheory.Integrable (NilBohr.weightedErgodicAverage T P f v H) μ) (E : ℝ)
+  (hbound :
+    ∀ (g : X → ℂ),
+      (∀ (x : X), ‖g x‖ ≤ 1) →
+        ∀ (z : X),
+          ‖NilBohr.countingForm N H (NilBohr.positiveInterval N) (fun i => Fin.cases 0 P i) v
+                (NilBohr.orbitInputs T f g Z z)‖ ≤
+            E) :
+  ∫ (x : X), ‖NilBohr.weightedErgodicAverage T P f v H x‖ ∂μ ≤ E
+NilBohr.integral_orbit_countingForm.{u_1} {X : Type u_1} [MeasurableSpace X] {μ : MeasureTheory.Measure X}
+  (T : NilBohr.ProbabilitySystem X μ) {ℓ : ℕ} (P : Fin ℓ → Polynomial ℤ) (f : Fin ℓ → X → ℂ) (g : X → ℂ) (v : ℤ → ℂ)
+  {N H : ℕ} (hN : 0 < N) (Z : Finset ℤ)
+  (hz :
+    ∀ m ∈ NilBohr.positiveInterval N, ∀ n ∈ NilBohr.positiveInterval H, ∀ (i : Fin ℓ), m + Polynomial.eval n (P i) ∈ Z)
+  (hInt : MeasureTheory.Integrable (fun x => NilBohr.weightedErgodicAverage T P f v H x * g x) μ) :
+  ∫ (z : X),
+      NilBohr.countingForm N H (NilBohr.positiveInterval N) (fun i => Fin.cases 0 P i) v
+        (NilBohr.orbitInputs T f g Z z) ∂μ =
+    ∫ (x : X), NilBohr.weightedErgodicAverage T P f v H x * g x ∂μ
+NilBohr.intervalCyclicFourierCoefficient_l1_le (X : ℕ) (a b : ℤ) (hI : Finset.Icc a b ⊆ NilBohr.positiveInterval X) :
+  ∑ r, ‖NilBohr.intervalCyclicFourierCoefficient X a b r‖ ≤ 2 + Real.log ↑X
+NilBohr.lift_scaled_configuration {ℓ : ℕ} (P : Fin (ℓ + 1) → Polynomial ℤ) (hP : ∀ (i : Fin (ℓ + 1)), (P i).coeff 0 = 0)
+  (selector : ℕ → Prop) (A : Finset ℤ) (a : ℤ) (q L N : ℕ) (hq : 0 < q) (hL : 0 < L) :
+  NilBohr.ContainsScaledConfiguration (NilBohr.progressionPullback A a L N) P selector (q * L) →
+    NilBohr.ContainsScaledConfiguration A P selector q
+NilBohr.localGeneralizedVonNeumann_of_kmtt (hKMTT : NilBohr.KMTTLocalInverse) : NilBohr.LocalGeneralizedVonNeumann
+NilBohr.localGeneralizedVonNeumann_twoInput (C : ℝ) (N M d : ℕ) (P : Fin 2 → Polynomial ℤ) (v : ℤ → ℂ)
+  (f : Fin 2 → ℤ → ℂ) (hC : 1 ≤ C) (hN : 0 < N) (hM : 0 < M) (hP : P 0 = 0) (hDegree : (P 1).natDegree ≤ d)
+  (hv : NilBohr.OneBoundedOn (NilBohr.positiveInterval M) v)
+  (hf : ∀ (i : Fin 2), NilBohr.OneBoundedOn (NilBohr.spatialInterval C N) (f i))
+  (hFs : ∀ (i : Fin 2), NilBohr.SupportedOn (NilBohr.spatialInterval C N) (f i)) :
+  ‖NilBohr.countingForm N M (NilBohr.spatialInterval C N) P v f‖ ≤
+    3 * C * NilBohr.phaseNorm (d + 1) (NilBohr.positiveInterval M) v
+NilBohr.localized_prime_model_replacement_full_chart (S : ℕ) (hS : 3 ≤ S) (hG : NilBohr.NormalizedGowersLaws S) :
+  ∃ E,
+    0 < E ∧
+      ∀ (X D : ℕ) [inst : NeZero D],
+        0 < X →
+          ∀ (a b u₀ : ℤ),
+            Finset.Icc a b ⊆ NilBohr.positiveInterval X →
+              (NilBohr.localProgression a b u₀ D).Nonempty →
+                ∀ (u : ℤ → ℂ) (χ F : C(NilBohr.Circle, ℂ)),
+                  (Summable fun n => ‖fourierCoeff (⇑χ) n‖) →
+                    (Summable fun n => ‖fourierCoeff (⇑F) n‖) →
+                      ∀ (lo hi : ℝ),
+                        2 * (hi - lo) < 1 →
+                          (∀ t ∈ Set.Ico 0 1, χ ↑t ≠ 0 → t ∈ Set.Icc lo hi) →
+                            ∀ (α β : ℝ) (Q : Polynomial ℝ),
+                              Q.natDegree < S →
+                                let J := NilBohr.localProgression a b u₀ D;
+                                ‖NilBohr.phaseAverage J
+                                      (fun m => u m * χ ↑(β * ↑(m - 1)) * F ↑(NilBohr.heisenbergPhase α β (m - 1))) Q‖ ≤
+                                  ↑X / ↑J.card * (2 + Real.log ↑X) *
+                                      ((E * ∑' (n : ℤ), ‖fourierCoeff (⇑χ) n‖) * NilBohr.normalizedGowers S 1 (↑X) u) *
+                                    ∑' (n : ℤ), ‖fourierCoeff (⇑F) n‖
+NilBohr.localized_prime_model_replacement_progression (S : ℕ) (hS : 3 ≤ S) (hG : NilBohr.NormalizedGowersLaws S) :
+  ∃ E,
+    0 < E ∧
+      ∀ (X D : ℕ) [inst : NeZero D],
+        0 < X →
+          ∀ (a b u₀ : ℤ),
+            Finset.Icc a b ⊆ NilBohr.positiveInterval X →
+              (NilBohr.localProgression a b u₀ D).Nonempty →
+                ∀ (u : ℤ → ℂ) (χ : C(NilBohr.Circle, ℂ)),
+                  (Summable fun n => ‖fourierCoeff (⇑χ) n‖) →
+                    ∀ (lo hi : ℝ),
+                      2 * (hi - lo) < 1 →
+                        (∀ t ∈ Set.Ico 0 1, χ ↑t ≠ 0 → t ∈ Set.Icc lo hi) →
+                          ∀ (α β : ℝ) (h : ℤ) (Q : Polynomial ℝ),
+                            Q.natDegree < S →
+                              let J := NilBohr.localProgression a b u₀ D;
+                              ‖(∑ m ∈ J,
+                                      u m * χ ↑(β * ↑(m - 1)) *
+                                        NilBohr.phaseExponential
+                                          (↑h * NilBohr.heisenbergPhase α β (m - 1) - Polynomial.eval (↑m) Q)) /
+                                    ↑J.card‖ ≤
+                                (↑X / ↑J.card * ∑ r, ‖NilBohr.intervalCyclicFourierCoefficient X a b r‖) *
+                                  ((E * ∑' (n : ℤ), ‖fourierCoeff (⇑χ) n‖) * NilBohr.normalizedGowers S 1 (↑X) u)
+NilBohr.localized_vertical_multiplier_of_bernstein (hBernstein : NilBohr.BernsteinCircleLipschitzFourier) (L U : ℤ)
+  (hLU : L ≤ U) (S : ℕ) (hS : 3 ≤ S) (hG : NilBohr.NormalizedGowersLaws S) (χ : C(NilBohr.Circle, ℂ)) (K : NNReal)
+  (hLip : LipschitzWith K ⇑χ) (lo hi : ℝ) (hshort : 2 * (hi - lo) < 1)
+  (hχ : ∀ x ∈ Set.Ico 0 1, χ ↑x ≠ 0 → x ∈ Set.Icc lo hi) (α β : ℝ) (a v h : ℤ) (f : ℤ → ℂ) :
+  (NilBohr.normalizedGowers S L U fun t =>
+      f t * χ ↑(β * ↑(a + v * t)) * NilBohr.phaseExponential (↑h * NilBohr.heisenbergPhase α β (a + v * t))) ≤
+    (∑' (k : ℤ), ‖fourierCoeff (⇑χ) k‖) * NilBohr.normalizedGowers S L U f
+NilBohr.mangoldt_L1_log_decay_of_primeLocalPhase.{u} (hTer : NilBohr.TeravainenFixedFamily) {ℓ d : ℕ} (hd : 0 < d)
+  (P : Fin ℓ → Polynomial ℤ) (hP : NilBohr.ErgodicPolynomialFamily P) (hdeg : ∀ (i : Fin ℓ), (P i).natDegree ≤ d)
+  (htop : ∃ i, (P i).natDegree = d) (V : ℤ → ℝ) (F : NilBohr.Circle → ℂ) (hp : NilBohr.PrimeLocalPhase d V F) {A : ℝ}
+  (hA : 0 < A) {W : ℝ} (hW : 0 ≤ W) (hw : ∀ (n : ℤ), ‖F ↑(V n) - NilBohr.circleMean F‖ ≤ W) :
+  ∃ C,
+    0 < C ∧
+      ∀ {X : Type u} [inst : MeasurableSpace X] {μ : MeasureTheory.Measure X}
+        [inst_1 : MeasureTheory.IsProbabilityMeasure μ] (T : NilBohr.ProbabilitySystem X μ) (f : Fin ℓ → X → ℂ),
+        (∀ (i : Fin ℓ), MeasureTheory.MemLp (f i) ⊤ μ) →
+          ∀ (H : ℕ),
+            2 ≤ H →
+              let w := fun n => F ↑(V n) - NilBohr.circleMean F;
+              let M := NilBohr.mangoldtAverage T P f w H;
+              (MeasureTheory.eLpNorm M 1 μ).toReal = ∫ (x : X), ‖M x‖ ∂μ ∧
+                ∫ (x : X), ‖M x‖ ∂μ ≤ C * Real.log ↑H ^ (-A) * ∏ i, (MeasureTheory.eLpNorm (f i) ⊤ μ).toReal
+NilBohr.norm_countingForm_le_local_tests_after_replacement {N M H k : ℕ} {C : ℝ} (hN : 0 < N) (hM : 0 < M) (hH : 0 < H)
+  (hC : 0 ≤ C) (X U : Finset ℤ) (hX : X ⊆ NilBohr.spatialInterval C N) (P : Fin (k + 1) → Polynomial ℤ) (hP₀ : P 0 = 0)
+  (d L : ℕ) (hL : 0 < L) (hdeg : ∀ (i : Fin k), (P i.succ).natDegree ≤ d) (v : ℤ → ℂ) (g : Fin (k + 1) → ℤ → ℂ)
+  (hv : NilBohr.OneBoundedOn (NilBohr.positiveInterval M) v) (hf₀ : NilBohr.OneBoundedOn X (g 0)) (V : Fin k → ℕ)
+  (hV : ∀ (i : Fin k), 0 < V i) (hVN : ∀ (i : Fin k), L * V i ≤ N) (b γ : Fin k → ℤ × ℤ → ℝ) (R : Fin k → ℝ)
+  (hR : ∀ (i : Fin k), 1 ≤ R i) (hg : ∀ (i : Fin k), g i.succ = NilBohr.supportedBlockPhase U L (V i) (b i) (γ i))
+  (hmove :
+    ∀ j ∈ Finset.range (M / H),
+      ∀ y ∈ NilBohr.fullParameterBlock H j,
+        ∀ (i : Fin k),
+          |↑(Polynomial.eval y (P i.succ)) - ↑(Polynomial.eval (NilBohr.parameterBlockLow H j) (P i.succ))| ≤ R i)
+  (hshift : ∀ x ∈ X, ∀ y ∈ NilBohr.positiveInterval M, ∀ (i : Fin k), x + Polynomial.eval y (P i.succ) ∈ U) (E : ℝ)
+  (hE : 0 ≤ E)
+  (hTest :
+    ∀ j ∈ Finset.range (M / H),
+      ∀ (a : ℤ),
+        (NilBohr.localProgression (NilBohr.parameterBlockLow H j) (NilBohr.parameterBlockHigh H j) a L).Nonempty →
+          NilBohr.phaseNorm (d + 1)
+              (NilBohr.localProgression (NilBohr.parameterBlockLow H j) (NilBohr.parameterBlockHigh H j) a L) v ≤
+            E) :
+  ‖NilBohr.countingForm N M X P v g‖ ≤
+    ↑X.card / ↑N * E + ↑X.card / ↑N * (↑H / ↑M) + ∑ i, 5 * (2 * C + 4) * R i / ↑(L * V i)
+NilBohr.norm_countingForm_localized_selector_le {k N M S : ℕ} (hM : 0 < M) (hS : 3 ≤ S)
+  (hG : NilBohr.NormalizedGowersLaws S) (P : Fin k → Polynomial ℤ) (f : Fin k → ℤ → ℂ) (C : ℝ) (hC : 0 ≤ C)
+  (hCount :
+    ∀ (v : ℤ → ℂ),
+      ‖NilBohr.countingForm N M (NilBohr.positiveInterval N) P v f‖ ≤ C * NilBohr.normalizedGowers S 1 (↑M) v)
+  (α β : ℝ) (q : ℕ) (u : ℤ → ℂ) (F χ : C(NilBohr.Circle, ℂ)) (hF : Summable fun h => ‖fourierCoeff (⇑F) h‖)
+  (hAbs : Summable fun h => ‖fourierCoeff (⇑χ) h‖) (lo hi : ℝ) (hshort : 2 * (hi - lo) < 1)
+  (hχ : ∀ x ∈ Set.Ico 0 1, χ ↑x ≠ 0 → x ∈ Set.Icc lo hi) :
+  ‖NilBohr.countingForm N M (NilBohr.positiveInterval N) P
+        (fun t => u t * F ↑(NilBohr.heisenbergPhase α β (↑q * t)) * χ ↑(β * ↑(↑q * t))) f‖ ≤
+    (∑' (h : ℤ), ‖fourierCoeff (⇑F) h‖) *
+      ((C * ∑' (h : ℤ), ‖fourierCoeff (⇑χ) h‖) * NilBohr.normalizedGowers S 1 (↑M) u)
+NilBohr.norm_countingForm_selector_boundary_le {k N M S : ℕ} (hN : 0 < N) (hM : 0 < M) (hS : 2 ≤ S)
+  (hG : NilBohr.NormalizedGowersLaws S) (E : ℝ) (hE : 0 < E)
+  (hMean : ∀ (v : ℤ → ℂ), ‖(∑ t ∈ NilBohr.positiveInterval M, v t) / ↑M‖ ≤ E * NilBohr.normalizedGowers S 1 (↑M) v)
+  (P : Fin k → Polynomial ℤ) (f : Fin k → ℤ → ℂ)
+  (hf : ∀ (i : Fin k), NilBohr.OneBoundedOn (NilBohr.positiveInterval N) (f i))
+  (hf' : ∀ (i : Fin k), NilBohr.SupportedOn (NilBohr.positiveInterval N) (f i)) (α β : ℝ) (q : ℕ) (u : ℤ → ℝ)
+  (hu : ∀ (t : ℤ), -1 ≤ u t) (F : C(NilBohr.Circle, ℂ)) (ψ : C(NilBohr.Circle, ℝ))
+  (hψ : ∀ (x : NilBohr.Circle), 0 ≤ ψ x)
+  (hAbs : Summable fun h => ‖fourierCoeff (⇑(NilBohr.continuousCircleOfReal ψ)) h‖) :
+  ‖NilBohr.countingForm N M (NilBohr.positiveInterval N) P
+        (fun t => ↑(u t) * F ↑(NilBohr.heisenbergPhase α β (↑q * t)) * ↑(ψ ↑(β * ↑(↑q * t)))) f‖ ≤
+    ‖F‖ *
+      (2 * ((∑ t ∈ NilBohr.positiveInterval M, ψ ↑(β * ↑(↑q * t))) / ↑M) +
+        (E * ∑' (h : ℤ), ‖fourierCoeff (⇑(NilBohr.continuousCircleOfReal ψ)) h‖) *
+          NilBohr.normalizedGowers S 1 ↑M fun t => ↑(u t))
+NilBohr.norm_countingForm_selector_discrepancy_le.{u_1} {ι : Type u_1} {k N M S : ℕ} (hN : 0 < N) (hM : 0 < M)
+  (hS : 3 ≤ S) (hG : NilBohr.NormalizedGowersLaws S) (E : ℝ) (hE : 0 < E)
+  (hMean : ∀ (v : ℤ → ℂ), ‖(∑ t ∈ NilBohr.positiveInterval M, v t) / ↑M‖ ≤ E * NilBohr.normalizedGowers S 1 (↑M) v)
+  (P : Fin k → Polynomial ℤ) (f : Fin k → ℤ → ℂ)
+  (hf : ∀ (i : Fin k), NilBohr.OneBoundedOn (NilBohr.positiveInterval N) (f i))
+  (hf' : ∀ (i : Fin k), NilBohr.SupportedOn (NilBohr.positiveInterval N) (f i)) (C : ℝ) (hC : 0 ≤ C)
+  (hCount :
+    ∀ (v : ℤ → ℂ),
+      ‖NilBohr.countingForm N M (NilBohr.positiveInterval N) P v f‖ ≤ C * NilBohr.normalizedGowers S 1 (↑M) v)
+  (α β : ℝ) (q : ℕ) (u : ℤ → ℝ) (hu : ∀ (t : ℤ), -1 ≤ u t) (F : C(NilBohr.Circle, ℂ))
+  (hF : Summable fun h => ‖fourierCoeff (⇑F) h‖) (J : Finset ι) (pieces : ι → C(NilBohr.Circle, ℂ)) (lo hi : ι → ℝ)
+  (hAbs : ∀ j ∈ J, Summable fun h => ‖fourierCoeff (⇑(pieces j)) h‖) (hshort : ∀ j ∈ J, 2 * (hi j - lo j) < 1)
+  (hsupport : ∀ j ∈ J, ∀ t ∈ Set.Ico 0 1, (pieces j) ↑t ≠ 0 → t ∈ Set.Icc (lo j) (hi j)) (ψ : C(NilBohr.Circle, ℝ))
+  (hψ : ∀ (x : NilBohr.Circle), 0 ≤ ψ x)
+  (hψAbs : Summable fun h => ‖fourierCoeff (⇑(NilBohr.continuousCircleOfReal ψ)) h‖)
+  (hDecomp : ∀ (x : NilBohr.Circle), ∑ j ∈ J, (pieces j) x + ↑(ψ x) = 1) :
+  ‖NilBohr.countingForm N M (NilBohr.positiveInterval N) P (fun t => ↑(u t) * F ↑(NilBohr.heisenbergPhase α β (↑q * t)))
+        f‖ ≤
+    (((∑' (h : ℤ), ‖fourierCoeff (⇑F) h‖) * C * ∑ j ∈ J, ∑' (h : ℤ), ‖fourierCoeff (⇑(pieces j)) h‖) *
+        NilBohr.normalizedGowers S 1 ↑M fun t => ↑(u t)) +
+      ‖F‖ *
+        (2 * ((∑ t ∈ NilBohr.positiveInterval M, ψ ↑(β * ↑(↑q * t))) / ↑M) +
+          (E * ∑' (h : ℤ), ‖fourierCoeff (⇑(NilBohr.continuousCircleOfReal ψ)) h‖) *
+            NilBohr.normalizedGowers S 1 ↑M fun t => ↑(u t))
+NilBohr.norm_cramerPhaseAverage_le_of_sieve (Q q s offset H W D r : ℕ) (hQ : 2 ≤ Q) (hs : 0 < s) (hoffset : 0 < offset)
+  (hH : 0 < H) (hW : W = NilBohr.cramerSieveModulus Q q) (hr : 0 < r) (hStep : s.Coprime W) (divisors : Finset ℕ)
+  (hDivisors : ∀ l ∈ divisors, l ∣ W ∧ l ≤ D) (lower upper : ℕ → ℝ) (g : ℤ → ℂ) (p : Polynomial ℝ) {R ε gap : ℝ}
+  (hR : 0 < R) (hε : 0 ≤ ε) (hLower : ∀ l ∈ divisors, |lower l| ≤ 1) (hUpper : ∀ l ∈ divisors, |upper l| ≤ 1)
+  (hBracket :
+    ∀ (n : ℕ),
+      0 < n →
+        NilBohr.sieveDivisorSum divisors (fun l k => l ∣ k) lower n ≤ NilBohr.coprimeSieveIndicator W n ∧
+          NilBohr.coprimeSieveIndicator W n ≤ NilBohr.sieveDivisorSum divisors (fun l k => l ∣ k) upper n)
+  (hGap : ∑ l ∈ divisors, (upper l - lower l) / ↑l ≤ gap) {P : Finset ℤ}
+  (hP : P = Finset.image (fun j => ↑(offset + s * j)) (Finset.range H)) (hReduced : ∀ m ∈ P, m.toNat.Coprime q)
+  (hg : ∀ m ∈ P, ‖g m‖ ≤ R) (hGood : ∀ l ∈ divisors, ¬r ∣ l → ‖NilBohr.phaseAverage ({m ∈ P | ↑l ∣ m}) g p‖ ≤ R * ε) :
+  ‖NilBohr.phaseAverage P (fun m => NilBohr.cramerWeight Q m * g m) p‖ ≤
+    (∏ l ∈ NilBohr.primesThrough Q, (1 - (↑l)⁻¹)⁻¹) * R *
+      (ε * (1 + Real.log ↑(max D 1)) + (1 + Real.log ↑(max D 1)) / ↑r + gap / 2 + (2 + ε) * (↑divisors.card / ↑H))
+NilBohr.norm_heisenbergTwistedAverage_le_of_product_obstruction (hGT : NilBohr.ProductHeisenbergObstruction) (d : ℕ)
+  (hd : 0 < d) :
+  ∃ C D C₁,
+    1 ≤ C ∧
+      0 < D ∧
+        0 ≤ C₁ ∧
+          ∀ (α β U δ ε τ : ℝ) (a : ℤ) (v K : ℕ) (Φ : NilBohr.HeisenbergPoint → ℂ) (poly : Polynomial ℝ),
+            0 < v →
+              1 < K →
+                0 < δ →
+                  δ < 1 / 2 →
+                    0 ≤ ε →
+                      0 ≤ τ →
+                        NilBohr.HeisenbergLipschitzNormLE Φ U →
+                          poly.natDegree ≤ d →
+                            let H := C * δ ^ (-D);
+                            (∀ (k l : ℤ),
+                                k ≠ 0 ∨ l ≠ 0 →
+                                  max |↑k| |↑l| ≤ H → H < ↑K * NilBohr.torusNorm (↑v * (↑k * α + ↑l * β))) →
+                              (∀ (k l m : ℤ),
+                                  m ≠ 0 →
+                                    max |↑k| (max |↑l| |↑m|) ≤ H →
+                                      ∀ r < m.natAbs * d.factorial,
+                                        ∀ (J : ℕ),
+                                          τ ≤ ↑J →
+                                            ‖NilBohr.heisenbergOrbitAverage α β
+                                                  (a + ↑v * (↑r + 1 - ↑(m.natAbs * d.factorial)))
+                                                  (v * (m.natAbs * d.factorial)) m.natAbs J
+                                                  (NilBohr.heisenbergCoverTest Φ k l m)‖ ≤
+                                              ε) →
+                                ‖(NilBohr.heisenbergTwistedSum Φ α β a (↑v) K fun t => Polynomial.eval (↑t) poly) /
+                                      ↑K‖ ≤
+                                  max (δ * U) ((1 + C₁ * (↑d * H)) * (ε + H * ↑d.factorial * τ * U / ↑K))
+NilBohr.norm_local_phase_product_average_le.{u_1} {ι : Type u_1} [Fintype ι] (P : ι → Polynomial ℤ) (d : ℕ)
+  (hP : ∀ (i : ι), (P i).natDegree ≤ d) (x : ℤ) (I : Finset ℤ) (v : ℤ → ℂ) (ψ : ι → ℤ → ℂ) (θ γ : ι → ℝ)
+  (hψ :
+    ∀ y ∈ I,
+      ∀ (i : ι), ψ i (x + Polynomial.eval y (P i)) = NilBohr.phase (θ i * ↑(x + Polynomial.eval y (P i)) + γ i)) :
+  ‖(∑ y ∈ I, v y * ∏ i, ψ i (x + Polynomial.eval y (P i))) / ↑I.card‖ ≤ NilBohr.phaseNorm (d + 1) I v
+NilBohr.norm_partition_delete_le {N M H : ℕ} (hN : 0 < N) (hM : 0 < M) (hH : 0 < H) (X : Finset ℤ) (bad : ℕ → Finset ℤ)
+  (f : ℤ → ℤ → ℂ) {D E : ℝ} (hD : 0 ≤ D) (hBadSub : ∀ j ∈ Finset.range (M / H), bad j ⊆ X)
+  (hBadCard : ∀ j ∈ Finset.range (M / H), ↑(bad j).card ≤ ↑N * D)
+  (hf : ∀ x ∈ X, ∀ y ∈ NilBohr.positiveInterval M, ‖f x y‖ ≤ 1)
+  (hretain :
+    ‖(∑ j ∈ Finset.range (M / H), ∑ x ∈ X \ bad j, ∑ y ∈ NilBohr.fullParameterBlock H j, f x y) / (↑N * ↑M)‖ ≤ E) :
+  ‖(∑ x ∈ X, ∑ y ∈ NilBohr.positiveInterval M, f x y) / (↑N * ↑M)‖ ≤ E + ↑X.card / ↑N * (↑H / ↑M) + D
+NilBohr.norm_selected_count_le_exception_mass {ℓ q M N d : ℕ} (hq : 0 < q) (hN : 0 < N) (hM : 0 < M)
+  (P : Fin (ℓ + 1) → Polynomial ℤ) (A : Finset ℤ) (hPinj : Function.Injective fun i => (P i).natDegree)
+  (hdeg : ∀ (i : Fin (ℓ + 1)), (P i).natDegree ≤ d) (selector : ℕ → Prop)
+  (hno : ¬NilBohr.ContainsScaledConfiguration A P selector q) (F : ℤ → ℂ)
+  (hF : ∀ y ∈ NilBohr.positiveInterval M, ‖F y‖ ≤ 1)
+  (hcut : ∀ y ∈ NilBohr.positiveInterval M, Nat.Prime (q * y.toNat + 1) → ¬selector (q * y.toNat + 1) → F y = 0) :
+  ‖NilBohr.countingForm N M (NilBohr.positiveInterval N) (fun i => NilBohr.rescalePolynomial (↑q) (P i))
+        (fun y => ↑(NilBohr.lambdaModulus q y) * F y) fun x z => if z ∈ A then 1 else 0‖ ≤
+    (↑(ℓ + 1) ^ 2 * ↑d * Real.log ↑(q * M + 1) + 4 / Real.log 2 * √↑(q * M + 1) * Real.log ↑(q * M + 1) ^ 2) / ↑M
+NilBohr.normalizedGowers_localized_vertical (S : ℕ) (hS : 3 ≤ S) (L U : ℤ) (α β lo hi : ℝ) (hs : 2 * (hi - lo) < 1)
+  (a v h : ℤ) (f : ℤ → ℂ) (χ : ℝ → ℂ) (hχ : ∀ (t : ℝ), χ t ≠ 0 → t ∈ Set.Icc lo hi) :
+  (NilBohr.normalizedGowers S L U fun t =>
+      f t * χ (Int.fract (β * ↑(a + v * t))) *
+        NilBohr.phaseExponential (↑h * NilBohr.heisenbergPhase α β (a + v * t))) =
+    NilBohr.normalizedGowers S L U fun t => f t * χ (Int.fract (β * ↑(a + v * t)))
+NilBohr.normalizedGowers_mul_polynomial_phase (L U : ℤ) (S : ℕ) (P : Polynomial ℝ) (hP : P.natDegree < S) (f : ℤ → ℂ) :
+  (NilBohr.normalizedGowers S L U fun n => f n * NilBohr.phaseExponential (Polynomial.eval (↑n) P)) =
+    NilBohr.normalizedGowers S L U f
+NilBohr.orbit_bound_of_teravainen.{u_1} {X : Type u_1} [MeasurableSpace X] {μ : MeasureTheory.Measure X}
+  [MeasureTheory.IsProbabilityMeasure μ] (hTer : NilBohr.TeravainenFixedFamily) (d : ℕ) (hd : 0 < d) {ℓ : ℕ}
+  (P : Fin ℓ → Polynomial ℤ) (hP : NilBohr.ErgodicPolynomialFamily P) (hdeg : ∀ (i : Fin ℓ), (P i).natDegree ≤ d)
+  (htop : ∃ i, (P i).natDegree = d) (C : ℝ) (hC : 1 ≤ C) :
+  ∃ K A,
+    1 ≤ K ∧
+      0 < A ∧
+        ∀ (T : NilBohr.ProbabilitySystem X μ) (H : ℕ),
+          0 < H →
+            ∀ (v : ℤ → ℂ) (f : Fin ℓ → X → ℂ),
+              NilBohr.OneBoundedOn (NilBohr.positiveInterval H) v →
+                (∀ (i : Fin ℓ) (x : X), ‖f i x‖ ≤ 1) →
+                  MeasureTheory.Integrable (NilBohr.weightedErgodicAverage T P f v H) μ →
+                    NilBohr.positiveInterval (H ^ d) ⊆ NilBohr.spatialInterval C (H ^ d) →
+                      (∀ m ∈ NilBohr.positiveInterval (H ^ d),
+                          ∀ n ∈ NilBohr.positiveInterval H,
+                            ∀ (i : Fin ℓ), m + Polynomial.eval n (P i) ∈ NilBohr.spatialInterval C (H ^ d)) →
+                        ∫ (x : X), ‖NilBohr.weightedErgodicAverage T P f v H x‖ ∂μ ≤
+                          A * ((↑H)⁻¹ + NilBohr.phaseNorm (d + 1) (NilBohr.positiveInterval H) v) ^ (1 / K)
+NilBohr.orbit_counting_eq_average.{u_1} {X : Type u_1} [MeasurableSpace X] {μ : MeasureTheory.Measure X}
+  (T : NilBohr.ProbabilitySystem X μ) {ℓ : ℕ} (P : Fin ℓ → Polynomial ℤ) (f : Fin ℓ → X → ℂ) (g : X → ℂ) (v : ℤ → ℂ)
+  (N H : ℕ) (Z : Finset ℤ)
+  (hz :
+    ∀ m ∈ NilBohr.positiveInterval N, ∀ n ∈ NilBohr.positiveInterval H, ∀ (i : Fin ℓ), m + Polynomial.eval n (P i) ∈ Z)
+  (z : X) :
+  NilBohr.countingForm N H (NilBohr.positiveInterval N) (fun i => Fin.cases 0 P i) v (NilBohr.orbitInputs T f g Z z) =
+    (∑ m ∈ NilBohr.positiveInterval N,
+        (fun x => NilBohr.weightedErgodicAverage T P f v H x * g x) ((T.transform ^ m) z)) /
+      ↑N
+NilBohr.parameterLength_separatingFamily (M : ℕ) {q : ℕ} (hq : 0 < q) : NilBohr.parameterLength (q * M ^ 2) q 2 = M
+NilBohr.phaseNorm_dilatedWeight {s q M : ℕ} (hs : 0 < s) (hq : 0 < q) (v : ℤ → ℂ) :
+  NilBohr.phaseNorm s (NilBohr.positiveInterval (q * M)) (NilBohr.dilatedWeight q v) =
+    NilBohr.phaseNorm s (NilBohr.positiveInterval M) v / ↑q
+NilBohr.phase_bracket_eq_piecewise (α β : ℝ) (n h : ℤ) (hβ₀ : 0 ≤ β) (hβ₁ : β ≤ 1) :
+  let t := Int.fract (β * ↑n);
+  NilBohr.phase (↑h * NilBohr.bracketPhase α β n) =
+    NilBohr.phase (-↑h * NilBohr.heisenbergPhase α β n + ↑h * (α * β / 2) * (↑n ^ 2 + ↑n)) *
+      if t < 1 - β then NilBohr.phase (-↑h * α * t) else NilBohr.phase (↑h * α * ↑n) * NilBohr.phase (↑h * α * (1 - t))
+NilBohr.pointwise_bracket_of_heisenberg_smooth.{u_1} {X : Type u_1} [MeasurableSpace X] {μ : MeasureTheory.Measure X}
+  [MeasureTheory.IsProbabilityMeasure μ] (hV : NilBohr.VinogradovPrimeEquidistribution)
+  (hPNT : NilBohr.PrimeNumberTheorem) (hMWW : NilBohr.MirekWanWrightPointwise X) (T : NilBohr.ProbabilitySystem X μ)
+  {ℓ : ℕ} (P : Fin ℓ → Polynomial ℤ) (hP : NilBohr.ErgodicPolynomialFamily P) (f : Fin ℓ → X → ℂ)
+  (hf : ∀ (i : Fin ℓ), MeasureTheory.MemLp (f i) ⊤ μ) (α β : ℝ) (hβ : NilBohr.AdmissibleBeta β) (J : NilBohr.OpenArc)
+  (hs :
+    ∀ (S : NilBohr.ProbabilitySystem (X × NilBohr.Circle × NilBohr.Circle) (μ.prod NilBohr.twoTorusHaar)) {d : ℕ}
+      (Q : Fin d → Polynomial ℤ),
+      NilBohr.ErgodicPolynomialFamily Q → NilBohr.SmoothPrimeLimit S Q (NilBohr.heisenbergPhase α β)) :
+  NilBohr.PrimePointwiseConclusion T P f (NilBohr.bracketPhase α β) J
+NilBohr.pointwise_of_smooth_limits.{u_1} {X : Type u_1} [MeasurableSpace X] {μ : MeasureTheory.Measure X}
+  [MeasureTheory.IsProbabilityMeasure μ] (T : NilBohr.ProbabilitySystem X μ) {ℓ : ℕ} (P : Fin ℓ → Polynomial ℤ)
+  (f : Fin ℓ → X → ℂ) (hf : ∀ (i : Fin ℓ), MeasureTheory.MemLp (f i) ⊤ μ) (V : ℤ → ℝ) (J : NilBohr.OpenArc)
+  (h : NilBohr.SmoothPrimeLimit T P V)
+  (hu :
+    ∀ᵐ (x : X) ∂μ,
+      ∃ L,
+        Filter.Tendsto (NilBohr.primeAverage fun p => NilBohr.ergodicSequence T P f (↑p - 1) x) Filter.atTop (nhds L)) :
+  NilBohr.PrimePointwiseConclusion T P f V J
+NilBohr.pointwise_of_smooth_log_decay.{u_1} {X : Type u_1} [MeasurableSpace X] {μ : MeasureTheory.Measure X}
+  [MeasureTheory.IsProbabilityMeasure μ] (hPNT : NilBohr.PrimeNumberTheorem) (hMWW : NilBohr.MirekWanWrightPointwise X)
+  (T : NilBohr.ProbabilitySystem X μ) {ℓ : ℕ} (P : Fin ℓ → Polynomial ℤ) (hP : NilBohr.ErgodicPolynomialFamily P)
+  (f : Fin ℓ → X → ℂ) (hf : ∀ (i : Fin ℓ), MeasureTheory.MemLp (f i) ⊤ μ) (V : ℤ → ℝ) (J : NilBohr.OpenArc)
+  (h : NilBohr.SmoothErgodicLogDecay T P V) : NilBohr.PrimePointwiseConclusion T P f V J
+NilBohr.primeCramerPhase_log_saving (hMertens : NilBohr.MertensIntervalProductBound)
+  (hSieve : NilBohr.FundamentalSieveLemma) (hGT : NilBohr.ProductHeisenbergObstruction)
+  (hScalar : NilBohr.ScalarHeisenbergObstruction) {α β : ℝ} (hα : NilBohr.BadlyApproximable α) {denom : ℕ → ℕ}
+  (hβ : NilBohr.AdmissibleBetaDenominators β denom) {c₀ : ℝ} (hc₀ : 0 < c₀) (hc₁ : c₀ < 1) {d : ℕ} (hd : 0 < d)
+  {B K L A E : ℝ} (hB : 0 ≤ B) (hK : 0 ≤ K) (hL : 0 < L) (hA : 0 < A) (hE : 0 < E) (F : NilBohr.Circle → ℂ) {κ : NNReal}
+  (hF : LipschitzWith κ F) :
+  ∃ C,
+    0 < C ∧
+      ∀ᶠ (N : ℕ) in Filter.atTop,
+        ∀ {q b : ℕ} {l r u : ℤ},
+          0 < q →
+            ↑q ≤ Real.log ↑N ^ L →
+              ↑b ≤ B →
+                let M := NilBohr.parameterLength N q d;
+                let X := q * M + 1;
+                Finset.Icc l r ⊆ NilBohr.positiveInterval M →
+                  ↑M * Real.log ↑N ^ (-K) ≤ ↑(Finset.Icc l r).card →
+                    let P' := Finset.image (fun y => ↑q * y + 1) (NilBohr.localProgression l r u (q ^ b));
+                    let δ := Real.log ↑X ^ (-E);
+                    ∀ (p : Polynomial ℝ),
+                      p.natDegree ≤ d →
+                        ‖NilBohr.phaseAverage P'
+                              (fun m =>
+                                NilBohr.cramerWeight (NilBohr.cramerCutoff c₀ X) m *
+                                  NilBohr.heisenbergCenteredTest F δ (NilBohr.heisenbergOrbit α β (m - 1)))
+                              p‖ ≤
+                          C * Real.log ↑X ^ (-A)
+NilBohr.primeDivisors_heisenberg_log_saving (hGT : NilBohr.ProductHeisenbergObstruction)
+  (hScalar : NilBohr.ScalarHeisenbergObstruction) {α β : ℝ} (hα : NilBohr.BadlyApproximable α) {denom : ℕ → ℕ}
+  (hβ : NilBohr.AdmissibleBetaDenominators β denom) {d : ℕ} (hd : 0 < d) {B K L A E : ℝ} (hB : 0 ≤ B) (hK : 0 ≤ K)
+  (hL : 0 < L) (hA : 0 < A) (hE : 0 < E) :
+  ∀ᶠ (N : ℕ) in Filter.atTop,
+    ∀ {q b : ℕ} {l r u : ℤ},
+      0 < q →
+        ↑q ≤ Real.log ↑N ^ L →
+          ↑b ≤ B →
+            let M := NilBohr.parameterLength N q d;
+            let X := q * M + 1;
+            Finset.Icc l r ⊆ NilBohr.positiveInterval M →
+              ↑M * Real.log ↑N ^ (-K) ≤ ↑(Finset.Icc l r).card →
+                let P' := Finset.image (fun y => ↑q * y + 1) (NilBohr.localProgression l r u (q ^ b));
+                ∃ j,
+                  ↑(denom j) ≤ ↑X ^ (1 / 100) ∧
+                    ↑X ^ (1 / 100) < ↑(denom (j + 1)) ∧
+                      ∀ {D : ℕ},
+                        0 < D →
+                          ↑D ≤ ↑X ^ (1 / 20000) →
+                            (q ^ (b + 1)).Coprime D →
+                              ¬denom j ∣ D →
+                                ∀ (Φ : NilBohr.HeisenbergPoint → ℂ),
+                                  NilBohr.HeisenbergLipschitzNormLE Φ (Real.log ↑X ^ E) →
+                                    (∀ (x y : ℝ), ∫ (z : ℝ) in 0 ..1, Φ (x, y, z) = 0) →
+                                      ∀ (p : Polynomial ℝ),
+                                        p.natDegree ≤ d →
+                                          let P₀ := {m ∈ P' | ↑D ∣ m};
+                                          ‖NilBohr.phaseAverage P₀ (fun m => Φ (NilBohr.heisenbergOrbit α β (m - 1)))
+                                                p‖ ≤
+                                            2 * Real.log ↑X ^ (-A)
+NilBohr.primeLocalPhase_of_literature {c₀ : ℝ} (hc₀ : 0 < c₀) (hc₁ : c₀ < 1 / 11)
+  (hLit : NilBohr.PrimePhaseLiteratureInputs c₀) {α β : ℝ} (hα : NilBohr.BadlyApproximable α) {denom : ℕ → ℕ}
+  (hβ : NilBohr.AdmissibleBetaDenominators β denom) {d : ℕ} (hd : 0 < d) (F : NilBohr.Circle → ℂ) {κ : NNReal}
+  (hF : LipschitzWith κ F) : NilBohr.PrimeLocalPhase d (NilBohr.heisenbergPhase α β) F
+NilBohr.primeModelReplacement_log_saving_of_kmtt {c₀ : ℝ} (hc₀ : 0 < c₀) (hc₀' : c₀ < 1 / 11)
+  (hBanks : NilBohr.BanksRealZeroBound) (hAmbient : NilBohr.KMTTAmbientPrimeModel c₀)
+  (hBernstein : NilBohr.BernsteinCircleLipschitzFourier) {d : ℕ} (hd : 0 < d)
+  (hG : NilBohr.NormalizedGowersLaws (max 3 (d + 1))) (F : C(NilBohr.Circle, ℂ)) (L₀ : NNReal)
+  (hF : LipschitzWith L₀ ⇑F) {B K L A E : ℝ} (hB : 0 ≤ B) (hK : 0 ≤ K) (hL : 0 ≤ L) (hA : 0 < A) (hE : 0 < E) :
+  ∃ C,
+    0 < C ∧
+      ∀ᶠ (N : ℕ) in Filter.atTop,
+        ∀ {q b : ℕ} {l r u : ℤ},
+          0 < q →
+            ↑q ≤ Real.log ↑N ^ L →
+              ↑b ≤ B →
+                let M := NilBohr.parameterLength N q d;
+                let X := q * M + 1;
+                Finset.Icc l r ⊆ NilBohr.positiveInterval M →
+                  ↑M * Real.log ↑N ^ (-K) ≤ ↑(Finset.Icc l r).card →
+                    ∀ (α β : ℝ) (Q : Polynomial ℝ),
+                      Q.natDegree ≤ d →
+                        let P' := Finset.image (fun y => ↑q * y + 1) (NilBohr.localProgression l r u (q ^ b));
+                        let ε := Real.log ↑X ^ (-E);
+                        ‖NilBohr.phaseAverage P'
+                              (fun m =>
+                                (NilBohr.mangoldtWeight m - NilBohr.cramerWeight (NilBohr.cramerCutoff c₀ X) m) *
+                                  NilBohr.heisenbergCenteredTest (⇑F) ε (NilBohr.heisenbergOrbit α β (m - 1)))
+                              Q‖ ≤
+                          C * Real.log ↑X ^ (-A)
+NilBohr.primePointwiseFor_of_primeLocalPhase.{u_1} {X : Type u_1} [MeasurableSpace X]
+  (hPNT : NilBohr.PrimeNumberTheorem) (hMWW : NilBohr.MirekWanWrightPointwise X) (hTer : NilBohr.TeravainenFixedFamily)
+  (V : ℝ → ℝ → ℤ → ℝ)
+  (hp :
+    ∀ (α β : ℝ),
+      NilBohr.BadlyApproximable α →
+        NilBohr.AdmissibleBeta β →
+          ∀ (d : ℕ),
+            0 < d → ∀ (F : NilBohr.Circle → ℂ), (∃ K, LipschitzWith K F) → NilBohr.PrimeLocalPhase d (V α β) F) :
+  NilBohr.PrimePointwiseFor X V
+NilBohr.primeProgression_as_affine {l r u : ℤ} {M q b : ℕ} (hq : 0 < q)
+  (hI : Finset.Icc l r ⊆ NilBohr.positiveInterval M) (hP : (NilBohr.localProgression l r u (q ^ b)).Nonempty) :
+  let P := NilBohr.localProgression l r u (q ^ b);
+  let P' := Finset.image (fun y => ↑q * y + 1) P;
+  P'.card = P.card ∧
+    P' ⊆ NilBohr.positiveInterval (q * M + 1) ∧
+      P' = NilBohr.localProgression (↑q * l + 1) (↑q * r + 1) (↑q * u + 1) (q ^ (b + 1)) ∧
+        IsCoprime (↑q * u + 1) ↑(q ^ (b + 1)) ∧
+          ↑(Finset.Icc l r).card / ↑(q ^ b) - 1 < ↑P'.card ∧
+            ∃ a, P' = Finset.image (fun t => a + ↑(q ^ (b + 1)) * t) (NilBohr.positiveInterval P'.card)
+NilBohr.primeProgression_mangoldt_seam_error (hScalar : NilBohr.ScalarHeisenbergObstruction) {α β : ℝ}
+  (hα : NilBohr.BadlyApproximable α) {denom : ℕ → ℕ} (hβ : NilBohr.AdmissibleBetaDenominators β denom) {d : ℕ}
+  (hd : 0 < d) (B K L A : ℝ) (hB : 0 ≤ B) (hK : 0 ≤ K) (hL : 0 < L) (hA : 0 < A) (F : NilBohr.Circle → ℂ)
+  (hF : Continuous F) :
+  ∃ C,
+    0 < C ∧
+      ∀ᶠ (N : ℕ) in Filter.atTop,
+        ∀ {q b : ℕ} {l r u : ℤ},
+          0 < q →
+            ↑q ≤ Real.log ↑N ^ L →
+              ↑b ≤ B →
+                let M := NilBohr.parameterLength N q d;
+                let X := q * M + 1;
+                Finset.Icc l r ⊆ NilBohr.positiveInterval M →
+                  ↑M * Real.log ↑N ^ (-K) ≤ ↑(Finset.Icc l r).card →
+                    let P' := Finset.image (fun y => ↑q * y + 1) (NilBohr.localProgression l r u (q ^ b));
+                    let ε := Real.log ↑X ^ (-(A + 2));
+                    ∀ (p : Polynomial ℝ),
+                      ‖NilBohr.phaseAverage P'
+                            (fun m =>
+                              NilBohr.mangoldtWeight m *
+                                (F ↑(NilBohr.heisenbergPhase α β (m - 1)) - NilBohr.circleMean F -
+                                  NilBohr.heisenbergCenteredTest F ε (NilBohr.heisenbergOrbit α β (m - 1))))
+                            p‖ ≤
+                        C * Real.log ↑X ^ (-A)
+NilBohr.primeProgression_sieve_scales {d : ℕ} (hd : 0 < d) (B K L : ℝ) (hB : 0 ≤ B) (hK : 0 ≤ K) (hL : 0 ≤ L) :
+  ∃ c,
+    0 < c ∧
+      ∀ᶠ (N : ℕ) in Filter.atTop,
+        ∀ {q b : ℕ} {l r u : ℤ},
+          0 < q →
+            ↑q ≤ Real.log ↑N ^ L →
+              ↑b ≤ B →
+                let M := NilBohr.parameterLength N q d;
+                let X := q * M + 1;
+                Finset.Icc l r ⊆ NilBohr.positiveInterval M →
+                  ↑M * Real.log ↑N ^ (-K) ≤ ↑(Finset.Icc l r).card →
+                    let P := NilBohr.localProgression l r u (q ^ b);
+                    let P' := Finset.image (fun y => ↑q * y + 1) P;
+                    let T := K + (B + 1) * L;
+                    P'.card = P.card ∧
+                      P' ⊆ NilBohr.positiveInterval X ∧
+                        Real.log ↑N / (2 * ↑d) ≤ Real.log ↑X ∧
+                          Real.log ↑X ≤ 2 * Real.log ↑N ∧
+                            c * ↑X * Real.log ↑X ^ (-T) ≤ ↑P'.card ∧
+                              ∀ {D : ℕ},
+                                0 < D →
+                                  ↑D ≤ ↑X ^ (1 / 20000) →
+                                    (q ^ (b + 1)).Coprime D →
+                                      let P₀ := {m ∈ P' | ↑D ∣ m};
+                                      ↑(q ^ (b + 1) * D) ≤ ↑X ^ (1 / 10000) ∧
+                                        ↑X ^ (1 / 2) ≤ ↑P₀.card ∧
+                                          ∃ z,
+                                            P₀ =
+                                              Finset.image (fun t => z + ↑(q ^ (b + 1) * D) * t)
+                                                (NilBohr.positiveInterval P₀.card)
+NilBohr.prime_model_replacement_centered_chart (S : ℕ) (hS : 3 ≤ S) (hG : NilBohr.NormalizedGowersLaws S)
+  (hBernstein : NilBohr.BernsteinCircleLipschitzFourier) (F : C(NilBohr.Circle, ℂ)) (L₀ : NNReal)
+  (hF : LipschitzWith L₀ ⇑F) :
+  ∃ C,
+    0 < C ∧
+      ∀ (X D : ℕ) [inst : NeZero D],
+        0 < X →
+          ∀ (a b u₀ : ℤ),
+            Finset.Icc a b ⊆ NilBohr.positiveInterval X →
+              (NilBohr.localProgression a b u₀ D).Nonempty →
+                ∀ (u : ℤ → ℂ) (ε α β : ℝ),
+                  0 < ε →
+                    ε < 1 / 16 →
+                      ∀ (Q : Polynomial ℝ),
+                        Q.natDegree < S →
+                          let J := NilBohr.localProgression a b u₀ D;
+                          ‖NilBohr.phaseAverage J
+                                (fun m =>
+                                  u m * NilBohr.heisenbergCenteredTest (⇑F) ε (NilBohr.heisenbergOrbit α β (m - 1)))
+                                Q‖ ≤
+                            C * (↑X / ↑J.card) * (2 + Real.log ↑X) / ε ^ 2 * NilBohr.normalizedGowers S 1 (↑X) u
+NilBohr.product_local_linear_phases.{u_1} {ι : Type u_1} [Fintype ι] (P : ι → Polynomial ℤ) (x y : ℤ) (θ γ : ι → ℝ) :
+  ∏ i, NilBohr.phase (θ i * ↑(x + Polynomial.eval y (P i)) + γ i) =
+    NilBohr.phase (Polynomial.eval (↑y) (NilBohr.localTestPolynomial P x θ γ))
+NilBohr.quantitativePrimeSelectorCutoffs :
+  ∃ K,
+    0 < K ∧
+      ∀ (ε : ℝ),
+        0 < ε →
+          ε < 1 / 16 →
+            ∃ pieces lo hi,
+              (∀ (j : Fin 3),
+                  ∃ κ,
+                    LipschitzWith κ ⇑(pieces j) ∧
+                      ‖pieces j‖ + ↑κ ≤ K / ε ^ 2 ∧
+                        2 * (hi j - lo j) < 1 ∧ ∀ t ∈ Set.Ico 0 1, (pieces j) ↑t ≠ 0 → t ∈ Set.Icc (lo j) (hi j)) ∧
+                ∀ (x : NilBohr.Circle), ∑ j, (pieces j) x = ↑(NilBohr.heisenbergSeamCutoff ε x)
+NilBohr.quantitativeSelectorCutoffs : NilBohr.QuantitativeSelectorCutoffs
+NilBohr.realBinomialPhase_exp_totalVariation_le {d K : ℕ} {m : ℤ} (hm : m ≠ 0) {B C : ℝ} (hC : 0 ≤ C)
+  (hLip : ∀ (x y : ℝ), ‖NilBohr.phase x - NilBohr.phase y‖ ≤ C * |x - y|) (hK : 0 < K) (e : ℕ → ℝ)
+  (he : ∀ i ∈ Finset.range d, |e (i + 1)| ≤ B / ↑K ^ (i + 1)) :
+  ∑ t ∈ Finset.range K,
+      dist (NilBohr.phase (-NilBohr.realBinomialPhase d e (t + 1) / ↑m))
+        (NilBohr.phase (-NilBohr.realBinomialPhase d e t / ↑m)) ≤
+    C * (↑d * B)
+NilBohr.recurrence_of_density_increment_at_scale {ℓ d r N w q₀ : ℕ} (P : Fin (ℓ + 1) → Polynomial ℤ)
+  (hP : ∀ (i : Fin (ℓ + 1)), (P i).coeff 0 = 0) (selector : ℕ → Prop) (c : NilBohr.DensityIncrementConstants)
+  (increment : NilBohr.DensityIncrementAtParameters P selector d r c) (A : Finset ℤ) (hN : 0 < N)
+  (hA : A ⊆ NilBohr.positiveInterval N) (hq₀ : 0 < q₀) (hdiv : NilBohr.initialModulus w ∣ q₀)
+  (hsmooth : NilBohr.ModulusSmooth w q₀) (hr : r ≤ d) (hδ : 0 < NilBohr.setDensity A N)
+  (hw : c.K * NilBohr.setDensity A N ^ (-c.E) ≤ ↑w) (loss L₀ : ℝ) (hloss : 0 ≤ loss)
+  (hstart : ∀ (L : ℕ), ↑N / ↑q₀ - 1 < ↑L → L₀ ≤ Real.log ↑L)
+  (hlossBound :
+    (↑r / ↑d * ↑(d - 1) + c.C₁) * ↑w ^ 2 - c.C₁ * Real.log (NilBohr.setDensity A N) - Real.log c.lengthConstant +
+        ↑r * Real.log 2 ≤
+      loss)
+  (resource :
+    ∀ (i n q : ℕ),
+      i < NilBohr.densityIterationSteps c.η (NilBohr.setDensity A N) →
+        0 < n →
+          0 < q →
+            Real.log ↑q ≤ (↑c.Bmax + 1) ^ i * Real.log ↑q₀ →
+              (↑r / ↑d) ^ i * L₀ - ↑i * loss ≤ Real.log ↑n →
+                c.Nmin ≤ n ∧ ↑w ≤ Real.log ↑n ^ c.c ∧ Real.log ↑q ≤ ↑w ^ 2 ∧ 2 ≤ (↑n / ↑q ^ (d - 1)) ^ (↑d)⁻¹) :
+  NilBohr.ContainsConfiguration A P selector
+NilBohr.regularized_count_discrepancy (weighted unweighted regularized model : ℂ) {μ v : ℝ} (hμ : 0 < μ)
+  (hweighted : ‖weighted‖ ≤ μ * v / 4) (hcompare : ‖weighted - ↑μ * unweighted‖ ≤ μ * v / 4)
+  (hreg : ‖regularized - unweighted‖ ≤ v / 8) (hmodel : v ≤ ‖model‖) : 3 * v / 8 ≤ ‖regularized - model‖
+NilBohr.relativeSelectorComparison_of_centered_phase {c₀ C : ℝ} (hc₀ : 0 < c₀) (hc₀' : c₀ < 1 / 11) (hC : 1 ≤ C)
+  {d ℓ : ℕ} (hd : 0 < d) (hℓ : 0 < ℓ) (hExt : NilBohr.SelectorLiteratureInputs c₀) {α β : ℝ}
+  (hα : NilBohr.BadlyApproximable α) {r : ℕ → ℕ} (hr : NilBohr.AdmissibleBetaDenominators β r)
+  (F : C(NilBohr.Circle, ℂ)) (κF : NNReal) (hF : LipschitzWith κF ⇑F)
+  (hPhase : NilBohr.CenteredHeisenbergPhaseEstimate d (NilBohr.heisenbergPhase α β) (⇑F) r) :
+  NilBohr.RelativeSelectorComparison c₀ C d ℓ (NilBohr.heisenbergPhase α β) ⇑F
+NilBohr.relativeSelectorComparison_of_obstructions {c₀ C : ℝ} (hc₀ : 0 < c₀) (hc₀' : c₀ < 1 / 11) (hC : 1 ≤ C) {d ℓ : ℕ}
+  (hd : 0 < d) (hℓ : 0 < ℓ) (hExt : NilBohr.SelectorLiteratureInputs c₀) (hGT : NilBohr.ProductHeisenbergObstruction)
+  {α β : ℝ} (hα : NilBohr.BadlyApproximable α) (hβ : NilBohr.AdmissibleBeta β) (F : C(NilBohr.Circle, ℂ)) (κF : NNReal)
+  (hF : LipschitzWith κF ⇑F) : NilBohr.RelativeSelectorComparison c₀ C d ℓ (NilBohr.heisenbergPhase α β) ⇑F
+NilBohr.relativeSelectorComparison_of_progression_estimates {c₀ C : ℝ} (hc₀ : 0 < c₀) (hc₀' : c₀ < 1 / 11) (hC : 1 ≤ C)
+  {d ℓ : ℕ} (hd : 0 < d) (hℓ : 0 < ℓ) (hVN : NilBohr.LocalGeneralizedVonNeumann)
+  (hCountGowers : NilBohr.KMTTWeightedGowers) (hMono : NilBohr.NormalizedGowersAdjacentMonotonicity)
+  (hLaws : ∀ (S : ℕ), 2 ≤ S → NilBohr.NormalizedGowersLaws S)
+  (hPrime : ∀ (S : ℕ), 3 ≤ S → NilBohr.HighOrderRelativePrimeUniformity c₀ d S)
+  (hBernstein : NilBohr.BernsteinCircleLipschitzFourier) {α β : ℝ} (F : C(NilBohr.Circle, ℂ)) (κF : NNReal)
+  (hF : LipschitzWith κF ⇑F) {r : ℕ → ℕ} (hr : NilBohr.AdmissibleBetaDenominators β r)
+  (hScalar : NilBohr.HorizontalCircleEstimate β r)
+  (hPhase : NilBohr.CenteredHeisenbergPhaseEstimate d (NilBohr.heisenbergPhase α β) (⇑F) r) :
+  NilBohr.RelativeSelectorComparison c₀ C d ℓ (NilBohr.heisenbergPhase α β) ⇑F
+NilBohr.residueCorrelation_le_phaseNorm {s r H : ℕ} (hs : 2 ≤ s) (hr : 0 < r) (v : ℤ → ℂ) (Q : Polynomial ℝ)
+  (hQ : Q.natDegree < s) :
+  ‖NilBohr.phaseAverage (NilBohr.positiveInterval H) (fun t => v (↑r * t)) (Q.comp (Polynomial.C ↑r * Polynomial.X))‖ /
+      ↑r ≤
+    NilBohr.phaseNorm s (NilBohr.positiveInterval (r * H)) v
+NilBohr.residue_indicator_fourier_l1 (D : ℕ) [NeZero D] (u : ℤ) :
+  ∑ r, ‖(↑D)⁻¹ * NilBohr.phaseExponential (-(↑r.val / ↑D) * ↑u)‖ = 1
+NilBohr.scalar_heisenberg_equidistribution (hGT : NilBohr.ScalarHeisenbergObstruction) (α β : ℝ)
+  (hα : NilBohr.BadlyApproximable α) (hβ : NilBohr.AdmissibleBeta β) :
+  ∃ r,
+    StrictMono r ∧
+      (∀ᶠ (X : ℝ) in Filter.atTop, ∃ j, ↑(r j) ≤ X ^ (1 / 100) ∧ X ^ (1 / 100) < ↑(r (j + 1))) ∧
+        ∀ (B E : ℝ),
+          0 < B →
+            ∀ᶠ (X : ℝ) in Filter.atTop,
+              ∀ (j : ℕ),
+                ↑(r j) ≤ X ^ (1 / 100) →
+                  X ^ (1 / 100) < ↑(r (j + 1)) →
+                    ∀ (a : ℤ) (v s K : ℕ),
+                      0 < v →
+                        ↑v ≤ X ^ (1 / 5000) →
+                          ¬r j ∣ v →
+                            0 < s →
+                              ↑s ≤ Real.log X ^ E →
+                                X ^ (1 / 3) ≤ ↑K →
+                                  ∀ (Φ : NilBohr.HeisenbergPoint → ℂ) (U : ℝ),
+                                    NilBohr.HeisenbergLipschitzNormLE Φ U →
+                                      ‖NilBohr.heisenbergOrbitAverage α β a v s K Φ - NilBohr.heisenbergChartMean Φ‖ ≤
+                                        Real.log X ^ (-B) * U
+NilBohr.scalar_heisenberg_log_saving (hGT : NilBohr.ScalarHeisenbergObstruction) (α β : ℝ)
+  (hα : NilBohr.BadlyApproximable α) (hβ : NilBohr.AdmissibleBeta β) :
+  ∃ r,
+    StrictMono r ∧
+      (∀ᶠ (X : ℝ) in Filter.atTop, ∃ j, ↑(r j) ≤ X ^ (1 / 100) ∧ X ^ (1 / 100) < ↑(r (j + 1))) ∧
+        ∀ (A L : ℝ),
+          0 < A →
+            0 < L →
+              ∀ᶠ (X : ℝ) in Filter.atTop,
+                ∀ (j : ℕ),
+                  ↑(r j) ≤ X ^ (1 / 100) →
+                    X ^ (1 / 100) < ↑(r (j + 1)) →
+                      ∀ (a : ℤ) (v K : ℕ),
+                        0 < v →
+                          ↑v ≤ X ^ (1 / 10000) →
+                            ¬r j ∣ v →
+                              X ^ (1 / 2) ≤ ↑K →
+                                ∀ (Φ : NilBohr.HeisenbergPoint → ℂ),
+                                  NilBohr.HeisenbergLipschitzNormLE Φ (Real.log X ^ L) →
+                                    ‖NilBohr.heisenbergOrbitAverage α β a v 1 K Φ - NilBohr.heisenbergChartMean Φ‖ ≤
+                                      Real.log X ^ (-A)
+NilBohr.selector_count_split {k : ℕ} (N M : ℕ) (X : Finset ℤ) (P : Fin k → Polynomial ℤ) (lam Fq : ℤ → ℂ) (μ : ℂ)
+  (f : Fin k → ℤ → ℂ) :
+  NilBohr.countingForm N M X P (fun y => lam y * Fq y) f - μ * NilBohr.countingForm N M X P (fun x => 1) f =
+    NilBohr.countingForm N M X P (fun y => (lam y - 1) * Fq y) f + NilBohr.countingForm N M X P (fun y => Fq y - μ) f
+NilBohr.sieveMidpoint_bound.{u_1, u_2} {L : Type u_1} {X : Type u_2} (divisors : Finset L) (samples : Finset X)
+  (hits : L → X → Prop) [DecidableRel hits] (lower upper : L → ℝ) (sifted : X → ℝ) (test : X → ℂ) (expected : L → ℝ)
+  (error : ℝ) (hLower : ∀ l ∈ divisors, |lower l| ≤ 1) (hUpper : ∀ l ∈ divisors, |upper l| ≤ 1)
+  (hBracket :
+    ∀ x ∈ samples,
+      NilBohr.sieveDivisorSum divisors hits lower x ≤ sifted x ∧
+        sifted x ≤ NilBohr.sieveDivisorSum divisors hits upper x)
+  (hTest : ∀ x ∈ samples, ‖test x‖ ≤ 1)
+  (hDiscrepancy : ∀ l ∈ divisors, |↑(Finset.filter (hits l) samples).card - expected l| ≤ error) :
+  ‖∑ x ∈ samples, ↑(sifted x) * test x‖ ≤
+    ∑ l ∈ divisors, ‖∑ x ∈ Finset.filter (hits l) samples, test x‖ +
+        (∑ l ∈ divisors, (upper l - lower l) * expected l) / 2 +
+      ↑divisors.card * error
+NilBohr.smoothErgodicComparison_of_literature.{u_1} {X : Type u_1} [MeasurableSpace X] {μ : MeasureTheory.Measure X}
+  [MeasureTheory.IsProbabilityMeasure μ] {c₀ : ℝ} (hc₀ : 0 < c₀) (hc₁ : c₀ < 1 / 11)
+  (hLit : NilBohr.PrimePhaseLiteratureInputs c₀) (hTer : NilBohr.TeravainenFixedFamily)
+  (hPNT : NilBohr.PrimeNumberTheorem) {α β : ℝ} (hα : NilBohr.BadlyApproximable α) (hβ : NilBohr.AdmissibleBeta β)
+  {ℓ d : ℕ} (hd : 0 < d) (P : Fin ℓ → Polynomial ℤ) (hP : NilBohr.ErgodicPolynomialFamily P)
+  (hdeg : ∀ (i : Fin ℓ), (P i).natDegree ≤ d) (htop : ∃ i, (P i).natDegree = d) (F : NilBohr.Circle → ℂ) {κ : NNReal}
+  (hF : LipschitzWith κ F) (T : NilBohr.ProbabilitySystem X μ) (f : Fin ℓ → X → ℂ)
+  (hf : ∀ (i : Fin ℓ), MeasureTheory.MemLp (f i) ⊤ μ) :
+  NilBohr.SmoothErgodicComparison T P f (NilBohr.heisenbergPhase α β) F
+NilBohr.smoothErgodicComparison_of_primeLocalPhase.{u_1} {X : Type u_1} [MeasurableSpace X]
+  {μ : MeasureTheory.Measure X} [MeasureTheory.IsProbabilityMeasure μ] (hTer : NilBohr.TeravainenFixedFamily)
+  (hPNT : NilBohr.PrimeNumberTheorem) {ℓ d : ℕ} (hd : 0 < d) (P : Fin ℓ → Polynomial ℤ)
+  (hP : NilBohr.ErgodicPolynomialFamily P) (hdeg : ∀ (i : Fin ℓ), (P i).natDegree ≤ d) (htop : ∃ i, (P i).natDegree = d)
+  (V : ℤ → ℝ) (F : NilBohr.Circle → ℂ) (hF : Continuous F) (hp : NilBohr.PrimeLocalPhase d V F)
+  (T : NilBohr.ProbabilitySystem X μ) (f : Fin ℓ → X → ℂ) (hf : ∀ (i : Fin ℓ), MeasureTheory.MemLp (f i) ⊤ μ) :
+  NilBohr.SmoothErgodicComparison T P f V F
+NilBohr.smoothErgodicLogDecay_of_primeLocalPhase.{u_1} {X : Type u_1} [MeasurableSpace X] {μ : MeasureTheory.Measure X}
+  [MeasureTheory.IsProbabilityMeasure μ] (hTer : NilBohr.TeravainenFixedFamily) {ℓ : ℕ} (P : Fin ℓ → Polynomial ℤ)
+  (hP : NilBohr.ErgodicPolynomialFamily P) (V : ℤ → ℝ)
+  (hp : ∀ (d : ℕ), 0 < d → ∀ (F : NilBohr.Circle → ℂ), (∃ K, LipschitzWith K F) → NilBohr.PrimeLocalPhase d V F)
+  (T : NilBohr.ProbabilitySystem X μ) : NilBohr.SmoothErgodicLogDecay T P V
+NilBohr.spatial_slice_square_eq_differences {k : ℕ} (X : Finset ℤ) (P : Fin k → Polynomial ℤ) (f : Fin k → ℤ → ℂ)
+  (y : ℤ) :
+  ↑(‖NilBohr.spatialSlice X P f y‖ ^ 2) =
+    ∑ h ∈ NilBohr.spatialDifferenceSupport X,
+      ∑ ux ∈ {ux ∈ X ×ˢ X | ux.1 - ux.2 = h},
+        ∏ i, NilBohr.spatialMultiplicativeDifference (f i) h (ux.2 + Polynomial.eval y (P i))
+NilBohr.twisted_heisenberg_log_saving (hGT : NilBohr.ProductHeisenbergObstruction)
+  (hScalar : NilBohr.ScalarHeisenbergObstruction) {α β : ℝ} (hα : NilBohr.BadlyApproximable α) {r : ℕ → ℕ}
+  (hβ : NilBohr.AdmissibleBetaDenominators β r) (d : ℕ) {A L : ℝ} (hA : 0 < A) (hL : 0 < L) :
+  ∀ᶠ (X : ℝ) in Filter.atTop,
+    ∀ (j : ℕ),
+      ↑(r j) ≤ X ^ (1 / 100) →
+        X ^ (1 / 100) < ↑(r (j + 1)) →
+          ∀ (a : ℤ) (v K : ℕ),
+            0 < v →
+              ↑v ≤ X ^ (1 / 10000) →
+                ¬r j ∣ v →
+                  X ^ (1 / 2) ≤ ↑K →
+                    ∀ (Φ : NilBohr.HeisenbergPoint → ℂ),
+                      NilBohr.HeisenbergLipschitzNormLE Φ (Real.log X ^ L) →
+                        (∀ (x y : ℝ), ∫ (z : ℝ) in 0 ..1, Φ (x, y, z) = 0) →
+                          ∀ (p : Polynomial ℝ),
+                            p.natDegree ≤ d →
+                              ‖(NilBohr.heisenbergTwistedSum Φ α β a (↑v) K fun t => Polynomial.eval (↑t) p) / ↑K‖ ≤
+                                2 * Real.log X ^ (-A)
+NilBohr.twisted_heisenberg_log_saving_for_denominators (hGT : NilBohr.ProductHeisenbergObstruction)
+  (hScalar : NilBohr.ScalarHeisenbergObstruction) {α β : ℝ} (hα : NilBohr.BadlyApproximable α) {r : ℕ → ℕ}
+  (hβ : NilBohr.AdmissibleBetaDenominators β r) {d : ℕ} (hd : 0 < d) {A L : ℝ} (hA : 0 < A) (hL : 0 < L) :
+  ∀ᶠ (X : ℝ) in Filter.atTop,
+    ∀ (j : ℕ),
+      ↑(r j) ≤ X ^ (1 / 100) →
+        X ^ (1 / 100) < ↑(r (j + 1)) →
+          ∀ (a : ℤ) (v K : ℕ),
+            0 < v →
+              ↑v ≤ X ^ (1 / 10000) →
+                ¬r j ∣ v →
+                  X ^ (1 / 2) ≤ ↑K →
+                    ∀ (Φ : NilBohr.HeisenbergPoint → ℂ),
+                      NilBohr.HeisenbergLipschitzNormLE Φ (Real.log X ^ L) →
+                        (∀ (x y : ℝ), ∫ (z : ℝ) in 0 ..1, Φ (x, y, z) = 0) →
+                          ∀ (p : Polynomial ℝ),
+                            p.natDegree ≤ d →
+                              ‖(NilBohr.heisenbergTwistedSum Φ α β a (↑v) K fun t => Polynomial.eval (↑t) p) / ↑K‖ ≤
+                                2 * Real.log X ^ (-A)
+NilBohr.twisted_heisenberg_log_saving_of_dilated (hGT : NilBohr.ProductHeisenbergObstruction) {r : ℕ → ℕ} {α β : ℝ}
+  (hprime : ∀ (j : ℕ), Nat.Prime (r j))
+  (hrlarge :
+    ∀ (E B : ℝ),
+      0 < E → 0 < B → ∀ᶠ (X : ℝ) in Filter.atTop, ∀ (j : ℕ), X ^ (1 / 100) < ↑(r (j + 1)) → B * Real.log X ^ E < ↑(r j))
+  (hhorizontal :
+    ∀ (A L D : ℝ),
+      0 < L →
+        ∀ᶠ (X : ℝ) in Filter.atTop,
+          ∀ (j : ℕ),
+            ↑(r j) ≤ X ^ (1 / 100) →
+              X ^ (1 / 100) < ↑(r (j + 1)) →
+                ∀ (v s K : ℕ) (k l : ℤ),
+                  0 < v →
+                    ↑v ≤ X ^ (1 / 5000) →
+                      ¬r j ∣ v →
+                        0 < s →
+                          ↑s ≤ Real.log X ^ D →
+                            X ^ (1 / 3) ≤ ↑K →
+                              0 < max |↑k| |↑l| →
+                                max |↑k| |↑l| ≤ Real.log X ^ L →
+                                  Real.log X ^ A < ↑K * NilBohr.torusNorm (↑v * (↑k * α + ↑l * β) / ↑s))
+  (hscalar :
+    ∀ (B E : ℝ),
+      0 < B →
+        ∀ᶠ (X : ℝ) in Filter.atTop,
+          ∀ (j : ℕ),
+            ↑(r j) ≤ X ^ (1 / 100) →
+              X ^ (1 / 100) < ↑(r (j + 1)) →
+                ∀ (a : ℤ) (v s K : ℕ),
+                  0 < v →
+                    ↑v ≤ X ^ (1 / 5000) →
+                      ¬r j ∣ v →
+                        0 < s →
+                          ↑s ≤ Real.log X ^ E →
+                            X ^ (1 / 3) ≤ ↑K →
+                              ∀ (Φ : NilBohr.HeisenbergPoint → ℂ) (U : ℝ),
+                                NilBohr.HeisenbergLipschitzNormLE Φ U →
+                                  ‖NilBohr.heisenbergOrbitAverage α β a v s K Φ - NilBohr.heisenbergChartMean Φ‖ ≤
+                                    Real.log X ^ (-B) * U)
+  {d : ℕ} (hd : 0 < d) {A L : ℝ} (hA : 0 < A) (hL : 0 < L) :
+  ∀ᶠ (X : ℝ) in Filter.atTop,
+    ∀ (j : ℕ),
+      ↑(r j) ≤ X ^ (1 / 100) →
+        X ^ (1 / 100) < ↑(r (j + 1)) →
+          ∀ (a : ℤ) (v K : ℕ),
+            0 < v →
+              ↑v ≤ X ^ (1 / 10000) →
+                ¬r j ∣ v →
+                  X ^ (1 / 2) ≤ ↑K →
+                    ∀ (Φ : NilBohr.HeisenbergPoint → ℂ),
+                      NilBohr.HeisenbergLipschitzNormLE Φ (Real.log X ^ L) →
+                        (∀ (x y : ℝ), ∫ (z : ℝ) in 0 ..1, Φ (x, y, z) = 0) →
+                          ∀ (p : Polynomial ℝ),
+                            p.natDegree ≤ d →
+                              ‖(NilBohr.heisenbergTwistedSum Φ α β a (↑v) K fun t => Polynomial.eval (↑t) p) / ↑K‖ ≤
+                                2 * Real.log X ^ (-A)
+NilBohr.twisted_heisenberg_phaseNorm (hGT : NilBohr.ProductHeisenbergObstruction)
+  (hScalar : NilBohr.ScalarHeisenbergObstruction) {α β : ℝ} (hα : NilBohr.BadlyApproximable α) {r : ℕ → ℕ}
+  (hβ : NilBohr.AdmissibleBetaDenominators β r) (d : ℕ) {A L : ℝ} (hA : 0 < A) (hL : 0 < L) :
+  ∀ᶠ (X : ℝ) in Filter.atTop,
+    ∀ (j : ℕ),
+      ↑(r j) ≤ X ^ (1 / 100) →
+        X ^ (1 / 100) < ↑(r (j + 1)) →
+          ∀ (a : ℤ) (v K : ℕ),
+            0 < v →
+              ↑v ≤ X ^ (1 / 10000) →
+                ¬r j ∣ v →
+                  X ^ (1 / 2) ≤ ↑K →
+                    ∀ (Φ : NilBohr.HeisenbergPoint → ℂ),
+                      NilBohr.HeisenbergLipschitzNormLE Φ (Real.log X ^ L) →
+                        (∀ x ∈ Set.Ico 0 1, ∀ y ∈ Set.Ico 0 1, ∫ (z : ℝ) in 0 ..1, Φ (x, y, z) = 0) →
+                          (NilBohr.phaseNorm (d + 1) (NilBohr.positiveInterval K) fun t =>
+                              Φ (NilBohr.heisenbergOrbit α β (a + ↑v * t))) ≤
+                            2 * Real.log X ^ (-A)
+NilBohr.unweightedSelectorComparison_of_local_phase (hVN : NilBohr.LocalGeneralizedVonNeumann) {c₀ cRel C : ℝ}
+  (hc₀ : 0 < c₀) (hc₀' : c₀ < 1 / 11) (_hcRel : 0 < cRel) (hcRel' : cRel ≤ 1 / 10) (hC : 1 ≤ C) {w₀ d ℓ : ℕ}
+  (hw₀ : 16 ≤ w₀) (hd : 0 < d) (hℓ : 0 < ℓ) {α β : ℝ} (F : NilBohr.Circle → ℂ) (hF : Continuous F)
+  (hphase :
+    ∃ r,
+      NilBohr.AdmissibleBetaDenominators β r ∧
+        NilBohr.CenteredHeisenbergPhaseEstimate d (NilBohr.heisenbergPhase α β) F r) :
+  NilBohr.UnweightedSelectorComparison c₀ cRel C w₀ d ℓ (NilBohr.heisenbergPhase α β) F
+NilBohr.weighted_local_inverse_of_kmtt (hInv : NilBohr.KMTTLocalInverse) {C : ℝ} (hC : 1 ≤ C) {d ℓ : ℕ} (hd : 0 < d)
+  (hℓ : 0 < ℓ) :
+  ∃ K₀ D₀ c₁ D₁ c₂ D₂ B₀,
+    0 < K₀ ∧
+      0 < D₀ ∧
+        0 < c₁ ∧
+          0 < D₁ ∧
+            0 < c₂ ∧
+              0 < D₂ ∧
+                ∀ (N q : ℕ),
+                  3 ≤ N →
+                    0 < q →
+                      ↑q ≤ Real.exp (Real.log ↑N ^ (1 / 10)) →
+                        let M := NilBohr.parameterLength N q d;
+                        0 < M →
+                          ∀ (P : Fin (ℓ + 1) → Polynomial ℤ),
+                            NilBohr.FixedPolynomialFamily P →
+                              (P (Fin.last ℓ)).natDegree = d →
+                                (∀ (i : Fin (ℓ + 1)), i ≠ 0 → NilBohr.HasCoefficients C q (P i)) →
+                                  ∀ (v : ℤ → ℂ) (f : Fin (ℓ + 1) → ℤ → ℂ),
+                                    NilBohr.OneBoundedOn (NilBohr.positiveInterval M) v →
+                                      (∀ (i : Fin (ℓ + 1)), NilBohr.OneBoundedOn (NilBohr.spatialInterval C N) (f i)) →
+                                        (∀ (i : Fin (ℓ + 1)), NilBohr.SupportedOn (NilBohr.spatialInterval C N) (f i)) →
+                                          ∀ (δ : ℝ),
+                                            0 < δ →
+                                              δ < 1 / 2 →
+                                                δ ≤ ‖NilBohr.countingForm N M (NilBohr.spatialInterval C N) P v f‖ →
+                                                  ↑N ≤ K₀ * δ ^ (-D₀) ∨
+                                                    ∀ (i : Fin (ℓ + 1)),
+                                                      i ≠ 0 →
+                                                        ∃ V s γ,
+                                                          0 < V ∧
+                                                            c₁ * ↑M ^ (P i).natDegree * (↑q / δ) ^ (-D₁) ≤ ↑V ∧
+                                                              V ≤ M ^ (P i).natDegree ∧
+                                                                q ^ B₀ * V ≤ N ∧
+                                                                  c₂ * δ ^ D₂ * ↑N ≤
+                                                                    ‖∑ x ∈ NilBohr.spatialInterval C N,
+                                                                        f i x *
+                                                                          NilBohr.localBlockPhase (q ^ B₀) V s γ x‖

@@ -1,0 +1,7 @@
+ℹ [6701/6790] Replayed NilBohr.PrimeProgressions
+info: ././././NilBohr/PrimeProgressions.lean:522:39: Try this: ring_nf
+ℹ [6731/6790] Replayed NilBohr.WeightedLocalInverse
+info: ././././NilBohr/WeightedLocalInverse.lean:295:92: Try this: ring_nf
+info: ././././NilBohr/WeightedLocalInverse.lean:573:10: Try this: ring_nf
+✔ [6789/6790] Built NilBohr
+Build completed successfully.

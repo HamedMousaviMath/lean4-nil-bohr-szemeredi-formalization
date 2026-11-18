@@ -1,0 +1,3 @@
+Checked bracket identities in 19032 rational cases.
+Checked 45051 localized cube cancellations among 320705 cubes.
+Exactly-half-length endpoint example: fractional parts in [1/4, 3/4], alternating sum = -16/3.

@@ -1,0 +1,22 @@
+Final source was compiled with latexmk -pdf -interaction=nonstopmode -halt-on-error final.tex.
+Active labels: 87 previous, 88 final.
+Added labels: ['e:phitildeonprog']. Removed labels: [].
+e:phitildeonprog: new (44), p. 24
+e:twolocalizednorm: (44) -> (45)
+e:prime-local-phase: (45) -> (46)
+e:reductiontoexpfun: (46) -> (47)
+e:diffgowersnorm: (47) -> (48)
+e:ambient-cramer: (48) -> (49)
+e:cramerreduest: (49) -> (50)
+e:ergodic-L1-log: (50) -> (51)
+e:smooth-prime-comparison: (51) -> (52)
+e:quadratic-twist: (52) -> (53)
+e:prodidentity: (53) -> (54)
+diffsumtozero: (54) -> (55)
+e:limitofprimesexp: (55) -> (56)
+e:lift-form: (56) -> (57)
+e:lift-teravainen-bound: (57) -> (58)
+e:separating-global-u: (58) -> (59)
+e:uniappzq: (59) -> (60)
+e:estimateexpsum: (60) -> (61)
+e:moduleinvus: (61) -> (62)

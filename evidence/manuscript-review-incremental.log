@@ -1,0 +1,22 @@
+ℹ [6735/6809] Replayed NilBohr.PrimeProgressions
+info: ././././NilBohr/PrimeProgressions.lean:522:39: Try this: ring_nf
+ℹ [6751/6809] Replayed NilBohr.WeightedLocalInverse
+info: ././././NilBohr/WeightedLocalInverse.lean:295:92: Try this: ring_nf
+info: ././././NilBohr/WeightedLocalInverse.lean:573:10: Try this: ring_nf
+✔ [6778/6809] Built NilBohr.PrimeLinearPhaseSums
+✔ [6779/6809] Built NilBohr.AmbientNormObstructions
+✔ [6785/6809] Built NilBohr.HeisenbergWindow
+✔ [6788/6809] Built NilBohr.Remark
+✔ [6790/6809] Built NilBohr.PrimeProgressionFromModel
+✔ [6792/6809] Built NilBohr.SievedLinearPhase
+✔ [6795/6809] Built NilBohr.HeisenbergWindowTest
+✔ [6796/6809] Built NilBohr.SeparatingExample
+✔ [6797/6809] Built NilBohr.AmbientSelectorComparison
+✔ [6798/6809] Built NilBohr.CramerLinearCancellation
+✔ [6800/6809] Built NilBohr.AmbientSharpSelector
+✔ [6802/6809] Built NilBohr.PrimeDistributionFromModel
+✔ [6803/6809] Built NilBohr.GreenTaoHaarUnique
+✔ [6806/6809] Built NilBohr.LiteratureAssembly
+✔ [6807/6809] Built NilBohr.UnorderedErgodicComparison
+✔ [6808/6809] Built NilBohr
+Build completed successfully.

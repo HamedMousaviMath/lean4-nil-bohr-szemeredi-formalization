@@ -1,0 +1,5 @@
+ℹ [6688/6701] Replayed NilBohr.PrimeProgressions
+info: ././././NilBohr/PrimeProgressions.lean:522:39: Try this: ring_nf
+✔ [6700/6701] Built NilBohr.PrimeCramerPhase
+✔ [6701/6701] Built NilBohr.PrimeLocalProof
+Build completed successfully.

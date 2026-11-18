@@ -1,0 +1,4 @@
+/.lake/
+/blueprint/build/
+/paper/build/
+__pycache__/

@@ -1,0 +1,3583 @@
+\documentclass[12pt]{amsart}
+\usepackage[a4paper,hmargin=2.5cm,vmargin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\setlength{\emergencystretch}{2em}
+
+\newcommand{\E}{\mathbb E}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\1}{\mathbf 1}
+\newcommand{\e}{\mathrm e}
+\newcommand{\T}{\mathbb T}
+\newcommand{\Cramer}{\textup{Cr\'amer}}
+\DeclareMathOperator{\supp}{supp}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\setcounter{tocdepth}{1}
+\title{Quantitative polynomial Szemer\'edi theorems along shifted
+primes with nil-Bohr restrictions}
+
+\author{}
+\date{}
+
+\begin{document}
+\begin{abstract}
+For every fixed \(k\geq 2\) and every \(\beta\) in a dense subset
+of \((0,1)\) consisting of Liouville numbers, we prove that, for
+some \(c>0\) and all sufficiently large \(N\), every subset of
+\([N]\) of density at least \((\log N)^{-c}\) contains a polynomial
+configuration 
+$$x,x+(p-1),x+(p-1)^2,\ldots,x+(p-1)^k$$ 
+whose prime \(p\)
+belongs to  the return set
+\(
+ \left\{p\in\mathbb P:
+ \left\{\sqrt{3}\,p\lfloor\beta p\rfloor\right\}
+ \in (1/4,1/2)\right\}.
+\)
+The corresponding multiple ergodic averages over the selected
+primes converge almost everywhere to the same limit as the
+unrestricted prime averages. The main contribution is a local
+generalized von Neumann theorem for distinct-degree polynomial
+configurations. 
+\end{abstract}
+\maketitle
+\pagestyle{plain}
+
+\tableofcontents
+
+\section{Introduction}
+\label{s:introduction}
+
+Szemer\'edi's theorem states that a set of integers of positive upper
+density contains arithmetic progressions of every finite length
+\cite{Szemeredi}. Its polynomial extension, due to Bergelson and Leibman
+\cite{BergelsonLeibman}, replaces the linear shifts by integer polynomials
+with zero constant term. A further question is how much freedom remains
+in the parameter producing the configuration. Can it be required to be
+one less than a prime, a return time of a rotation, or a return time of a
+polynomial orbit? We study configurations whose parameter is one less
+than a prime and a return time of a Heisenberg nilrotation. We prove a
+quantitative recurrence theorem and a pointwise comparison with the
+unrestricted prime averages. Both arguments use cancellation of the
+centered selector against ordinary polynomial phases.
+
+The discrete formulation is useful for separating the two requirements.
+Given $A\subset[N]:=\{1,\ldots,N\}$, we seek integers $x$ and
+$n\geq1$ such that
+\begin{equation}\label{e:intro-pattern}
+ x,\quad x+P_1(n),\quad\ldots,\quad x+P_\ell(n)\in A.
+\end{equation}
+% We start with an arbitrary set $A\subset[N]:=\{1,\ldots,N\}$ and seek
+% \begin{equation}\label{e:intro-pattern}
+%  x,\quad x+P_1(n),\quad\ldots,\quad x+P_\ell(n)\in A.
+% \end{equation}
+Throughout the introduction the polynomials are fixed and satisfy
+\begin{equation}\label{e:fixed-polynomials}
+ P_0=0,\qquad P_i\in\mathbb Z[y],\qquad P_i(0)=0,\qquad
+ 1\leq\deg P_1<\cdots<\deg P_\ell=d.
+\end{equation}
+This leads to a the following question: what restrictions can one impose on $n$
+while still guaranteeing such configurations in every sufficiently dense
+set $A$? The density of the allowed
+parameters alone does not settle this question, since $A$ may
+itself impose arithmetic or dynamical restrictions on the
+parameters that can occur. For example, the primes do not form
+a set of recurrence.
+
+We take $n=p-1$ with $p$ prime. For two-point configurations this
+restriction goes back to S\'ark\"ozy \cite{Sarkozy}. Polynomial
+multiple recurrence along shifted primes was established by Wooley
+and Ziegler \cite{WooleyZiegler} and, in a multidimensional setting,
+by Frantzikinakis, Host and Kra \cite{FHK}. We ask whether recurrence remains under a further dynamical
+restriction on $p-1$.
+
+
+The simplest restriction is to require $p$ to lie in a fixed arithmetic
+progression, for example $p\equiv1\pmod q$. This can be expressed as
+a Bohr condition: for $\alpha=1/q$ and $0<\varepsilon<1/q$,
+\[
+ \|\alpha(p-1)\|_{\mathbb T}<\varepsilon
+ \quad\Longleftrightarrow\quad p\equiv1\pmod q.
+\]
+Allowing arbitrary real frequencies generalizes these congruence
+conditions to simultaneous Bohr conditions
+\begin{align}\label{e:bohrcondition}
+ \|\alpha_j(p-1)\|_{\mathbb T}<\varepsilon
+ \qquad(1\leq j\leq r).
+\end{align}
+Dynamically, these require the rotation by
+$(\alpha_1,\ldots,\alpha_r)$ on $\mathbb T^r$ to return close to its
+starting point at time $p-1$.
+When the configuration contains a linear shift, an elementary pigeonhole
+argument allows us to force these Bohr conditions and deduce the result
+from the shifted-prime theorem.
+
+\begin{corollary}[Bohr restrictions]\label{c:bohr}
+ Assume \eqref{e:fixed-polynomials} and $P_1(y)=ay$ with
+ $a\in\mathbb Z\setminus\{0\}$. Fix real numbers
+ $\alpha_1,\ldots,\alpha_r$ and $\varepsilon>0$. There exists
+ $\kappa>0$ such that, for every sufficiently large $N$, every
+ $A\subset[N]$ with $|A|\geq N(\log N)^{-\kappa}$ contains a configuration \eqref{e:intro-pattern} of pairwise distinct
+points, with $n=p-1$ for a prime $p$ satisfying \eqref{e:bohrcondition}.
+\end{corollary}
+
+\begin{proof}
+Let $B_1,\ldots,B_K$ partition $\mathbb T^r$ into half-open boxes
+of side length less than $\varepsilon$, and put
+\[
+ A_i:=\left\{x\in A:
+ \left(\frac{\alpha_1x}{a},\ldots,\frac{\alpha_rx}{a}\right)
+ \pmod1\in B_i\right\}.
+\]
+Choose a largest $A_i$, so that $|A_i|\ge |A|/K$. Since $K$ is
+independent of $N$, choosing $\kappa$ smaller than the exponent in
+\cite[Theorem~1.2]{KMTT} allows us to apply that theorem to $A_i$
+for sufficiently large $N$.
+
+The theorem gives a configuration of pairwise distinct points
+inside $A_i$ with parameter $p-1$ for some prime $p$.
+In particular, the images of $x$ and $x+a(p-1)$ lie in the same box
+$B_i$. Their $j$th coordinates differ by $\alpha_j(p-1)$ modulo one,
+and hence
+\[
+ \|\alpha_j(p-1)\|_{\mathbb T}<\varepsilon
+ \qquad(1\le j\le r).
+\]
+\end{proof}
+
+This argument works because subtracting the linear torus
+coordinates eliminates the starting point $x$. A natural attempt to
+force a quadratic condition is to partition $A$ according to
+$\alpha x^2\pmod1$. If $x$ and $x+n$ lie in the same cell, we obtain
+\[
+ \|\alpha(x+n)^2-\alpha x^2\|_{\mathbb T}
+ =\|2\alpha xn+\alpha n^2\|_{\mathbb T}<\varepsilon.
+\]
+The additional term $2\alpha xn$ depends on $x$ and may cancel
+$\alpha n^2$ modulo one. Thus this argument does not force
+$\|\alpha n^2\|_{\mathbb T}<\varepsilon$.
+
+\bigskip
+
+With this motivation, we study polynomial configurations whose
+shifted-prime parameter satisfies a nil-Bohr restriction. Let
+\begin{equation}\label{e:heisenberg-phase}
+ Z(n)=\frac{\alpha\beta}{2}n^2-\frac{\alpha\beta}{2}n
+       -\alpha n\lfloor\beta n\rfloor.
+\end{equation}
+We assume that $\alpha$ is badly approximable, meaning that
+\begin{equation}\label{e:badly-approximable}
+ c_\alpha:=\inf_{m\geq1}m\|m\alpha\|_{\mathbb T}>0.
+\end{equation}
+We choose a Liouville number $\beta\in(0,1)$ as the limit of an increasing sequence of
+rationals $a_j/r_j$ with prime denominators satisfying
+\begin{equation}\label{e:horizontal-approximants}
+ r_{j+1}\asymp\exp\!\bigl(\exp(\sqrt{\log r_j})\bigr),
+ \qquad 0<\beta-\frac{a_j}{r_j}\ll\frac1{r_{j+1}}.
+\end{equation}
+Given any interval $(u,v)\subset(0,1)$, choose $a_1/r_1$ in its
+middle third. Bertrand's postulate and upward rounding give
+\eqref{e:horizontal-approximants}, so
+$\beta=a_1/r_1+O(r_2^{-1})\in(u,v)$ for sufficiently large $r_1$.
+The same bounds give $0<\beta-a_j/r_j=o(r_j^{-D})$ for every
+fixed $D>0$. Thus the admissible Liouville numbers are dense
+in $(0,1)$.
+
+For an open interval $J\subset\mathbb T$ with $0<|J|<1$, define
+\begin{equation}\label{e:explicit-B}
+ \mathcal B_{Z,J}:=\{n\in\mathbb Z_{>0}:\{Z(n)\}\in J\},
+ \qquad
+ \mathcal P_{Z,J}:=\{p\in\mathbb P:p-1\in\mathcal B_{Z,J}\}.
+\end{equation}
+Write $\pi_{Z,J}(N):=|\mathcal P_{Z,J}\cap[N]|$.
+Our aim is to find configurations of the form \eqref{e:intro-pattern} 
+inside every sufficiently dense set $A\subset[N]$, with
+$p\in\mathcal P_{Z,J}$.
+
+\medskip
+
+Even for the shifts $n,n^2$, an irrational $\beta$ can give
+counterexamples to every polylogarithmic density bound. By choosing
+successive prime denominators sufficiently large, take
+$0<\beta-a_j/r_j<\exp(-r_j^j)$ and set
+$N_j=\lfloor\exp(r_j^j/6)\rfloor$. A configuration
+$x,x+n,x+n^2$ in $r_j\mathbb Z\cap[N_j]$ has $r_j\mid n$ and
+$1\leq n\leq N_j$, so $\lfloor\beta n\rfloor=a_jn/r_j$.
+Thus $Z(n)$ is a quadratic polynomial with zero constant term
+on these parameters.
+
+Partition $r_j\mathbb Z\cap[N_j]$ using the linear and quadratic
+coefficients as torus frequencies, into boxes of side length less
+than $1/16$. In a largest cell $A_j$, comparing $x$ with $x+n$
+and $x+n^2$ in the respective coordinates gives
+$\|Z(n)\|_{\mathbb T}<1/8$. This excludes $J=(1/4,1/2)$, while
+$|A_j|/N_j\gg r_j^{-1}$ exceeds $(\log N_j)^{-\kappa}$ for
+every fixed $\kappa>0$ and all large $j$.
+
+% Irrationality of $\beta$ alone does not suffice for a polylogarithmic
+% density bound. Keep $\alpha$ badly approximable and choose $\beta$
+% with prime-denominator approximants satisfying
+% $0<\beta-a_j/r_j<\exp(-r_j^j)$, by taking successive prime denominators
+% sufficiently large \cite[Book~IX, Proposition~20]{Euclid} and rounding
+% upward. Put $N_j=\lfloor\exp(r_j^j/6)\rfloor$ and fix $J=(1/4,1/2)$.
+% For $n\leq N_j$ divisible by $r_j$, the identity
+% $\lfloor\beta n\rfloor=a_jn/r_j$ gives
+% \[
+%  Z(n)=\left(\frac{\alpha\beta}{2}-\frac{\alpha a_j}{r_j}\right)n^2
+%       -\frac{\alpha\beta}{2}n.
+% \]
+% Multiply $x$ by the two coefficients in this expression to obtain
+% two torus coordinates. Let $A_j$ be a largest cell of
+% $r_j\mathbb Z\cap[N_j]$ under the resulting partition into boxes of
+% side length less than $1/16$. If $x,x+n,x+n^2\in A_j$ with $n>0$,
+% then $r_j\mid n$, and comparing $x$ with $x+n$ in the linear
+% coefficient coordinate and with $x+n^2$ in the quadratic coefficient
+% coordinate gives $\|Z(n)\|_{\mathbb T}<1/8$. This excludes
+% $\{Z(n)\}\in J$, although $|A_j|/N_j\gg 1/r_j$ exceeds
+% $(\log N_j)^{-\kappa}$ for every fixed $\kappa>0$ and all large $j$.
+
+\bigskip
+
+To place the restriction \eqref{e:explicit-B} in its natural setting, recall that a basic
+polynomial nilsequence has the form
+\[
+ \psi(n)=F(g(n)\Gamma),
+\]
+where $G/\Gamma$ is a compact nilmanifold, $G$ is equipped with a
+rational filtration, $g:\mathbb Z\to G$ is polynomial for that
+filtration, and $F$ is continuous. A set of the form
+$\{n:\psi(n)\in U\}$, with $U\subset\mathbb C$ open, is called a
+nil-Bohr set; see \cite[Definitions~1.1 and~2.2]{ShaoTeravainen}.
+Linear phases give ordinary Bohr conditions, and polynomial phases
+give examples on a filtered torus.
+
+The set \eqref{e:explicit-B} comes from the Heisenberg nilmanifold
+$H/\Gamma$, where $H=\mathbb R^3$, $\Gamma=\mathbb Z^3$ and the
+group law is
+\[
+ (x,y,z)(x',y',z')=(x+x',\,y+y',\,z+z'+xy').
+\]
+Left translation by $g_0=(\alpha,\beta,0)$ on $H/\Gamma$ gives
+the orbit $g_0^n\Gamma$ of the identity coset, where
+$g_0^n=(n\alpha,n\beta,\alpha\beta n(n-1)/2)$. Reducing the second
+coordinate by right multiplication subtracts
+$n\alpha\lfloor\beta n\rfloor$ from the central coordinate, giving
+$\{Z(n)\}$ as the vertical coordinate. Thus $\mathcal B_{Z,J}$
+is the return set to the window $0<y<1$, $z\bmod 1\in J$,
+which has Haar measure $|J|$.
+
+
+% In the right quotient, the $n$th iterate of translation by
+% $(\alpha,\beta,0)$ from the identity has second horizontal coordinate
+% $\{\beta n\}$ and vertical coordinate $\{Z(n)\}$ in the chart
+% $0<\{\beta n\}<1$. Thus $\mathcal B_{Z,J}$ is the return set to the
+% open window in this chart with vertical coordinate in $J$.
+% The window has Haar measure $|J|$.
+
+\bigskip
+
+Peluse \cite{Peluse} obtained quantitative bounds for
+distinct-degree polynomial configurations with integer
+parameters. For the nonlinear Roth configuration $x,x+n,x+n^2$,
+Peluse and Prendiville \cite{PP} proved a polylogarithmic
+density bound. Shao and Wang \cite{ShaoWang} obtained
+polylogarithmic bounds and a quantitative popular-difference
+theorem for general distinct-degree families.
+The shifted-prime theorem of \cite{KMTT} gives polylogarithmic
+bounds when $n\in\mathbb P-1$. Our first main result retains
+that scale while requiring $n\in\mathcal B_{Z,J}$.
+
+% A major advance in quantitative polynomial recurrence was made by
+% Peluse \cite{Peluse}, who obtained bounds for distinct-degree
+% configurations with integer parameters. Peluse and Prendiville
+% \cite{PP} gave a polylogarithmic bound for the nonlinear Roth problem.
+% Shao and Wang \cite{ShaoWang}
+% subsequently obtained polylogarithmic density bounds, together with
+% a quantitative popular-difference theorem. The shifted-prime theorem
+% of \cite{KMTT} gives the corresponding scale of density bounds when
+% $n\in\mathbb P-1$. Our first main result retains that scale while
+% requiring $n\in\mathcal B_{Z,J}$.
+
+\begin{theorem}\label{t:recurrence}
+ Assume \eqref{e:fixed-polynomials}, and let $Z$ and $J$ be as in
+ \eqref{e:heisenberg-phase}--\eqref{e:explicit-B}. There exists
+ $\kappa>0$, depending only on these fixed data, such that, for every
+ sufficiently large $N$, every $A\subset[N]$ with
+ \[
+  |A|\geq N(\log N)^{-\kappa}
+ \]
+ contains pairwise distinct integers
+ \[
+  x,\quad x+P_1(p-1),\quad\ldots,\quad x+P_\ell(p-1)
+ \]
+ for a prime $p\in\mathcal P_{Z,J}$.
+\end{theorem}
+Writing $n=p-1$, the bracket condition
+$\{\alpha p\lfloor\beta p\rfloor\}\in J$ becomes
+$\{Z_{\mathrm{br}}(n)\}\in J$, where
+\begin{equation}\label{e:bracket-phase}
+ Z_{\mathrm{br}}(n)
+ :=\alpha(n+1)\lfloor\beta(n+1)\rfloor
+ =-Z(n+1)+\frac{\alpha\beta}{2}(n^2+n).
+\end{equation}
+For $V\in\{Z,Z_{\mathrm{br}}\}$, write
+$\mathcal P_{V,J}=\{p\in\mathbb P:\{V(p-1)\}\in J\}$ and
+$\pi_{V,J}(N)=|\mathcal P_{V,J}\cap[N]|$.
+
+\begin{corollary}\label{c:bracket-recurrence}
+In Theorem~\ref{t:recurrence}, we may replace
+$\mathcal P_{Z,J}$ with $\mathcal P_{Z_{\mathrm{br}},J}$.
+\end{corollary}
+
+In \eqref{e:bracket-phase}, the shift changes the starting point of
+the Heisenberg orbit. At each nonzero Fourier frequency, the
+quadratic term is absorbed into the polynomial test, and
+multiplication by its exponential preserves the $U^S$ norm for
+$S\geq3$.
+
+\bigskip
+
+The recurrence question has an ergodic counterpart. Let $(X,\nu,T)$
+be an invertible probability measure-preserving system and let
+$\mathbf f=(f_1,\ldots,f_\ell)$, with $f_i\in L^\infty(X)$. Consider
+\begin{equation}\label{e:prime-ergodic-average}
+ A_N^T(\mathbf f)(x)
+ :=\frac1{\pi(N)}\sum_{p\leq N}
+       \prod_{i=1}^{\ell}f_i(T^{P_i(p-1)}x).
+\end{equation}
+The ergodic approach to arithmetic configurations originates in
+the work of Furstenberg \cite{Furstenberg} and its polynomial
+extension by Bergelson and Leibman \cite{BergelsonLeibman}.
+For polynomial averages along the primes, Wooley and Ziegler
+\cite{WooleyZiegler} proved $L^2$ convergence. Pointwise convergence
+was established by the authors with Krause and  Tao
+\cite{KMTTPrimes} for the nonlinear bilinear family $(n,P(n))$,
+$\deg P\geq2$, and by Mirek, Wan and Wright
+\cite[Theorem~1.1(ii)]{MirekWanWright} for general distinct-degree
+families and bounded functions. 
+% The latter theorem gives convergence
+% of \eqref{e:prime-ergodic-average} by applying it to the polynomials
+% $P_i(n-1)$.
+
+Fixed congruence restrictions and linear Bohr conditions can be
+incorporated into this pointwise theorem through rotation extensions.
+The common step is to establish convergence of the twisted averages
+\[
+ B_N^\omega(x)
+ :=\frac1{\pi(N)}\sum_{p\leq N}e(\omega(p-1))
+       \prod_{i=1}^{\ell}f_i(T^{P_i(p-1)}x),
+ \qquad e(t):=e^{2\pi it},
+\]
+for each fixed $\omega\in\mathbb R$. Adjoining the linear iterate $n$
+with the constant function $1$ if necessary, we may assume that
+$P_1(n)=an$, with $a\ne0$. On $X\times\mathbb T$, set
+$S(x,t)=(Tx,t+\omega/a)$, $G_1(x,t)=f_1(x)e(t)$ and
+$G_i(x,t)=f_i(x)$ for $i\geq2$. The corresponding polynomial average
+on the product system is exactly $e(t)B_N^\omega(x)$.
+The pointwise theorem on this system, followed by Fubini's theorem,
+gives almost-everywhere convergence of $B_N^\omega$ for each
+fixed $\omega$, including the constant mode
+$B_N^0=A_N^T(\mathbf f)$.
+
+Finite Fourier expansion now handles fixed congruence restrictions.
+For reduced residue classes, the prime number theorem in arithmetic
+progressions also allows normalization by the number of selected
+primes. Uniform Fourier approximation similarly gives convergence
+for continuous Bohr weights. Continuous approximation and
+equidistribution along the primes extend this to interval cutoffs
+at irrational frequencies; rational-frequency cutoffs are periodic.
+The argument also covers finitely many simultaneous Bohr conditions,
+with normalization by their prime count whenever the relative
+density is positive.
+
+The restricted limit, however, need not equal the unrestricted one.
+For example, consider the \emph{irrational} rotation $Tt=t+\theta$ on
+$\mathbb T$, with $f(t)=e(t)$ and $P_1(n)=n$. The unrestricted prime
+average tends to zero. For $0<\varepsilon<1/2$, let
+$\pi_{\theta,\varepsilon}(N)$ count the primes $p\leq N$ satisfying
+$\|\theta(p-1)\|_{\mathbb T}<\varepsilon$. Equidistribution gives
+\[
+ \frac1{\pi_{\theta,\varepsilon}(N)}
+ \sum_{\substack{p\leq N\\
+       \|\theta(p-1)\|_{\mathbb T}<\varepsilon}}
+       f(T^{p-1}t)
+ \longrightarrow
+ e(t)\frac{\sin(2\pi\varepsilon)}{2\pi\varepsilon}\ne0.
+\]
+Thus a linear Bohr restriction can correlate with an eigenfunction
+and change the limiting average. The equidistribution input is
+classical; see also \cite{ShaoTeravainen}.
+
+Our next theorem shows that the nil-Bohr restriction defining
+$\mathcal P_{Z,J}$ preserves the unrestricted limit. The comparison
+uses cancellation of the balanced selector against ordinary polynomial
+phases of degree at most $d$.
+
+\begin{theorem}\label{t:pointwise}
+ Assume \eqref{e:fixed-polynomials}, and let $Z$ and $J$ be as in
+ \eqref{e:heisenberg-phase}--\eqref{e:explicit-B}.
+ Let $(X,\nu,T)$ be an invertible probability measure-preserving
+ system, and let $f_1,\ldots,f_\ell\in L^\infty(X)$. Then
+ $\pi_{Z,J}(N)\sim |J|\pi(N)$, and the averages
+ \[
+  \frac1{\pi_{Z,J}(N)}
+   \sum_{\substack{p\leq N\\p\in\mathcal P_{Z,J}}}
+        \prod_{i=1}^{\ell}f_i(T^{P_i(p-1)}x)
+ \]
+ converge almost everywhere to the same limit as
+ $A_N^T(\mathbf f)(x)$.
+\end{theorem}
+The bracket condition from Corollary~\ref{c:bracket-recurrence}
+also preserves the limit of the unrestricted prime averages.
+\begin{corollary}\label{c:bracket-pointwise}
+In Theorem~\ref{t:pointwise}, we may replace $\mathcal P_{Z,J}$
+and $\pi_{Z,J}(N)$ with $\mathcal P_{Z_{\mathrm{br}},J}$
+and $\pi_{Z_{\mathrm{br}},J}(N)$, respectively.
+\end{corollary}
+
+
+
+
+
+\bigskip
+
+A broader question is which nilsequence weights can be inserted into
+a discrete configuration count or a polynomial ergodic average while
+preserving its main term. The Heisenberg selector gives a concrete
+case in which the full Gowers norms detect structure, yet the
+correlations with ordinary polynomial phases are small on the
+progressions used in the density increment. An extension to general
+nilsequences would require a quantitative hypothesis on these
+correlations that remains effective under the arithmetic rescalings. We do not pursue this generalization in this paper. 
+
+One can also ask whether, for every $k\geq2$, there is a progression
+$p,p+r,\ldots,p+(k-1)r$, with $r>0$, entirely contained in
+$\mathcal P_{Z,J}$. For fixed $J$, this follows directly from
+$\pi_{Z,J}(N)\sim |J|\pi(N)$ and the relative-density form of the
+Green--Tao theorem \cite{GreenTao}. If $J=J_N$ shrinks with $N$, then for $k\geq4$ the quantitative
+Green--Tao theorem of the second author and Wang
+\cite[Theorem~1.1]{TeravainenWang} gives a $k$-term progression
+among the selected primes up to $N$ whenever
+\[
+ \frac{\pi_{Z,J_N}(N)}{\pi(N)}
+ > C_k\exp\bigl(-(\log\log\log N)^{c_k}\bigr)
+\]
+for the constants in their theorem.
+
+On the ergodic side, one can ask how far the pointwise comparison
+extends to inputs in $L^p$. Where a suitable maximal estimate is available for the unrestricted
+prime averages, domination gives the corresponding estimate for
+the restricted averages. The endpoint $p=1$ already poses
+difficulties for the unrestricted averages.
+A question specific to the comparison is whether one can bound the
+variation of the difference between the restricted and unrestricted
+averages. We do not pursue this direction in this paper either. 
+
+The arithmetic argument also suggests studying other weights. A
+unified result for a class of multiplicative weights would require
+conditions on their multiplicative structure that yield cancellation
+against vertical modes of the selector and ordinary polynomial
+phases on the progressions used in the proof. 
+
+\subsection{Overview of the proofs}
+
+For simplicity, consider the configuration $x,x+n,x+n^2$, with
+$n=p-1$ and $\{Z(n)\}\in J$. For $A\subset[N]$ with $|A|/N =\delta$ and
+$M=\lfloor N^{1/2}\rfloor$, let
+\begin{equation}\label{e:formprim}
+ \mathcal C(F)=\frac1{NM}\sum_{x\in\mathbb Z}\sum_{1\leq n\leq M}
+ \Lambda(n+1)F(Z(n))1_A(x)1_A(x+n)1_A(x+n^2).
+\end{equation}
+We seek $\mathcal C(1_J)=|J|\mathcal C(1)+o(1)$ uniformly in $A$.
+The prime number theorem gives $\mathcal C(1)\ll1$, so smooth
+majorants and minorants of $1_J$ with means approaching $|J|$
+reduce the comparison to $\mathcal C(F-\mu_F)=o(1)$ for smooth
+$F$, where $\mu_F=\int_{\mathbb T}F$. Fourier approximation then
+leaves the counts $\mathcal C(e(h\,\cdot))$ with $h\ne0$.
+
+The density increment needs a comparison after each rescaling.
+Fix a nonnegative smooth minorant $F$ of $1_J$ with $\mu_F>0$.
+Restricting $x$ to a progression of step $q$ and taking $n=qy$
+gives the shifts $y,qy^2$ at spatial scale $qM^2$, where $M$ is
+now the length of the $y$-range. The weight becomes $\Lambda_qF_q$,
+where $\Lambda_q(y)=\varphi(q)\Lambda(qy+1)/q$ and
+$F_q(y)=F(Z(qy))$. At the smooth moduli in the iteration, the
+prime model for $\Lambda_q$ is $1$. To compare the selected-prime
+count with $\mu_F$ times the unweighted count, write
+\[
+ \Lambda_qF_q-\mu_F=(\Lambda_q-1)F_q+(F_q-\mu_F).
+\]
+At density $\delta$, the unweighted count for the constant-density
+inputs is of order $\delta^3$. We need an error small compared
+with $\delta^3$, uniformly over the moduli in the iteration.
+The two natural candidates for controlling these weighted counts
+are generalized von Neumann estimates using full Gowers norms
+and estimates using correlations with ordinary polynomial phases.
+
+Full Gowers norms give such an estimate
+\cite[Theorem~4.2]{Teravainen}, and the version in
+\cite[Proposition~3.3]{KMTT} accommodates the rescaled spatial
+scale. We use it for $(\Lambda_q-1)F_q$. To insert a Fourier mode
+of $F_q$, we localize it to a short interval in the horizontal
+coordinate $\{\beta qy\}$. On each cube where the cutoff is nonzero
+at every vertex, the vertical phase is quadratic in the cube
+variables and cancels in the $U^S$ product for $S\geq3$. The
+high-order Gowers bound for $\Lambda_q-1$ thus controls the count
+with the selector inserted.
+
+For the centered selector $F_q-\mu_F$, the same cube calculation gives a
+lower bound. Already at $q=1$, equidistribution gives a nonzero
+correlation with a localized vertical mode. More precisely, for
+$h\ne0$ with $\widehat F(h)\ne0$ and a nonzero nonnegative smooth
+cutoff $\chi$ supported on a short interval inside $(0,1)$,
+\[
+ 0<|\widehat F(h)|\int_{\mathbb T}\chi
+ \ll \|\widehat\chi\|_{\ell^1}
+       \|F(Z(\cdot))-\mu_F\|_{U^3[M]}
+\]
+for all sufficiently large $M$. By monotonicity, full Gowers
+norms give no decay for the centered selector at any order
+$S\geq3$. A general weighted bound using $U^2$ also fails.
+For irrational $\theta$, the weight $e(-\theta n^2)$ has small
+$U^2[M]$, yet the spatial phases $e(-\theta x)$ and
+$e(\theta(x+n^2))$ cancel it exactly on the supporting interval.
+
+Second author's fixed-family estimate
+\cite[Theorem~4.1]{Teravainen} already uses local linear phases to
+obtain polynomial-phase control. Appendix~\ref{s:why-Cq}
+constructs growing smooth moduli at which the $U^3$ obstruction
+persists and lifting (dilating) the count back to the fixed shifts $n,n^2$
+gives no decay through estimate \cite[Theorem~4.1]{Teravainen}. This motivates
+our local generalized von Neumann theorem, which tests the
+weight on parameter progressions and applies directly to
+$y,qy^2$ with constants uniform in $q$. After differencing the
+spatial inputs, we use the coefficient-uniform inverse estimate
+of \cite[Lemma~3.4]{KMTT}, based on Shao and Wang
+\cite[Theorem~2.4]{ShaoWang}, to extract linear phases on spatial
+progressions. Evaluating these phases along the shifts gives a
+quadratic phase on each parameter progression. For a general
+distinct-degree family, the resulting phase has degree at most
+the largest degree $d$.
+
+For the ambient count $\mathcal C(F-\mu_F)$, the same cube argument
+controls the contribution of $\Lambda-\Lambda_{\Cramer,\widetilde Q}$
+to the quadratic-phase tests. The Cram\'er cutoff $\widetilde Q$
+is justified by the explicit zero-free bound in \cite{BanksSiegel}.
+Expanding the sieve weights in the Cram\'er term gives tests on
+progressions. Divisors containing the approximating prime $r_j$
+have negligible total contribution. The remaining estimate, both
+for the Cram\'er term and for the centered selector at the smooth
+moduli, is
+\[
+ \sup_{\deg\phi\leq2}
+ \left|\mathbb E_{n\in P}
+     \bigl(F(Z(n))-\mu_F\bigr)e(-\phi(n))\right|
+ \ll_{F,D}(\log M)^{-D}
+ \qquad(D>0).
+\]
+Here $P$ runs over the long progressions from the sieve or,
+after writing $n=qy$, from the local generalized von Neumann
+estimate. Their steps are coprime to $r_j$.
+
+To prove this estimate, we adjoin a circle carrying the test
+phase and apply Green and Tao's quantitative equidistribution
+theorem \cite{GreenTaoNil}. A large correlation forces an integer
+multiple of the test phase to agree with a horizontal linear
+phase up to an integer-valued polynomial and a slowly varying
+error. After dividing by that integer, the polynomial factor
+is constant on residue classes and the error is handled by
+partial summation. The horizontal twist is absorbed on a finite
+cover. The localized vertical mode still has zero mean on each
+vertical fibre there, and the horizontal Diophantine bounds give
+the required cancellation.
+
+At the ambient scale, the resulting prime-weighted phase bound
+and Second author's estimate give
+$$\mathcal C(F-\mu_F)=\mathcal C(F)-\mu_F\mathcal C(1)=o(1).$$
+At the smooth moduli, the local theorem gives the required
+saving for the count with weight $F_q-\mu_F$, completing the
+comparison with the unweighted count. If $A$ contains no
+selected-prime configuration, this comparison makes its
+unweighted count smaller than that for the constant-density
+inputs by a fixed multiple of $\delta^3$. The weak regularity
+argument of \cite{KMTT} then gives a long progression on which
+the density increases by a fixed factor. A selected-prime
+configuration in the rescaled set would lift to one in $A$,
+so the uniform comparison lets us repeat the increment until
+the density exceeds one, or $\delta=o(\log N)^{-\kappa}$.
+
+For pointwise convergence the polynomial family stays fixed.
+The prime-weighted phase bound at $q=1$ and \cite[Theorem~4.1]{Teravainen} give an $L^1$ comparison summable along a subsequence whose consecutive ratios tend to one.
+A gap estimate extends the comparison to all scales. Smoothing
+passes to the interval, and taking all inputs equal to one
+gives the normalization by the number of selected primes.
+The unrestricted prime averages \cite{MirekWanWright} then identify the common limit.
+
+\begin{remark}
+At the moduli used in the density increment, where
+$\operatorname{lcm}(1,\ldots,w)\mid q$, the bound $|T_{N,M,F_q-\mu_F}(\mathbf f)|\ll w^{-\eta}$ needed for the
+density increment can be proved directly using the fixed local
+factors from the proof of \cite[Lemma~5.3]{KMTT}. The argument
+uses the same spatial differencing, duality, and extraction of
+local linear phases as the proof of Theorem~\ref{t:main}.
+Here the divisibility of $q$ absorbs the auxiliary denominators
+and eliminates the pigeonholing over major-arc frequencies.
+Theorem~\ref{t:main} gives polynomial-phase control for arbitrary
+bounded weights over a wider range of moduli.
+\end{remark}
+
+\subsection{Organization}
+
+Section~\ref{s:recurrence} reduces Theorem~\ref{t:recurrence}
+to the density increment in Proposition~\ref{p:selected-density-increment}
+and derives that increment from the smooth-modulus comparison
+in Theorem~\ref{t:relative-selector-comparison}.
+Section~\ref{s:relative} proves the comparison using the local
+generalized von Neumann estimate in Theorem~\ref{t:main} and
+the phase estimates in Proposition~\ref{p:heisenberg-phase}.
+Their proofs are given in Sections~\ref{s:local-vn}
+and~\ref{s:example}, respectively. Section~\ref{s:example}
+also proves the prime-weighted phase estimate used at $q=1$
+for the pointwise comparison in Section~\ref{s:ergodic}.
+Appendix~\ref{s:why-Cq} compares the local estimate with the
+bound obtained by dilation to fixed shifts.
+
+\section{Preliminaries}\label{s:preliminaries}
+
+% Each density increment restricts the spatial variable to a progression.
+% We fix notation for the resulting polynomial coefficients, counting
+% forms, and weights, so that the argument can be repeated after
+% rescaling. Two norms enter the counting comparison. Full Gowers
+% norms control the discrepancy of the prime weight from its model,
+% whereas correlations with polynomial phases on progressions control
+% the centered selector. We also record the nilmanifold notation used
+% to estimate those correlations.
+
+Write \([N]=\{1,\ldots,N\}\), \(\e(t)=e^{2\pi i t}\), and
+\(\E_{n\in P}=|P|^{-1}\sum_{n\in P}\) for a finite nonempty set \(P\).
+Unrestricted sums over \(x\) are over \(\Z\).  A function is
+\(1\)-bounded if its modulus is at most \(1\).
+We write $\pi(N)$ for the number of primes up to $N$ and
+$\varphi(q)$ for Euler's totient function. The von Mangoldt
+function is $\Lambda(p^j)=\log p$ for primes $p$ and $j\geq1$,
+and is zero otherwise. Our Fourier conventions are
+\[
+ \widehat f(\xi)=\sum_{x\in\mathbb Z}f(x)\e(-x\xi),
+ \qquad
+ \widehat F(h)=\int_{\mathbb T}F(t)\e(-ht)\,dt.
+\]
+
+A filtration of degree at most \(s\) on a connected, simply connected
+nilpotent Lie group \(G\) is a descending sequence
+\[
+ G=G_0=G_1\supseteq G_2\supseteq\cdots\supseteq G_{s+1}=\{e\},
+ \qquad [G_i,G_j]\subseteq G_{i+j}.
+\]
+If \(\Gamma\le G\) is discrete and cocompact and the filtration is
+rational with respect to \(\Gamma\), we call \(G/\Gamma\), equipped with
+this filtration, a filtered nilmanifold.  A sequence \(g:\Z\to G\) is
+polynomial when
+\[
+ \partial_{h_1}\cdots\partial_{h_i}g(n)\in G_i
+ \qquad(i\ge1),
+\]
+where \(\partial_hg(n)=g(n+h)g(n)^{-1}\).  A basic nilsequence is a
+sequence \(F(g(n)x_0)\), where \(x_0\in G/\Gamma\) and
+\(F:G/\Gamma\to\C\) is continuous.  We use the standard quantitative
+notion of complexity arising from a rational Mal'cev basis
+\cite[Section~2]{GreenTaoNil}.  All
+nilmanifolds occurring in the applications are fixed, so their complexity
+is absorbed in the implicit constants.
+
+For a finitely supported function \(g:\mathbb Z\to\mathbb C\), use the
+unnormalized Gowers norm
+\[
+ \|g\|_{U^s(\mathbb Z)}^{2^s}
+ :=\sum_{x,h_1,\ldots,h_s\in\mathbb Z}
+   \prod_{\omega\in\{0,1\}^s}
+   \mathcal C^{|\omega|}g(x+\omega\cdot h),
+\]
+where \(\mathcal C\) denotes complex conjugation. On a finite nonempty interval or arithmetic progression
+\(I\), functions are extended by zero and we normalize as in
+\cite[Section~2.3]{KMTT}:
+\begin{equation}\label{e:normalized-gowers}
+ \|g\|_{U^s[I]}
+ :=\frac{\|g\mathbf1_I\|_{U^s(\mathbb Z)}}
+          {\|\mathbf1_I\|_{U^s(\mathbb Z)}}.
+\end{equation}
+In particular, \(\|g\|_{U^1[I]}=|\mathbb E_{n\in I}g(n)|\), and
+normalized Gowers monotonicity gives
+\(\|g\|_{U^r[I]}\ll_{r,s}\|g\|_{U^s[I]}\) when \(1\le r\le s\).
+
+For a finite nonempty arithmetic progression \(P\), define
+\begin{equation}\label{e:u-def}
+ \|w\|_{u^s[P]}:=\sup_{\phi\in\mathbb R[y],\ \deg\phi<s}
+ \left|\mathbb E_{n\in P}w(n)\e(-\phi(n))\right|.
+\end{equation}
+Repeated Cauchy--Schwarz gives
+\begin{equation}\label{e:u-below-U}
+ \|w\|_{u^s[P]}\ll_s\|w\|_{U^s[P]}.
+\end{equation}
+Following~\cite[Definition~2.3]{ShaoWang}, we use the coefficient class
+produced by arithmetic rescaling.
+
+\begin{definition}[$(C,q)$-coefficients]\label{d:Cq}
+Let $C\ge1$ and $q\in\mathbb N$.  A polynomial
+\[
+ P(y)=a_ey^e+\cdots+a_1y\in\Z[y],\qquad e\ge1,
+\]
+with $P(0)=0$ has \emph{$(C,q)$-coefficients} if
+\[
+ |a_j|\le C|a_e|\quad(1\le j<e),
+ \qquad a_e=a'_eq^{e-1}
+\]
+for some $a'_e\in\Z$ with $0<|a'_e|\le C$.
+\end{definition}
+% The leading coefficient is therefore allowed to carry the power $q^{e-1}$ produced by the rescaling $P(y)\mapsto P(qy)/q$.  This dependence on $q$ is not covered uniformly by a bounded-coefficient theorem.
+
+For a family $\mathbf R=(R_1,\ldots,R_\ell)$ with $R_0=0$ and
+$\mathbf f=(f_0,\ldots,f_\ell)$, write
+\begin{equation}\label{e:Tdef}
+ T_{N,M,v}^{\mathbf R}(\mathbf f)
+ :=\frac1{NM}\sum_{x\in\mathbb Z}\sum_{1\le y\le M}
+ v(y)\prod_{i=0}^\ell f_i(x+R_i(y)).
+\end{equation}
+We omit the superscript when the family is clear. In a count with
+$k$ input functions we write $k=\ell+1$. We use
+\[
+ \Lambda_q(y)=\frac{\varphi(q)}q\Lambda(qy+1),\qquad
+ F_q(y)=F(Z(qy)),\qquad \mu_F=\int_{\mathbb T}F.
+\]
+For $w\ge2$ an integer, let $\mathcal L(w)=\operatorname{lcm}(1,\ldots,w)$.
+Let $P^+(q)$ denote the largest prime factor of $q$, with $P^+(1)=1$.
+
+% In the rescaled count, we restrict the spatial variable to
+% $x=a+qu$ and the parameter to $n=qy$. Then
+% $x+P_i(n)=a+q(u+P_i(qy)/q)$, so the shifts in the new spatial
+% variable are $P_{i,q}(y)=P_i(qy)/q$. They have
+% $(C,q)$-coefficients for a fixed $C$ depending on the original
+% family. If the next progression has step $q^B$ in the rescaled
+% variable, the new modulus is $q'=q^{B+1}$ and
+% $q^B P_{i,q'}(y)=P_{i,q}(q^By)$. The prime is preserved under
+% this change of variables, since $q'y+1=q(q^By)+1$.
+
+
+
+\section{Reduction of recurrence to a counting comparison}\label{s:recurrence}
+
+Suppose a dense set contains no configuration of
+Theorem~\ref{t:recurrence}. We seek a long progression on which the
+set has higher density and on which the same absence of configurations
+remains after rescaling. We state the density increment first and
+show how it can be iterated. We then derive it by comparing the
+selected-prime count with the unweighted count.
+
+Write \(k=\ell+1\) and \(r=\deg P_1\). At a stage with modulus \(q\),
+the shifts are \(P_{j,q}(y)=P_j(qy)/q\), and the parameter must satisfy
+\(qy+1\in\mathcal P_{Z,J}\). The coefficient of $y^j$ in $P_{i,q}(y)$ is $q^{j-1}$
+times that in $P_i$, so the rescaled family has $(C,q)$-coefficients
+for a fixed $C$ depending only on the original family.
+
+\begin{proposition}[Density increment]\label{p:selected-density-increment}
+There are constants \(c,\eta,K,E,C_1>0\) and \(B_*\in\mathbb N\),
+depending only on the fixed data of Theorem~\ref{t:recurrence}, with the
+following property for sufficiently large \(N\). Let \(A\subset[N]\)
+have density \(0<\delta\le1\), and suppose \(q,w\in\mathbb N\) satisfy
+\begin{equation}\label{e:increment-hypotheses}
+ K\delta^{-E}\le w\le(\log N)^c,\qquad
+ \mathcal L(w)\mid q,\qquad P^+(q)\le w,\qquad \log q\le w^2.
+\end{equation}
+Put \(M=\lfloor(N/q^{d-1})^{1/d}\rfloor\). Suppose that \(A\) contains
+no configuration of pairwise distinct points
+\(x,x+P_{1,q}(y),\ldots,x+P_{\ell,q}(y)\) with
+\(y\ge1\) and \(qy+1\in\mathcal P_{Z,J}\).
+Then there are \(1\le B\le B_*\), \(a\in\mathbb Z\), and \(N'\in\mathbb N\)
+such that
+\begin{equation}\label{e:increment-output}
+ a+q^B[N']\subset[N],\qquad
+ |A\cap(a+q^B[N'])|\ge(1+\eta)\delta N',\qquad
+ N'\gg q^{-C_1}\delta^{C_1}M^r.
+\end{equation}
+\end{proposition}
+
+To deduce Theorem~\ref{t:recurrence} from the density increment, we
+follow the iteration in \cite[Section~5, proof of Theorem~1.2]{KMTT}.
+We first pass to a densest residue class modulo an initial smooth
+modulus and rescale. Each application of the proposition gives a
+denser progression whose rescaled set still lacks the required
+configuration. We track the lengths and moduli to ensure that the
+proposition continues to apply until the density would exceed one.
+
+\begin{proof}[Proof of Theorem~\ref{t:recurrence} assuming
+Proposition~\ref{p:selected-density-increment}]
+Suppose \(A\subset[N]\) contains no required configuration and has
+density \(\delta\ge(\log N)^{-\kappa}\). Take the constants in
+Proposition~\ref{p:selected-density-increment}, and set
+\(w=\lceil K\delta^{-E_1}\rceil\), where \(E_1\ge E\) will be fixed below.
+Set \(q_0=\mathcal L(w)\). Among the nonempty residue classes
+modulo \(q_0\) in \([N]\), choose \(u_0+q_0[N_0]\) maximizing
+\(\lvert A\cap(u_0+q_0[N_0])\rvert/N_0\). Define
+\[
+ A_0=\{x\in[N_0]:u_0+q_0x\in A\}.
+\]
+By averaging over the residue classes, \(\delta_0=|A_0|/N_0\ge\delta\).
+For sufficiently small \(\kappa>0\) we have
+\[\log q_0= \log\mathcal L(w)=\sum_{m\le w}\Lambda(m)\ll w=o(\log N).\] 
+Thus the progression
+has length \(N_0\ge N/q_0-1\ge N/(2q_0)\).  A configuration
+in \(A_0\) with shifts \(P_{j,q_0}(y)\) and \(q_0y+1\in\mathcal P_{Z,J}\)
+would lift under the affine change of variables to a required
+configuration in \(A\).
+
+Whenever Proposition~\ref{p:selected-density-increment} applies at
+\(A_i,N_i,q_i\), it gives a progression \(a_i+q_i^{B_i}[N_{i+1}]\).
+Define
+\[
+ A_{i+1}=\{x\in[N_{i+1}]:a_i+q_i^{B_i}x\in A_i\}.
+\]
+Then \(\delta_{i+1}=|A_{i+1}|/N_{i+1}\ge(1+\eta)\delta_i\).
+Set \(q_{i+1}=q_i^{B_i+1}\). The identity
+\[
+ q_i^{B_i}P_{j,q_{i+1}}(y)=P_{j,q_i}(q_i^{B_i}y),
+ \qquad q_{i+1}y+1=q_i(q_i^{B_i}y)+1
+\]
+preserves both the shifts and the selected prime under the lift
+\(x\mapsto a_i+q_i^{B_i}x\). The hypotheses concerning configurations
+therefore persist. Each \(q_i\) is a power of \(q_0\), so
+\(\mathcal L(w)\mid q_i\) and \(P^+(q_i)\le w\). The lower bound
+\(w\ge K\delta_i^{-E}\) follows from \(\delta_i\ge\delta\).
+
+It remains to check the two upper bounds in
+\eqref{e:increment-hypotheses} through
+\(i_*=\lfloor\log(\delta^{-1})/\log(1+\eta)\rfloor+1\) increments.
+Iterating \(q_{h+1}=q_h^{B_h+1}\), we obtain, for every
+\(i\le i_*\) reached by the iteration,
+\[
+ \log q_i
+ =\left(\prod_{h=0}^{i-1}(B_h+1)\right)\log q_0
+ \le (B_*+1)^i\log q_0
+ \ll \delta^{-O(1)}w.
+\]
+The exponent here depends only on \(\eta,B_*\). Fix \(E_1\) larger than
+this exponent and increase \(K\) by a fixed factor to ensure
+\(\log q_i\le w^2\). From \eqref{e:increment-output}, with
+\(M_i=\lfloor(N_i/q_i^{d-1})^{1/d}\rfloor\), we have
+\[
+ \log N_{i+1}\ge \frac rd\log N_i
+    -O\bigl(\log q_i+\log(\delta^{-1})+1\bigr).
+\]
+Since \(\log N_0\ge\log N-O(w)\) and
+\((r/d)^i\gg \delta^{O(1)}\) for \(i\le i_*\), iteration gives
+\[
+ \log N_i\ge c_2\delta^{C_2}\log N
+ -O\bigl((1+\log(\delta^{-1}))(w^2+\log(\delta^{-1}))\bigr)
+\]
+for some fixed \(c_2,C_2>0\).  Taking \(\kappa\) sufficiently small after \(E_1\), it gives
+\(\log N_i\ge(\log N)^{3/4}\) and
+\(w\le(\log N_i)^c\) at every stage. We may therefore carry out all
+\(i_*\) increments. After \(i_*\) increments the density would be at least
+\((1+\eta)^{i_*}\delta>1\), which is impossible. Hence some \(A_i\) with \(i<i_*\) contains
+a configuration with shifts \(P_{j,q_i}(y)\) and
+\(q_i y+1\in\mathcal P_{Z,J}\). The successive affine maps lift this
+configuration back to \(A\).
+\end{proof}
+
+For the bracket condition, we apply Theorem~\ref{t:recurrence}
+within one cell of a finite partition of $A$ that controls
+$Z_{\mathrm{br}}(n)+Z(n)$ modulo one.
+
+\begin{proof}[Proof of Corollary~\ref{c:bracket-recurrence}]
+Choose an open interval $J_0$ with $-\overline{J_0}\subset J$.
+Take $\varepsilon>0$ small enough that
+\[
+ \varepsilon<\min(\beta,1-\beta),\qquad
+ (3+|\alpha|)\varepsilon
+ <\operatorname{dist}(-\overline{J_0},\mathbb T\setminus J).
+\]
+Enlarge the polynomial family to
+\[
+ \{P_1,\ldots,P_\ell\}
+ \cup
+ \bigl\{n^j:\ j\in\{1,2\},\
+       j\notin\{\deg P_i:1\le i\le\ell\}\bigr\}.
+\]
+Order this family by degree and write its linear and quadratic
+members as $an$ and $bn^2+cn$, respectively, with $ab\ne0$, and put $\theta=\alpha\beta/2$.
+
+Partition $A$ according to the positions of
+\[
+ \left(
+ \frac{\alpha x}{a},\,
+ \frac{\beta x}{a},\,
+ \frac{\theta(1-c/b)x}{a},\,
+ \frac{\theta x}{b}
+ \right)\pmod 1
+\]
+in fixed boxes of side length less than $\varepsilon$. Apply
+Theorem~\ref{t:recurrence} with interval $J_0$ to a largest cell
+and the enlarged family. The cell has size $\gg |A|$, so this
+fixed loss is absorbed by choosing a smaller $\kappa$. The theorem
+gives a parameter $n=p-1$ with $\{Z(n)\}\in J_0$. The points $x$, $x+an$, and $x+bn^2+cn$ lie in the same cell,
+so each coordinate difference has torus norm less than
+$\varepsilon$. Comparing $x+an$ with $x$ in the first three
+coordinates gives
+\[
+ \|\alpha n\|_{\mathbb T}<\varepsilon,\qquad
+ \|\beta n\|_{\mathbb T}<\varepsilon,\qquad
+ \left\|\theta\left(1-\frac cb\right)n\right\|_{\mathbb T}
+ <\varepsilon,
+\]
+since these coordinates multiply $x$ by $\alpha/a$, $\beta/a$,
+and $\theta(1-c/b)/a$, respectively. Comparing $x+bn^2+cn$
+with $x$ in the fourth coordinate gives
+\[
+ \left\|\frac{\theta}{b}(bn^2+cn)\right\|_{\mathbb T}
+ =\left\|\theta n^2+\frac{\theta c}{b}n\right\|_{\mathbb T}
+ <\varepsilon.
+\]
+The third and fourth differences add to $\theta(n^2+n)$, so
+the triangle inequality gives
+\[
+ \|\theta(n^2+n)\|_{\mathbb T}
+ \leq
+ \left\|\theta\left(1-\frac cb\right)n\right\|_{\mathbb T}
+ +\left\|\theta n^2+\frac{\theta c}{b}n\right\|_{\mathbb T}
+ <2\varepsilon.
+\]
+
+Let $m$ be the nearest integer to $\beta n$. Since
+$|\beta n-m|<\varepsilon<\min(\beta,1-\beta)$, we have
+$\lfloor\beta(n+1)\rfloor=m$. Also
+$m-\lfloor\beta n\rfloor\in\{0,1\}$. The definitions give
+\[
+ Z_{\mathrm{br}}(n)+Z(n)
+ =\theta(n^2+n)
+   +\alpha n\bigl(m-\lfloor\beta n\rfloor\bigr)
+   -\alpha(\beta n-m).
+\]
+Thus $\|Z_{\mathrm{br}}(n)+Z(n)\|_{\mathbb T}
+<(3+|\alpha|)\varepsilon$. Since $\{Z(n)\}\in J_0$, the choice
+of $\varepsilon$ gives $\{Z_{\mathrm{br}}(n)\}\in J$.
+Keeping the original shifts gives the desired configuration.
+\end{proof}
+
+% \begin{proof}[Proof of Corollary~\ref{c:bracket-recurrence}]
+% Apply Proposition~\ref{p:selected-density-increment} with
+% $V=Z_{\mathrm{br}}$. The comparison used to prove the proposition
+% now counts primes $qy+1$ satisfying
+% $\{\alpha(qy+1)\lfloor\beta(qy+1)\rfloor\}\in J$.
+% In the lift from modulus $q'=q^{B+1}$ to modulus $q$, the parameter
+% $y$ becomes $q^By$. The prime $q'y+1=q(q^By)+1$ is preserved,
+% so its bracket condition is preserved as well. The iteration in
+% the proof of Theorem~\ref{t:recurrence} therefore gives the claimed
+% density bound and configuration.
+% \end{proof}
+
+We now turn to the counting comparison that gives the density
+increment. The increment requires the count with weight
+\(\Lambda_qF_q\) to be close to the count with constant weight
+\(\mu_F\), uniformly over the smooth moduli reached in the iteration.
+
+Let \(c_0\in(0,1/11)\) be the fixed constant in
+\cite[Definition~2.3]{KMTT}, and put
+\(\widetilde Q_N=\lceil\exp((\log N)^{c_0})\rceil\).
+For \(w_0\) and a sufficiently small \(c_{\rm rel}>0\) supplied by
+the theorem below, we impose
+\begin{equation}\label{e:relative-smooth-hypotheses}
+ w_0\le w\le(\log\widetilde Q_N)^{c_{\rm rel}},\qquad
+ 8\prod_{p\le w}p\mid q,\qquad P^+(q)\le w,\qquad \log q\le w^2.
+\end{equation}
+In particular, \(\log q\le(\log\widetilde Q_N)^{2c_{\rm rel}}\), so
+the choice of \(c_{\rm rel}\) keeps \(q\) within the range of the
+prime-model estimates.
+We use the counting form $T$ defined in \eqref{e:Tdef}.
+
+\begin{theorem}\label{t:relative-selector-comparison}
+Fix $C,d,k$, the parameters of $Z$, and a Lipschitz function
+$F:\mathbb T\to\mathbb C$. There are $c_{\rm rel},\eta_{\rm sel}>0$
+and an integer $w_0\geq16$ such that the following holds for all
+sufficiently large integers $N$. Let $q,w\in\mathbb N$ satisfy
+\eqref{e:relative-smooth-hypotheses}, and put
+$M=\lfloor(N/q^{d-1})^{1/d}\rfloor$. Let $P_1,\ldots,P_{k-1}$
+have distinct increasing degrees, largest degree $d$, and
+$(C,q)$-coefficients. Then for all $1$-bounded
+$f_0,\ldots,f_{k-1}$ supported on $[N]$,
+\begin{equation}\label{e:relative-selector-constant}
+ T_{N,M,\Lambda_q F_q}(\mathbf f)
+ =\mu_F T_{N,M,1}(\mathbf f)+O(w^{-\eta_{\rm sel}}).
+\end{equation}
+The implied constant is uniform over the stated coefficient class.
+\end{theorem}
+
+Theorem~\ref{t:relative-selector-comparison} is proved in
+Section~\ref{s:relative}. Fix a Lipschitz function \(0\le F\le 1\)
+supported in \(J\), with \(\mu_F>0\), and write \(T_v=T_{N,M,v}\)
+for the family with shifts \(P_{j,q}\). If \(A\) contains no
+required configuration, the comparison places its unweighted
+count below that of the constant-density model
+\(\delta\mathbf 1_{[N]}\). Weak regularity then gives a long
+progression on which \(A\) has density at least \((1+\eta)\delta\).
+
+\begin{proof}[Proof of Proposition~\ref{p:selected-density-increment}
+assuming Theorem~\ref{t:relative-selector-comparison}]
+Fix \(C\) large enough that all the \(P_{j,q}\) have
+\((C,q)\)-coefficients. Take \(c>0\) sufficiently small in \eqref{e:increment-hypotheses}.
+Then 
+\[\log q\le(\log N)^{2c}=o(\sqrt{\log N}),\] so
+\(M=N^{1/d-o(1)}\).
+Since \(w\ge K\ge16\), the divisibility by \(\mathcal L(w)\) implies
+\(8\prod_{p\le w}p\mid q\). With \(c\) small enough and \(K\) large
+enough, \eqref{e:relative-smooth-hypotheses} holds as well.
+Thus the comparison \eqref{e:relative-selector-constant} applies.
+
+For $1\leq y\leq\tau M$ and $e=\deg P_j$, the coefficient bounds
+give $|P_{j,q}(y)|\ll_{C,d}q^{e-1}(\tau M)^e\ll_{C,d}\tau N$.
+Choose $\tau>0$ small enough that all shifts are at most $N/20$
+in absolute value. For each such $y$, at least $N/2$ values of
+$x$ have all shifted points in $[N]$. Hence, for some fixed $c_3>0$,
+\[T_1(\delta\mathbf1_{[N]},\ldots,\delta\mathbf1_{[N]})
+\ge c_3\delta^k.\] 
+For \(\mathbf f=(\mathbf1_A,\ldots,\mathbf1_A)\), the only possible
+contributions to \(T_{\Lambda_qF_q}(\mathbf f)\) come from higher prime
+powers and from coincident shifts. Including $P_{0,q}=0$, each difference $P_{i,q}-P_{j,q}$ with
+$i\ne j$ is nonzero, so there are $O_{d,k}(1)$ values of $y$
+with coincident shifts. The total contribution of both types is
+\[
+ \ll_{d,k}\frac{\log(qM+2)}{M}
+       +\frac{(qM+1)^{1/2}(\log(qM+2))^2}{M}
+ \ll N^{-1/(3d)}
+\]
+for large \(N\). Here we used \(0\le F\le1\), the bound
+\(\Lambda_q(y)\le\Lambda(qy+1)\), and the elementary count of higher
+prime powers up to \(qM+1\). Since \(\delta^{-E}\ll(\log N)^c\)
+by \eqref{e:increment-hypotheses}, this contribution is \(o(\delta^k)\).
+Choose \(E\) with \(E\eta_{\rm sel}\ge k\) and \(K\) large enough that
+the comparison error is at most \(\mu_F c_3\delta^k/4\).
+Dividing the comparison for \(\mathbf f\) by \(\mu_F\) now gives
+\begin{equation}\label{e:unweighted-discrepancy-hyp}
+ T_1(\delta\mathbf1_{[N]},\ldots,\delta\mathbf1_{[N]})
+ -T_1(\mathbf1_A,\ldots,\mathbf1_A)\ge \tfrac12 c_3\delta^k.
+\end{equation}
+
+Apply the weak regularity lemma \cite[Lemma~5.3]{KMTT} to the
+unweighted form with accuracy \(\varepsilon=c_3\delta^k/8\).
+Increasing \(E,K\) ensures that the required
+\(\mathcal L(\lceil\varepsilon^{-A'}\rceil)\mid q\) follows from
+\(\mathcal L(w)\mid q\). Its small-scale alternative is impossible:
+\(M=N^{1/d-o(1)}\) whereas \((q/\varepsilon)^{O_{C,d,k}(1)}=N^{o(1)}\).
+Thus we obtain local factors of \([N]\) with common modulus \(q^B\),
+\(1\le B\le B_*\), whose atoms have lengths
+\(\gg q^{-C_1}\delta^{C_1}M^r\) for a suitable fixed \(C_1\).
+Let \(H_j\) be the conditional expectation of \(\mathbf 1_A\) on
+the \(j\)th factor, so that \(H_j(x)=|A\cap I|/|I|\) on each
+atom \(I\) of that factor. Extend each $H_j$ by zero off $[N]$. Weak regularity gives
+\[
+ \bigl|T_1(H_0,\ldots,H_\ell)
+       -T_1(\mathbf 1_A,\ldots,\mathbf 1_A)\bigr|
+ \le \varepsilon = c_3\delta^k/8.
+\]
+Combining this with \eqref{e:unweighted-discrepancy-hyp}, we obtain
+\begin{align}\label{e:diff1a}
+    T_1(\delta\mathbf 1_{[N]},\ldots,\delta\mathbf 1_{[N]})
+ -T_1(H_0,\ldots,H_\ell)
+ \ge \tfrac12 c_3\delta^k-\varepsilon
+ = \tfrac38 c_3\delta^k.
+\end{align}
+Suppose $H_j\leq(1+\eta)\delta$ on $[N]$ for every $j$.
+Since $H_j$ and $\delta\mathbf1_{[N]}$ both have mass $\delta N$,
+\[
+ \|H_j-\delta\mathbf1_{[N]}\|_{\ell^1}
+ =2\sum_{x\in[N]}(H_j(x)-\delta)_+
+ \leq 2\eta\delta N.
+\]
+Telescope by replacing one input at a time. The $j$th summand
+satisfies
+\[
+\begin{aligned}
+ &\bigl|T_1(H_0,\ldots,H_{j-1},H_j-\delta\mathbf 1_{[N]},\delta\mathbf 1_{[N]},\ldots,\delta\mathbf 1_{[N]})\bigr|\\
+ &\qquad\le
+ \frac{((1+\eta)\delta)^{k-1}}{NM}
+ \sum_{y=1}^M\sum_{x\in\mathbb Z}
+ \bigl|(H_j-\delta\mathbf 1_{[N]})(x+P_{j,q}(y))\bigr|\\
+ &\qquad=
+ \frac{((1+\eta)\delta)^{k-1}}{N}\|H_j-\delta\mathbf 1_{[N]}\|_{\ell^1}
+ \le 2\eta(1+\eta)^{k-1}\delta^k.
+\end{aligned}
+\]
+Summing over the \(\ell+1\) terms gives
+\[
+ \bigl|T_1(H_0,\ldots,H_\ell)-T_1(\delta\mathbf 1_{[N]},\ldots,\delta\mathbf 1_{[N]})\bigr|
+ \le 2(\ell+1)\eta(1+\eta)^{k-1}\delta^k.
+\] 
+For sufficiently small fixed
+\(\eta>0\) this is less than \(3c_3\delta^k/8\), which is impossible by \eqref{e:diff1a}. Hence some atom of one
+of the factors has density at least \((1+\eta)\delta\), as required.
+\end{proof}
+
+\section{Comparison on smooth moduli}\label{s:relative}
+
+We prove Theorem~\ref{t:relative-selector-comparison}, the counting
+comparison used for the density increment in
+Section~\ref{s:recurrence}. We split the difference of the weights as
+\[
+ \Lambda_qF_q-\mu_F=(\Lambda_q-1)F_q+(F_q-\mu_F).
+\]
+For the first term we estimate the prime discrepancy in a full
+Gowers norm and control the effect of multiplication by \(F_q\).
+For the second term we reduce the count to polynomial-phase
+correlations on long progressions and use the arithmetic of the
+Heisenberg orbit to bound those correlations.
+
+We begin with the prime discrepancy. On the smooth moduli under
+consideration, the Cram\'er model for the normalized weight
+\(\Lambda_q\) can be replaced by \(1\).
+This gives the estimate for \(\Lambda_q-1\) before inserting the
+factor \(F_q\).
+
+\begin{proposition}\label{p:high-order-relative-prime}
+Fix integers $d\geq1$ and $S\geq2$. There are
+$c_{\rm rel},\eta_{\rm rel}>0$ and an integer $w_0\geq16$,
+depending only on $d,S$, such that for all sufficiently large
+integers $N$ and all $q,w,M\in\mathbb N$ satisfying
+\eqref{e:relative-smooth-hypotheses} and
+\begin{equation}\label{e:relative-scale-window}
+ N^{1/d}\exp(-d\sqrt{\log N})\leq M\leq N^{1/d},
+\end{equation}
+one has
+\begin{equation}\label{e:high-order-relative-prime}
+ \|\Lambda_q-1\|_{U^S[M]}\ll_{d,S}w^{-\eta_{\rm rel}}.
+\end{equation}
+In particular,
+\begin{equation}\label{e:relative-first-moment}
+ \mathbb E_{y\leq M}\Lambda_q(y)
+ =1+O_{d,S}(w^{-\eta_{\rm rel}}).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+For a real zero $\beta_0\in(0,1)$ of a primitive nonprincipal real
+character of conductor $3\leq r\leq\widetilde Q_N$,
+\cite[Theorem~1.1]{BanksSiegel} gives
+\[
+ (1-\beta_0)\log\widetilde Q_N
+ \geq (1-\beta_0)\log r
+ \geq 3\cdot10^{-3}.
+\]
+This excludes the exceptional zero in
+\cite[Definition~2.3]{KMTT}, whose threshold is $10^{-3}$.
+Thus the model in \cite[Lemma~3.1]{KMTT} is
+$\Lambda_{\Cramer,\widetilde Q_N}$.
+
+Take \(c_{\rm rel}\le1/10\) sufficiently small that
+\(2c_0c_{\rm rel}<1/10\). With \(Y=qM+1\), the scale conditions give
+\(\log Y\asymp_d\log N\), and therefore
+\[
+ \exp((\log\log Y)^{1/c_S})
+ \le\widetilde Q_N\le \exp((\log Y)^{1/10})
+\]
+for large \(N\), where \(c_S>0\) is the constant of
+\cite[Lemma~3.1]{KMTT}. Apply \cite[Lemma~3.1]{KMTT} to the ambient norm at
+$Y=qM+1$, then apply the normalized dilation bound
+\cite[Lemma~2.2]{KMTT} with length $qM$ and residue $1$. This gives
+\[
+ \left\|\Lambda_q-\frac{\varphi(q)}q
+       \Lambda_{\Cramer,\widetilde Q_N}(q\,\cdot+1)\right\|_{U^S[M]}
+ \ll_S q^{(S+1)/2^S}\exp(-(\log\widetilde Q_N)^{c_S}).
+\]
+After decreasing \(c_{\rm rel}\) so that \(2c_{\rm rel}<c_S\), this
+is \(O_{S,d}(w^{-1})\), since \(\log q\le w^2\). The hypotheses of
+\cite[Lemma~4.3(i)]{KMTT} are precisely the smoothness and scale
+conditions above, with \(b=1\) and \(J=[M]\) in that lemma. It gives
+\[
+ \left\|\frac{\varphi(q)}q
+ \Lambda_{\Cramer,\widetilde Q_N}(q\,\cdot+1)-1\right\|_{U^S[M]}
+ \ll_{d,S} w^{-\eta_{\rm rel}}
+\]
+after taking \(\eta_{\rm rel}\le1\). The triangle inequality proves
+\eqref{e:high-order-relative-prime}, and Gowers monotonicity gives \eqref{e:relative-first-moment}.
+\end{proof}
+
+To estimate the count weighted by \(F_q-\mu_F\), we use a local
+generalized von Neumann estimate. It is uniform over
+\((C,q)\)-coefficients at the spatial scale \(N\asymp q^{d-1}M^d\),
+and reduces the count to tests against ordinary polynomial phases.
+
+\begin{theorem}[Local generalized von Neumann estimate]\label{t:main}
+Fix $C\geq1$ and $d,k\in\mathbb N$, with $k\geq2$. There are
+$\eta,A_1,A_2>0$ and $B\in\mathbb N$, depending only on $C,d,k$,
+with the following property. Let $N,q\in\mathbb N$ satisfy
+$N\geq3$ and $1\leq q\leq\exp((\log N)^{1/10})$, and put
+$M=\lfloor(N/q^{d-1})^{1/d}\rfloor\geq1$.
+Let $P_1,\ldots,P_{k-1}$ have distinct increasing degrees, largest
+degree $d$, and $(C,q)$-coefficients. Suppose that $v$ is $1$-bounded
+on $[M]$ and that the $f_i$ are $1$-bounded and supported on
+$[-CN,CN]$. For $0<\rho\leq1/2$, one has
+\begin{equation}\label{e:main}
+ |T_{N,M,v}(\mathbf f)|
+ \ll_{C,d,k} N^{-\eta}+\rho+
+ \left(\sup_{I,b,u}
+ \|v\|_{u^{d+1}[I\cap(u+q^b\mathbb Z)]}\right)^\eta,
+\end{equation}
+where $b,u\in\mathbb Z$, $0\leq b\leq B$, and $I\subset[M]$ is
+an integer interval with $|I|\geq Mq^{-A_1}\rho^{A_2}$ and
+$I\cap(u+q^b\mathbb Z)\ne\varnothing$. For $k=2$ one can take
+$b=0$ and $I=[M]$.
+\end{theorem}
+
+The proof of Theorem~\ref{t:main} is given in
+Section~\ref{s:local-vn}.  We state the arithmetic estimate for
+those tests using the Heisenberg orbit.
+
+We use the Heisenberg group \(H\) and lattice \(\Gamma\) from the
+introduction, with the lower central series filtration. Put
+\(g_0=(\alpha,\beta,0)\), so that the orbit \(g_0^n\Gamma\) has vertical
+coordinate \(\{Z(n)\}\) in the chart \(0<\{\beta n\}<1\).
+A function \(\Phi\) on \(H/\Gamma\) has zero vertical mean if
+\(\int_0^1\Phi(g(0,0,z)\Gamma)\,dz=0\) for every \(g\in H\).
+We write \(m_H\) for Haar probability measure on \(H/\Gamma\).
+
+\begin{proposition}\label{p:heisenberg-phase}
+Fix $d\in\mathbb N$ and $A,L>0$. For sufficiently large $X$,
+choose $j$ so that $r_j\leq X^{1/100}<r_{j+1}$.
+Suppose $a\in\mathbb Z$ and $v,K\in\mathbb N$, with
+$v\leq X^{1/10000}$, $r_j\nmid v$, and $K\geq X^{1/2}$.
+For every Lipschitz $\Phi$ on $H/\Gamma$ with
+$\|\Phi\|_{\mathrm{Lip}}\leq(\log X)^L$,
+\begin{equation}\label{e:heisenberg-equidistribution}
+ \left|\mathbb E_{t\leq K}\Phi(g_0^{a+vt}\Gamma)
+       -\int_{H/\Gamma}\Phi\,dm_H\right|
+ \ll_{A,L,\alpha,\beta}(\log X)^{-A}.
+\end{equation}
+If $\Phi$ has zero vertical mean, then also
+\begin{equation}\label{e:heisenberg-twisted}
+ \sup_{\deg\phi\leq d}
+ \left|\mathbb E_{t\leq K}
+   \Phi(g_0^{a+vt}\Gamma)\e(-\phi(t))\right|
+ \ll_{A,L,d,\alpha,\beta}(\log X)^{-A},
+\end{equation}
+where the supremum is over real polynomials. In particular, for
+fixed Lipschitz $F:\mathbb T\to\mathbb C$, with
+$\mu_F=\int_{\mathbb T}F$,
+\begin{equation}\label{e:heisenberg-centered}
+ \sup_{\deg\phi\leq d}
+ \left|\mathbb E_{t\leq K}
+   \bigl(F(Z(a+vt))-\mu_F\bigr)\e(-\phi(t))\right|
+ \ll_{A,d,\alpha,\beta,F}(\log X)^{-A}.
+\end{equation}
+\end{proposition}
+
+The proof of Proposition~\ref{p:heisenberg-phase} is given in
+Section~\ref{s:example}. Combining Theorem~\ref{t:main} with
+Proposition~\ref{p:heisenberg-phase} gives the following bound for
+the count weighted by \(F_q-\mu_F\).
+
+\begin{lemma}\label{l:unweighted-selector-relative-range}
+Fix \(C,d,k\), the parameters of \(Z\), and a Lipschitz function
+\(F:\mathbb T\to\mathbb C\). Let \(N\) be sufficiently large and
+suppose \(q,w\in\mathbb N\) satisfy \eqref{e:relative-smooth-hypotheses},
+where \(w_0\ge16\) and \(c_{\rm rel}>0\) is sufficiently small.
+Put \(M=\lfloor(N/q^{d-1})^{1/d}\rfloor\). Let
+\(P_1,\ldots,P_{k-1}\) have \((C,q)\)-coefficients and distinct
+increasing degrees, with largest degree \(d\). Then for every
+fixed \(A>0\) and every tuple \(\mathbf f=(f_0,\ldots,f_{k-1})\)
+of \(1\)-bounded functions supported on \([N]\),
+\begin{equation}\label{e:bare-selector-comparison}
+ |T_{N,M,F_q-\mu_F}(\mathbf f)|\ll_{C,d,k,\alpha,\beta,F,A}w^{-A}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Apply Theorem~\ref{t:main} to \(F_q-\mu_F\), after dividing by a
+fixed constant to make it \(1\)-bounded, with \(\rho=w^{-A-1}\).
+For sufficiently small \(c_{\rm rel}\), the bound
+\(\log q\le w^2\ll(\log N)^{2c_0c_{\rm rel}}\) puts \(q\) in the
+range of the theorem. The test progressions \(P\) have step-size \(q^b\)
+with \(b=O(1)\), and
+\[
+ |P|\gg Mq^{-O(1)}w^{-O(1)}=N^{1/d-o(1)}.
+\]
+Set \(X=qM+1=N^{1/d+o(1)}\). The values \(qy\) for \(y\in P\)
+form a progression of length at least \(X^{1/2}\) and step-size
+\(q^{b+1}=X^{o(1)}\le X^{1/10000}\) for large \(N\).
+
+By \eqref{e:horizontal-approximants} and \(X^{1/100}<r_{j+1}\),
+we have \(\log\log X\le\sqrt{\log r_j}+O(1)\). Thus \(r_j>w\),
+since \(w\ll\log X\). As \(q\) is \(w\)-smooth, \(r_j\nmid q^{b+1}\).
+The affine parametrization of \(P\) preserves the degree of each
+test phase, so \eqref{e:heisenberg-centered} gives
+\[
+ \|F_q-\mu_F\|_{u^{d+1}[P]}\ll_{F,D}(\log N)^{-D}
+\]
+for every fixed \(D>0\), uniformly over the test progressions.
+Since \(w\ll\log N\), taking \(D\) sufficiently large in
+\eqref{e:main} proves \eqref{e:bare-selector-comparison}.
+\end{proof}
+
+It remains to control the prime discrepancy with the selector
+inserted. Away from the boundary of the Heisenberg chart we
+expand \(F_q\) into vertical Fourier modes and use the following
+multiplier estimate for each localized mode.
+
+\begin{lemma}[Localized Fourier multipliers]\label{l:vertical-mode-multiplier}
+Let \(S\geq3\), let \(I\) be a finite nonempty interval of integers, and let
+\(a,v,h\) be integers. Suppose that \(\chi\) is a Lipschitz function
+on \(\mathbb T\) supported on an interval of length less than \(1/2\)
+inside \((0,1)\). For every function \(f\) on \(I\),
+\begin{align}
+ \|f(t)\chi(\{\beta(a+vt)\})\e(hZ(a+vt))\|_{U^S[I]}
+ &\leq\|\widehat\chi\|_{\ell^1}\|f\|_{U^S[I]}.
+ \label{e:vertical-mode-multiplier}
+\end{align}
+\end{lemma}
+
+The proof of Lemma~\ref{l:vertical-mode-multiplier} is given in
+Section~\ref{s:example}. The scalar equidistribution estimate in
+Proposition~\ref{p:heisenberg-phase} bounds the proportion of
+parameters near the boundary. Together these estimates control
+the prime discrepancy after multiplication by \(F_q\), which
+completes the comparison.
+
+\begin{proof}[Proof of Theorem~\ref{t:relative-selector-comparison}]
+ The difference in
+\eqref{e:relative-selector-constant} is the count with weight
+\[
+ \Lambda_qF_q-\mu_F=(\Lambda_q-1)F_q+(F_q-\mu_F).
+\]
+Applying Lemma~\ref{l:unweighted-selector-relative-range} with
+\(A=1\) gives
+\begin{align}\label{e:f-muf}
+    \bigl|T_{N,M,F_q-\mu_F}(\mathbf f)\bigr|
+ \ll_{C,d,k,\alpha,\beta,F} w^{-1}.
+\end{align}
+We show that the count
+with weight \((\Lambda_q-1)F_q\) is \(O(w^{-\eta_{\rm rel}/2})\).
+Let \(0<\varepsilon<1/16\) and choose a smooth cutoff
+\(0\le\chi\le1\) supported in \([\varepsilon,1-\varepsilon]\),
+equal to \(1\) on \([2\varepsilon,1-2\varepsilon]\), with
+\(\|\chi\|_{\mathrm{Lip}}\ll\varepsilon^{-1}\). Use a fixed
+partition of unity to write \(\chi=\sum_\nu\chi_\nu\), with each
+piece supported on an interval of length less than \(1/2\).
+We first split the count according to the cutoff:
+\begin{align}\label{e:firstsecondterms}
+ T_{N,M,(\Lambda_q-1)F_q}(\mathbf f)
+ &=T_{N,M,(\Lambda_q-1)F_q\chi(\beta q\,\cdot)}(\mathbf f)+T_{N,M,(\Lambda_q-1)F_q(1-\chi(\beta q\,\cdot))}
+   (\mathbf f).
+\end{align}
+In the first count, we expand \(F_q\) by the absolutely convergent
+Fourier series of \(F\). This gives
+\[
+\begin{aligned}
+ T_{N,M,(\Lambda_q-1)F_q\chi(\beta q\,\cdot)}(\mathbf f)
+ &=\sum_\nu\sum_{h}\widehat F(h)\,
+   T_{N,M,(\Lambda_q-1)\chi_\nu(\beta q\,\cdot)
+     \e(hZ(q\,\cdot))}(\mathbf f).
+\end{aligned}
+\]
+By \cite[Proposition~3.3]{KMTT} and Gowers monotonicity, we may
+choose \(S\ge3\) so that the first inequality below holds for
+every \(\nu\) and \(h\in\mathbb Z\). 
+Lemma~\ref{l:vertical-mode-multiplier} implies
+\begin{equation}\label{e:high-order-gvn}
+\begin{aligned}
+ \bigl|T_{N,M,(\Lambda_q-1)\chi_\nu(\beta q\,\cdot)
+                  \e(hZ(q\,\cdot))}(\mathbf f)\bigr|&\ll_{C,d,k,S}
+ \|\widehat{\chi_\nu}\|_{\ell^1}\|\Lambda_q-1\|_{U^S[M]}.
+\end{aligned}
+\end{equation}
+The Sobolev estimate for Fourier coefficients gives
+\[
+ \|\widehat{\chi_\nu}\|_{\ell^1}
+ \ll \|\chi_\nu\|_{H^1(\mathbb T)}
+ \ll \|\chi_\nu\|_\infty+\|\chi_\nu'\|_2
+ \ll \varepsilon^{-1}.
+\]
+Summing \eqref{e:high-order-gvn} over \(\nu\) and \(h\) gives
+\begin{align}\label{e:firstterm}
+ \bigl|T_{N,M,(\Lambda_q-1)F_q\chi(\beta q\,\cdot)}(\mathbf f)\bigr|
+ &\ll \left(\sum_{h\in\mathbb Z}|\widehat F(h)|\right)
+       \left(\sum_\nu\|\widehat{\chi_\nu}\|_{\ell^1}\right)
+       \|\Lambda_q-1\|_{U^S[M]}\\
+ &\ll_F \varepsilon^{-1}\|\Lambda_q-1\|_{U^S[M]}\nonumber.
+\end{align}
+Choose \(c_{\rm rel}\) small enough for
+Lemma~\ref{l:unweighted-selector-relative-range} and
+Proposition~\ref{p:high-order-relative-prime} at order \(S\).
+Since \(\log q\le w^2=o(\sqrt{\log N})\), the prescribed \(M\)
+satisfies \eqref{e:relative-scale-window}. The proposition gives
+\begin{align}\label{e:second2}
+    \|\Lambda_q-1\|_{U^S[M]}\ll w^{-\eta_{\rm rel}},
+ \qquad 0<\eta_{\rm rel}\le1.
+\end{align}
+The localized count is therefore \(O_F(\varepsilon^{-1}w^{-\eta_{\rm rel}})\).
+For the boundary term, positivity of \(\Lambda_q\) gives
+\(|\Lambda_q-1|\le(\Lambda_q-1)+2\). Thus
+\begin{align}\label{e:secondterm}
+ &\bigl|T_{N,M,(\Lambda_q-1)F_q(1-\chi(\beta q\,\cdot))}
+          (\mathbf f)\bigr|\\
+ &\le \|F\|_\infty\,
+    \mathbb E_{y\le M}|\Lambda_q(y)-1|(1-\chi(\beta qy))\nonumber\\
+ &\le \|F\|_\infty\Bigl(
+    2\mathbb E_{y\le M}(1-\chi(\beta qy))
+    +\bigl|\mathbb E_{y\le M}(\Lambda_q(y)-1)
+                        (1-\chi(\beta qy))\bigr|\Bigr)\nonumber\\
+ &\ll_F \mathbb E_{y\le M}(1-\chi(\beta qy))
+          +\varepsilon^{-1}\|\Lambda_q-1\|_{U^S[M]}\nonumber.
+\end{align}
+For the last inequality, expand \(1-\chi\) in Fourier modes.
+Its Fourier \(\ell^1\) norm is \(O(\varepsilon^{-1})\) by the
+Sobolev estimate, and each linear phase preserves the \(U^S\) norm.
+
+Set \(\varepsilon=w^{-\eta_{\rm rel}/2}/32\) and \(X=qM+1\).
+For large \(N\), we have \(M\ge X^{1/2}\), \(q\le X^{1/10000}\),
+and \(r_j>w\). Since \(q\) is \(w\)-smooth, \(r_j\nmid q\).
+We can therefore apply \eqref{e:heisenberg-equidistribution}
+to \(1-\chi\) as a function of the horizontal coordinate. This gives
+\begin{align}\label{e:first2}
+    \mathbb E_{y\le M}(1-\chi(\beta qy))
+ =\int_{\mathbb T}(1-\chi)+O((\log X)^{-1})
+ \ll\varepsilon.
+\end{align}
+Here \(\|1-\chi\|_{\mathrm{Lip}}\ll\varepsilon^{-1}\) is bounded
+by a power of \(\log X\), the integral is \(O(\varepsilon)\),
+and \((\log X)^{-1}\ll\varepsilon\) since \(w\ll\log X\). By \eqref{e:firstsecondterms}, \eqref{e:secondterm}, \eqref{e:second2}, \eqref{e:firstterm}, and \eqref{e:first2}, we conclude that
+\[
+ \bigl|T_{N,M,(\Lambda_q-1)F_q}(\mathbf f)\bigr|
+ \ll_F \varepsilon+\varepsilon^{-1}w^{-\eta_{\rm rel}}
+ \ll_F w^{-\eta_{\rm rel}/2}.
+\]
+Together with the \(O(w^{-1})\) bound for \eqref{e:f-muf}, this proves \eqref{e:relative-selector-constant}
+with \(\eta_{\rm sel}=\eta_{\rm rel}/2\).
+% Finally, \cite[Proposition~3.3]{KMTT} and Gowers monotonicity give
+% \[
+%  \bigl|T_{N,M,\Lambda_q}(\mathbf f)-T_{N,M,1}(\mathbf f)\bigr|
+%  \ll \|\Lambda_q-1\|_{U^S[M]}
+%  \ll w^{-\eta_{\rm rel}}.
+% \]
+% Combining this with \eqref{e:relative-selector-constant} proves
+% \eqref{e:relative-selector-prime}.
+\end{proof}
+
+\section{A local generalized von Neumann estimate}\label{s:local-vn}
+
+We prove Theorem~\ref{t:main}, which supplies the reduction to
+local phase tests in Lemma~\ref{l:unweighted-selector-relative-range}.
+We first use spatial differencing and the inverse theorem for
+distinct-degree polynomials to extract linear phases on
+progressions for the shifted inputs. We then use those phases to
+test the weight on short parameter intervals in fixed residue
+classes. 
+% The progression lengths in the first step determine the
+% length of the parameter intervals in the second.
+
+\begin{lemma}\label{p:localinverse}
+Fix \(C\ge1\) and \(d,k\in\mathbb N\), with \(k\ge2\). Let \(N\ge3\),
+let \(q\) be a positive integer with
+\(q\le\exp((\log N)^{1/10})\), and put
+\(M=\lfloor(N/q^{d-1})^{1/d}\rfloor\ge1\).
+Let \(P_1,\ldots,P_{k-1}\) have \((C,q)\)-coefficients and distinct
+increasing degrees, with largest degree \(d\). Let \(v\) be
+\(1\)-bounded on \([M]\), and let
+\(\mathbf f=(f_0,\ldots,f_{k-1})\) consist of \(1\)-bounded functions
+supported on \([-CN,CN]\).
+Suppose that 
+\begin{align}\label{e:Tmnvcondition}
+    \lvert T_{N,M,v}(\mathbf f)\rvert\ge\delta, \qquad 0<\delta<1/2.
+\end{align}
+ Then either \(N\ll_{C,d,k}\delta^{-O_{C,d,k}(1)}\)
+or the following holds. For a fixed integer \(B=O_d(1)\), put \(L=q^B\).
+For each \(1\le i\le k-1\), there is an integer \(V_i\) satisfying
+\[
+ M^{\deg P_i}(q/\delta)^{-O_{C,d,k}(1)}
+ \ll_{C,d,k} V_i\le M^{\deg P_i},
+ \qquad LV_i\le N,
+\]
+and a function \(\Psi_i\) satisfying
+\[
+ \left|\sum_x f_i(x)\Psi_i(x)\right|
+ \gg_{C,d,k}\delta^{O_{C,d,k}(1)}N,
+\]
+where for every \(j\in\mathbb Z\) and \(a\in\{0,\ldots,L-1\}\), there are
+real \(\theta_{i,j,a}\) and \(\gamma_{i,j,a}\) such that
+\[
+ \Psi_i(x)=\e\bigl(\theta_{i,j,a}x+\gamma_{i,j,a}\bigr)
+ \qquad
+ \text{for }x\in ((j-1)LV_i,jLV_i]\cap(a+L\mathbb Z).
+\]
+\end{lemma}
+
+\begin{proof}
+Implicit constants depend only on \(C,d,k\). We write
+\(\gg\delta^{O(1)}\) for a lower bound by a constant times a
+fixed positive power of \(\delta\).
+
+Since \(|v|\leq1\), Cauchy--Schwarz in \(y\) and \eqref{e:Tmnvcondition} give
+\[
+\begin{aligned}
+ \delta^2N^2
+ &\leq \mathbb E_{y\leq M}
+     \left|\sum_x\prod_{i=0}^{k-1}f_i(x+P_i(y))\right|^2\\
+ &=\sum_{h\in\mathbb Z}\mathbb E_{y\leq M}\sum_x
+     \prod_{i=0}^{k-1}\Delta_h f_i(x+P_i(y)),
+ \qquad
+ \Delta_h f(x)=f(x+h)\overline{f(x)}.
+\end{aligned}
+\]
+The equality follows by writing the two spatial variables in the
+square as \(x+h\) and \(x\). Since \(P_0=0\), the support of
+\(\Delta_h f_0\) restricts the sum to \(O(N)\) values of \(h\),
+and each count has modulus \(O(N)\). Taking absolute values in
+the sum over \(h\) therefore gives \(\gg\delta^2N\) values of \(h\) such that
+$$\left\vert \mathbb E_{y\leq M}\sum_x
+     \prod_{i=0}^{k-1}\Delta_h f_i(x+P_i(y))\right\vert \gg \delta^2 N.$$
+For each such \(h\), apply \cite[Lemma~3.4]{KMTT}, which uses
+\cite[Theorem~2.4]{ShaoWang}, to the functions \(\Delta_h f_i\).
+A common translation puts their supports in an interval
+\([N']\) with \(N'\asymp_C N\). The small-scale alternative
+\(M\ll(q/\delta)^{O(1)}\) gives \(N\ll(q/\delta)^{O(1)}\) by the
+definition of \(M\). Since \(q\leq\exp((\log N)^{1/10})\), the
+powers of \(q\) can be absorbed into the left-hand side for
+large \(N\), giving \(N\ll\delta^{-O(1)}\).
+Otherwise, for each \(i\geq1\) the lemma gives a \(1\)-bounded
+function \(\varphi_{h,i}\) such that
+\begin{align}
+ \left|\sum_x\Delta_h f_i(x)\varphi_{h,i}(x)\right|
+   &\gg\delta^{O(1)}N,\nonumber\\
+ |\varphi_{h,i}(x+q'_h q^{b_h}t)-\varphi_{h,i}(x)|
+   &\ll(q/\delta)^{O(1)}M^{-\deg P_i}|t|, \label{e:d9ffbound1}
+\end{align}
+where \(q'_h\ll\delta^{-O(1)}\) and \(b_h=O_d(1)\). Choose \(B\)
+to be the uniform upper bound for \(b_h\) and put \(L=q^B\).
+Replacing \(q^{b_h}\) by \(L\) in the second inequality amounts
+to replacing \(t\) by \(q^{B-b_h}t\), which only changes the
+implicit exponent of \(q/\delta\).
+
+Fix \(i\), and set
+\(V_i=\lfloor M^{\deg P_i}(q/\delta)^{-D_0}\rfloor\) for a
+sufficiently large fixed \(D_0\geq B\). Outside the alternative
+\(N\ll\delta^{-O(1)}\), the quantity inside the floor is at least
+\(2\), since \(q=N^{o(1)}\) and \(M=N^{1/d-o(1)}\). This gives
+the required lower bound for \(V_i\), while \(D_0\geq B\) gives
+\(LV_i\leq M^{\deg P_i}\leq N\).
+
+Intersect the blocks of length \(LV_i\) with the residue classes
+modulo \(L\), retaining the full progressions that meet the
+support of \(f_i\), including those at the ends. There are
+\(O(N/V_i)\) such progressions, each of the form \(P=a+L[V_i]\).
+
+On each \(P\), define \(\widetilde\varphi_{h,i}(a+Lt)\) to be
+\(\varphi_{h,i}(a+Lt')\), where \(t'\) is a fixed representative
+in \([V_i]\) of the class \(t\bmod q'_h\). Applying \eqref{e:d9ffbound1} with shift \(L(t-t')\) gives
+\[
+ \bigl|\varphi_{h,i}(a+Lt)-\widetilde\varphi_{h,i}(a+Lt)\bigr|
+ \ll (q/\delta)^{O(1)}M^{-\deg P_i}\frac{|t-t'|}{q'_h}
+ \ll (q/\delta)^{-D_0+O(1)}.
+\]
+Since \(\Delta_h f_i\) is \(1\)-bounded and supported on \(O(N)\)
+points, the change in the correlation satisfies
+\[
+ \left|\sum_x\Delta_h f_i(x)
+       \bigl(\varphi_{h,i}(x)-\widetilde\varphi_{h,i}(x)\bigr)\right|
+ \ll N(q/\delta)^{-D_0+O(1)}.
+\]
+Choosing \(D_0\) sufficiently large makes this error at most half
+the lower bound for the original correlation. It follows that
+\[
+\begin{aligned}
+ \left|\sum_x\Delta_h f_i(x)\widetilde\varphi_{h,i}(x)\right|
+ &\ge
+ \left|\sum_x\Delta_h f_i(x)\varphi_{h,i}(x)\right|
+ -\left|\sum_x\Delta_h f_i(x)
+   \bigl(\varphi_{h,i}(x)-\widetilde\varphi_{h,i}(x)\bigr)\right|\\
+ &\ge \frac12
+ \left|\sum_x\Delta_h f_i(x)\varphi_{h,i}(x)\right|
+ \gg \delta^{O(1)}N.
+\end{aligned}
+\]
+On each \(P=a+L[V_i]\), expand the function of \(t\bmod q'_h\) as
+\[
+ \widetilde\varphi_{h,i}(a+Lt)
+ =\sum_{m=0}^{q'_h-1}c_{h,P}(m)\e(mt/q'_h),
+ \qquad |c_{h,P}(m)|\le1.
+\]
+Substituting this into the correlation and taking absolute values
+gives
+\[
+ \delta^{O(1)}N
+ \ll \left|\sum_x\Delta_h f_i(x)\widetilde\varphi_{h,i}(x)\right|
+ \le \sum_{m=0}^{q'_h-1}\sum_{P=a+L[V_i]}
+    \left|\sum_{t\le V_i}\Delta_h f_i(a+Lt)\e(mt/q'_h)\right|.
+\]
+Thus for each such \(h\) there is a frequency
+\(\omega_h=m/q'_h\) for which
+\[
+ \sum_{P=a+L[V_i]}
+    \left|\sum_{t\le V_i}\Delta_h f_i(a+Lt)\e(\omega_h t)\right|
+ \gg \frac{\delta^{O(1)}N}{q'_h}
+ \gg \delta^{O(1)}N.
+\]
+Since there are at most \(\le(\max_h q'_h)^2\ll\delta^{-O(1)}\) many $\omega_h$,
+one frequency \(\omega\) is chosen for
+\(\gg\delta^{O(1)}N\) values of \(h\). For each \(P=a+L[V_i]\), put
+\[
+ S_P=\sup_{\theta\in\mathbb T}
+ \left|\sum_{t\le V_i}f_i(a+Lt)\e(\theta t)\right|:= \left|\sum_{t\le V_i}f_i(a+Lt)\e(\theta_P t)\right|.
+\]
+The change of variables \(x=a+Lt+h\) gives
+\[
+ \sum_h\left(\sum_{t\le V_i}\Delta_h f_i(a+Lt)\e(\omega t)\right)
+       \e(-h\xi)
+ =\widehat f_i(\xi)\sum_{t\le V_i}
+   \overline{f_i(a+Lt)}\e\bigl(\omega t+\xi(a+Lt)\bigr).
+\]
+The sum on the right has modulus at most \(S_P\), by conjugating
+and taking \(\theta=-\omega-L\xi\). Plancherel in \(h\) therefore gives
+\begin{equation}\label{e:local-plancherel}
+ \sum_{h\in\mathbb Z}
+ \left|\sum_{t\le V_i}\Delta_h f_i(a+Lt)\e(\omega t)\right|^2
+ \le S_P^2\|f_i\|_{\ell^2(\mathbb Z)}^2.
+\end{equation}
+For each of the \(\gg\delta^{O(1)}N\) shifts with \(\omega_h=\omega\),
+the sum over \(P\) is \(\gg\delta^{O(1)}N\). Since
+\(\Delta_h f_i=0\) for \(|h|>2CN\), only \(O(N)\) shifts contribute.
+There are \(O(N/V_i)\) progressions, so Cauchy--Schwarz in \(h\)
+and \(P\), followed by \eqref{e:local-plancherel}, gives
+\[
+\begin{aligned}
+ \delta^{O(1)}N^2
+ &\ll \sum_{h:\,\omega_h=\omega}\sum_{P=a+L[V_i]}
+      \left|\sum_{t\le V_i}\Delta_h f_i(a+Lt)\e(\omega t)\right|\\
+ &\le \sum_{h\in\mathbb Z}\sum_{P=a+L[V_i]}
+      \left|\sum_{t\le V_i}\Delta_h f_i(a+Lt)\e(\omega t)\right|\\
+ &\ll \frac{N}{\sqrt{V_i}}
+      \left(\sum_P\sum_{h\in\mathbb Z}
+      \left|\sum_{t\le V_i}\Delta_h f_i(a+Lt)\e(\omega t)\right|^2
+      \right)^{1/2}\\
+ &\le \frac{N}{\sqrt{V_i}}\,
+      \|f_i\|_{\ell^2(\mathbb Z)}
+      \left(\sum_P S_P^2\right)^{1/2}.
+\end{aligned}
+\]
+Squaring and using \(\|f_i\|_{\ell^2(\mathbb Z)}^2\ll N\) gives
+\(\sum_P S_P^2\gg\delta^{O(1)}NV_i\).
+Since \(S_P\leq V_i\), it follows that
+\[\sum_P S_P\gg\delta^{O(1)}N.\]
+% For each \(P=a+L[V_i]\), choose \(\theta_P\in\mathbb T\) such that
+% \[
+%  \left|\sum_{t=1}^{V_i} f_i(a+Lt)\e(\theta_Pt)\right|=S_P.
+% \]
+If \(S_P>0\), choose \(\gamma_P\in\mathbb T\) so that
+\[
+ \e(\gamma_P)
+ =\frac{\overline{\sum_{t=1}^{V_i}f_i(a+Lt)\e(\theta_Pt)}}{S_P}.
+\]
+If \(S_P=0\), take \(\gamma_P=0\). On each full progression \(P=a+L[V_i]\) meeting the support of
+\(f_i\), define
+\[
+ \Psi_i(x)=\e\!\left(\theta_P\frac{x-a}{L}+\gamma_P\right)
+ \qquad (x\in P).
+\]
+On each progression disjoint from the support of \(f_i\), take
+\(\Psi_i(x)=1\), the constant phase.  Thus the contribution
+from each \(P\) equals \(S_P\), and
+\[
+ \sum_x f_i(x)\Psi_i(x)
+ =\sum_{P=a+L[V_i]}\sum_{t=1}^{V_i}
+      f_i(a+Lt)\e(\theta_Pt+\gamma_P)
+ =\sum_P S_P
+ \gg \delta^{O(1)}N.
+\]
+\end{proof}
+
+To finish the reduction, we apply the inverse lemma to the dual
+function of each shifted input. This lets us successively replace
+the inputs by local linear phases while retaining a large count.
+We partition the parameter range into short intervals and discard
+the spatial points at which a shift can cross a block boundary.
+On each remaining interval and residue class, the shifted arguments
+stay in their respective spatial progressions. Evaluating the linear
+phases at those shifts gives a single polynomial phase of degree
+at most \(d\) in the parameter.
+
+\begin{proof}[Proof of Theorem~\ref{t:main}]
+All implicit constants in this proof depend only on $C,d,k$.
+For $k=2$, Fourier inversion in $x$ gives
+\[
+ T_{N,M,v}(f_0,f_1)
+ =\frac1N\int_{\mathbb T}\widehat f_0(-\theta)\widehat f_1(\theta)
+       \mathbb E_{y\leq M}v(y)\e(\theta P_1(y))\,d\theta.
+\]
+Cauchy--Schwarz and Plancherel therefore imply
+\[
+ |T_{N,M,v}(f_0,f_1)|
+ \leq \frac{\|f_0\|_{\ell^2}\|f_1\|_{\ell^2}}{N}
+       \sup_{\theta\in\mathbb T}
+       \left|\mathbb E_{y\leq M}v(y)\e(\theta P_1(y))\right|
+ \ll_C \|v\|_{u^{d+1}[M]}.
+\]
+Now suppose $k\geq3$ and $|T_{N,M,v}(\mathbf f)|\geq\delta$,
+where $0<\delta<1/2$.
+
+We replace the shifted inputs one at a time. After each replacement,
+the absolute value of the count remains at least a fixed positive
+power of \(\delta\), up to a constant depending only on \(C,d,k\). At each stage, $f_j$ denotes the
+current input in the $j$th position. For the $i$th replacement, put
+\[
+ D_i(z)=\mathbb E_{y\leq M}v(y)
+       \prod_{\substack{0\leq j\leq k-1\\j\ne i}}
+       f_j(z+P_j(y)-P_i(y)).
+\]
+Changing variables to $z=x+P_i(y)$ gives
+$$T_{N,M,v}(\mathbf f)=N^{-1}\sum_z f_i(z)D_i(z).$$
+The function $D_i$ is $1$-bounded. Moreover, its support lies in
+a fixed enlargement of $[-CN,CN]$, because the product contains
+$f_0(z-P_i(y))$ and $\max_{y\leq M}|P_i(y)|\ll N$.
+We use this enlarged support interval for every application of
+Lemma~\ref{p:localinverse}. 
+
+The phases supplied by Lemma~\ref{p:localinverse} remain
+defined on full progressions. When using them as inputs to the
+next application, we truncate them to the enlarged interval.
+This leaves every count unchanged, since $f_0(x)\ne0$ forces all
+arguments $x+P_j(y)$ to lie in that interval.
+Since the current count has modulus $\gg\delta^{O(1)}$,
+Cauchy--Schwarz gives
+\[
+ \delta^{O(1)}
+ \ll \left|\frac1N\sum_z f_i(z)D_i(z)\right|^2
+ \leq \frac{\|f_i\|_{\ell^2}^2}{N^2}\sum_z|D_i(z)|^2
+ \ll \frac1N\sum_z|D_i(z)|^2.
+\]
+Replacing the $i$th input by $\overline{D_i}$ thus gives a
+large count, since
+\[
+ T_{N,M,v}(f_0,\ldots,\overline{D_i},\ldots,f_{k-1})
+ =\frac1N\sum_z|D_i(z)|^2
+ \gg\delta^{O(1)}.
+\]
+Unless $N\ll\delta^{-O(1)}$, Lemma~\ref{p:localinverse} supplies
+$\Psi_i$ such that
+\[
+\begin{aligned}
+ \left|T_{N,M,v}
+       (f_0,\ldots,\overline{\Psi_i},\ldots,f_{k-1})\right|
+ &=\frac1N\left|\sum_z\overline{D_i(z)}\Psi_i(z)\right|
+ \gg\delta^{O(1)}.
+\end{aligned}
+\]
+This completes the $i$th replacement. Iterating over
+$i=1,\ldots,k-1$ gives
+\[
+ \left|T_{N,M,v}
+ \bigl(f_0,\overline{\Psi_1},\ldots,\overline{\Psi_{k-1}}\bigr)\right|
+ \gg\delta^{O(1)}.
+\] Each $\Psi_i$ is
+a linear phase on the intersections of blocks of length $LV_i$
+with residue classes modulo the common modulus $L=q^B$.
+We next restrict the parameter to intervals on which these block
+choices remain constant. Choose a sufficiently large fixed $D_1$
+and put $H=\lfloor M(q/\delta)^{-D_1}\rfloor$. If
+$M(q/\delta)^{-D_1}<2$, then
+\[
+ N<q^{d-1}(M+1)^d
+ \ll q^{d-1+dD_1}\delta^{-dD_1}.
+\]
+Since $q\leq\exp((\log N)^{1/10})$, the power of $q$ on the
+right is at most $N^{1/2}$ for sufficiently large $N$. This
+gives the small-scale alternative $N\ll\delta^{-O(1)}$.
+Otherwise,
+\[
+ H\geq \tfrac12 M(q/\delta)^{-D_1}\geq1.
+\]
+Partition $[M]$ into intervals of length $H$ and a final interval
+of length less than $H$. The final interval contributes $O(H/M)$
+to the count.
+
+Let $I$ be a complete interval with first point $y_0$. Writing
+$e_i=\deg P_i$, the coefficient bounds give
+\[
+ |P_i(y)-P_i(y_0)|
+ \leq C_1q^{e_i-1}M^{e_i-1}H
+ \qquad (y\in I),
+\]
+where $C_1$ depends only on $C,d$. If
+\begin{align}\label{e:distancecondition}
+    \operatorname{dist} \bigl(x+P_i(y_0),LV_i\mathbb Z\bigr)
+ >C_1q^{e_i-1}M^{e_i-1}H,
+\end{align}
+then there is an integer $j_i$, depending on $x$ and $I$, such that
+\[
+ (j_i-1)LV_i<x+P_i(y)\leq j_iLV_i
+ \qquad\text{for every }y\in I.
+\]
+Thus all the points $x+P_i(y)$ lie in the same block as $y$ ranges
+over $I$.
+There are $O(N/(LV_i))$ relevant boundaries, so the number of
+exceptional $x$ for this $I$ and $i$ is at most
+$O(Nq^{e_i-1}M^{e_i-1}H/(LV_i))$. Delete these pairs $(x,I)$.
+Using the lower bounds for $V_i$, the total change in the
+normalized count is
+\[
+ \ll \frac HM+
+       \sum_{i=1}^{k-1}
+       \frac{q^{e_i-1}M^{e_i-1}H}{LV_i}
+ \ll (q/\delta)^{-D_1+O(1)}.
+\]
+The count after the replacements has modulus at least
+$c\delta^A$, for fixed $c,A>0$. Choose $D_1$ large enough
+that the deletion error is at most $\frac12c\delta^A$.
+The remaining count then has modulus at least
+$\frac12c\delta^A\gg\delta^{O(1)}$.
+
+For each complete interval \(I\), call \(x\) good if it satisfies \eqref{e:distancecondition}
+for every \(i\). Summing over these
+intervals and their good values of \(x\), we have
+\[
+\begin{aligned}
+ \delta^{O(1)}
+ &\ll \Big|
+ \frac1{NM}\sum_I\sum_{\substack{x\\\text{good for }I}}
+ f_0(x)\sum_{y\in I}v(y)
+ \prod_{i=1}^{k-1}\overline{\Psi_i(x+P_i(y))}
+ \Big|\\
+ &=\Big|
+ \sum_I\sum_{\substack{x\\\text{good for }I}}
+ \frac{f_0(x)|I|}{NM}
+ \mathbb E_{y\in I}v(y)
+ \prod_{i=1}^{k-1}\overline{\Psi_i(x+P_i(y))}
+ \Big|.
+\end{aligned}
+\]
+The absolute values of the coefficients sum to at most
+\[
+ \sum_I\sum_{\substack{x\\\text{good for }I}}
+ \frac{|f_0(x)||I|}{NM}
+ \leq\frac1N\sum_x|f_0(x)|\ll_C1.
+\]
+Hence there is a complete interval \(I\) and an \(x\) good for
+\(I\) such that
+\[
+ \left|\mathbb E_{y\in I}v(y)
+ \prod_{i=1}^{k-1}\overline{\Psi_i(x+P_i(y))}\right|
+ \gg\delta^{O(1)}.
+\]
+
+On each nonempty class $I\cap(u+L\mathbb Z)$, every
+$x+P_i(y)$ stays in a fixed block and a fixed residue class
+modulo $L$. On the corresponding spatial progression, write
+$\overline{\Psi_i(z)}=\e(\theta_i z+\gamma_i)$.
+Their product is $\e(\phi(y))$, where
+\[
+ \phi(y)=\sum_{i=1}^{k-1}
+       \bigl(\theta_i(x+P_i(y))+\gamma_i\bigr),
+ \qquad \deg\phi\leq d.
+\]
+The coefficients may depend on the chosen residue class.
+Splitting the average over $I$ into these classes gives
+\[
+\begin{aligned}
+ \delta^{O(1)}
+ &\ll
+ \left|\mathbb E_{y\in I}v(y)
+       \prod_{i=1}^{k-1}\overline{\Psi_i(x+P_i(y))}\right|\leq
+ \sum_{\substack{0\leq u<L\\I\cap(u+L\mathbb Z)\ne\varnothing}}
+ \frac{|I\cap(u+L\mathbb Z)|}{|I|}
+ \|v\|_{u^{d+1}[I\cap(u+L\mathbb Z)]}.
+\end{aligned}
+\]
+The coefficients in this sum are nonnegative and sum to one.
+Hence some $u$ satisfies
+\[
+ \|v\|_{u^{d+1}[I\cap(u+L\mathbb Z)]}\gg\delta^{O(1)},
+ \qquad |I|=H\gg Mq^{-D_1}\delta^{D_1}.
+\]
+This proves the inverse assertion.
+
+To deduce \eqref{e:main}, choose a fixed $D$ large enough that
+the small alternative is $N\ll\delta^{-D}$ and, otherwise, the
+inverse assertion supplies
+\[
+ |I|\gg Mq^{-D}\delta^D,
+ \qquad
+ \|v\|_{u^{d+1}[I\cap(u+L\mathbb Z)]}\gg\delta^D.
+\]
+Take $\delta$ to be a sufficiently small fixed multiple of
+$|T_{N,M,v}(\mathbf f)|$. If $\delta\leq\rho$, the $\rho$ term
+in \eqref{e:main} gives the required bound. The small alternative
+gives $|T_{N,M,v}(\mathbf f)|\ll N^{-1/D}$. In the remaining case
+$\delta>\rho$, taking $A_1,A_2$ sufficiently large ensures that
+the interval above has length at least $Mq^{-A_1}\rho^{A_2}$.
+It is therefore included in the supremum in \eqref{e:main}, and
+\[
+ |T_{N,M,v}(\mathbf f)|
+ \ll
+ \left(\sup_{I,b,u}
+ \|v\|_{u^{d+1}[I\cap(u+q^b\mathbb Z)]}\right)^{1/D}.
+\]
+Choosing $\eta\leq1/D$ proves \eqref{e:main}.
+\end{proof}
+
+\section{Phase estimates for the Heisenberg selector}\label{s:example}
+
+We prove Proposition~\ref{p:heisenberg-phase} and
+Lemma~\ref{l:vertical-mode-multiplier}, the arithmetic and multiplier
+estimates used in Section~\ref{s:relative}. We begin with the horizontal
+Diophantine bound needed for equidistribution of the orbit.
+We then derive phase cancellation and control multiplication by
+localized vertical modes. The same estimates allow us to insert
+the von Mangoldt weight for polylogarithmic moduli and obtain the
+\(q=1\) input to Theorem~\ref{t:pointwise}.
+
+\begin{lemma}\label{l:heisenberg-horizontal}
+For sufficiently large \(X\), choose \(j\) so that
+\(r_j\leq X^{1/100}<r_{j+1}\). For every fixed \(L>0\),
+\begin{align}\label{e:infcondition}
+    \frac{r_j}{(\log X)^L}\longrightarrow\infty
+ \qquad\text{as }X\to\infty.
+\end{align}
+Moreover, for sufficiently large \(X\), if \(v,k,l\) are integers
+with \(1\leq v\leq X^{1/5000}\), \(r_j\nmid v\), and
+\(0<\max(|k|,|l|)\leq(\log X)^L\), then
+\[
+ \|v(k\alpha+l\beta)\|_{\mathbb T}\gg_\alpha X^{-1/20}
+\]
+uniformly in \(v,k,l\).
+\end{lemma}
+
+\begin{proof}
+Since \(X^{1/100}<r_{j+1}\), estimate \eqref{e:horizontal-approximants}
+gives \(\log X\ll\exp(\sqrt{\log r_j})\), which implies  \eqref{e:infcondition}.
+We also have $r_{j+1}/{r_j^2}\gg X^{1/200}.$
+Indeed, if \(r_j\leq X^{1/400}\), this follows from
+\(r_{j+1}>X^{1/100}\). If \(r_j>X^{1/400}\), the growth in
+\eqref{e:horizontal-approximants} gives \(r_{j+1}\gg r_j^4\),
+so \(r_{j+1}/r_j^2\gg r_j^2>X^{1/200}\).
+
+Suppose \(k\ne0\). Multiplying by \(r_j\) and using
+\eqref{e:badly-approximable} for $m=r_j v k$, we obtain
+\[
+\begin{aligned}
+ \|v(k\alpha+l\beta)\|_{\mathbb T}
+ &\geq \frac1{r_j}\|r_jvk\alpha\|_{\mathbb T}
+       -|l|v\left|\beta-\frac{a_j}{r_j}\right|\geq \frac{c_\alpha}{|k|v r_j^2}
+       -O\left(\frac{|l|v}{r_{j+1}}\right).
+\end{aligned}
+\]
+The second term bound follows from the approximation
+\(\left|\beta-a_j/r_j\right|\ll 1/r_{j+1}\) in
+\eqref{e:horizontal-approximants}. The error is smaller than half the first term for sufficiently
+large \(X\), since
+\[
+ |kl|v^2\frac{r_j^2}{r_{j+1}}
+ \ll X^{1/2500-1/200}(\log X)^{2L}=o(1).
+\]
+Using \(r_j\leq X^{1/100}\), we conclude that
+\[
+ \|v(k\alpha+l\beta)\|_{\mathbb T}
+ \gg_\alpha X^{-1/5000-1/50}(\log X)^{-L}
+ \gg X^{-1/20}.
+\]
+
+If \(k=0\), then by \eqref{e:infcondition}, for sufficiently large
+\(X\) we have \(0<|l|\leq(\log X)^L<r_j\). Since \(r_j\) is prime
+and divides none of \(v,l,a_j\), we have
+\(\|vla_j/r_j\|_{\mathbb T}\geq 1/r_j\). Thus
+\[
+\begin{aligned}
+ \|vl\beta\|_{\mathbb T}
+ &\geq \left\|\frac{vla_j}{r_j}\right\|_{\mathbb T}
+       -|l|v\left|\beta-\frac{a_j}{r_j}\right|\geq \frac1{r_j}-O\left(\frac{|l|v}{r_{j+1}}\right).
+\end{aligned}
+\]
+Since
+\[
+ \frac{|l|v r_j}{r_{j+1}}
+ \ll X^{1/5000-1/200}(\log X)^L=o(1),
+\]
+the error is at most \(1/(2r_j)\) for sufficiently large \(X\).
+Consequently, \(\|vl\beta\|_{\mathbb T}\geq 1/(2r_j)
+\geq \tfrac12 X^{-1/100}\), which gives the claimed bound.
+\end{proof}
+
+The horizontal bound gives equidistribution on long progressions.
+To test against a polynomial phase, we apply quantitative
+equidistribution to the product of the Heisenberg orbit and a circle
+carrying the phase. A possible relation between the two components
+can be absorbed into a horizontal twist on a finite cover. The test
+function still has zero vertical mean there, which gives cancellation.
+
+\begin{proof}[Proof of Proposition~\ref{p:heisenberg-phase}]
+For \(s\in\mathbb N\), let \(D_s(x,y,z)=(sx,sy,s^2z)\).
+This automorphism of \(H\) maps \(\Gamma\) into itself and
+therefore induces a map on \(H/\Gamma\). We apply its inverse
+\(D_{1/s}\) to group elements before passing to the quotient.
+
+We prove \eqref{e:heisenberg-equidistribution} in a form that
+also applies to the dilated orbit used below. Fix \(B>0\), and
+suppose that there is a Lipschitz function \(\Psi\) on \(H/\Gamma\)
+such that
+\[
+ \left|
+ \frac1{K_0}\sum_{t=1}^{K_0}
+ \Psi\bigl(D_{1/s}(g_0^{a'+v't})\Gamma\bigr)
+ -\int_{H/\Gamma}\Psi
+ \right|
+ >(\log X)^{-B}\|\Psi\|_{\mathrm{Lip}},
+\]
+where the integral is with respect to normalized Haar measure.
+Here \(s\) is bounded by a fixed power of \(\log X\),
+\(1\leq v'\leq X^{1/5000}\), \(r_j\nmid v'\), and
+\(K_0\geq X^{1/3}\). The displayed inequality says that the
+dilated orbit fails \((\log X)^{-B}\)-equidistribution. Applying the quantitative Leibman theorem
+\cite[Theorem~2.9]{GreenTaoNil} with
+\(\varepsilon=(\log X)^{-B}\) gives a nonzero horizontal character
+\(kx+ly\bmod 1\), with \(\max(|k|,|l|)\leq(\log X)^{O_B(1)}\).
+The horizontal coordinates of \(D_{1/s}(g_0^{a'+v't})\) are
+\((a'+v't)(\alpha,\beta)/s\), so the character has linear
+coefficient \(v'(k\alpha+l\beta)/s\) along the orbit. Since
+\(\|c_0+c_1t\|_{C^\infty[K_0]}=K_0\|c_1\|_{\mathbb T}\), the
+bound from the theorem reads
+\[
+ \left\|\frac{(k\alpha+l\beta)(a'+v't)}{s}\right\|_{C^\infty[K_0]}
+ =K_0\left\|\frac{v'(k\alpha+l\beta)}{s}\right\|_{\mathbb T}
+ \ll_B(\log X)^{O_B(1)}.
+\]
+By Lemma~\ref{l:heisenberg-horizontal} and
+\(\|su\|_{\mathbb T}\leq s\|u\|_{\mathbb T}\), we also have
+\[
+ K_0\left\|\frac{v'(k\alpha+l\beta)}{s}\right\|_{\mathbb T}
+ \geq \frac{K_0}{s}\|v'(k\alpha+l\beta)\|_{\mathbb T}
+ \gg_\alpha \frac{X^{1/3-1/20}}{s}.
+\]
+Since \(s\) is bounded by a fixed power of \(\log X\), this
+contradicts the upper bound for sufficiently large \(X\). Thus
+the orbit is \((\log X)^{-B}\)-equidistributed under the stated
+conditions. Taking \(s=1\), \(a'=a\), \(v'=v\), and \(K_0=K\)
+proves \eqref{e:heisenberg-equidistribution}, with \(B>A+L\) to
+account for the Lipschitz norm of \(\Phi\).
+
+For \eqref{e:heisenberg-twisted}, suppose the average has modulus
+greater than \((\log X)^{-A}\) for some \(\phi\). On
+\((H/\Gamma)\times\mathbb T\), equip the circle with its degree-\(d\)
+filtration and consider the polynomial orbit
+\((g_0^{a+vt}\Gamma,\phi(t)\bmod 1)\). The test function
+\((g\Gamma,z)\mapsto\Phi(g\Gamma)\e(-z)\) has zero Haar integral
+and Lipschitz norm \(O((\log X)^L)\). Hence this orbit fails
+\((\log X)^{-A-L-1}\)-equidistribution for sufficiently large \(X\).
+Quantitative Leibman gives integers \(k,l,m\), not all zero,
+of size at most a fixed power of \(\log X\), such that
+\[
+ \|v(k\alpha+l\beta)t+m\phi(t)\|_{C^\infty[K]}
+ \ll(\log X)^{O(1)}.
+\]
+The logarithmic exponents here and below may depend on \(A,L,d\).
+If \(m=0\), then \((k,l)\ne(0,0)\), and
+Lemma~\ref{l:heisenberg-horizontal} gives
+\[
+ K\|v(k\alpha+l\beta)\|_{\mathbb T}
+ \gg_\alpha KX^{-1/20}\geq X^{9/20},
+\]
+contradicting the \(C^\infty[K]\)-bound for large \(X\).
+Thus \(m\ne0\).
+Write
+\[
+ v(k\alpha+l\beta)t+m\phi(t)
+ =b_0+\sum_{i=1}^d b_i\binom{t}{i}.
+\]
+For each \(1\leq i\leq d\), choose a nearest integer \(p_i\) to
+\(b_i\). The \(C^\infty[K]\)-bound gives
+\(\lvert b_i-p_i\rvert=\|b_i\|_{\mathbb T}
+\ll K^{-i}(\log X)^{O(1)}\). Set
+\[
+ P(t)=\sum_{i=1}^d p_i\binom{t}{i},
+ \qquad
+ E(t)=\sum_{i=1}^d(b_i-p_i)\binom{t}{i}.
+\]
+Put $c=b_0+a(k\alpha+l\beta)$. Then
+\[
+ m\phi(t)=-(k\alpha+l\beta)(a+vt)+P(t)+E(t)+c.
+\]
+To apply equidistribution on the dilated orbit, we decompose the
+twist as
+\[
+ \e(-\phi(t))
+ =\e\!\left(\frac{(k\alpha+l\beta)(a+vt)}{m}\right)
+  \e(-P(t)/m)\,\e(-E(t)/m)\,\e(-c/m).
+\]
+The linear factor is absorbed into the test function on the
+dilated orbit. The \(P\)-factor is constant on suitable residue
+classes, and the \(E\)-factor is handled by partial summation. 
+
+Put \(s=|m|\). The factor \(\e(-P(t)/m)\) is constant on each
+residue class modulo \(sd!\). Indeed, \(i!\binom{t}{i}\) is an
+integer polynomial in \(t\), so its change under \(t\mapsto t+sd!\)
+is divisible by \(sd!\). For \(i\leq d\), division by \(i!\) shows
+that \(\binom{t+sd!}{i}-\binom{t}{i}\) is divisible by \(s\).
+The same therefore holds for \(P(t+sd!)-P(t)\).
+
+To absorb the linear factor, define
+\[
+ \widetilde\Phi((x,y,z)\Gamma)
+ =\Phi(D_s(x,y,z)\Gamma)
+   \e\bigl(\operatorname{sgn}(m)(kx+ly)\bigr).
+\]
+The horizontal coordinates of the dilated orbit are
+\((a+vt)(\alpha,\beta)/s\). Since
+\(\operatorname{sgn}(m)/s=1/m\), we obtain
+\[
+ \Phi(g_0^{a+vt}\Gamma)\e(-\phi(t))
+ =\widetilde\Phi(D_{1/s}(g_0^{a+vt})\Gamma)
+   \e\bigl(-(P(t)+E(t)+c)/m\bigr).
+\]
+The Lipschitz norm of \(\widetilde\Phi\) is bounded by a fixed
+power of \(\log X\), since \(D_s\) has Lipschitz constant
+\(O(s^2)\) in the fixed right-invariant metric. Fix \(x,y\in[0,1)\) and parametrize the vertical fibre by
+\((x,y,z)\Gamma\), \(0\leq z<1\). The horizontal phase is
+independent of \(z\), so the change of variables \(w=s^2z\)
+gives
+\[
+\begin{aligned}
+ \int_0^1\widetilde\Phi((x,y,z)\Gamma)\,dz
+ &=\e\bigl(\operatorname{sgn}(m)(kx+ly)\bigr)
+   \frac1{s^2}\int_0^{s^2}\Phi((sx,sy,w)\Gamma)\,dw\\
+ &=\e\bigl(\operatorname{sgn}(m)(kx+ly)\bigr)
+   \int_0^1\Phi((sx,sy,w)\Gamma)\,dw
+ =0.
+\end{aligned}
+\]
+The second equality uses \(1\)-periodicity in \(w\) and
+\(s^2\in\mathbb N\). The last equality uses the zero vertical
+mean of \(\Phi\). Integrating over the horizontal coordinates
+now gives \(\int_{H/\Gamma}\widetilde\Phi=0\). 
+
+Fix a residue class modulo \(sd!\), and list its terms in
+\([1,K]\) as \(t_1<\cdots<t_R\). The factors \(\e(-P(t_j)/m)\)
+and \(\e(-c/m)\) are constant on this class. Removing them and
+applying partial summation gives
+\begin{align}\label{e:partialsumest}
+ \left|\sum_{j=1}^R
+   \Phi(g_0^{a+vt_j}\Gamma)\e(-\phi(t_j))\right|
+ &=\left|\sum_{j=1}^R
+   \widetilde\Phi(D_{1/s}(g_0^{a+vt_j})\Gamma)
+   \e(-E(t_j)/m)\right|\\
+ &\ll
+ \left(1+\sum_{t=1}^{K-1}|E(t+1)-E(t)|\right)
+ \max_{1\leq J\leq R}
+ \left|\sum_{j=1}^J
+   \widetilde\Phi(D_{1/s}(g_0^{a+vt_j})\Gamma)\right|\nonumber.
+\end{align}
+Indeed, the change in \(\e(-E(t_j)/m)\) between consecutive terms
+is bounded by a constant times
+\(\sum_{t=t_j}^{t_{j+1}-1}|E(t+1)-E(t)|\). Since
+\(\binom{t+1}{i}-\binom{t}{i}=\binom{t}{i-1}\), we have
+\begin{align}\label{e:varupestimate}
+    \sum_{t=1}^{K-1}|E(t+1)-E(t)|
+ \ll (\log X)^{O(1)}\sum_{i=1}^d K^{-i}\binom{K}{i}
+ \ll(\log X)^{O(1)}.
+\end{align}
+We claim that for every fixed \(B>0\),
+\begin{align}\label{e:phitildeonprog}
+    \max_{1\leq J\leq R}
+ \left|\sum_{j=1}^J
+   \widetilde\Phi(D_{1/s}(g_0^{a+vt_j})\Gamma)\right|
+ \ll_B R(\log X)^{-B}.
+\end{align}
+To prove the claim, note that \(a+vt_j=a+v(t_1-sd!)+v'j\),
+where \(v'=vsd!\). For sufficiently large \(X\),
+\(v'\leq X^{1/10000}(\log X)^{O(1)}\leq X^{1/5000}\).
+Also \(r_j\nmid v'\), since \(r_j\nmid v\) and \(sd!<r_j\).
+For \(J\geq X^{1/3}\), apply the equidistribution estimate for
+the dilated orbit with \(K_0=J\) and exponent \(B+L'\), where
+\(L'\) is fixed and
+\(\|\widetilde\Phi\|_{\mathrm{Lip}}\leq(\log X)^{L'}\).
+Since \(\int_{H/\Gamma}\widetilde\Phi=0\), this gives
+\[
+ \left|\sum_{j=1}^J
+ \widetilde\Phi\bigl(D_{1/s}(g_0^{a+vt_j})\Gamma\bigr)\right|
+ \leq J(\log X)^{-B-L'}\|\widetilde\Phi\|_{\mathrm{Lip}}
+ \leq J(\log X)^{-B}.
+\]
+When \(J<X^{1/3}\), the trivial bound is
+\(J\|\widetilde\Phi\|_\infty\ll X^{1/3}(\log X)^{O(1)}\).
+Since \(R\asymp K/(sd!)\gg X^{1/2}(\log X)^{-O(1)}\), this is
+\(O_B(R(\log X)^{-B})\) as well. This proves the claim.
+
+Combining \eqref{e:partialsumest}, \eqref{e:varupestimate}, and \eqref{e:phitildeonprog}
+and taking $B$ sufficiently large gives
+\begin{align*}
+    \left|\sum_{j=1}^R
+   \Phi(g_0^{a+vt_j}\Gamma)\e(-\phi(t_j))\right| \ll_A R(\log X)^{-A-1}.
+\end{align*}
+Summing over the classes and dividing
+by \(K\) gives \(O((\log X)^{-A-1})\) for the twisted average,
+contradicting our assumption. This proves
+\eqref{e:heisenberg-twisted}.
+
+Right multiplication by $(u,v,w)\in\Gamma$ changes
+$z-x\lfloor y\rfloor$ by the integer
+$w-u(\lfloor y\rfloor+v)$. Thus $z-x\lfloor y\rfloor\bmod 1$
+and $\{y\}$ are well defined on $H/\Gamma$.
+Let \(G\) be Lipschitz on \(\mathbb T\) and let \(\chi\) be a
+Lipschitz cutoff supported inside \((0,1)\). The function
+\[
+ (x,y,z)\Gamma\longmapsto
+ \chi(\{y\})G(z-x\lfloor y\rfloor)
+\]
+has Lipschitz norm \(O(\|\chi\|_{\mathrm{Lip}}\|G\|_{\mathrm{Lip}})\).
+Indeed, \(z-x\lfloor y\rfloor\) is Lipschitz in bounded local
+coordinates away from \(y=0\bmod 1\), and the cutoff makes the
+product vanish near that boundary. By translation invariance,
+its mean on the vertical fibre over \((x,y)\) is
+\[
+ \int_0^1\chi(\{y\})G(z-x\lfloor y\rfloor)\,dz
+ =\chi(\{y\})\int_{\mathbb T}G.
+\]
+In particular, taking \(G(u)=\e(hu)\) gives the vertical Fourier
+mode of frequency \(h\), with Lipschitz norm
+\(O((1+|h|)\|\chi\|_{\mathrm{Lip}})\) and zero vertical mean
+when \(h\ne0\).
+
+To prove \eqref{e:heisenberg-centered}, set
+\(\varepsilon=(\log X)^{-A-1}\). Choose a smooth cutoff
+\(0\leq\chi_\varepsilon\leq1\) that vanishes when
+\(\|y\|_{\mathbb T}\leq\varepsilon\), equals \(1\) when
+\(\|y\|_{\mathbb T}\geq2\varepsilon\), and has Lipschitz norm
+\(O(\varepsilon^{-1})\). Taking \(G=F-\mu_F\) and
+\(\chi=\chi_\varepsilon\) gives the test function
+\[
+ \Phi_\varepsilon((x,y,z)\Gamma)
+ =\chi_\varepsilon(\{y\})
+  \bigl(F(z-x\lfloor y\rfloor)-\mu_F\bigr).
+\]
+It has zero vertical mean and Lipschitz norm
+\(O_F(\varepsilon^{-1})\).
+Evaluating the test function along the orbit gives
+\[
+ \Phi_\varepsilon(g_0^{a+vt}\Gamma)
+ =\chi_\varepsilon(\{\beta(a+vt)\})
+  \bigl(F(Z(a+vt))-\mu_F\bigr).
+\]
+Since $\|\Phi_\varepsilon\|_{\mathrm{Lip}}
+\ll_F(\log X)^{A+1}$, applying \eqref{e:heisenberg-twisted} with $L=A+2$ gives
+\[
+ \left|\mathbb E_{t\leq K}
+   \Phi_\varepsilon(g_0^{a+vt}\Gamma)\e(-\phi(t))\right|
+ \ll_{A,d,\alpha,\beta,F}(\log X)^{-A}
+ \qquad (\deg\phi\leq d).
+\]
+Removing the cutoff changes the average by at most
+\[
+ \frac{2\|F\|_\infty}{K}
+ \#\bigl\{1\leq t\leq K:
+          \|\beta(a+vt)\|_{\mathbb T}\leq2\varepsilon\bigr\}.
+\]
+A Lipschitz majorant of the strip
+\(\|y\|_{\mathbb T}\leq2\varepsilon\), supported where
+\(\|y\|_{\mathbb T}\leq3\varepsilon\), has Haar integral
+\(O(\varepsilon)\) and Lipschitz norm \(O(\varepsilon^{-1})\).
+Applying \eqref{e:heisenberg-equidistribution} to this majorant
+with error \(O((\log X)^{-A-1})\) bounds the change by
+\(O_F(\varepsilon)\). This proves
+\eqref{e:heisenberg-centered}.
+\end{proof}
+
+
+
+We now prove Lemma~\ref{l:vertical-mode-multiplier}, which
+compares the Gowers norms of a localized function before and
+after multiplication by a vertical phase.
+
+\begin{proof}[Proof of Lemma~\ref{l:vertical-mode-multiplier}]
+We first show that the vertical phase can be removed:
+\begin{align}\label{e:twolocalizednorm}
+    \|f(t)\chi(\{\beta(a+vt)\})\e(hZ(a+vt))\|_{U^S[I]}
+ =\|f(t)\chi(\{\beta(a+vt)\})\|_{U^S[I]}.
+\end{align}
+
+Expand the $2^S$-th powers over cubes with vertices
+$t_\omega=t+\omega\cdot\mathbf u$. Both expansions have the same
+normalizing factor. Zero extension restricts both sums to cubes
+with every vertex in $I$, and a zero cutoff at any vertex makes
+the corresponding term vanish in both sums.
+ On a cube where all cutoffs are nonzero,
+write \(n_\omega=a+vt_\omega\) and
+\(b_\omega=\lfloor\beta n_\omega\rfloor\). The extra factor in
+the cube product on the left is
+\[
+ \e\!\left(h\sum_{\omega\in\{0,1\}^S}
+                (-1)^{|\omega|}Z(n_\omega)\right).
+\]
+We show that this factor equals \(1\).
+
+On any two-dimensional face, label the four vertices
+\(00,01,10,11\), suppressing the fixed coordinates. Since
+\(n_{00}+n_{11}=n_{01}+n_{10}\), we have
+\[
+ b_{00}+b_{11}-b_{01}-b_{10}
+ =-\bigl(\{\beta n_{00}\}+\{\beta n_{11}\}
+          -\{\beta n_{01}\}-\{\beta n_{10}\}\bigr).
+\]
+Let \(J\) be the interval supporting \(\chi\). All four
+fractional parts lie in \(J\), so
+\[
+\begin{aligned}
+ |b_{00}+b_{11}-b_{01}-b_{10}|
+ &=\bigl|\{\beta n_{00}\}+\{\beta n_{11}\}
+          -\{\beta n_{01}\}-\{\beta n_{10}\}\bigr|\\
+ &\leq \bigl|\{\beta n_{00}\}-\{\beta n_{01}\}\bigr|
+       +\bigl|\{\beta n_{11}\}-\{\beta n_{10}\}\bigr|\\
+ &\leq 2|J|<1.
+\end{aligned}
+\]
+Since \(b_{00}+b_{11}-b_{01}-b_{10}\) is an integer, it equals zero.
+Thus the increment of \(b_\omega\) along an edge in any fixed
+direction is independent of the other coordinates. With
+\(\mathbf e_i\) denoting the \(i\)th coordinate vector, this gives
+\[
+ b_\omega=b_{\mathbf 0}
+       +\sum_{i=1}^S\omega_i(b_{\mathbf e_i}-b_{\mathbf 0}).
+\]
+Both \(n_\omega\) and \(b_\omega\) are now affine functions of
+\(\omega\). By \eqref{e:heisenberg-phase},
+\[
+ Z(n_\omega)
+ =\frac{\alpha\beta}{2}(n_\omega^2-n_\omega)
+  -\alpha n_\omega b_\omega,
+\]
+Thus \(Z(n_\omega)\) is a polynomial of degree at most two
+in \(\omega\). For each of its monomials \(p(\omega)\), choose a
+coordinate \(j\) that does not occur in \(p\), which is possible
+since \(S\geq3\). Pairing vertices in direction \(j\) gives
+\[
+ \sum_{\omega\in\{0,1\}^S}(-1)^{|\omega|}p(\omega)
+ =\sum_{\substack{\omega\in\{0,1\}^S\\\omega_j=0}}
+   (-1)^{|\omega|}
+   \bigl(p(\omega)-p(\omega+\mathbf e_j)\bigr)
+ =0.
+\]
+Summing over the monomials, the extra phase factor is
+\[
+ \e\!\left(h\sum_{\omega\in\{0,1\}^S}
+             (-1)^{|\omega|}Z(n_\omega)\right)=\e(0)=1.
+\]
+Thus the two localized norms in \eqref{e:twolocalizednorm} agree.
+
+To prove \eqref{e:vertical-mode-multiplier}, we expand \(\chi\)
+in Fourier modes and bound their contributions separately. To
+justify this, we first check that its Fourier coefficients are
+absolutely summable. Since \(\chi\) is Lipschitz, its derivative
+belongs to \(L^2(\mathbb T)\). Cauchy--Schwarz and Parseval give
+\[
+ \|\widehat\chi\|_{\ell^1}
+ \leq |\widehat\chi(0)|
+ +\left(\sum_{k\ne0}\frac1{k^2}\right)^{1/2}
+  \left(\sum_{k\ne0}k^2|\widehat\chi(k)|^2\right)^{1/2}
+ \ll \|\chi\|_\infty+\|\chi'\|_2<\infty.
+\]
+Thus the Fourier series converges absolutely and uniformly to
+\(\chi\), and
+\[
+ \chi(\{\beta(a+vt)\})
+ =\sum_{k\in\mathbb Z}\widehat\chi(k)\e(k\beta(a+vt)).
+\]
+Using \eqref{e:twolocalizednorm} and the triangle inequality, we obtain
+\[
+\begin{aligned}
+ \|f(t)\chi(\{\beta(a+vt)\})\e(hZ(a+vt))\|_{U^S[I]}
+ &=\|f(t)\chi(\{\beta(a+vt)\})\|_{U^S[I]}\\
+ &\leq\sum_{k\in\mathbb Z}|\widehat\chi(k)|
+       \|f(t)\e(k\beta(a+vt))\|_{U^S[I]}\\
+ &=\|\widehat\chi\|_{\ell^1}\|f\|_{U^S[I]}.
+\end{aligned}
+\]
+The last equality holds because the linear exponent
+\(k\beta(a+vt)\) has zero alternating sum on every \(S\)-cube.
+\end{proof}
+
+
+The comparison in Section~\ref{s:relative} replaces
+$\Lambda_qF_q$ by the constant $\mu_F$ inside configuration counts
+at the smooth moduli of the density increment. There, the high-order
+Gowers bound for $\Lambda_q-1$ controls the term $(\Lambda_q-1)F_q$,
+and the local generalized von Neumann estimate controls the term
+$F_q-\mu_F$ through polynomial-phase tests on progressions.
+
+For pointwise convergence, the polynomial family is fixed.
+\cite[Theorem~4.1]{Teravainen} reduces the comparison to bounding
+the correlations of $\Lambda(n+1)(F(Z(n))-\mu_F)$ with polynomial
+phases on the whole averaging interval. At $q=1$, we retain the
+Cram\'er model and use sieve weights to reduce its contribution to
+the unweighted phase estimates on progressions. The following
+proposition gives the required bound at $q=1$ and also covers
+polylogarithmic moduli.
+
+\begin{proposition}
+\label{p:prime-phase}
+Fix $d\geq1$ and $B,K,L,A>0$. Let $F:\mathbb T\to\mathbb C$
+be Lipschitz and let $Z$ be as in \eqref{e:heisenberg-phase}, with
+\eqref{e:badly-approximable} and \eqref{e:horizontal-approximants}.
+For sufficiently large $N$, suppose that $1\leq q\leq(\log N)^L$
+is an integer and put $M=\lfloor(N/q^{d-1})^{1/d}\rfloor$.
+If $0\leq b\leq B$ and $u$ are integers, $I\subset[M]$ is an interval
+with $|I|\geq M(\log N)^{-K}$, and $P=I\cap(u+q^b\mathbb Z)$, then
+\begin{equation}\label{e:prime-local-phase}
+ \sup_{\substack{\phi\in\mathbb R[y]\\\deg\phi\leq d}}
+ \left|\mathbb E_{y\in P}\Lambda_q(y)
+       \bigl(F_q(y)-\mu_F\bigr)\e(-\phi(y))\right|
+ \ll_{d,\alpha,\beta,F,A,B,K,L}(\log N)^{-A}.
+\end{equation}
+\end{proposition}
+
+
+\begin{proof}
+Put \(X=qM+1\). Under the change of variable \(m=qy+1\), the
+set \(P\) maps to a progression \(P'\subset[X]\) consisting of
+consecutive points of the residue class \(qu+1\) modulo
+\(q^{b+1}\). This class is reduced, since \(qu+1\equiv1\pmod q\).
+Moreover, \(\log X\asymp_d\log N\), and
+\[
+ |P'|=|P|\geq \frac{|I|}{q^b}-1
+ \gg \frac{M}{q^b}(\log N)^{-K}
+ \gg X(\log X)^{-K-(B+1)L}.
+\]
+Since \(\varphi(q)/q\leq1\), it suffices to bound
+\[
+ \left|\mathbb E_{m\in P'}\Lambda(m)
+ \bigl(F(Z(m-1))-\mu_F\bigr)\e(-\phi((m-1)/q))\right|.
+\]
+The polynomial \(\phi((m-1)/q)\) has degree at most \(d\).
+
+\medskip
+\noindent\emph{Reduction to localized Fourier modes.}
+Set \(\eta=(\log X)^{-A-2}\). We claim that it suffices to prove,
+for every fixed \(A'>0\),
+\begin{align}\label{e:reductiontoexpfun}
+    \left|\mathbb E_{m\in P'}\Lambda(m)g(m)\right|
+ &\ll_{A'}(\log X)^{-A'}\\
+ g(m)&=\chi(\{\beta(m-1)\})
+       \e\bigl(hZ(m-1)-\phi((m-1)/q)\bigr), \nonumber
+\end{align}
+uniformly for \(0<|h|\leq\eta^{-2}\) and for the finitely many
+cutoffs \(\chi\) constructed below.
+
+For $0<\delta<1/8$, choose a smooth cutoff
+$\chi_\delta:\mathbb T\to[0,1]$ with Lipschitz norm
+$O(\delta^{-1})$, equal to zero on $\|y\|_{\mathbb T}\leq\delta$
+and to one on $\|y\|_{\mathbb T}\geq2\delta$.
+
+Fix a smooth partition of unity $\psi_0,\ldots,\psi_4$ on $[0,1]$
+subordinate to intervals of length less than $1/2$, and set
+$\chi_\nu=\chi_\eta\psi_\nu$. Then
+$\chi_\eta=\sum_{\nu=0}^4\chi_\nu$. Since $\chi_\eta$ vanishes
+near the endpoints, each $\chi_\nu$ extends smoothly to
+$\mathbb T$, is supported in an interval of length less than
+$1/2$ inside $(0,1)$, and satisfies
+$0\leq\chi_\nu\leq1$ and
+$\|\chi_\nu\|_{\mathrm{Lip}}\ll\eta^{-1}$.
+Since \(0\leq 1-\chi_\eta(y)\leq
+\mathbf1_{\|y\|_{\mathbb T}\leq2\eta}\) and
+\(\Lambda(m)\leq\log X\) on \([X]\), we have
+\[
+\begin{aligned}
+ &\mathbb E_{m\in P'}\Lambda(m)
+   \bigl(F(Z(m-1))-\mu_F\bigr)\e(-\phi((m-1)/q))\\
+ &\quad=
+ \mathbb E_{m\in P'}\Lambda(m)\chi_\eta(\{\beta(m-1)\})
+   \bigl(F(Z(m-1))-\mu_F\bigr)\e(-\phi((m-1)/q))\\
+ &\qquad+
+ O_F\!\left(
+ \log X\,\mathbb E_{m\in P'}
+ \mathbf1_{\|\beta(m-1)\|_{\mathbb T}\leq2\eta}
+ \right).
+\end{aligned}
+\]
+Write \(m-1=a+q^{b+1}t\) for \(m\in P'\), with
+\(1\leq t\leq |P'|\). Choose $j$ at scale $X$ as in
+Proposition~\ref{p:heisenberg-phase}. The lower bound for $|P'|$
+gives $|P'|\geq X^{1/2}$. The step $q^{b+1}$ is bounded by a
+fixed power of $\log X$, so for large $X$ it is at most
+$X^{1/10000}$ and is smaller than $r_j$ by
+\eqref{e:infcondition}. The second horizontal coordinate of
+\(g_0^{m-1}\Gamma\) is \(\{\beta(m-1)\}\). We apply
+\eqref{e:heisenberg-equidistribution} to
+\(\Phi((x,y,z)\Gamma)=1-\chi_{2\eta}(\{y\})\), whose Lipschitz
+norm is \(O(\eta^{-1})\). Haar probability measure on
+\(H/\Gamma\) projects to uniform measure on the second
+horizontal coordinate, so
+\[
+\begin{aligned}
+ \mathbb E_{m\in P'}
+ \mathbf1_{\|\beta(m-1)\|_{\mathbb T}\leq2\eta}
+ &\leq \mathbb E_{m\in P'}\Phi(g_0^{m-1}\Gamma)\\
+ &=\int_{H/\Gamma}\Phi\,dm_H+O(\eta)
+ =\int_{\mathbb T}(1-\chi_{2\eta}(y))\,dy+O(\eta)
+ \ll\eta.
+\end{aligned}
+\]
+Here \(1-\chi_{2\eta}\) equals one on
+\(\|y\|_{\mathbb T}\leq2\eta\) and is supported on
+\(\|y\|_{\mathbb T}\leq4\eta\). Since \(\eta\) is a fixed
+negative power of \(\log X\), the error in
+\eqref{e:heisenberg-equidistribution} can be taken to be
+\(O(\eta)\). Thus inserting the cutoff changes the original
+average by \(O_F(\eta\log X)\).
+
+We now truncate the Fourier series of \(F-\mu_F\).
+Cauchy--Schwarz and Parseval give
+\[
+ \sum_{|h|>\eta^{-2}}|\widehat F(h)|
+ \ll \|F'\|_2
+       \left(\sum_{|h|>\eta^{-2}}h^{-2}\right)^{1/2}
+ \ll_F\eta,
+ \qquad
+ \sum_{h\in\mathbb Z}|\widehat F(h)|\ll_F1.
+\]
+Thus the truncation changes the average by \(O_F(\eta\log X)\),
+using \(\Lambda(m)\leq\log X\). Since \(\widehat F(0)=\mu_F\) and
+\(\chi_\eta=\sum_{\nu=0}^4\chi_\nu\), the truncated average is
+\[
+ \sum_{\nu=0}^4\sum_{0<|h|\leq\eta^{-2}}\widehat F(h)\,
+ \mathbb E_{m\in P'}\Lambda(m)\chi_\nu(\{\beta(m-1)\})
+ \e\bigl(hZ(m-1)-\phi((m-1)/q)\bigr).
+\]
+The sum of the absolute values of the coefficients is bounded by
+\[
+ \sum_{\nu=0}^4\sum_{0<|h|\leq\eta^{-2}}|\widehat F(h)|
+ \leq 5\|\widehat F\|_{\ell^1}\ll_F 1.
+\]
+It therefore suffices to bound each localized average by
+\(O((\log X)^{-A})\), uniformly in \(\nu,h,\phi\). The cutoff
+and truncation errors are \(O_F(\eta\log X)\).
+
+\medskip
+\noindent\emph{The difference between \(\Lambda\) and the Cram\'er model.}
+Take \(S=\max(3,d+1)\) and let
+\(\widetilde Q_X=\lceil\exp((\log X)^{c_0})\rceil\), with \(c_0\)
+as in \cite[Definition~2.3]{KMTT}. We claim that
+\begin{align}\label{e:diffgowersnorm}
+     \left|\mathbb E_{m\in P'}
+   (\Lambda-\Lambda_{\Cramer,\widetilde Q_X})(m)g(m)\right|
+ \ll_S
+ \frac{X}{|P'|}\log X\,\|\widehat\chi\|_{\ell^1}
+ \|\Lambda-\Lambda_{\Cramer,\widetilde Q_X}\|_{U^S[X]}.
+\end{align}
+To prove this, write \(\mathbf1_{P'}\) as the product of the
+indicator of the interval spanned by \(P'\) and the residue-class
+indicator
+\[
+ \mathbf1_{m\equiv qu+1\!\!\!\pmod{q^{b+1}}}
+ =\frac1{q^{b+1}}\sum_{r=0}^{q^{b+1}-1}
+   \e\!\left(\frac{r(m-qu-1)}{q^{b+1}}\right).
+\]
+The coefficients in this expansion have absolute sum one. The
+Fourier coefficients of the interval indicator on the cyclic
+group of order \(2X+1\) have absolute sum \(O(\log X)\), by the
+geometric-series bound. Expanding both indicators  bounds
+the left-hand of \eqref{e:diffgowersnorm} side by
+\[
+ \ll \frac{X}{|P'|}\log X
+ \sup_{\theta\in\mathbb T}
+ \left|\mathbb E_{m\leq X}
+   (\Lambda-\Lambda_{\Cramer,\widetilde Q_X})(m)
+   g(m)\e(\theta m)\right|.
+\]
+By Gowers monotonicity, each average in the supremum is bounded
+by a constant times the \(U^S[X]\)-norm of its integrand.
+The exponent \(\theta m-\phi((m-1)/q)\) has degree at most \(d<S\),
+so multiplication by its exponential preserves this norm.
+Applying \eqref{e:vertical-mode-multiplier} with \(a=-1\) and
+\(v=1\) to the remaining factors gives \eqref{e:diffgowersnorm}.
+
+Since \(\|\widehat\chi\|_{\ell^1}\ll\eta^{-1}\) and \(X/|P'|\) is
+bounded by a fixed power of \(\log X\), it remains to bound the
+ambient Gowers norm. We claim that
+\begin{equation}\label{e:ambient-cramer}
+ \|\Lambda-\Lambda_{\Cramer,\widetilde Q_X}\|_{U^S[X]}
+ \ll_S\exp\bigl(-c(\log X)^{c_0c_S}\bigr)
+\end{equation}
+for some \(c>0\), where \(c_S\) is the constant in
+\cite[Lemma~3.1]{KMTT}.
+
+Indeed, for any real zero \(\beta_\chi\in(0,1)\) of a primitive
+nonprincipal real character of conductor \(Q\leq\widetilde Q_X\),
+\cite[Theorem~1.1]{BanksSiegel} gives
+\[
+ (1-\beta_\chi)\log\widetilde Q_X
+ \geq (1-\beta_\chi)\log Q
+ \geq 3\cdot10^{-3}.
+\]
+This excludes the exceptional zero in \cite[Definition~2.3]{KMTT},
+which would require the left-hand side to be at most \(10^{-3}\).
+Thus the Siegel model at this cutoff is the Cram\'er model.
+Moreover, for sufficiently large \(X\), the choice \(0<c_0<1/11\)
+gives
+\[
+ \exp((\log\log X)^{1/c_S})
+ \leq \widetilde Q_X
+ \leq \exp((\log X)^{1/10}).
+\]
+Taking both scales in \cite[Lemma~3.1]{KMTT} to be \(X\) now
+proves \eqref{e:ambient-cramer}.
+Substituting \eqref{e:ambient-cramer} into the localized bound \eqref{e:diffgowersnorm}
+gives \(O_{A'}((\log X)^{-A'})\) for every fixed \(A'>0\),
+uniformly in the localized modes and the polynomial test.
+
+Using \eqref{e:reductiontoexpfun} and \eqref{e:diffgowersnorm}, it remains to prove that, for every fixed \(A'>0\),
+\begin{align}\label{e:cramerreduest}
+     \left|\mathbb E_{m\in P'}
+   \Lambda_{\Cramer,\widetilde Q_X}(m)g(m)\right|
+ \ll_{A'}(\log X)^{-A'},
+\end{align}
+uniformly in \(\chi,h,\phi\). 
+
+\medskip
+\noindent\emph{The Cram\'er term.}
+Let $W$ be the product of the primes $p\leq\widetilde Q_X$ that
+do not divide $q$. Since $m\equiv1\pmod q$ for every $m\in P'$,
+\[
+ \mathbb E_{m\in P'}
+ \Lambda_{\Cramer,\widetilde Q_X}(m)g(m)
+ =
+ \prod_{p\leq\widetilde Q_X}(1-1/p)^{-1}
+ \mathbb E_{m\in P'}\mathbf1_{(m,W)=1}g(m).
+\]
+The product is $O(\log X)$, so it remains to prove
+\[
+ \left|\mathbb E_{m\in P'}\mathbf1_{(m,W)=1}g(m)\right|
+ \ll_{A'}(\log X)^{-A'-1}.
+\]
+
+We approximate the coprimality indicator by a sum of divisibility
+indicators with $\ell\leq\mathcal D=X^{1/20000}$. Put $H=|P'|$
+and let $H_\ell$ count the $m\in P'$ with $\ell\mid m$. For
+$\ell\mid W$, we have $(\ell,q^{b+1})=1$, so the Chinese
+remainder theorem puts these $m$ in one residue class modulo
+$q^{b+1}\ell$ within the interval spanned by $P'$.  Hence $H_\ell=H/\ell+O(1)$. We apply the fundamental lemma of the sieve
+\cite[Lemma~6.3]{IwaniecKowalski} with prime cutoff
+$\widetilde Q_X+1$, level $\mathcal D$, and multiplicative local
+density given on primes by $1/p$ for $p\mid W$ and zero otherwise.
+For \(2\leq z_1<z_2\leq \mathcal D\), Mertens' product
+formula gives
+\[
+ \prod_{\substack{z_1\leq p<z_2\\p\mid W}}
+       \left(1-\frac1p\right)^{-1}
+ \leq
+ \prod_{z_1\leq p<z_2}\left(1-\frac1p\right)^{-1}
+ \ll \frac{\log z_2}{\log z_1}.
+\]
+The first inequality holds because omitting the primes dividing
+\(q\) removes factors greater than one.  The sieve parameter is
+\(\log\mathcal D/\log(\widetilde Q_X+1)
+\asymp(\log X)^{1-c_0}\). Hence the lemma supplies coefficients
+\(\lambda_\ell^\pm\) with \(|\lambda_\ell^\pm|\leq1\), supported
+on \(\ell\mid W\) and \(\ell\leq\mathcal D\), such that
+\[
+ \sum_{\ell\mid(m,W)}\lambda_\ell^-
+ \leq\mathbf1_{(m,W)=1}
+ \leq\sum_{\ell\mid(m,W)}\lambda_\ell^+,
+ \qquad
+ \sum_{\ell\mid W}\frac{\lambda_\ell^+-\lambda_\ell^-}{\ell}
+ \ll_{A'}(\log X)^{-A'-2}.
+\]
+The midpoint of the two sieve sums thus has average absolute
+error at most
+\[
+\begin{aligned}
+ &\mathbb E_{m\in P'}
+ \left|\mathbf1_{(m,W)=1}
+       -\sum_{\ell\mid(m,W)}
+         \frac{\lambda_\ell^++\lambda_\ell^-}{2}\right|\leq
+ \frac12\sum_{\ell\mid W}
+    (\lambda_\ell^+-\lambda_\ell^-)\frac{H_\ell}{H}
+ \ll_{A'}(\log X)^{-A'-2}+\frac{\mathcal D}{H}.
+\end{aligned}
+\]
+The last bound uses $H_\ell/H=1/\ell+O(1/H)$ and the support
+of the coefficients. Since $|g|\leq1$ and the midpoint
+coefficients have modulus at most one, we obtain
+\[
+ \left|\mathbb E_{m\in P'}\mathbf1_{(m,W)=1}g(m)\right|
+ \leq
+ \sum_{\substack{\ell\mid W\\\ell\leq\mathcal D}}
+ \left|\mathbb E_{m\in P'}\mathbf1_{\ell\mid m}g(m)\right|
+ +O_{A'}\!\left((\log X)^{-A'-2}+\frac{\mathcal D}{H}\right).
+\]
+Since $\mathcal D/H$ is smaller than every fixed inverse power
+of $\log X$,  it remains to show that
+\[
+ \sum_{\substack{\ell\mid W\\\ell\leq\mathcal D}}
+ \left|\mathbb E_{m\in P'}\mathbf1_{\ell\mid m}g(m)\right|
+ \ll_{A'}(\log X)^{-A'-1}.
+\]
+
+For these divisors, the progression step satisfies
+\(q^{b+1}\ell\leq X^{1/10000}\), and \(H_\ell\geq X^{1/2}\)
+for large \(X\), by the lower bound for \(H\). If \(r_j\nmid\ell\),
+then \(r_j\nmid q^{b+1}\ell\). Write the progression as
+\(m-1=a+q^{b+1}\ell t\), \(1\leq t\leq H_\ell\).
+The mode with cutoff \(\chi\) has zero vertical mean, since
+\(h\ne0\), and its Lipschitz norm is
+\(O((1+|h|)\|\chi\|_{\mathrm{Lip}})=O(\eta^{-3})\).
+The polynomial test
+\(\phi((a+q^{b+1}\ell t)/q)\) has degree at most \(d\).
+Apply \eqref{e:heisenberg-twisted} with saving exponent $A'+2$.
+For $r_j\nmid\ell$ this gives
+\[
+ \left|\mathbb E_{m\in P'}\mathbf1_{\ell\mid m}g(m)\right|
+ \ll_{A'}\frac{H_\ell}{H}(\log X)^{-A'-2}.
+\]
+For $r_j\mid\ell$, use the bound $H_\ell/H$. Since
+$H_\ell/H\ll1/\ell$ for $\ell\leq\mathcal D$, the sum over
+the divisors is
+\[
+ \ll_{A'}(\log X)^{-A'-2}\sum_{\ell\leq\mathcal D}\frac1\ell
+ +\sum_{\substack{\ell\leq\mathcal D\\r_j\mid\ell}}\frac1\ell
+ \ll_{A'}(\log X)^{-A'-1}+\frac{\log X}{r_j}.
+\]
+Both $(\log X)/r_j$ and $\mathcal D/H$ are smaller than any
+fixed inverse power of $\log X$. The Cram\'er normalization
+costs one further factor of $O(\log X)$, proving
+\eqref{e:cramerreduest}. Combining the two localized estimates
+with the cutoff and Fourier truncation errors
+$O_F(\eta\log X)$ proves \eqref{e:prime-local-phase}.
+% Combining the two prime estimates bounds every localized
+% average by an arbitrary inverse power of \(\log X\).
+% The cutoff and Fourier truncation errors are
+% \(O_F(\eta\log X)\), and \(\log X\asymp_d\log N\).
+% This proves \eqref{e:prime-local-phase}.
+\end{proof}
+
+% \subsection{Comparison for polylogarithmic moduli}
+
+% We now compare the count with the selector to \(\mu_F\) times
+% the unrestricted prime-weighted count. The difference is the
+% count with weight \(\Lambda_q(F_q-\mu_F)\). When \(q\) is
+% polylogarithmic, the local generalized von Neumann theorem asks
+% for phase tests on progressions of length at least \(M\) divided
+% by a fixed power of \(\log N\). The prime-weighted phase estimate
+% above controls these tests, with enough saving to absorb the
+% normalization of the weight by \(O(\log N)\).
+
+% \begin{theorem}[Uniform prime--nil-Bohr comparison]\label{t:comparison}
+% Fix $C,d,\ell$, $L,A>0$, and a Lipschitz function $F:\mathbb T\to\mathbb C$.
+% Let $Z$ be given by \eqref{e:heisenberg-phase} under
+% \eqref{e:badly-approximable} and \eqref{e:horizontal-approximants}.
+% For sufficiently large $N$, let $1\leq q\leq(\log N)^L$ and
+% $M=\lfloor(N/q^{d-1})^{1/d}\rfloor$. If the $R_i$ have distinct
+% increasing degrees, largest degree $d$, and $(C,q)$-coefficients,
+% then for all $1$-bounded $f_i$ supported on $[-CN,CN]$,
+% \[
+%  T^{\mathbf R}_{N,M,\Lambda_q F_q}(\mathbf f)
+%  =\mu_F T^{\mathbf R}_{N,M,\Lambda_q}(\mathbf f)
+%  +O_{C,d,\ell,\alpha,\beta,L,F,A}((\log N)^{-A}).
+% \]
+% The constants are uniform over the stated coefficient class.
+% \end{theorem}
+
+% \begin{proof}
+% The difference is the count with weight $\Lambda_q(F_q-\mu_F)$.
+% Since $\Lambda_q(y)\leq\log(qM+1)$ on $[M]$, dividing this weight
+% by a sufficiently large constant times $\log N$ makes it $1$-bounded.
+% Apply Theorem~\ref{t:main} to the normalized weight with
+% $\rho=(\log N)^{-A-2}$. The intervals in its phase tests have length at
+% least $M(\log N)^{-K}$ with $K=A_1L+A_2(A+2)$, in the notation of
+% that theorem. Proposition~\ref{p:prime-phase} bounds all the resulting
+% phase norms by $O((\log N)^{-D})$ for any fixed $D>0$. Take
+% $D\eta>A+2$ and multiply the bound in \eqref{e:main} by the
+% normalizing factor.
+% \end{proof}
+
+\section{Pointwise ergodic averages}\label{s:ergodic}
+
+We prove Theorem~\ref{t:pointwise} by comparing the selected and
+unrestricted averages. Proposition~\ref{p:prime-phase} at \(q=1\)
+gives cancellation of the centered weight
+\(\Lambda(n+1)(F(Z(n))-\mu_F)\) against polynomial phases.
+Since the polynomial family is fixed, %Ter\"av\"ainen's
+second author's
+fixed-family estimate converts this cancellation into an
+\(L^1\) bound for the difference of the ergodic averages.
+
+We take measurable representatives satisfying
+$|f_i(x)|\leq\|f_i\|_\infty$ everywhere. Since $T$ preserves measure,
+any two choices agree along all integer iterates of $T$ on a common
+conull set. For a Lipschitz function \(F:\mathbb T\to\mathbb C\), put
+\[
+ \mathcal A_H^F(\mathbf f)(x)
+ :=\frac1H\sum_{n\le H}\Lambda(n+1)F(Z(n))
+       \prod_{i=1}^{\ell} f_i(T^{P_i(n)}x).
+\]
+Theorem~\ref{t:pointwise} follows from the following comparison for
+Lipschitz weights.
+
+\begin{proposition}\label{p:ergodic-comparison}
+Let $P_1,\ldots,P_\ell\in\mathbb Z[y]$ have zero constant terms
+and distinct positive degrees. Let $\alpha$ be badly approximable
+and let $\beta\in(0,1)$ be the limit of an increasing sequence
+of rationals $a_j/r_j$ with prime denominators $r_j\to\infty$
+satisfying
+\[
+ r_{j+1}\asymp\exp\!\bigl(\exp(\sqrt{\log r_j})\bigr),
+ \qquad 0<\beta-a_j/r_j\ll r_{j+1}^{-1}.
+\]
+Set $Z(n)=\alpha\beta n(n-1)/2-\alpha n\lfloor\beta n\rfloor$.
+Let $(X,\nu,T)$ be an invertible probability measure-preserving
+system, let $f_1,\ldots,f_\ell\in L^\infty(X)$, and fix a Lipschitz
+function $F:\mathbb T\to\mathbb C$ with mean
+$\mu_F=\int_{\mathbb T}F$. Then for every $A>0$ and every integer
+$H\geq2$,
+\begin{equation}\label{e:ergodic-L1-log}
+ \|\mathcal A_H^F(\mathbf f)-\mu_F\mathcal A_H^1(\mathbf f)\|_{L^1(X)}
+ \ll_{\mathbf P,\alpha,\beta,F,A}
+       (\log H)^{-A}\prod_{i=1}^{\ell}\|f_i\|_\infty.
+\end{equation}
+The difference tends to zero almost everywhere. Moreover,
+\begin{equation}\label{e:smooth-prime-comparison}
+ \frac1{\pi(H)}\sum_{p\le H}
+ (F(Z(p-1))-\mu_F)\prod_{i=1}^{\ell} f_i(T^{P_i(p-1)}x)
+ \longrightarrow 0
+ \qquad\text{for almost every }x.
+\end{equation}
+\end{proposition}
+
+To deduce the theorem, we use the comparison with Lipschitz
+weights in two ways. For the given inputs it controls the average
+with a Lipschitz minorant of the selector. With constant inputs
+it controls the contribution of the gap between the minorant and
+a majorant, and gives the asymptotic number of selected primes.
+
+\begin{proof}[Proof of Theorem~\ref{t:pointwise} assuming
+Proposition~\ref{p:ergodic-comparison}]
+The polynomials \(P_i(t-1)\) have distinct degrees, and the
+bounded functions \(f_i\) belong to \(L^{2\ell}(X)\). By
+\cite[Theorem~1.1(ii)]{MirekWanWright}, the limit
+\[
+ L(x):=\lim_{N\to\infty}
+ \frac1N\sum_{n\leq N}\Lambda(n)
+ \prod_{i=1}^{\ell} f_i(T^{P_i(n-1)}x)
+\]
+exists for almost every \(x\). Removing higher prime powers and
+using the prime number theorem and partial summation gives
+\[
+ A_N^T(\mathbf f)(x)\longrightarrow L(x)
+ \qquad\text{for almost every }x,
+\]
+where \(A_N^T(\mathbf f)\) is defined in
+\eqref{e:prime-ergodic-average}.
+
+For each \(j\ge1\), choose Lipschitz functions \(F_j^-\) and \(F_j^+\)
+on \(\mathbb T\) satisfying \(0\le F_j^-\le\mathbf1_J\le F_j^+\le1\)
+and \(\int_{\mathbb T}(F_j^+-F_j^-)<2^{-j}\). Apply
+\eqref{e:smooth-prime-comparison} to \(F_j^-\) with the given
+functions, and to \(F_j^+-F_j^-\) with all functions equal to one.
+For almost every $x$, we have $A_N^T(\mathbf f)(x)\to L(x)$
+and both comparisons hold for every $j\geq1$. For such $x$,
+the inequality $0\leq\mathbf1_J-F_j^-\leq F_j^+-F_j^-$ gives
+\[
+\begin{aligned}
+ &\left|\frac1{\pi(H)}\sum_{p\leq H}
+   (\mathbf1_J-F_j^-)(Z(p-1))
+   \prod_{i=1}^{\ell}f_i(T^{P_i(p-1)}x)\right|\\
+ &\qquad\leq
+ \left(\prod_{i=1}^{\ell}\|f_i\|_\infty\right)
+ \frac1{\pi(H)}\sum_{p\leq H}(F_j^+-F_j^-)(Z(p-1)).
+\end{aligned}
+\]
+By \eqref{e:smooth-prime-comparison} with all inputs equal to one,
+the prime average on the right converges to
+\(\int_{\mathbb T}(F_j^+-F_j^-)<2^{-j}\). Hence the limit superior
+of the left-hand side is at most
+\(2^{-j}\prod_{i=1}^{\ell}\|f_i\|_\infty\).
+Since \(|\mu_{F_j^-}-|J||<2^{-j}\), letting \(j\to\infty\) gives
+\[
+ \frac1{\pi(H)}
+ \sum_{\substack{p\le H\\p\in\mathcal P_{Z,J}}}
+       \prod_{i=1}^{\ell} f_i(T^{P_i(p-1)}x)
+ =|J| A_H^T(\mathbf f)(x)+o(1)
+\]
+almost everywhere. Taking every \(f_i=1\) gives
+\(\pi_{Z,J}(H)\sim |J|\pi(H)\). Division by
+\(\pi_{Z,J}(H)/\pi(H)\) completes the proof.
+\end{proof}
+
+\begin{proof}[Proof of Proposition~\ref{p:ergodic-comparison}]
+By homogeneity assume that the \(f_i\) are \(1\)-bounded. Relabel the
+polynomials and their inputs together so that the degrees increase. Write
+$$  \qquad \theta_H(n):=\Lambda(n+1)(F(Z(n))-\mu_F), \quad n\in [H].$$
+Proposition~\ref{p:prime-phase}, with \(q=1\), \(N=H^d\), and
+the full interval \([H]\), gives
+\[\|\theta_H\|_{u^{d+1}[H]}\ll_{\mathbf P,\alpha,\beta,F,B}(\log H)^{-B}, \quad B>0.\] 
+Put
+\(L_H=2(1+\|F\|_\infty)\log(H+2)\), so that \(\theta_H/L_H\)
+is \(1\)-bounded.
+
+Let \(g:X\to\mathbb C\) be \(1\)-bounded and choose \(C\) depending
+on the fixed polynomials so that \([H^d]+P_i([H])\subset[-CH^d,CH^d]\)
+for all \(i\). For \(z\in X\) and \(i\ge1\), set
+\[g_{0,z}(m):=g(T^m z)\mathbf1_{[H^d]}(m),\qquad g_{i,z}(m):=f_i(T^m z)\mathbf1_{[-CH^d,CH^d]}(m).\] 
+Averaging the measure-preserving change of variables \(x=T^m z\) over \(m\in[H^d]\) gives
+\begin{align*}
+ &\int_X (\mathcal A_H^F(\mathbf f)-\mu_F\mathcal A_H^1(\mathbf f))g\,d\nu\\
+ \qquad &=\frac{L_H}{H^{d+1}}\int_X
+    \sum_{m\in\mathbb Z}\sum_{n\le H}
+       \frac{\theta_H(n)}{L_H}\,
+       g_{0,z}(m)\prod_{i=1}^{\ell}g_{i,z}(m+P_i(n))\,d\nu(z).
+\end{align*}
+Apply \cite[Theorem~4.1]{Teravainen} to the inner sum with weight
+$\theta_H/L_H$. The support constant $C$ depends only on the
+fixed polynomials $P_i$ and is absorbed into the implied constant.
+ By \(L^1\) duality, for some \(K\ge1\) depending
+only on \(d\) this gives
+\[
+ \|\mathcal A_H^F(\mathbf f)-\mu_F\mathcal A_H^1(\mathbf f)\|_1\ll_{\mathbf P}
+ L_H\left(H^{-1}+L_H^{-1}\|\theta_H\|_{u^{d+1}[H]}\right)^{1/K}.
+\]
+Taking \(B>K(A+1)\) yields~\eqref{e:ergodic-L1-log}.
+
+Set \(H_j=\lfloor\exp(j^{1/3})\rfloor\). Taking \(A>3\)
+in~\eqref{e:ergodic-L1-log} makes 
+\[\sum_j\|\mathcal A_{H_j}^F(\mathbf f)-\mu_F\mathcal A_{H_j}^1(\mathbf f)\|_1 <\infty,\] 
+so \(\mathcal A_{H_j}^F(\mathbf f)-\mu_F\mathcal A_{H_j}^1(\mathbf f)\to0\) almost everywhere. For \(H_j\le H\le H_{j+1}\)
+the bound \(|\theta_H(n)|\ll_F\log(H+2)\) gives
+\begin{align*}
+     &|\mathcal A_{H}^F(\mathbf f)(x)-\mu_F\mathcal A_{H}^1(\mathbf f)(x)-\mathcal A_{H_j}^F(\mathbf f)(x)+\mu_F\mathcal A_{H_j}^1(\mathbf f)(x)|\\
+ &\ll_F \frac{H_{j+1}-H_j}{H_j}\log(H_{j+1}+2)
+ =O_F(j^{-1/3}).
+\end{align*}
+Here the same summands are used at both scales. This gives
+\[\mathcal A_{H}^F(\mathbf f)(x)-\mu_F\mathcal A_{H}^1(\mathbf f)(x)\to0, \qquad \textup{almost everywhere.} \] 
+For such an \(x\), write
+\[a_p(x)=(F(Z(p-1))-\mu_F)\prod_i f_i(T^{P_i(p-1)}x).\]
+The von Mangoldt sum defining \(H(\mathcal A_{H}^F(\mathbf f)(x)-\mu_F\mathcal A_{H}^1(\mathbf f)(x))\), after replacing \(n+1\)
+by the prime variable, gives
+\[B(H):=\sum_{p\le H}(\log p)a_p(x)=o(H).\] Indeed, the higher
+prime powers cost \(O_F(H^{1/2}(\log H)^2)\) and the endpoint
+costs \(O_F(\log H)\). Partial summation now gives
+\[
+ \sum_{p\le H}a_p(x)
+ =\frac{B(H)}{\log H}+\int_2^H\frac{B(t)}{t(\log t)^2}\,dt
+ =o(H/\log H).
+\]
+The prime number theorem yields~\eqref{e:smooth-prime-comparison}.
+\end{proof}
+
+For the bracket condition, we apply Theorem~\ref{t:pointwise}
+on a product system in which two circle rotations supply the
+linear and quadratic phases.
+
+\begin{proof}[Proof of Corollary~\ref{c:bracket-pointwise}]
+Write $n=p-1$. We first show that for every fixed real polynomial
+$\psi$ of degree at most two and every nonzero integer $h$,
+\begin{equation}\label{e:quadratic-twist}
+ \frac1{\pi(N)}\sum_{p\leq N}
+ \e\bigl(-hZ(n)+\psi(n)\bigr)
+ \prod_{i=1}^{\ell}f_i(T^{P_i(n)}x)
+ \longrightarrow 0
+ \qquad\text{for almost every }x.
+\end{equation}
+As in the proof of Corollary~\ref{c:bracket-recurrence}, adjoin
+$n$ and $n^2$ if their degrees are absent, with constant inputs
+at the added shifts. Write the linear and quadratic shifts as
+$an$ and $bn^2+cn$. Up to a constant, write 
+$\psi(n)=\omega_1 an+\omega_2(bn^2+cn)$ for suitable real
+$\omega_1,\omega_2$.
+
+Write $Q_1,\ldots,Q_r$ for the enlarged family, with $Q_1(n)=an$
+and $Q_2(n)=bn^2+cn$. Let $g_i$ be the original input at $Q_i$,
+or $1$ if the shift was added. On $X\times\mathbb T^2$, set
+\[
+ S(x,u,v)=(Tx,u+\omega_1,v+\omega_2),\quad
+ G_1(x,u,v)=g_1(x)\e(u),\quad
+ G_2(x,u,v)=g_2(x)\e(v),
+\]
+and take $G_i(x,u,v)=g_i(x)$ for $i\geq3$. Since
+$S^m(x,u,v)=(T^m x,u+m\omega_1,v+m\omega_2)$, we have
+\begin{align}\label{e:prodidentity}
+ \prod_{i=1}^{r}G_i(S^{Q_i(n)}(x,u,v))
+ &=\e\bigl(u+v+\omega_1Q_1(n)+\omega_2Q_2(n)\bigr)
+   \prod_{i=1}^{\ell}f_i(T^{P_i(n)}x)\\
+ &=\e\bigl(u+v-\psi(0)\bigr)\e(\psi(n))
+   \prod_{i=1}^{\ell}f_i(T^{P_i(n)}x)\nonumber.
+\end{align}
+
+For a fixed open interval $K\subset\mathbb T$, apply
+Theorem~\ref{t:pointwise} to this product system. The restricted
+and unrestricted averages have the same limit, and
+$\pi_{Z,K}(N)/\pi(N)\to |K|$. Multiplying the restricted average
+by this ratio and subtracting $|K|$ times the unrestricted
+average gives
+\[
+ \frac1{\pi(N)}\sum_{p\leq N}
+ \bigl(\mathbf1_K(Z(n))-|K|\bigr)
+ \prod_{i=1}^{r}G_i(S^{Q_i(n)}(x,u,v))
+ \longrightarrow 0
+\]
+for almost every $(x,u,v)$. By \eqref{e:prodidentity} and
+Fubini's theorem, we may remove the factor
+$\e(u+v-\psi(0))$ and obtain the same convergence for almost
+every $x$:
+\begin{align}\label{diffsumtozero}
+    \frac1{\pi(N)}\sum_{p\leq N}
+ \bigl(\mathbf1_K(Z(n))-|K|\bigr)\e(\psi(n))
+ \prod_{i=1}^{\ell}f_i(T^{P_i(n)}x)
+ \longrightarrow 0 .
+\end{align}
+For any fixed $t_0\in\mathbb T$ and $0<\delta<1/2$, the scalar
+asymptotic for the open interval of radius $\delta$ about $t_0$
+gives
+\begin{align*}
+   & \limsup_{N\to\infty}
+ \frac{|\{p\leq N: Z(p-1)\equiv t_0\pmod 1\}|}{\pi(N)}\\
+ &\leq
+ \lim_{N\to\infty}
+ \frac{|\{p\leq N:\|Z(p-1)-t_0\|_{\mathbb T}<\delta\}|}{\pi(N)}
+ =2\delta,
+\end{align*}
+where both counts are over primes. Letting $\delta\to0$ shows
+that adding an endpoint to an interval changes its weighted
+average by $o(1)$, since the summands are bounded. The centered
+estimate therefore holds for half-open intervals as well.
+
+For an integer $m>|h|$, approximate $\e(-ht)$ on each interval
+$[j/m,(j+1)/m)$ by $\e(-hj/m)$, with uniform error at most
+$2\pi|h|/m$. Since $\sum_{j=0}^{m-1}\e(-hj/m)=0$, we have
+\[
+ \sum_{j=0}^{m-1}\e(-hj/m)\mathbf1_{[j/m,(j+1)/m)}(t)
+ =
+ \sum_{j=0}^{m-1}\e(-hj/m)
+ \left(\mathbf1_{[j/m,(j+1)/m)}(t)-\frac1m\right).
+\]
+By the centered interval estimate and linearity, the average
+with this step function in place of $\e(-hZ(n))$ tends to zero
+for every $m>|h|$ on a common set of full measure. Combining \eqref{diffsumtozero} with the uniform approximation
+bound gives
+\[
+ \limsup_{N\to\infty}
+ \left|
+ \frac1{\pi(N)}\sum_{p\leq N}
+ \e\bigl(-hZ(n)+\psi(n)\bigr)
+ \prod_{i=1}^{\ell}f_i(T^{P_i(n)}x)
+ \right|
+ \leq \frac{2\pi|h|}{m}\prod_{i=1}^{\ell}\|f_i\|_\infty.
+\]
+Letting $m\to\infty$ gives \eqref{e:quadratic-twist}.
+
+Now put $t=\{\beta n\}$ and $\theta=\alpha\beta/2$. Since
+$\lfloor\beta(n+1)\rfloor=\lfloor\beta n\rfloor+
+\mathbf1_{[1-\beta,1)}(t)$, we have
+\[
+ Z_{\mathrm{br}}(n)+Z(n)
+ =\theta(n^2+n)-\alpha t
+  +\alpha(n+1)\mathbf1_{[1-\beta,1)}(t).
+\]
+For $t=\{\beta n\}$, exponentiating the identity above gives
+\begin{align*}
+ \e(hZ_{\mathrm{br}}(n))
+ &=\e\bigl(-hZ(n)+h\theta(n^2+n)\bigr)\\
+ &\quad\times\bigl(
+ \mathbf1_{[0,1-\beta)}(t)\e(-h\alpha t)
+ +\e(h\alpha n)\mathbf1_{[1-\beta,1)}(t)\e(h\alpha(1-t))
+ \bigr).
+\end{align*}
+The two coefficients in parentheses, viewed as functions of $t$,
+are continuous away from $0$ and $1-\beta$. Replace each by a
+continuous function of modulus at most one that agrees with it
+outside the $\delta$-neighborhoods of those two points.
+Equidistribution of $\{\beta(p-1)\}$ along the primes gives
+\[
+ \lim_{N\to\infty}\frac1{\pi(N)}
+ \#\{p\leq N:\ p\in\mathbb P,\
+       \min(\|t\|_{\mathbb T},\|t-(1-\beta)\|_{\mathbb T})<\delta\}
+ \leq 4\delta.
+\]
+Since each coefficient changes by at most two, the limit superior
+of the absolute error in the weighted average is at most
+$16\delta\prod_i\|f_i\|_\infty$.
+
+Now approximate the continuous coefficients by trigonometric
+polynomials. Each mode $\e(kt)=\e(k\beta n)$ gives a test in
+\eqref{e:quadratic-twist} with
+$\psi(n)=h\theta(n^2+n)+k\beta n$ or
+$\psi(n)=h\theta(n^2+n)+(h\alpha+k\beta)n$.
+The corresponding averages tend to zero. Passing to the uniform
+limit and then letting $\delta\to0$ proves the cancellation. Thus \eqref{e:quadratic-twist} gives
+\begin{align}\label{e:limitofprimesexp}
+    \frac1{\pi(N)}\sum_{p\leq N}\e(hZ_{\mathrm{br}}(p-1))
+ \prod_{i=1}^{\ell}f_i(T^{P_i(p-1)}x)
+ \longrightarrow 0
+ \qquad(h\ne0)
+\end{align}
+on a common set of full measure, using countable sequences of
+approximations.
+
+For a trigonometric polynomial $F$, the constant Fourier mode
+contributes $(\int_{\mathbb T}F)A_N^T(\mathbf f)(x)$, and every
+nonzero mode tends to zero by \eqref{e:limitofprimesexp}. Hence
+\[
+ \frac1{\pi(N)}\sum_{p\leq N}F(Z_{\mathrm{br}}(p-1))
+ \prod_{i=1}^{\ell}f_i(T^{P_i(p-1)}x)
+ =\left(\int_{\mathbb T}F\right)A_N^T(\mathbf f)(x)+o(1).
+\]
+This extends to each fixed continuous $F$ by uniform approximation.
+Indeed, replacing $F$ by a trigonometric polynomial changes each
+side by at most the uniform approximation error times
+$\prod_i\|f_i\|_\infty$.
+
+Use the Lipschitz bounds $F_j^-\leq\mathbf1_J\leq F_j^+$ from the
+proof of Theorem~\ref{t:pointwise}. The continuous comparison for
+$F_j^+-F_j^-$ with all inputs equal to one bounds the limit superior
+of the error from replacing $F_j^-$ by $\mathbf1_J$ by
+$2^{-j}\prod_i\|f_i\|_\infty$. Since $\int_{\mathbb T}F_j^-\to |J|$,
+letting $j\to\infty$ on a common set of full measure gives
+\[
+ \frac1{\pi(N)}
+ \sum_{\substack{p\leq N\\p\in\mathcal P_{Z_{\mathrm{br}},J}}}
+ \prod_{i=1}^{\ell}f_i(T^{P_i(p-1)}x)
+ = |J|A_N^T(\mathbf f)(x)+o(1).
+\]
+Taking all inputs equal to one gives
+$\pi_{Z_{\mathrm{br}},J}(N)/\pi(N)\to |J|$. Dividing the displayed
+comparison by this ratio proves the corollary.
+\end{proof}
+
+\appendix
+
+\section{The cost of dilation to fixed polynomial shifts}
+\label{s:why-Cq}
+
+We construct an example with shifts $y,qy^2$ in the smooth-modulus
+range of the density increment. The weight is
+$G_q(y)=F(Z(qy))-\mu_F$, with the same $\alpha,\beta$ as in the
+main theorems, and the scales satisfy
+$$\log q\asymp(\log\log M)^4.$$
+The full Gowers norms of $G_q$ stay bounded below for $S\geq3$,
+so the estimate of \cite[Proposition~3.3]{KMTT}, taken at an order
+$S\geq3$, gives no decay.
+The quadratic-phase norm has arbitrary logarithmic decay, yet
+a single residue class gives a correlation large enough to make
+the bound from dilation to the fixed shifts $n,n^2$ vacuous
+when applying \cite[Theorem~4.1]{Teravainen}. On the same scales,
+our local generalized von Neumann theorem gives
+$T_{N,M,G_q}(\mathbf f)=o(1)$ uniformly over the $1$-bounded
+inputs.
+
+\medskip
+\noindent\emph{The bound obtained by dilation.}
+Let \(N=qM^2\) and let the \(f_i\) be \(1\)-bounded and supported
+on \([-N,N]\). To apply the fixed-family theorem with shifts
+\(n,n^2\), put \(\widetilde G(qy)=G_q(y)\) and
+\(\widetilde f_i(qx)=f_i(x)\), extending both by zero off
+\(q\mathbb Z\). With parameter length \(qM\) and spatial scale \((qM)^2=qN\),
+the count with shifts \(n,n^2\) is
+\[
+ \widetilde T
+ :=\frac{1}{(qM)^3}
+ \sum_{m\in\mathbb Z}\sum_{n=1}^{qM}
+ \widetilde G(n)\,\widetilde f_0(m)\,
+ \widetilde f_1(m+n)\,\widetilde f_2(m+n^2).
+\]
+Substituting \(m=qx\) and
+\(n=qy\) gives \(m+n=q(x+y)\) and \(m+n^2=q(x+qy^2)\).
+Thus the two counts have the same numerator, while their
+normalizations are \((qN)(qM)\) and \(NM\), respectively. Hence
+\begin{equation}\label{e:lift-form}
+ T_{N,M,G_q}(\mathbf f)=q^2\widetilde T,
+ \qquad
+ \|\widetilde G\|_{u^3[qM]}=q^{-1}\|G_q\|_{u^3[M]}.
+\end{equation}
+For the second identity, a quadratic test \(\psi(n)\) gives
+\(q^{-1}\mathbb E_{y\leq M}G_q(y)\e(-\psi(qy))\) after
+substitution, and every quadratic \(\phi(y)\) arises by taking
+\(\psi(n)=\phi(n/q)\).
+
+After a fixed normalization of the weight, which costs only
+a constant depending on \(F\), \cite[Theorem~4.1]{Teravainen}
+therefore gives
+\begin{equation}\label{e:lift-teravainen-bound}
+ |T_{N,M,G_q}(\mathbf f)|
+ \ll_F q^2\left((qM)^{-1}
+          +q^{-1}\|G_q\|_{u^3[M]}\right)^{1/K}
+\end{equation}
+for some fixed \(K\geq1\). In particular, if
+\(\|G_q\|_{u^3[M]}\gg_F r_j^{-1}\) and
+\(\log r_j=o(\log q)\), the expression on the right is at least
+a constant times \(q^{2-1/K}r_j^{-1/K}\), which tends to infinity.
+We now construct scales with this lower bound and verify that
+the local estimate gives decay on the same scales.
+
+\begin{proposition}\label{p:separating-family}
+Let $F:\mathbb T\to\mathbb C$ be Lipschitz and nonconstant.
+There are sequences $q=q_j$, $M=M_j$, and $N=qM^2$ in the
+smooth-modulus range of Theorem~\ref{t:relative-selector-comparison},
+with $\log q\asymp(\log r_j)^2$, such that
+\begin{equation}\label{e:separating-global-u}
+ \|G_q\|_{u^3[M]}\gg_F r_j^{-1}.
+\end{equation}
+For every fixed $A,B>0$, we have
+$\|G_q\|_{u^3[P]}\ll_{A,B,F}(\log M)^{-A}$ on every progression
+$P=I\cap(u+q^b\mathbb Z)$, where $I\subset[M]$ is an integer
+interval, $b,u\in\mathbb Z$, $0\leq b\leq B$, and
+$|P|\geq(qM)^{1/2}$. Also, $\|G_q\|_{U^S[M]}\gg_{F,S}1$
+for each fixed integer $S\geq3$.
+\end{proposition}
+
+\begin{proof}
+Take \(w=\lfloor\log r_j\rfloor\), let \(q\) be the largest
+power of \(\mathcal L(w)\) with \(\log q\leq w^2\), and set
+\(M=r_j\lfloor r_{j+1}^{1/4}/r_j\rfloor\). Since
+\(\log\mathcal L(w)\leq\log(w!)=O(w\log w)\), maximality of
+the power gives
+\[
+ w^2-\log\mathcal L(w)<\log q\leq w^2.
+\]
+In particular, \(\log q\sim w^2\). The modulus \(q\) is
+\(w\)-smooth and is divisible by \(8\prod_{p\leq w}p\) for
+large \(j\), since \(\mathcal L(w)\mid q\). By
+\eqref{e:horizontal-approximants}, \(M\sim r_{j+1}^{1/4}\) and
+\[
+ \log M\sim \tfrac14\exp(\sqrt{\log r_j}),
+ \qquad \log q\asymp(\log\log M)^4.
+\]
+Thus \(w=o((\log N)^c)\) for every fixed \(c>0\), and
+\(\log q=o(\sqrt{\log N})\). Together with
+\(M=N^{1/2}q^{-1/2}\), these give the required smoothness and
+scale conditions.
+
+\medskip
+\noindent\emph{The lower bound on \([M]\).}
+Fix \(h\ne0\) with \(\widehat F(h)\ne0\) and put \(H=M/r_j\).
+To prove \eqref{e:separating-global-u}, it suffices to find a
+quadratic polynomial \(Q\) such that
+\[
+ \mathbb E_{t\leq H}G_q(r_jt)\e(-hQ(r_jt))
+ =\widehat F(h)+o(1).
+\]
+Indeed, since \(r_j\mid M\), expanding \(\mathbf1_{r_j\mid y}\)
+into linear characters gives
+\[
+\begin{aligned}
+ \frac{|\widehat F(h)+o(1)|}{r_j}
+ &=\left|\mathbb E_{y\leq M}
+    \mathbf1_{r_j\mid y}G_q(y)\e(-hQ(y))\right|\\
+ &\leq \frac1{r_j}\sum_{a=0}^{r_j-1}
+    \left|\mathbb E_{y\leq M}
+     G_q(y)\e\bigl(-hQ(y)+ay/r_j\bigr)\right|\leq \|G_q\|_{u^3[M]},
+\end{aligned}
+\]
+where the last inequality holds because each test phase is quadratic.
+
+For \(r_j\mid y\), the number \(a_jqy/r_j\) is an integer, and
+\eqref{e:horizontal-approximants} gives
+\[0<(\beta-a_j/r_j)qy\ll qM/r_{j+1}=o(1).\] Hence
+\(\lfloor\beta qy\rfloor=a_jqy/r_j\) throughout this class.
+Substitution into \eqref{e:heisenberg-phase} gives
+\begin{equation}\label{e:uniappzq}
+ Z(qy)=Q(y)+O\!\left(\frac{(qM)^2}{r_{j+1}}\right),
+ \qquad
+ Q(y)=-\frac{\alpha a_j}{2r_j}(q^2y^2+qy).
+\end{equation}
+Since $qM=r_{j+1}^{1/4+o(1)}$, the error in
+\eqref{e:uniappzq} is $o(1)$ uniformly on the multiples of $r_j$.
+ By the Lipschitz continuity of \(F\), we obtain
+\[
+ \mathbb E_{t\leq H}G_q(r_jt)\e(-hQ(r_jt))
+ =
+ \mathbb E_{t\leq H}
+   \bigl(F(Q(r_jt))-\mu_F\bigr)\e(-hQ(r_jt))
+ +O_F\!\left(\frac{(qM)^2}{r_{j+1}}\right).
+\]
+It remains to show that \(Q(r_jt)\), \(1\leq t\leq H\), is
+equidistributed modulo one as \(j\to\infty\). The continuous test
+function \(u\mapsto(F(u)-\mu_F)\e(-hu)\) then gives
+\[
+ \mathbb E_{t\leq H}
+   \bigl(F(Q(r_jt))-\mu_F\bigr)\e(-hQ(r_jt))
+ =\int_{\mathbb T}(F(u)-\mu_F)\e(-hu)\,du+o(1)
+ =\widehat F(h)+o(1).
+\]
+
+To prove equidistribution, fix an integer \(k\ne0\). Since
+\(Q(r_jt)=-\frac{\alpha a_j}{2}(q^2r_jt^2+qt)\), we have
+\[
+ k\bigl(Q(r_j(t+v))-Q(r_jt)\bigr)
+ =-k\alpha a_jq^2r_jv\,t
+  -\frac{k\alpha a_j}{2}(q^2r_jv^2+qv).
+\]
+The constant term contributes a factor of modulus one. For large \(j\) we have \(a_j>0\) since \(a_j/r_j\to\beta>0\). For
+\(1\leq v<H\), the geometric-series formula and bad approximability
+give
+\[
+\begin{aligned}
+ &\left|\frac1H\sum_{t=1}^{H-v}
+    \e\bigl(k(Q(r_j(t+v))-Q(r_jt))\bigr)\right|\ll
+ \frac{1}{H\|k\alpha a_jq^2r_jv\|_{\mathbb T}}
+ \leq \frac{|k|a_jq^2r_jv}{c_\alpha H}.
+\end{aligned}
+\]
+Van der Corput's inequality with shifts up to
+\(\lfloor H^{1/3}\rfloor\) therefore gives
+\[
+ \left|\mathbb E_{t\leq H}\e(kQ(r_jt))\right|^2
+ \ll_\alpha H^{-1/3}+|k|a_jq^2r_jH^{-2/3}=o(1),
+\]
+since \(a_j<r_j\) and \(a_jq^2r_j=H^{o(1)}\).
+Weyl's criterion proves equidistribution and hence the claimed
+correlation on the multiples of \(r_j\).
+
+
+
+\medskip
+\noindent\emph{The upper bounds on the tested progressions.}
+Set \(X=qM\). Since \(X=r_{j+1}^{1/4+o(1)}\) and
+\(\log r_j=o(\log r_{j+1})\), we have
+\(r_j\leq X^{1/100}<r_{j+1}\). On a progression \(P\) in the
+statement, the arguments \(qy\) of \(Z\) form a progression
+of length \(|P|\geq X^{1/2}\) and step \(q^{b+1}\).
+This step is at most \(X^{1/10000}\) for large \(j\), since
+\(q=X^{o(1)}\) and \(b\leq B\). It is coprime to \(r_j\),
+since \(q\) is \(w\)-smooth and \(r_j>w\). A quadratic test
+in \(y\) is still quadratic after parametrizing \(P\).
+Thus \eqref{e:heisenberg-centered} gives
+\[
+ \|G_q\|_{u^3[P]}\ll_{A,B,F}(\log X)^{-A}
+ \ll_{A,B,F}(\log M)^{-A}.
+\]
+This estimate controls ordinary quadratic phases.
+A localized vertical mode gives a nonzero correlation and
+therefore a lower bound for the full Gowers norm.
+
+\medskip
+
+\noindent\emph{The lower bound for full Gowers norms.}
+Fix \(h\in\mathbb Z\setminus\{0\}\) with \(\widehat F(h)\ne0\).
+Choose a smooth nonnegative \(\chi\) with positive integral,
+supported on an interval of length less than \(1/2\) inside \((0,1)\). Apply \eqref{e:heisenberg-equidistribution} at scale \(X=qM\),
+with \(a=0\), \(v=q\), and \(K=M\), to the Lipschitz function
+\[
+ \Phi((x,u,z)\Gamma)
+ =\chi(\{u\})\bigl(F(z-x\lfloor u\rfloor)-\mu_F\bigr)
+   \e\bigl(-h(z-x\lfloor u\rfloor)\bigr).
+\]
+On \(g_0^{qy}\Gamma\), the second horizontal coordinate is
+\(\{\beta qy\}\) and the vertical coordinate is \(Z(qy)\bmod 1\).
+The estimate therefore gives
+\begin{align}\label{e:estimateexpsum}
+ \mathbb E_{y\leq M}G_q(y)\chi(\{\beta qy\})\e(-hZ(qy))
+ &=\int_{H/\Gamma}\Phi\,dm_H+o(1)\\
+ &=\left(\int_{\mathbb T}\chi(u)\,du\right)
+   \left(\int_{\mathbb T}(F(z)-\mu_F)\e(-hz)\,dz\right)+o(1)\nonumber\\
+ &=\widehat F(h)\int_{\mathbb T}\chi(u)\,du+o(1)\nonumber.
+\end{align}
+For the second equality, integrate first along the vertical fibre,
+where translation by \(x\lfloor u\rfloor\) preserves circle measure.
+The last equality uses \(h\ne0\). 
+For \(S\geq3\), normalized Gowers monotonicity and
+\eqref{e:vertical-mode-multiplier} give
+\begin{align}\label{e:moduleinvus}
+ \left|\mathbb E_{y\leq M}
+   G_q(y)\chi(\{\beta qy\})\e(-hZ(qy))\right|
+ &\ll_S
+ \bigl\|G_q(y)\chi(\{\beta qy\})\e(-hZ(qy))\bigr\|_{U^S[M]}\\
+ &\leq \|\widehat\chi\|_{\ell^1}\|G_q\|_{U^S[M]}\nonumber.
+\end{align}
+The first inequality uses that the normalized \(U^1[M]\)-norm
+is the absolute value of the average. The second applies the
+multiplier bound with \(a=0\), \(v=q\), and frequency \(-h\).
+For all sufficiently large \(j\), estimates \eqref{e:estimateexpsum} and \eqref{e:moduleinvus} imply that 
+\[
+ \|G_q\|_{U^S[M]}
+ \gg_S
+ \frac{|\widehat F(h)|\int_{\mathbb T}\chi}
+      {\|\widehat\chi\|_{\ell^1}}.
+\]
+The right-hand side is positive and independent of \(j\), since
+\(h\) and \(\chi\) are fixed. This gives the claimed lower bound
+for each fixed \(S\geq3\).
+\end{proof}
+
+\medskip
+\noindent\emph{Comparison of the bounds.}
+Taking \(P=[M]\) in Proposition~\ref{p:separating-family}
+gives arbitrary logarithmic saving for \(\|G_q\|_{u^3[M]}\).
+On the other hand, for any fixed \(c,\sigma>0\),
+\[
+ q^c\|G_q\|_{u^3[M]}^\sigma
+ \gg_{F,\sigma} q^c r_j^{-\sigma}\longrightarrow\infty,
+\]
+because \(\log r_j=o(\log q)\). In
+\eqref{e:lift-teravainen-bound} the term involving the norm
+has precisely this form, with \(c=2-1/K\) and \(\sigma=1/K\).
+
+One can reduce the normalization loss by repeating the spatial
+inputs on all \(q\) residue classes, setting
+\(\widetilde f_i(qx+a)=f_i(x)\) for \(0\leq a<q\).
+Each class contributes the same numerator, and the support
+of each repeated input lies in \([-2qN,2qN]\).
+This replaces \(q^2\) by \(q\) in
+\eqref{e:lift-teravainen-bound}, with the same weight norm.
+The resulting expression is bounded below by a constant
+times \(q^{1-1/K}r_j^{-1/K}\), which tends to infinity for
+\(K>1\). At \(K=1\), the expression instead reduces to
+\(M^{-1}+\|G_q\|_{u^3[M]}=o(1)\).
+
+Theorem~\ref{t:main} applies directly to the shifts \(y,qy^2\).
+Take \(\rho=(\log M)^{-1}\) in \eqref{e:main}. Since
+\(q=M^{o(1)}\) and \(b\) is bounded, each progression it tests
+satisfies
+\[
+ |I\cap(u+q^b\mathbb Z)|
+ \geq \frac{|I|}{q^b}-1
+ \geq Mq^{-A_1-b}(\log M)^{-A_2}-1
+ \geq(qM)^{1/2}
+\]
+for large \(j\). Since $\|G_q\|_\infty\leq2\|F\|_\infty$, apply \eqref{e:main}
+to $G_q/(1+2\|F\|_\infty)$. By homogeneity and the local phase
+bound in Proposition~\ref{p:separating-family}, we obtain
+\[
+ |T_{N,M,G_q}(\mathbf f)|
+ \ll_{A,F} N^{-\eta}+(\log M)^{-1}+(\log M)^{-A\eta}
+ \ll_F (\log M)^{-1},
+\]
+where we take \(A\eta\geq1\). The bound is uniform over the
+stated \(1\)-bounded inputs.
+
+
+The size of the moduli matters here. In the density increment,
+the bound \(\log q_i\ll\delta^{-O(1)}w\), together with
+\(w\ll\delta^{-E_1}\), gives \(\log q_i\ll\delta^{-D_0}\) for
+some fixed \(D_0>0\). At density
+\(\delta\geq(\log\log N)^{-c}\), choosing \(cD_0<1\) gives
+\[
+ \log q_i\ll(\log\log N)^{cD_0}=o(\log\log N).
+\]
+Since \(\log N_i\geq(\log N)^{3/4}\) throughout the iteration,
+these moduli satisfy \(q_i=(\log N_i)^{o(1)}\). In this range
+the logarithmic phase savings absorb any fixed power of \(q_i\).
+Theorem~\ref{t:recurrence} reaches densities of order
+\((\log N)^{-\kappa}\), the same logarithmic scale as the
+unweighted result. 
+At the polylogarithmic density threshold, the admissible range
+includes moduli beyond every fixed power of $\log N_i$.
+
+
+\begin{thebibliography}{99}
+
+\bibitem{BanksSiegel}
+W.~D.~Banks, On the OpenAI proof that Landau--Siegel zeros do not exist,
+\href{https://arxiv.org/abs/2610.15483}{arXiv:2610.15483} (2026).
+
+\bibitem{BergelsonLeibman}
+V.~Bergelson and A.~Leibman, Polynomial extensions of van der Waerden's and
+Szemer\'edi's theorems, \textit{J. Amer. Math. Soc.} \textbf{9} (1996), 725--753.
+
+\bibitem{Euclid}
+Euclid, \emph{Elements}, Book~IX, Proposition~20,
+online edition by D.~E.~Joyce, Clark University.
+\href{https://mathcs.clarku.edu/~djoyce/java/elements/bookIX/propIX20.html}{Link here.}
+
+\bibitem{FHK}
+N.~Frantzikinakis, B.~Host and B.~Kra, The polynomial multidimensional
+Szemer\'edi theorem along shifted primes, \textit{Israel J. Math.}
+\textbf{194} (2013), 331--348.
+
+\bibitem{Furstenberg}
+H.~Furstenberg,
+Ergodic behavior of diagonal measures and a theorem of Szemer\'edi
+on arithmetic progressions,
+\emph{J. Anal. Math.} \textbf{31} (1977), 204--256.
+
+\bibitem{GreenSiegel}
+B.~Green, On Landau--Siegel zeros, Hexagon preprint
+\href{https://hexagonmath.org/2610.00311v2}{hexagon:2610.00311v2} (2026).
+
+\bibitem{GreenTao}
+B.~Green and T.~Tao, The primes contain arbitrarily long arithmetic
+progressions, \textit{Ann. of Math. (2)} \textbf{167} (2008), 481--547.
+
+\bibitem{GreenTaoNil}
+B.~Green and T.~Tao, The quantitative behaviour of polynomial orbits
+on nilmanifolds, \emph{Ann. of Math. (2)} \textbf{175} (2012), 465--540.
+
+\bibitem{IwaniecKowalski}
+H.~Iwaniec and E.~Kowalski, \textit{Analytic number theory},
+AMS Colloquium Publications, vol.~53, American Mathematical Society,
+Providence, RI, 2004.
+
+\bibitem{KMTT}
+B.~Krause, H.~Mousavi, T.~Tao and J.~Ter\"av\"ainen,
+Quantitative bounds for sets lacking polynomial progressions with shifted
+prime difference, \href{https://arxiv.org/abs/2608.19525v1}{arXiv:2608.19525v1}.
+
+\bibitem{KMTTPrimes}
+B.~Krause, H.~Mousavi, T.~Tao and J.~Ter\"av\"ainen,
+Pointwise convergence of bilinear polynomial averages over the primes,
+\emph{Ergodic Theory Dynam. Systems} \textbf{45} (2025),
+no.~12, 3760--3799.
+
+\bibitem{MirekWanWright}
+M.~Mirek, R.~Wan and J.~Wright, Pointwise convergence of polynomial multiple
+ergodic averages along the primes,
+\href{https://arxiv.org/abs/2505.15549v2}{arXiv:2505.15549v2}.
+
+\bibitem{OpenAISiegel}
+OpenAI, Uniform exclusion of Landau--Siegel zeros, OpenAI Math Release
+preprint, October~1, 2026,
+\href{https://github.com/openai/math/blob/main/preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026/README.md}{Link here}.
+
+\bibitem{Peluse}
+S.~Peluse, Bounds for sets with no polynomial progressions,
+\textit{Forum Math. Pi} \textbf{8} (2020), Paper No.~e16, 55~pp.
+
+\bibitem{PP}
+S.~Peluse and S.~Prendiville, A polylogarithmic bound in the nonlinear
+Roth theorem, \textit{Int. Math. Res. Not. IMRN} (2022), no.~8,
+5658--5684.
+
+\bibitem{Sarkozy}
+A.~S\'ark\"ozy, On difference sets of sequences of integers. III,
+\textit{Acta Math. Acad. Sci. Hungar.} \textbf{31} (1978), 355--386.
+
+\bibitem{ShaoTeravainen}
+X.~Shao and J.~Ter\"av\"ainen, The Bombieri--Vinogradov theorem for
+nilsequences, \textit{Discrete Anal.} (2021), Paper No.~21, 55~pp.
+
+\bibitem{ShaoWang}
+X.~Shao and M.~Wang, Quantitative bounds in a popular polynomial Szemer\'edi
+theorem, \textit{Proc. Roy. Soc. Edinburgh Sect. A}, published online 2025,
+\href{https://doi.org/10.1017/prm.2025.10103}{doi:10.1017/prm.2025.10103}.
+
+\bibitem{Szemeredi}
+E.~Szemer\'edi, On sets of integers containing no $k$ elements in arithmetic
+progression, \textit{Acta Arith.} \textbf{27} (1975), 199--245.
+
+\bibitem{TaoSiegel}
+T.~Tao, A sketch of the proof of non-existence of Siegel zeroes,
+\textit{What's new}, October~19, 2026,
+\href{https://terrytao.wordpress.com/2026/10/19/a-sketch-of-the-proof-of-non-existence-of-siegel-zeroes/}{Link here}.
+
+\bibitem{Teravainen}
+J.~Ter\"av\"ainen, Pointwise convergence of ergodic averages with M\"obius
+weight, \href{https://arxiv.org/abs/2401.03174v2}{arXiv:2401.03174v2}.
+
+\bibitem{TeravainenWang}
+J.~Ter\"av\"ainen and M.~Wang,
+On the Green--Tao theorem for sparse sets,
+arXiv:2603.09281, 2026.
+
+\bibitem{WooleyZiegler}
+T.~D.~Wooley and T.~Ziegler, Multiple recurrence and convergence along the
+primes, \textit{Amer. J. Math.} \textbf{134} (2012), 1705--1732.
+\end{thebibliography}
+\end{document}

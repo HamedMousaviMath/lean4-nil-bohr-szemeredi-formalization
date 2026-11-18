@@ -1,0 +1,153 @@
+\begin{lemma}[1.6, fixed local factors]\label{checked-smooth-factors}
+\lean{NilBohr.auxiliary_step_dvd_fixed_power,NilBohr.localGeneralizedVonNeumann_on_lcm_moduli,NilBohr.centeredSelectorComparison_on_lcm_moduli_of_obstructions}\leanok
+On the smooth moduli with $\mathcal L(w)\mid q$ reached by the
+density iteration, the centered count is $O(w^{-A})$ for a fixed
+$A>0$, uniformly over the families and inputs of Lemma~4.4.
+\end{lemma}
+\begin{proof}[Proof architecture]
+\proves{checked-smooth-factors}\uses{external-inputs,checked-difference,p:heisenberg-phase}\leanok
+An inverse auxiliary denominator $r\le w$ divides $q$.
+Each resulting step $rq^b$ divides the common chosen power
+$q^{B+1}$. Use the fixed-step correlations in the spatial
+differencing argument and apply the centered phase bound
+after substituting the polynomial shifts on the parameter cells.
+\end{proof}
+
+\begin{lemma}[Ambient counting comparison]\label{checked-ambient-discrete}
+\lean{NilBohr.ambientSelectorCount_eq_explicit,NilBohr.ambientSelectorCount_centered,NilBohr.ambientSelectorCount_sharp,NilBohr.heisenbergAmbientSelectorCount_sharp_of_literature}\leanok
+For the shifts $n,n^2$, set $M=\lfloor\sqrt N\rfloor$ and let
+$\mathcal C(F)$ be the Mangoldt weighted count with selector test
+$F(Z(n))$. For each fixed Lipschitz $F$,
+$\mathcal C(F)-\mu_F\mathcal C(1)=o(1)$ uniformly in $A\subset[N]$.
+For each fixed open arc $J$ the same comparison holds with
+$F=\one_J$ and $\mu_F=|J|$.
+The smooth comparison uses Proposition~6.2 and Ter\"av\"ainen's
+fixed-family estimate as inputs. The sharp comparison also uses
+the prime number theorem.
+\end{lemma}
+\begin{proof}[Proof architecture]
+\proves{checked-ambient-discrete}\uses{p:prime-phase,external-inputs,checked-ergodic}\leanok
+Use the prime phase bound and Ter\"av\"ainen's fixed-family
+estimate with parameter length $M$ and spatial scale $M^2$.
+The change to the ambient normalization costs a factor $M^2/N\le1$.
+For interval cutoffs use upper and lower Lipschitz approximants and
+the uniform bound on the count with test $1$.
+\end{proof}
+
+\begin{lemma}[Ambient Gowers obstructions]\label{checked-ambient-norm}
+\lean{NilBohr.ambient_centered_gowers_prescribed_cutoff,NilBohr.tendsto_ambient_centered_localized_mode,NilBohr.ambient_centered_gowers_lower_bound,NilBohr.irrational_quadratic_gowers_two_tendsto_zero,NilBohr.quadratic_obstruction_common_window,NilBohr.no_uniform_weighted_gowers_two}\leanok
+For the paper's $\alpha,\beta$ and Lipschitz $F$, prescribe
+$h\ne0$ with $\widehat F(h)\ne0$ and a nonzero nonnegative
+Lipschitz cutoff $\chi$ supported on an interval of length $<1/2$
+inside $(0,1)$. Then, for all sufficiently large $M$,
+\[
+ 0<|\widehat F(h)|\int_{\T}\chi
+ \ll \norm{\widehat\chi}_{\ell^1}\norm{F(Z(\cdot))-\mu_F}_{U^3[M]}.
+\]
+The implicit constant is universal. In particular a nonconstant
+$F$ gives nondecay at every fixed order $S\ge3$.
+For any irrational $\theta$, the weight $\ee(-\theta n^2)$
+has $U^2[M]\to0$, yet has count $1/2$ for suitable $1$-bounded
+inputs supported on $[2M^2]$ for the shifts $n,n^2$.
+The quadratic example is checked from irrationality alone.
+\end{lemma}
+\begin{proof}[Proof architecture]
+\proves{checked-ambient-norm}\uses{checked-separating-gowers,checked-separating-quadratic}\leanok
+At $X=M$ and $q=1$, scalar equidistribution gives the localized
+correlation with limit $\widehat F(h)\int\chi$. The seam cutoff
+equals one on the prescribed support. Apply the checked localized
+multiplier and the order-three bound for the mean. For the quadratic example the
+order-two power is a sum of squared linear exponential sums
+over interval overlaps. The geometric bound holds away from a
+small set of directions. The spatial phases cancel the quadratic
+weight exactly on the common supporting count.
+\end{proof}
+
+\begin{lemma}[Pointwise limits with Bohr weights]\label{checked-bohr-weights}
+\lean{NilBohr.ae_bohrPrimeMode_tendsto,NilBohr.ae_continuousBohrPrimeAverage_tendsto,NilBohr.ae_primeAverage_congruence_tendsto,NilBohr.ae_primeAverage_reduced_congruence_tendsto,NilBohr.ae_simultaneousBohrIntervalAverage_tendsto,NilBohr.simultaneousBohrIntervalDensity_tendsto,NilBohr.ae_selectedSimultaneousBohrIntervalAverage_tendsto}\leanok
+For the polynomial ergodic averages, fixed linear twists,
+continuous weights of finitely many linear torus coordinates,
+fixed congruence classes, and simultaneous interval cutoffs have
+almost-everywhere limits at the unrestricted prime normalization.
+For reduced congruence classes, and for interval conditions with
+positive limiting relative density, the selected-prime normalization
+also converges. The proof uses the unrestricted prime pointwise theorem
+on the product system, the prime number theorem and Vinogradov.
+Reduced congruence normalization uses the progression form of the
+prime number theorem.
+\end{lemma}
+\begin{proof}[Proof architecture]
+\proves{checked-bohr-weights}\uses{external-inputs,checked-prime-distribution}
+\leanok
+Insert a circle rotation in an input at a linear shift, adding that
+shift with constant input when needed. Then use the unrestricted
+pointwise theorem and Fubini. Finite Fourier sums treat periodic
+weights. Uniform trigonometric approximation treats continuous
+weights, and boundary strips plus exact rational-grid interpolation
+treat intervals, with either endpoint convention.
+\end{proof}
+
+\begin{lemma}[The introductory Bohr eigenfunction example]\label{checked-bohr-eigenfunction}
+\lean{NilBohr.symmetricBohr_selected_exponential_tendsto,NilBohr.bohr_rotation_eigenfunction_example}\leanok
+Let $Tt=t+\theta$ on $\T$ with $\theta$ irrational, $f(t)=\ee(t)$,
+$P(n)=n$, and $0<\varepsilon<1/2$. The unrestricted prime average
+of $f(T^{p-1}t)$ tends to zero. The average over primes with
+$\tn{\theta(p-1)}<\varepsilon$, divided by their count, tends to
+$\ee(t)\sin(2\pi\varepsilon)/(2\pi\varepsilon)\ne0$ for every $t$.
+\end{lemma}
+\begin{proof}
+\proves{checked-bohr-eigenfunction}\uses{checked-prime-distribution}\leanok
+Write the summand as $\ee(t)\ee(\theta(p-1))$. Vinogradov's
+equidistribution gives zero for the unrestricted character average.
+For the restricted average, approximate the indicator of the
+open symmetric arc from above and below by continuous functions.
+The prime density tends to $2\varepsilon$, while the restricted
+character sum divided by the unrestricted prime count tends to
+$\int_{-\varepsilon}^{\varepsilon}\ee(u)\,du=\sin(2\pi\varepsilon)/\pi$.
+The ratio gives the stated limit. It is nonzero because
+$0<2\pi\varepsilon<\pi$.
+\end{proof}
+\noindent\textbf{Lean status.} The open-arc restriction, prime
+normalization and two differing limits are checked using the
+Vinogradov interface in Lemma~\ref{checked-prime-distribution}.
+
+\begin{lemma}[Progressions in selected primes]\label{checked-prime-progressions}
+\lean{NilBohr.fixedWindow_primeProgression_of_sparse,NilBohr.greenTaoRelativeDensity_of_sparse,NilBohr.shrinkingWindow_primeProgression}\leanok
+For fixed $J$, positive limiting relative prime density implies a
+nontrivial progression of every length $k\ge2$. For $N\ge100$ and
+$k\ge4$, the selected primes through
+$N$ contain such a progression if their relative density exceeds
+$C_k\exp(-(\log\log\log N)^{c_k})$, by Ter\"av\"ainen--Wang
+Theorem~1.1. The constants depend only on $k$ and the latter
+implication tests the actual density with the arc at scale $N$.
+\end{lemma}
+\begin{proof}[Proof architecture]
+\proves{checked-prime-progressions}\uses{t:pointwise,external-inputs}\leanok
+For the first claim, apply the finite density bound as $N\to\infty$,
+testing length $\max(k,4)$ and taking a prefix of length $k$.
+In the finite claim apply the density bound to the selected prime set.
+At $k=4$ its stronger upper bound $(\log\log N)^{-a}$ is at most
+$e^{1/(4a)}\exp(-(\log\log\log N)^{1/2})$.
+\end{proof}
+
+\begin{lemma}[Restricted maximal domination]\label{checked-maximal-domination}
+\lean{NilBohr.selectedPrimeAverage_domination,NilBohr.selectedPrimeMaximal_domination,NilBohr.eLpNorm_selectedPrimeMaximal_le,NilBohr.memLp_selectedErgodicPrimeMaximal,NilBohr.selectedErgodicPrimeMaximal_congr_ae}\leanok
+A fixed window with a positive relative-prime density limit has a
+constant $C>0$ so that for every summand sequence and every cutoff,
+the modulus of its selected-prime average is bounded by $C$
+times the unrestricted prime average of the moduli. The same
+constant transfers an $L^p$ estimate for the positive unrestricted
+maximal operator to the selected maximal operator, including
+$p=\infty$.
+\end{lemma}
+\begin{proof}[Proof architecture]
+\proves{checked-maximal-domination}\uses{t:pointwise}\leanok
+Compare positive sums and use the ratio of prime counts whenever
+the selected set is nonempty. The limiting density bounds the ratio
+eventually, and the finitely many earlier cutoffs give a finite
+additional constant. An empty selected set has zero average.
+Take the supremum in the extended nonnegative reals. Monotonicity
+of $L^p$ norms gives the conditional maximal estimate. Measurability
+and invariance of the ergodic maxima under a.e. replacement follow
+from the countable set of iterates and cutoffs.
+\end{proof}
